@@ -1,15 +1,19 @@
 
 function getStockPriceOf(code) {
-  $.get("https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
-      console.log(data);
-      var chartData = generateChartData(data);
-
+  $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=15min&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
+    console.log(data);
+    if (status != "success") {
+      alert("Error in alphavantage request");
+    }
+    var chartData = generateChartData(data);
   });
 }
 
 function generateChartData(data) {
   var chartData = [];
-  $(data["Weekly Time Series"]).each(function(i,val){
+  //extract date from object
+  data = Object.values(data)[1];
+  $(data).each(function(i,val){
     $.each(val,function(key,val){
           chartData.unshift( {
             "date": key,
@@ -27,79 +31,79 @@ function generateChartData(data) {
 }
 
 
-function generateChart(chartData) {
-  var chart = AmCharts.makeChart( "chartdiv", {
-  "type": "stock",
-  "theme": "light",
-  "dataSets": [ {
-    "color": "#b0de09",
-    "fieldMappings": [ {
-      "fromField": "value",
-      "toField": "value"
-    } ],
-    "dataProvider": chartData,
-    "categoryField": "date"
-  } ],
-
-  "panels": [ {
-    "showCategoryAxis": true,
-    "title": "Value",
-    "eraseAll": false,
-    "allLabels": [ {
-      "x": 0,
-      "y": 115,
-      "text": "Click on the pencil icon on top-right to start drawing",
-      "align": "center",
-      "size": 16
-    } ],
-
-    "stockGraphs": [ {
-      "id": "g1",
-      "valueField": "value",
-      "useDataSetColors": false
-    } ],
-
-    "stockLegend": {
-      "valueTextRegular": " ",
-      "markerType": "none"
-    },
-
-    "drawingIconsEnabled": true
-  } ],
-
-  "chartScrollbarSettings": {
-    "graph": "g1"
-  },
-  "chartCursorSettings": {
-    "valueBalloonsEnabled": true
-  },
-  "periodSelector": {
-    "position": "bottom",
-    "periods": [ {
-      "period": "DD",
-      "count": 10,
-      "label": "10 days"
-    }, {
-      "period": "MM",
-      "count": 1,
-      "label": "1 month"
-    }, {
-      "period": "YYYY",
-      "count": 1,
-      "label": "1 year"
-    }, {
-      "period": "YTD",
-      "label": "YTD"
-    }, {
-      "period": "MAX",
-      "label": "MAX"
-    } ]
-  }
-} );
-}
+// function generateChart(chartData) {
+//   var chart = AmCharts.makeChart( "chartdiv1", {
+//   "type": "stock",
+//   "theme": "light",
+//   "dataSets": [ {
+//     "color": "#b0de09",
+//     "fieldMappings": [ {
+//       "fromField": "value",
+//       "toField": "value"
+//     } ],
+//     "dataProvider": chartData,
+//     "categoryField": "date"
+//   } ],
+//
+//   "panels": [ {
+//     "showCategoryAxis": true,
+//     "title": "Value",
+//     "eraseAll": false,
+//     "allLabels": [ {
+//       "x": 0,
+//       "y": 115,
+//       "text": "Click on the pencil icon on top-right to start drawing",
+//       "align": "center",
+//       "size": 16
+//     } ],
+//
+//     "stockGraphs": [ {
+//       "id": "g1",
+//       "valueField": "value",
+//       "useDataSetColors": false
+//     } ],
+//
+//     "stockLegend": {
+//       "valueTextRegular": " ",
+//       "markerType": "none"
+//     },
+//
+//     "drawingIconsEnabled": true
+//   } ],
+//
+//   "chartScrollbarSettings": {
+//     "graph": "g1"
+//   },
+//   "chartCursorSettings": {
+//     "valueBalloonsEnabled": true
+//   },
+//   "periodSelector": {
+//     "position": "bottom",
+//     "periods": [ {
+//       "period": "DD",
+//       "count": 10,
+//       "label": "10 days"
+//     }, {
+//       "period": "MM",
+//       "count": 1,
+//       "label": "1 month"
+//     }, {
+//       "period": "YYYY",
+//       "count": 1,
+//       "label": "1 year"
+//     }, {
+//       "period": "YTD",
+//       "label": "YTD"
+//     }, {
+//       "period": "MAX",
+//       "label": "MAX"
+//     } ]
+//   }
+// } );
+// }
 
 // function generateChart(chartData) {
-//   var chart = AmCharts.makeChart( "chartdiv", {
+//   var chart = AmCharts.makeChart( "chartdiv1", {
 //   "type": "serial",
 //   "theme": "light",
 //   "dataDateFormat":"YYYY-MM-DD",
@@ -154,107 +158,107 @@ function generateChart(chartData) {
 // }
 
 
-// function generateChart(chartData)  {
-//   console.log(chartData);
-//
-//   var chart = AmCharts.makeChart( "chartdiv", {
-//     "type": "stock",
-//     "theme": "light",
-//     "categoryAxesSettings": {
-//       "minPeriod": "mm"
-//     },
-//
-//     "dataSets": [ {
-//       "color": "#b0de09",
-//       "fieldMappings": [ {
-//         "fromField": "value",
-//         "toField": "value"
-//       }, {
-//         "fromField": "volume",
-//         "toField": "volume"
-//       } ],
-//       "dataProvider": chartData,
-//       "categoryField": "date"
-//     } ],
-//
-//     "panels": [ {
-//       "showCategoryAxis": false,
-//       "title": "Value",
-//       "percentHeight": 70,
-//
-//       "stockGraphs": [ {
-//         "id": "g1",
-//         "valueField": "value",
-//         "type": "smoothedLine",
-//         "lineThickness": 2,
-//         "bullet": "round"
-//       } ],
-//
-//
-//       "stockLegend": {
-//         "valueTextRegular": " ",
-//         "markerType": "none"
-//       }
-//     }, {
-//       "title": "Volume",
-//       "percentHeight": 30,
-//       "stockGraphs": [ {
-//         "valueField": "volume",
-//         "type": "column",
-//         "cornerRadiusTop": 2,
-//         "fillAlphas": 1
-//       } ],
-//
-//       "stockLegend": {
-//         "valueTextRegular": " ",
-//         "markerType": "none"
-//       }
-//     } ],
-//
-//     "chartScrollbarSettings": {
-//       "graph": "g1",
-//       "usePeriod": "10mm",
-//       "position": "top"
-//     },
-//
-//     "chartCursorSettings": {
-//       "valueBalloonsEnabled": true
-//     },
-//
-//     "periodSelector": {
-//       "position": "top",
-//       "dateFormat": "YYYY-MM-DD JJ:NN",
-//       "inputFieldWidth": 150,
-//       "periods": [ {
-//         "period": "hh",
-//         "count": 1,
-//         "label": "1 hour"
-//       }, {
-//         "period": "hh",
-//         "count": 2,
-//         "label": "2 hours"
-//       }, {
-//         "period": "hh",
-//         "count": 5,
-//         "selected": true,
-//         "label": "5 hour"
-//       }, {
-//         "period": "hh",
-//         "count": 12,
-//         "label": "12 hours"
-//       }, {
-//         "period": "MAX",
-//         "label": "MAX"
-//       } ]
-//     },
-//
-//     "panelsSettings": {
-//       "usePrefixes": true
-//     },
-//
-//     "export": {
-//       "enabled": true,
-//       "position": "bottom-right"
-//     }
-//   } );
-// }
+function generateChart(chartData)  {
+  console.log(chartData);
+
+  var chart = AmCharts.makeChart( "chartdiv1", {
+    "type": "stock",
+    "theme": "light",
+    "categoryAxesSettings": {
+      "minPeriod": "mm"
+    },
+
+    "dataSets": [ {
+      "color": "#b0de09",
+      "fieldMappings": [ {
+        "fromField": "value",
+        "toField": "value"
+      }, {
+        "fromField": "volume",
+        "toField": "volume"
+      } ],
+      "dataProvider": chartData,
+      "categoryField": "date"
+    } ],
+
+    "panels": [ {
+      "showCategoryAxis": false,
+      "title": "Value",
+      "percentHeight": 70,
+
+      "stockGraphs": [ {
+        "id": "g1",
+        "valueField": "value",
+        "type": "smoothedLine",
+        "lineThickness": 2,
+        "bullet": "round"
+      } ],
+
+
+      "stockLegend": {
+        "valueTextRegular": " ",
+        "markerType": "none"
+      }
+    }, {
+      "title": "Volume",
+      "percentHeight": 30,
+      "stockGraphs": [ {
+        "valueField": "volume",
+        "type": "column",
+        "cornerRadiusTop": 2,
+        "fillAlphas": 1
+      } ],
+
+      "stockLegend": {
+        "valueTextRegular": " ",
+        "markerType": "none"
+      }
+    } ],
+
+    "chartScrollbarSettings": {
+      "graph": "g1",
+      "usePeriod": "10mm",
+      "position": "top"
+    },
+
+    "chartCursorSettings": {
+      "valueBalloonsEnabled": true
+    },
+
+    "periodSelector": {
+      "position": "top",
+      "dateFormat": "YYYY-MM-DD JJ:NN",
+      "inputFieldWidth": 150,
+      "periods": [ {
+        "period": "hh",
+        "count": 1,
+        "label": "1 hour"
+      }, {
+        "period": "hh",
+        "count": 2,
+        "label": "2 hours"
+      }, {
+        "period": "hh",
+        "count": 5,
+        "selected": true,
+        "label": "5 hour"
+      }, {
+        "period": "hh",
+        "count": 12,
+        "label": "12 hours"
+      }, {
+        "period": "MAX",
+        "label": "MAX"
+      } ]
+    },
+
+    "panelsSettings": {
+      "usePrefixes": true
+    },
+
+    "export": {
+      "enabled": true,
+      "position": "bottom-right"
+    }
+  } );
+}
