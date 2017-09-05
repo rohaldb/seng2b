@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="amcharts/style.css" type="text/css">
     <script type="text/javascript">
       $(document).ready(function(){
+          // $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
           $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
               // alert("Data: " + data + "\nStatus: " + status);
               console.log(data["Time Series (1min)"]);
@@ -61,5 +62,7 @@
   </head>
   <body>
     <div id="chartdiv" style="width:100%; height:400px;"></div>
+    <blockquote class="embedly-card"><h4><a href="https://en.wikipedia.org/wiki/Apple_Inc.">Apple Inc. - Wikipedia</a></h4><p>Apple Inc. is an American multinational technology company headquartered in Cupertino, California that designs, develops, and sells consumer electronics, computer software, and online services. The company's hardware products include the iPhone smartphone, the iPad tablet computer, the Mac personal computers, the iPod portable media player, the Apple Watch smartwatch, Apple TV digital media player and HomePod smart speaker.</p></blockquote>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
   </body>
 </html>
