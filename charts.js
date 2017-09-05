@@ -11,7 +11,7 @@ $(document).ready(function(){
 });
 
 function getStockPriceOf(code) {
-  $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=30min&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
+  $.get("https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
       console.log(data);
       var chartData = generateChartData(data);
 
@@ -20,7 +20,7 @@ function getStockPriceOf(code) {
 
 function generateChartData(data) {
   var chartData = [];
-  $(data["Time Series (30min)"]).each(function(i,val){
+  $(data["Weekly Time Series"]).each(function(i,val){
     $.each(val,function(key,val){
           chartData.unshift( {
             "date": key,
@@ -83,7 +83,16 @@ function generateChart(chartData) {
     "position": "bottom-right"
   }
 } );
+
+  chart.addListener( "rendered", zoomChart );
+  zoomChart();
+  // this method is called when chart is first inited as we listen for "dataUpdated" event
+  function zoomChart() {
+    // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+    chart.zoomToIndexes( chart.dataProvider.length - 50, chart.dataProvider.length - 1 );
+  }
 }
+
 
 // function generateChart(chartData)  {
 //   console.log(chartData);
