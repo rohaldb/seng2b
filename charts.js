@@ -5,19 +5,24 @@ function getStockPriceOf(code) {
     if (status != "success") {
       alert("Error in alphavantage request");
     }
+    data = Object.values(data)[1];
     var chartData = generateChartData(data);
+    console.log(data);
+    var company = companies[code.toUpperCase()];
+    $("#company-name").text(company.Name);
+    $("#company-price").text(chartData[chartData.length - 1].close);
+    console.warn(chartData[chartData.length - 1]);
   });
 }
 
 function generateChartData(data) {
   var chartData = [];
   //extract date from object
-  data = Object.values(data)[1];
   $(data).each(function(i,val){
     $.each(val,function(key,val){
           chartData.unshift( {
             "date": key,
-            "value": parseFloat(val["1. open"]),
+            "value": parseFloat(val["4. close"]),
             "open": parseFloat(val["1. open"]),
             "high": parseFloat(val["2. high"]),
             "low": parseFloat(val["3. low"]),
@@ -26,8 +31,8 @@ function generateChartData(data) {
           } );
     });
   });
-
   generateChart(chartData);
+  return chartData;
 }
 
 
@@ -159,8 +164,6 @@ function generateChartData(data) {
 
 
 function generateChart(chartData)  {
-  console.log(chartData);
-
   var chart = AmCharts.makeChart( "chartdiv1", {
     "type": "stock",
     "theme": "light",

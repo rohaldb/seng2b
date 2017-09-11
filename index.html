@@ -14,9 +14,11 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <!-- Local files -->
+    <script src="listofcompanies.js"></script>
     <script src="index.js"></script>
     <script src="charts.js"></script>
     <script src="moment.js"></script>
+
 
     <link rel="stylesheet" href="amcharts/style.css" type="text/css">
 
@@ -26,8 +28,8 @@
       <div class="col s10 offset-s1">
         <div class="row">
         <div id="chartdiv1" style="width:100%; height:400px;"></div>
-        <!-- <div id="chartdiv" style="width:100%; height:400px;"></div> -->
-        <!-- <div id="chartdiv" style="width:100%; height:400px;"></div> -->
+        <h3 id="company-name"></h3>
+        <h4 id="company-price"></h4>
 
         <input placeholder="Stock Name" id="stock-name" type="text" class="validate">
         <!-- Stock name: <input type="text" id="stock-name"><br> -->
