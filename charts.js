@@ -1,14 +1,12 @@
 
-function getStockPriceOf(code) {
-  $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=15min&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
+function getStockPriceOf(stockInfo) {
+  var code = stockInfo.Symbol;
+  $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=15min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
     console.log(data);
-    if (status != "success") {
-      alert("Error in alphavantage request");
-    }
     data = Object.values(data)[1];
     var chartData = generateChartData(data);
-    var company = companies[code.toUpperCase()];
-    $("#company-name").text(toTitleCase(company.Name.toLowerCase()));
+    console.warn(stockInfo);
+    $("#company-name").text(stockInfo.Name);
     $("#company-price").text(chartData[chartData.length - 1].close);
   });
 }
