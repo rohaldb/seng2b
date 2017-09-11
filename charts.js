@@ -7,11 +7,9 @@ function getStockPriceOf(code) {
     }
     data = Object.values(data)[1];
     var chartData = generateChartData(data);
-    console.log(data);
     var company = companies[code.toUpperCase()];
-    $("#company-name").text(company.Name);
+    $("#company-name").text(toTitleCase(company.Name.toLowerCase()));
     $("#company-price").text(chartData[chartData.length - 1].close);
-    console.warn(chartData[chartData.length - 1]);
   });
 }
 

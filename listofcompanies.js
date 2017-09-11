@@ -32758,5 +32758,8877 @@ var companies = {
       "industry": "EDP Services",
       "Summary Quote": "http://www.nasdaq.com/symbol/znga",
       "FIELD9": ""
+   },
+   "IJH": {
+      "Name": "ISHARES S&P MID-CAP ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "MOQ": {
+      "Name": "MOQ LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "1PG": {
+      "Name": "1-PAGE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "ONT": {
+      "Name": "1300 SMILES LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "1ST": {
+      "Name": "1ST GROUP LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "T3D": {
+      "Name": "333D LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "TGP": {
+      "Name": "360 CAPITAL GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "TOT": {
+      "Name": "360 CAPITAL TOTAL RETURN FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "TDO": {
+      "Name": "3D OIL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "DDD": {
+      "Name": "3D RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "3PL": {
+      "Name": "3P LEARNING LIMITED..",
+      "GICS industry group": "Consumer Services"
+   },
+   "4DS": {
+      "Name": "4DS MEMORY LIMITED",
+      "GICS industry group": "Semiconductors & Semiconductor Equipment"
+   },
+   "88E": {
+      "Name": "88 ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "8CO": {
+      "Name": "8COMMON LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "8IH": {
+      "Name": "8I HOLDINGS LTD",
+      "GICS industry group": "Diversified Financials"
+   },
+   "8EC": {
+      "Name": "8IP EMERGING COMPANIES LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "9SP": {
+      "Name": "9 SPOKES INTERNATIONAL LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "NNW": {
+      "Name": "99 WUXIAN LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "ACB": {
+      "Name": "A-CAP RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ARI": {
+      "Name": "A.C.N. 004 410 833 LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SZG": {
+      "Name": "A.C.N. 009 161 522 LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "AYI": {
+      "Name": "A1 INVESTMENTS & RESOURCES LTD",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ABP": {
+      "Name": "ABACUS PROPERTY GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "ALR": {
+      "Name": "ABERDEEN LEADERS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ABL": {
+      "Name": "ABILENE OIL AND GAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ABU": {
+      "Name": "ABM RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "AEG": {
+      "Name": "ABSOLUTE EQUITY PERFORMANCE FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "ABT": {
+      "Name": "ABUNDANT PRODUCE LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "AJC": {
+      "Name": "ACACIA COAL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AKG": {
+      "Name": "ACADEMIES AUSTRALASIA GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "ACS": {
+      "Name": "ACCENT RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "ACX": {
+      "Name": "ACONEX LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "ACQ": {
+      "Name": "ACORN CAPITAL INVESTMENT FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "ACR": {
+      "Name": "ACRUX LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "ACW": {
+      "Name": "ACTINOGEN MEDICAL LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "AIV": {
+      "Name": "ACTIVEX LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ACU": {
+      "Name": "ACTIVISTIC LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "ADA": {
+      "Name": "ADACEL TECHNOLOGIES LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "ADH": {
+      "Name": "ADAIRS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "1AD": {
+      "Name": "ADALTA LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "ADD": {
+      "Name": "ADAVALE RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AAU": {
+      "Name": "ADCORP AUSTRALIA LIMITED",
+      "GICS industry group": "Media"
+   },
+   "ABC": {
+      "Name": "ADELAIDE BRIGHTON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ADQ": {
+      "Name": "ADG GLOBAL SUPPLY LIMITED.",
+      "GICS industry group": "Capital Goods"
+   },
+   "ADR": {
+      "Name": "ADHERIUM LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "AHZ": {
+      "Name": "ADMEDUS LTD",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ADY": {
+      "Name": "ADMIRALTY RESOURCES NL.",
+      "GICS industry group": "Materials"
+   },
+   "ADJ": {
+      "Name": "ADSLOT LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "ABV": {
+      "Name": "ADVANCED BRAKING TECHNOLOGY LTD",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "ANO": {
+      "Name": "ADVANCED NANO TECHNOLOGIES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ASW": {
+      "Name": "ADVANCED SHARE REGISTRY LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ADX": {
+      "Name": "ADX ENERGY LTD",
+      "GICS industry group": "Energy"
+   },
+   "AER": {
+      "Name": "AEERIS LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "AML": {
+      "Name": "AEON METALS LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "AEI": {
+      "Name": "AERIS ENVIRONMENTAL LTD",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "AIS": {
+      "Name": "AERIS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AFR": {
+      "Name": "AFRICAN ENERGY RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AFT": {
+      "Name": "AFT CORPORATION LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "AFP": {
+      "Name": "AFT PHARMACEUTICALS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "APT": {
+      "Name": "AFTERPAY TOUCH GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "AGL": {
+      "Name": "AGL ENERGY LIMITED.",
+      "GICS industry group": "Utilities"
+   },
+   "AGJ": {
+      "Name": "AGRICULTURAL LAND TRUST",
+      "GICS industry group": "Real Estate"
+   },
+   "AMN": {
+      "Name": "AGRIMIN LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AGR": {
+      "Name": "AGUIA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AHL": {
+      "Name": "AHALIFE HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "APW": {
+      "Name": "AIMS PROPERTY SECURITIES FUND",
+      "GICS industry group": "Real Estate"
+   },
+   "AGI": {
+      "Name": "AINSWORTH GAME TECHNOLOGY LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "AIZ": {
+      "Name": "AIR NEW ZEALAND LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "AXP": {
+      "Name": "AIRXPANDERS, INC.",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "AJL": {
+      "Name": "AJ LUCAS GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "AQG": {
+      "Name": "ALACER GOLD CORP.",
+      "GICS industry group": "Materials"
+   },
+   "AUQ": {
+      "Name": "ALARA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ACL": {
+      "Name": "ALCHEMIA LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "ALY": {
+      "Name": "ALCHEMY RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ALC": {
+      "Name": "ALCIDION GROUP LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "AL8": {
+      "Name": "ALDERAN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LEP": {
+      "Name": "ALE PROPERTY GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "AJX": {
+      "Name": "ALEXIUM INTERNATIONAL GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AEB": {
+      "Name": "ALGAE.TEC LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AQI": {
+      "Name": "ALICANTO MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AQX": {
+      "Name": "ALICE QUEEN LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ALK": {
+      "Name": "ALKANE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AHQ": {
+      "Name": "ALLEGIANCE COAL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AMT": {
+      "Name": "ALLEGRA ORTHOPAEDICS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "AQZ": {
+      "Name": "ALLIANCE AVIATION SERVICES LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "AGS": {
+      "Name": "ALLIANCE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AGE": {
+      "Name": "ALLIGATOR ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AYR": {
+      "Name": "ALLOY RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ALQ": {
+      "Name": "ALS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "ARS": {
+      "Name": "ALT RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ATC": {
+      "Name": "ALTECH CHEMICALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "AIQ": {
+      "Name": "ALTERNATIVE INVESTMENT TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "1AG": {
+      "Name": "ALTERRA LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "ALU": {
+      "Name": "ALTIUM LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "AME": {
+      "Name": "ALTO METALS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AOH": {
+      "Name": "ALTONA MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AJM": {
+      "Name": "ALTURA MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AWC": {
+      "Name": "ALUMINA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AMA": {
+      "Name": "AMA GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "ANL": {
+      "Name": "AMANI GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AYS": {
+      "Name": "AMAYSIM AUSTRALIA LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "AMO": {
+      "Name": "AMBERTECH LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "AMB": {
+      "Name": "AMBITION GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "AMH": {
+      "Name": "AMCIL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "AMC": {
+      "Name": "AMCOR LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ABR": {
+      "Name": "AMERICAN PACIFIC BORATE & LITHIUM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AOW": {
+      "Name": "AMERICAN PATRIOT OIL & GAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AMP": {
+      "Name": "AMP LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "ANQ": {
+      "Name": "ANAECO LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "ALT": {
+      "Name": "ANALYTICA LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ANR": {
+      "Name": "ANATARA LIFESCIENCES LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "AHR": {
+      "Name": "ANCHOR RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ADN": {
+      "Name": "ANDROMEDA METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ATM": {
+      "Name": "ANEKA TAMBANG (PERSERO) TBK (PT)",
+      "GICS industry group": "Materials"
+   },
+   "AQM": {
+      "Name": "ANGLO AMERICAN CAPITAL PLC",
+      "GICS industry group": "Not Applic"
+   },
+   "AAR": {
+      "Name": "ANGLO AUSTRALIAN RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "AGG": {
+      "Name": "ANGLOGOLD ASHANTI LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AB1": {
+      "Name": "ANIMOCA BRANDS CORPORATION LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "AWV": {
+      "Name": "ANOVA METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ANN": {
+      "Name": "ANSELL LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ASN": {
+      "Name": "ANSON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AZZ": {
+      "Name": "ANTARES ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ATT": {
+      "Name": "ANTE REAL ESTATE TRUST",
+      "GICS industry group": "Real Estate"
+   },
+   "ADO": {
+      "Name": "ANTEO DIAGNOSTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "AVD": {
+      "Name": "ANTILLES OIL AND GAS NL",
+      "GICS industry group": "Energy"
+   },
+   "AZY": {
+      "Name": "ANTIPA MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "APL": {
+      "Name": "ANTIPODES GLOBAL INVESTMENT COMPANY LTD",
+      "GICS industry group": "Not Applic"
+   },
+   "ANP": {
+      "Name": "ANTISENSE THERAPEUTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "APE": {
+      "Name": "AP EAGERS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "APA": {
+      "Name": "APA GROUP",
+      "GICS industry group": "Utilities"
+   },
+   "AAL": {
+      "Name": "APAC COAL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AQQ": {
+      "Name": "APHRODITE GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AHX": {
+      "Name": "APIAM ANIMAL HEALTH LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "APO": {
+      "Name": "APN OUTDOOR GROUP LIMITED",
+      "GICS industry group": "Media"
+   },
+   "APD": {
+      "Name": "APN PROPERTY GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "AOP": {
+      "Name": "APOLLO CONSOLIDATED LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AON": {
+      "Name": "APOLLO MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AOJ": {
+      "Name": "APOLLO SERIES 2010-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "AOR": {
+      "Name": "APOLLO SERIES 2013-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "AOL": {
+      "Name": "APOLLO SERIES 2015-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "ATL": {
+      "Name": "APOLLO TOURISM & LEISURE LTD",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "APX": {
+      "Name": "APPEN LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "AD1": {
+      "Name": "APPLYDIRECT LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "AQH": {
+      "Name": "APT PIPELINES LIMITED.",
+      "GICS industry group": "Not Applic"
+   },
+   "AQU": {
+      "Name": "AQUAINT CAPITAL HOLDINGS LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "AQS": {
+      "Name": "AQUIS ENTERTAINMENT LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "ARU": {
+      "Name": "ARAFURA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ARB": {
+      "Name": "ARB CORPORATION LIMITED.",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "ARX": {
+      "Name": "ARC EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AXE": {
+      "Name": "ARCHER EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ARL": {
+      "Name": "ARDEA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AAD": {
+      "Name": "ARDENT LEISURE GROUP",
+      "GICS industry group": "Consumer Services"
+   },
+   "ADV": {
+      "Name": "ARDIDEN LTD",
+      "GICS industry group": "Materials"
+   },
+   "ARF": {
+      "Name": "ARENA REIT.",
+      "GICS industry group": "Real Estate"
+   },
+   "ARD": {
+      "Name": "ARGENT MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AXT": {
+      "Name": "ARGO EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ALI": {
+      "Name": "ARGO GLOBAL LISTED INFRASTRUCTURE LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ARG": {
+      "Name": "ARGO INVESTMENTS LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "ARE": {
+      "Name": "ARGONAUT RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "AGY": {
+      "Name": "ARGOSY MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ARA": {
+      "Name": "ARIADNE AUSTRALIA LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "ALL": {
+      "Name": "ARISTOCRAT LEISURE LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "AHK": {
+      "Name": "ARK MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AJQ": {
+      "Name": "ARMOUR ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AWQ": {
+      "Name": "AROWANA AUSTRALASIAN VALUE OPPORTUNITIES FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "AWN": {
+      "Name": "AROWANA INTERNATIONAL LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "AR1": {
+      "Name": "ARROWHEAD RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ARV": {
+      "Name": "ARTEMIS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AAJ": {
+      "Name": "ARUMA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AHY": {
+      "Name": "ASALEO CARE LIMITED",
+      "GICS industry group": "Household & Personal Products"
+   },
+   "AJY": {
+      "Name": "ASAPLUS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AFA": {
+      "Name": "ASF GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ASH": {
+      "Name": "ASHLEY SERVICES GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "AJD": {
+      "Name": "ASIA PACIFIC DATA CENTRE GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "DIG": {
+      "Name": "ASIA PACIFIC DIGITAL LIMITED",
+      "GICS industry group": "Media"
+   },
+   "AJJ": {
+      "Name": "ASIAN AMERICAN MEDICAL GROUP LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ATB": {
+      "Name": "ASIAN DEVELOPMENT BANK",
+      "GICS industry group": "Not Applic"
+   },
+   "AUF": {
+      "Name": "ASIAN MASTERS FUND LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "AM3": {
+      "Name": "ASIAN MINERAL RESOURCES LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "AKF": {
+      "Name": "ASK FUNDING LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "APZ": {
+      "Name": "ASPEN GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "ASP": {
+      "Name": "ASPERMONT LIMITED.",
+      "GICS industry group": "Media"
+   },
+   "AKM": {
+      "Name": "ASPIRE MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ASY": {
+      "Name": "ASSEMBLEBAY LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "AO1": {
+      "Name": "ASSETOWL LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "AIR": {
+      "Name": "ASTIVITA LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "AJA": {
+      "Name": "ASTRO JAPAN PROPERTY GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "ARO": {
+      "Name": "ASTRO RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "ATR": {
+      "Name": "ASTRON CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ASX": {
+      "Name": "ASX LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ATA": {
+      "Name": "ATC ALLOYS LTD",
+      "GICS industry group": "Materials"
+   },
+   "ACG": {
+      "Name": "ATCOR MEDICAL HOLDINGS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "AHN": {
+      "Name": "ATHENA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AGO": {
+      "Name": "ATLAS IRON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ATP": {
+      "Name": "ATLAS PEARLS AND PERFUMES LTD",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "ATU": {
+      "Name": "ATRUM COAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AUB": {
+      "Name": "AUB GROUP LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "AIA": {
+      "Name": "AUCKLAND INTERNATIONAL AIRPORT LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "ACP": {
+      "Name": "AUDALIA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AD8": {
+      "Name": "AUDINATE GROUP LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "AKP": {
+      "Name": "AUDIO PIXELS HOLDINGS LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "AUG": {
+      "Name": "AUGEND LTD",
+      "GICS industry group": "Energy"
+   },
+   "AKN": {
+      "Name": "AUKING MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AEE": {
+      "Name": "AURA ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AMI": {
+      "Name": "AURELIA METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AUR": {
+      "Name": "AURIS MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AZJ": {
+      "Name": "AURIZON HOLDINGS LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "AOU": {
+      "Name": "AUROCH MINERALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "ABW": {
+      "Name": "AURORA ABSOLUTE RETURN FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "AOD": {
+      "Name": "AURORA DIVIDEND INCOME TRUST (MANAGED FUND)",
+      "GICS industry group": "Not Applic"
+   },
+   "AIB": {
+      "Name": "AURORA GLOBAL INCOME TRUST",
+      "GICS industry group": "Diversified Financials"
+   },
+   "A3D": {
+      "Name": "AURORA LABS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "ARM": {
+      "Name": "AURORA MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AUP": {
+      "Name": "AURORA PROPERTY BUY-WRITE INCOME TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "AQJ": {
+      "Name": "AUS ASIA MINERALS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ANW": {
+      "Name": "AUS TIN MINING LTD",
+      "GICS industry group": "Materials"
+   },
+   "AC8": {
+      "Name": "AUSCANN GROUP HOLDINGS LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "ASL": {
+      "Name": "AUSDRILL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AUC": {
+      "Name": "AUSGOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AMG": {
+      "Name": "AUSMEX MINING GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AOA": {
+      "Name": "AUSMON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AU1": {
+      "Name": "AUSNET FINANCIAL SERVICES LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "ANV": {
+      "Name": "AUSNET SERVICES HOLDINGS PTY LTD",
+      "GICS industry group": "Not Applic"
+   },
+   "AST": {
+      "Name": "AUSNET SERVICES LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "AQD": {
+      "Name": "AUSQUEST LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ARK": {
+      "Name": "AUSROC METALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "ASB": {
+      "Name": "AUSTAL LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "AUH": {
+      "Name": "AUSTCHINA HOLDINGS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AOK": {
+      "Name": "AUSTEX OIL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ANG": {
+      "Name": "AUSTIN ENGINEERING LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "ACK": {
+      "Name": "AUSTOCK GROUP LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "APG": {
+      "Name": "AUSTPAC RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "AGD": {
+      "Name": "AUSTRAL GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ARH": {
+      "Name": "AUSTRALASIAN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ANZ": {
+      "Name": "AUSTRALIA AND NEW ZEALAND BANKING GROUP LIMITED",
+      "GICS industry group": "Banks"
+   },
+   "AYM": {
+      "Name": "AUSTRALIA UNITED MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AWT": {
+      "Name": "AUSTRALIA WETOUCH TECHNOLOGY LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "AAC": {
+      "Name": "AUSTRALIAN AGRICULTURAL COMPANY LIMITED.",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "AAP": {
+      "Name": "AUSTRALIAN AGRICULTURAL PROJECTS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "ABX": {
+      "Name": "AUSTRALIAN BAUXITE LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "ACO": {
+      "Name": "AUSTRALIAN CAREERS NETWORK LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "XCL": {
+      "Name": "AUSTRALIAN COMMONWEALTH GOVERNMENT LOANS",
+      "GICS industry group": "Not Applic"
+   },
+   "AHF": {
+      "Name": "AUSTRALIAN DAIRY FARMS GROUP",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "AYF": {
+      "Name": "AUSTRALIAN ENHANCED INCOME FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "AEF": {
+      "Name": "AUSTRALIAN ETHICAL INVESTMENT LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "AFG": {
+      "Name": "AUSTRALIAN FINANCE GROUP LTD",
+      "GICS industry group": "Banks"
+   },
+   "AFI": {
+      "Name": "AUSTRALIAN FOUNDATION INVESTMENT COMPANY LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "AQF": {
+      "Name": "AUSTRALIAN GOVERNANCE MASTERS INDEX FUND LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "GSB": {
+      "Name": "AUSTRALIAN GOVERNMENT TREASURY BONDS",
+      "GICS industry group": "Not Applic"
+   },
+   "GSI": {
+      "Name": "AUSTRALIAN GOVERNMENT TREASURY INDEXED BONDS",
+      "GICS industry group": "Not Applic"
+   },
+   "ALF": {
+      "Name": "AUSTRALIAN LEADERS FUND LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "AYJ": {
+      "Name": "AUSTRALIAN MASTERS YIELD FUND NO 3 LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "AYK": {
+      "Name": "AUSTRALIAN MASTERS YIELD FUND NO 4 LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "AYZ": {
+      "Name": "AUSTRALIAN MASTERS YIELD FUND NO 5 LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "AUZ": {
+      "Name": "AUSTRALIAN MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AQC": {
+      "Name": "AUSTRALIAN PACIFIC COAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "API": {
+      "Name": "AUSTRALIAN PHARMACEUTICAL INDUSTRIES LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "APC": {
+      "Name": "AUSTRALIAN POTASH LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ARC": {
+      "Name": "AUSTRALIAN RURAL CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "AUI": {
+      "Name": "AUSTRALIAN UNITED INVESTMENT COMPANY LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "AYU": {
+      "Name": "AUSTRALIAN UNITY LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "AOF": {
+      "Name": "AUSTRALIAN UNITY OFFICE FUND",
+      "GICS industry group": "Real Estate"
+   },
+   "AVL": {
+      "Name": "AUSTRALIAN VANADIUM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AVG": {
+      "Name": "AUSTRALIAN VINTAGE LTD",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "AWY": {
+      "Name": "AUSTRALIAN WHISKY HOLDINGS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "ATS": {
+      "Name": "AUSTRALIS OIL & GAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ANS": {
+      "Name": "AUSTSINO RESOURCES GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ABA": {
+      "Name": "AUSWIDE BANK LTD",
+      "GICS industry group": "Banks"
+   },
+   "AIY": {
+      "Name": "AUTHORISED INVESTMENT FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "AHG": {
+      "Name": "AUTOMOTIVE HOLDINGS GROUP LIMITED.",
+      "GICS industry group": "Retailing"
+   },
+   "4WD": {
+      "Name": "AUTOMOTIVE SOLUTIONS GROUP LTD",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "ASG": {
+      "Name": "AUTOSPORTS GROUP LIMITED.",
+      "GICS industry group": "Retailing"
+   },
+   "AVB": {
+      "Name": "AVANCO RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AEV": {
+      "Name": "AVENIRA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AVN": {
+      "Name": "AVENTUS RETAIL PROPERTY FUND",
+      "GICS industry group": "Real Estate"
+   },
+   "AOG": {
+      "Name": "AVEO GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "AVW": {
+      "Name": "AVIRA ENERGY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AVH": {
+      "Name": "AVITA MEDICAL LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "AVJ": {
+      "Name": "AVJENNINGS LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "AVZ": {
+      "Name": "AVZ MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AWE": {
+      "Name": "AWE LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "AVQ": {
+      "Name": "AXIOM MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AXI": {
+      "Name": "AXIOM PROPERTIES LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "AXL": {
+      "Name": "AXSESSTODAY LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "AYG": {
+      "Name": "AXXIS TECHNOLOGY GROUP LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "AZM": {
+      "Name": "AZUMAH RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "AZV": {
+      "Name": "AZURE HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "AZS": {
+      "Name": "AZURE MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BBN": {
+      "Name": "BABY BUNTING GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "BTI": {
+      "Name": "BAILADOR TECHNOLOGY INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BOQ": {
+      "Name": "BANK OF QUEENSLAND LIMITED.",
+      "GICS industry group": "Banks"
+   },
+   "BMN": {
+      "Name": "BANNERMAN RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BAP": {
+      "Name": "BAPCOR LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "BKP": {
+      "Name": "BARAKA ENERGY & RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BCL": {
+      "Name": "BARALABA COAL COMPANY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BD1": {
+      "Name": "BARD1 LIFE SCIENCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BAR": {
+      "Name": "BARRA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BST": {
+      "Name": "BARRACK ST INVESTMENTS LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "BSE": {
+      "Name": "BASE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BSM": {
+      "Name": "BASS METALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "BAS": {
+      "Name": "BASS OIL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BSR": {
+      "Name": "BASSARI RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BRL": {
+      "Name": "BATHURST RESOURCES LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "BAT": {
+      "Name": "BATTERY MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BMH": {
+      "Name": "BAUMART HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "BAU": {
+      "Name": "BAUXITE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BBX": {
+      "Name": "BBX MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BCI": {
+      "Name": "BC IRON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BCD": {
+      "Name": "BCD RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "BPT": {
+      "Name": "BEACH ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BLX": {
+      "Name": "BEACON LIGHTING GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "BCN": {
+      "Name": "BEACON MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BDR": {
+      "Name": "BEADELL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BGA": {
+      "Name": "BEGA CHEESE LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "BFG": {
+      "Name": "BELL FINANCIAL GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BAL": {
+      "Name": "BELLAMY'S AUSTRALIA LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "BEN": {
+      "Name": "BENDIGO AND ADELAIDE BANK LIMITED",
+      "GICS industry group": "Banks"
+   },
+   "BLT": {
+      "Name": "BENITEC BIOPHARMA LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "BHD": {
+      "Name": "BENJAMIN HORNIGOLD LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "BEL": {
+      "Name": "BENTLEY CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BKY": {
+      "Name": "BERKELEY ENERGIA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BMT": {
+      "Name": "BERKUT MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BFC": {
+      "Name": "BESTON GLOBAL FOOD COMPANY LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "BYI": {
+      "Name": "BEYOND INTERNATIONAL LIMITED",
+      "GICS industry group": "Media"
+   },
+   "BHP": {
+      "Name": "BHP BILLITON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BID": {
+      "Name": "BIDENERGY LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "BRI": {
+      "Name": "BIG RIVER INDUSTRIES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BIG": {
+      "Name": "BIG UN LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "BTH": {
+      "Name": "BIGTINCAN HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "BBG": {
+      "Name": "BILLABONG INTERNATIONAL LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "BIN": {
+      "Name": "BINGO INDUSTRIES LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "BBM": {
+      "Name": "BIOMICS BIOPHARMA LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "BNO": {
+      "Name": "BIONOMICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "BTC": {
+      "Name": "BIOTECH CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BIT": {
+      "Name": "BIOTRON LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "BXN": {
+      "Name": "BIOXYNE LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "BGS": {
+      "Name": "BIRIMIAN LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BIR": {
+      "Name": "BIRRABONG CORPORATION LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "BIS": {
+      "Name": "BISALLOY STEEL GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BSN": {
+      "Name": "BISAN LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BKI": {
+      "Name": "BKI INVESTMENT COMPANY LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BKM": {
+      "Name": "BKM MANAGEMENT LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "BMZ": {
+      "Name": "BLACK MOUNTAIN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BKT": {
+      "Name": "BLACK ROCK MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BSP": {
+      "Name": "BLACK STAR PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BLK": {
+      "Name": "BLACKHAM RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BKL": {
+      "Name": "BLACKMORES LIMITED",
+      "GICS industry group": "Household & Personal Products"
+   },
+   "BSX": {
+      "Name": "BLACKSTONE MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BWF": {
+      "Name": "BLACKWALL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BWR": {
+      "Name": "BLACKWALL PROPERTY TRUST",
+      "GICS industry group": "Real Estate"
+   },
+   "BLZ": {
+      "Name": "BLAZE INTERNATIONAL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BGH": {
+      "Name": "BLIGH RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BDI": {
+      "Name": "BLINA MINERALS NL",
+      "GICS industry group": "Materials"
+   },
+   "BUL": {
+      "Name": "BLUE ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BLA": {
+      "Name": "BLUE SKY ALTERNATIVE INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BAF": {
+      "Name": "BLUE SKY ALTERNATIVES ACCESS FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "BCT": {
+      "Name": "BLUECHIIP LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "BSL": {
+      "Name": "BLUESCOPE STEEL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BLG": {
+      "Name": "BLUGLASS LIMITED",
+      "GICS industry group": "Semiconductors & Semiconductor Equipment"
+   },
+   "BMG": {
+      "Name": "BMG RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BOA": {
+      "Name": "BOADICEA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BLY": {
+      "Name": "BOART LONGYEAR LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "BDA": {
+      "Name": "BOD AUSTRALIA LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "BOL": {
+      "Name": "BOOM LOGISTICS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "BBR": {
+      "Name": "BORA BORA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BLD": {
+      "Name": "BORAL LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "BOE": {
+      "Name": "BOSS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BOT": {
+      "Name": "BOTANIX PHARMACEUTICALS LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "BML": {
+      "Name": "BOTSWANA METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BOC": {
+      "Name": "BOUGAINVILLE COPPER LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BUY": {
+      "Name": "BOUNTY OIL & GAS NL",
+      "GICS industry group": "Energy"
+   },
+   "BCB": {
+      "Name": "BOWEN COKING COAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BHL": {
+      "Name": "BOYUAN HOLDINGS LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "BPB": {
+      "Name": "BP CAPITAL MARKETS PLC",
+      "GICS industry group": "Not Applic"
+   },
+   "BPH": {
+      "Name": "BPH ENERGY LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "BPS": {
+      "Name": "BPS TECHNOLOGY LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "BRC": {
+      "Name": "BRAIN RESOURCE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "BRN": {
+      "Name": "BRAINCHIP HOLDINGS LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "BXB": {
+      "Name": "BRAMBLES LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "BVS": {
+      "Name": "BRAVURA SOLUTIONS LIMITED.",
+      "GICS industry group": "Software & Services"
+   },
+   "BRB": {
+      "Name": "BREAKER RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "BRG": {
+      "Name": "BREVILLE GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "BKW": {
+      "Name": "BRICKWORKS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BYL": {
+      "Name": "BRIERTY LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "BBL": {
+      "Name": "BRISBANE BRONCOS LIMITED",
+      "GICS industry group": "Media"
+   },
+   "BGP": {
+      "Name": "BRISCOE GROUP AUSTRALASIA LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "BRO": {
+      "Name": "BROAD INVESTMENTS LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "BCK": {
+      "Name": "BROCKMAN MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BPL": {
+      "Name": "BROKEN HILL PROSPECTING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BGR": {
+      "Name": "BRONSON GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BEE": {
+      "Name": "BROO LTD",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "BRK": {
+      "Name": "BROOKSIDE ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BYH": {
+      "Name": "BRYAH RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BSA": {
+      "Name": "BSA LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "BTT": {
+      "Name": "BT INVESTMENT MANAGEMENT LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "BUB": {
+      "Name": "BUBS AUSTRALIA LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "BUD": {
+      "Name": "BUDDY PLATFORM LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "BUG": {
+      "Name": "BUDERIM GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "BIQ": {
+      "Name": "BUILDINGIQ, INC",
+      "GICS industry group": "Software & Services"
+   },
+   "BNR": {
+      "Name": "BULLETIN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BPF": {
+      "Name": "BULLETPROOF GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "BRU": {
+      "Name": "BURU ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BUX": {
+      "Name": "BUXTON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "BMP": {
+      "Name": "BUYMYPLACE.COM.AU LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "BWP": {
+      "Name": "BWP TRUST",
+      "GICS industry group": "Real Estate"
+   },
+   "BWX": {
+      "Name": "BWX LIMITED",
+      "GICS industry group": "Household & Personal Products"
+   },
+   "BYE": {
+      "Name": "BYRON ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "BPG": {
+      "Name": "BYTE POWER GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "CAB": {
+      "Name": "CABCHARGE AUSTRALIA LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "CDM": {
+      "Name": "CADENCE CAPITAL LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "CAD": {
+      "Name": "CAENEUS MINERALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "DXA": {
+      "Name": "CAISSE FRANCAISE DE FINANCEMENT LOCAL",
+      "GICS industry group": "Not Applic"
+   },
+   "CAI": {
+      "Name": "CALIDUS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CE1": {
+      "Name": "CALIMA ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CTX": {
+      "Name": "CALTEX AUSTRALIA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CAN": {
+      "Name": "CANN GROUP LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "CAE": {
+      "Name": "CANNINDAH RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CAY": {
+      "Name": "CANYON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CFE": {
+      "Name": "CAPE LAMBERT RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CZZ": {
+      "Name": "CAPILANO HONEY LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "CMY": {
+      "Name": "CAPITAL MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CAJ": {
+      "Name": "CAPITOL HEALTH LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "CAA": {
+      "Name": "CAPRAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CMM": {
+      "Name": "CAPRICORN METALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "CAQ": {
+      "Name": "CAQ HOLDINGS LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "CVV": {
+      "Name": "CARAVEL MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CRB": {
+      "Name": "CARBINE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CNQ": {
+      "Name": "CARBINE TUNGSTEN LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CNX": {
+      "Name": "CARBON ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CRM": {
+      "Name": "CARBON MINERALS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CDV": {
+      "Name": "CARDINAL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CDD": {
+      "Name": "CARDNO LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "CDP": {
+      "Name": "CARINDALE PROPERTY TRUST",
+      "GICS industry group": "Real Estate"
+   },
+   "CIN": {
+      "Name": "CARLTON INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CVN": {
+      "Name": "CARNARVON PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CAV": {
+      "Name": "CARNAVALE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CCE": {
+      "Name": "CARNEGIE CLEAN ENERGY LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "CAP": {
+      "Name": "CARPENTARIA EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CAR": {
+      "Name": "CARSALES.COM LIMITED.",
+      "GICS industry group": "Software & Services"
+   },
+   "CCV": {
+      "Name": "CASH CONVERTERS INTERNATIONAL",
+      "GICS industry group": "Retailing"
+   },
+   "CZI": {
+      "Name": "CASSINI RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CCZ": {
+      "Name": "CASTILLO COPPER LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CDT": {
+      "Name": "CASTLE MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CYL": {
+      "Name": "CATALYST METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CAT": {
+      "Name": "CATAPULT GROUP INTERNATIONAL LTD",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "CXU": {
+      "Name": "CAULDRON ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CAZ": {
+      "Name": "CAZALY RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CBC": {
+      "Name": "CBG CAPITAL LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "CBL": {
+      "Name": "CBL CORPORATION LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "CT1": {
+      "Name": "CCP TECHNOLOGIES LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "CWP": {
+      "Name": "CEDAR WOODS PROPERTIES LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "CNL": {
+      "Name": "CELAMIN HOLDINGS NL",
+      "GICS industry group": "Materials"
+   },
+   "CDY": {
+      "Name": "CELLMID LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "CLT": {
+      "Name": "CELLNET GROUP LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "CLA": {
+      "Name": "CELSIUS RESOURCES LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "CTM": {
+      "Name": "CENTAURUS METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CTL": {
+      "Name": "CENTENNIAL MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CVR": {
+      "Name": "CENTRAL ASIA RESOURCES LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "CTP": {
+      "Name": "CENTRAL PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CAF": {
+      "Name": "CENTREPOINT ALLIANCE LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CXM": {
+      "Name": "CENTREX METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CNI": {
+      "Name": "CENTURIA CAPITAL GROUP",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CIP": {
+      "Name": "CENTURIA INDUSTRIAL REIT",
+      "GICS industry group": "Real Estate"
+   },
+   "CMA": {
+      "Name": "CENTURIA METROPOLITAN REIT",
+      "GICS industry group": "Real Estate"
+   },
+   "CYA": {
+      "Name": "CENTURY AUSTRALIA INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CFU": {
+      "Name": "CERAMIC FUEL CELLS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "CVS": {
+      "Name": "CERVANTES CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CFO": {
+      "Name": "CFOAM LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "CHN": {
+      "Name": "CHALICE GOLD MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CEL": {
+      "Name": "CHALLENGER ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CGF": {
+      "Name": "CHALLENGER LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CHJ": {
+      "Name": "CHALLENGER MILLENNIUM SERIES 2007-1E TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "CHU": {
+      "Name": "CHALLENGER MILLENNIUM SERIES 2007-2L TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "CHR": {
+      "Name": "CHALMERS LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "CIA": {
+      "Name": "CHAMPION IRON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CCA": {
+      "Name": "CHANGE FINANCIAL LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CHP": {
+      "Name": "CHAPMANS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CHC": {
+      "Name": "CHARTER HALL GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "CLW": {
+      "Name": "CHARTER HALL LONG WALE REIT",
+      "GICS industry group": "Real Estate"
+   },
+   "CQR": {
+      "Name": "CHARTER HALL RETAIL REIT",
+      "GICS industry group": "Real Estate"
+   },
+   "CHZ": {
+      "Name": "CHESSER RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CCB": {
+      "Name": "CHINA CONSTRUCTION BANK CORPORATION",
+      "GICS industry group": "Not Applic"
+   },
+   "CDC": {
+      "Name": "CHINA DAIRY CORPORATION LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "CMC": {
+      "Name": "CHINA MAGNESIUM CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CDH": {
+      "Name": "CHONGHERR INVESTMENTS LTD",
+      "GICS industry group": "Materials"
+   },
+   "CNU": {
+      "Name": "CHORUS LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "CII": {
+      "Name": "CI RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CIM": {
+      "Name": "CIMIC GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "CNW": {
+      "Name": "CIRRUS NETWORKS HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CTR": {
+      "Name": "CITATION RESOURCES LTD",
+      "GICS industry group": "Energy"
+   },
+   "CTO": {
+      "Name": "CITIGOLD CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CLY": {
+      "Name": "CLANCY EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CND": {
+      "Name": "CLARIUS GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "CL1": {
+      "Name": "CLASS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CLZ": {
+      "Name": "CLASSIC MINERALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "CSS": {
+      "Name": "CLEAN SEAS SEAFOOD LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "CLQ": {
+      "Name": "CLEAN TEQ HOLDINGS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "CWY": {
+      "Name": "CLEANAWAY WASTE MANAGEMENT LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "CVW": {
+      "Name": "CLEARVIEW WEALTH LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CDG": {
+      "Name": "CLEVELAND MINING COMPANY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CAM": {
+      "Name": "CLIME CAPITAL LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "CIW": {
+      "Name": "CLIME INVESTMENT MANAGEMENT LTD",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CUV": {
+      "Name": "CLINUVEL PHARMACEUTICALS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "CLV": {
+      "Name": "CLOVER CORPORATION LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "CMI": {
+      "Name": "CMI LIMITED.",
+      "GICS industry group": "Capital Goods"
+   },
+   "CGR": {
+      "Name": "CML GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "CZA": {
+      "Name": "COAL OF AFRICA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CA8": {
+      "Name": "COASSETS LIMITED.",
+      "GICS industry group": "Software & Services"
+   },
+   "COB": {
+      "Name": "COBALT BLUE HOLDINGS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CO1": {
+      "Name": "COBALT ONE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CCL": {
+      "Name": "COCA-COLA AMATIL LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "COH": {
+      "Name": "COCHLEAR LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "CDA": {
+      "Name": "CODAN LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "CGS": {
+      "Name": "COGSTATE LTD",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "CHK": {
+      "Name": "COHIBA MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CKA": {
+      "Name": "COKAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CL8": {
+      "Name": "COLLABORATE CORPORATION LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CLH": {
+      "Name": "COLLECTION HOUSE LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "CLL": {
+      "Name": "COLLERINA COBALT LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CKF": {
+      "Name": "COLLINS FOODS LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "CRL": {
+      "Name": "COMET RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "COI": {
+      "Name": "COMET RIDGE LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CBA": {
+      "Name": "COMMONWEALTH BANK OF AUSTRALIA",
+      "GICS industry group": "Banks"
+   },
+   "COM": {
+      "Name": "COMOPS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CFF": {
+      "Name": "COMPAGNIE DE FINANCEMENT FONCIER",
+      "GICS industry group": "Not Applic"
+   },
+   "CMP": {
+      "Name": "COMPUMEDICS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "CPU": {
+      "Name": "COMPUTERSHARE LIMITED.",
+      "GICS industry group": "Software & Services"
+   },
+   "CDB": {
+      "Name": "CONDOR BLANCO MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CNJ": {
+      "Name": "CONICO LTD",
+      "GICS industry group": "Materials"
+   },
+   "CIO": {
+      "Name": "CONNECTED IO LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "CXZ": {
+      "Name": "CONNEXION MEDIA LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "COG": {
+      "Name": "CONSOLIDATED OPERATIONS GROUP LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "CSD": {
+      "Name": "CONSOLIDATED TIN MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CZL": {
+      "Name": "CONSOLIDATED ZINC LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CEN": {
+      "Name": "CONTACT ENERGY LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "CGA": {
+      "Name": "CONTANGO ASSET MANAGEMENT LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CQG": {
+      "Name": "CONTANGO GLOBAL GROWTH LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "CIE": {
+      "Name": "CONTANGO INCOME GENERATOR  LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "CTN": {
+      "Name": "CONTANGO MICROCAP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CRR": {
+      "Name": "CONVENIENCE RETAIL REIT",
+      "GICS industry group": "Real Estate"
+   },
+   "COE": {
+      "Name": "COOPER ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CSE": {
+      "Name": "COPPER STRIKE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "COY": {
+      "Name": "COPPERMOLY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CZN": {
+      "Name": "CORAZON MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CXO": {
+      "Name": "CORE EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CIZ": {
+      "Name": "CORIZON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CTD": {
+      "Name": "CORPORATE TRAVEL MANAGEMENT LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "COO": {
+      "Name": "CORUM GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CGC": {
+      "Name": "COSTA GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "CGM": {
+      "Name": "COUGAR METALS NL",
+      "GICS industry group": "Materials"
+   },
+   "CUP": {
+      "Name": "COUNTPLUS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "CCJ": {
+      "Name": "COUNTY INTERNATIONAL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CVT": {
+      "Name": "COVATA LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CYG": {
+      "Name": "COVENTRY GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "CYY": {
+      "Name": "COVENTRY RESOURCES LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "CZR": {
+      "Name": "COZIRON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CGO": {
+      "Name": "CPT GLOBAL LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CXX": {
+      "Name": "CRADLE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CGN": {
+      "Name": "CRATER GOLD MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CR8": {
+      "Name": "CRE8TEK LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CCP": {
+      "Name": "CREDIT CORP GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CPH": {
+      "Name": "CRESO PHARMA LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "CMW": {
+      "Name": "CROMWELL PROPERTY GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "CLI": {
+      "Name": "CROPLOGIC LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "CUX": {
+      "Name": "CROSSLAND STRATEGIC METALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "CM8": {
+      "Name": "CROWD MOBILE LIMITED",
+      "GICS industry group": "Media"
+   },
+   "CWN": {
+      "Name": "CROWN RESORTS LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "CUF": {
+      "Name": "CRUSADE ABS SERIES 2013-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "CUH": {
+      "Name": "CRUSADE ABS SERIES 2015-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "CU1": {
+      "Name": "CRUSADE ABS SERIES 2016-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "CU2": {
+      "Name": "CRUSADE ABS SERIES 2017-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "CAS": {
+      "Name": "CRUSADER RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CTE": {
+      "Name": "CRYOSITE LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "CSV": {
+      "Name": "CSG LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "CSL": {
+      "Name": "CSL LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "CSR": {
+      "Name": "CSR LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CLX": {
+      "Name": "CTI LOGISTICS LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "CIT": {
+      "Name": "CTL AUSTRALIA GROUP LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "CDU": {
+      "Name": "CUDECO LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CUE": {
+      "Name": "CUE ENERGY RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "CUL": {
+      "Name": "CULLEN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "CV1": {
+      "Name": "CV CHECK LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "CVC": {
+      "Name": "CVC LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "CWH": {
+      "Name": "CWH RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "CYB": {
+      "Name": "CYBG PLC",
+      "GICS industry group": "Banks"
+   },
+   "CYQ": {
+      "Name": "CYCLIQ GROUP LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "CYC": {
+      "Name": "CYCLOPHARM LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "CYP": {
+      "Name": "CYNATA THERAPEUTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "DCN": {
+      "Name": "DACIAN GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DAU": {
+      "Name": "DAMPIER GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DNK": {
+      "Name": "DANAKALI LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DHR": {
+      "Name": "DARK HORSE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DTM": {
+      "Name": "DART MINING NL",
+      "GICS industry group": "Materials"
+   },
+   "DTL": {
+      "Name": "DATA#3 LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "DDT": {
+      "Name": "DATADOT TECHNOLOGY LIMITED",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "DTR": {
+      "Name": "DATELINE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DAV": {
+      "Name": "DAVENPORT RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DW8": {
+      "Name": "DAWINE LTD",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "DEG": {
+      "Name": "DE GREY MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DEM": {
+      "Name": "DE.MEM LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "DSX": {
+      "Name": "DECIMAL SOFTWARE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "DCG": {
+      "Name": "DECMIL GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "DYL": {
+      "Name": "DEEP YELLOW LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "DLC": {
+      "Name": "DELECTA LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "DMI": {
+      "Name": "DEMPSEY MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "D13": {
+      "Name": "DEPARTMENT 13 INTERNATIONAL LTD",
+      "GICS industry group": "Capital Goods"
+   },
+   "DGH": {
+      "Name": "DESANE GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "DVN": {
+      "Name": "DEVINE LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "DXS": {
+      "Name": "DEXUS",
+      "GICS industry group": "Real Estate"
+   },
+   "DGO": {
+      "Name": "DGO GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DGR": {
+      "Name": "DGR GLOBAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DRX": {
+      "Name": "DIATREME RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DDR": {
+      "Name": "DICKER DATA LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "DMC": {
+      "Name": "DIGIMATIC GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "DCC": {
+      "Name": "DIGITALX LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "DXB": {
+      "Name": "DIMERIX LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "DXF": {
+      "Name": "DING SHENG XIN FINANCE CO. LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "DGX": {
+      "Name": "DIPLOMA GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "DM1": {
+      "Name": "DIRECTMONEY LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "DAF": {
+      "Name": "DISCOVERY AFRICA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DUI": {
+      "Name": "DIVERSIFIED UNITED INVESTMENT LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "DJW": {
+      "Name": "DJERRIWARRH INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "DCL": {
+      "Name": "DOMACOM LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "DME": {
+      "Name": "DOME GOLD MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DMP": {
+      "Name": "DOMINO'S PIZZA ENTERPRISES LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "DNA": {
+      "Name": "DONACO INTERNATIONAL LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "DFM": {
+      "Name": "DONGFANG MODERN AGRICULTURE HOLDING GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "DRM": {
+      "Name": "DORAY MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DVL": {
+      "Name": "DORSAVI LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "DTZ": {
+      "Name": "DOTZ NANO LIMITED",
+      "GICS industry group": "Semiconductors & Semiconductor Equipment"
+   },
+   "DOW": {
+      "Name": "DOWNER EDI LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "DRA": {
+      "Name": "DRAGON MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DMG": {
+      "Name": "DRAGON MOUNTAIN GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DTS": {
+      "Name": "DRAGONTAIL SYSTEMS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "DRG": {
+      "Name": "DRAIG RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DRK": {
+      "Name": "DRAKE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DN8": {
+      "Name": "DREAMSCAPE NETWORKS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "DAZ": {
+      "Name": "DRIVER AUSTRALIA FOUR TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "DAM": {
+      "Name": "DRIVER AUSTRALIA MASTER TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "DAE": {
+      "Name": "DRIVER AUSTRALIA THREE TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "DAQ": {
+      "Name": "DRIVER AUSTRALIA TWO TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "DRO": {
+      "Name": "DRONESHIELD LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "DSE": {
+      "Name": "DROPSUITE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "DTI": {
+      "Name": "DTI GROUP LTD",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "DUB": {
+      "Name": "DUBBER CORPORATION LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "DKM": {
+      "Name": "DUKETON MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "DLX": {
+      "Name": "DULUXGROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "D2O": {
+      "Name": "DUXTON WATER LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "DWS": {
+      "Name": "DWS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "DMA": {
+      "Name": "DYNASTY RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "E2M": {
+      "Name": "E2 METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EHH": {
+      "Name": "EAGLE HEALTH HOLDINGS LIMITED",
+      "GICS industry group": "Household & Personal Products"
+   },
+   "EER": {
+      "Name": "EAST ENERGY RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "EWE": {
+      "Name": "EAST WEST ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "EGS": {
+      "Name": "EASTERN GOLDFIELDS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EFE": {
+      "Name": "EASTERN IRON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EAS": {
+      "Name": "EASTON INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "EBO": {
+      "Name": "EBOS GROUP LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ECG": {
+      "Name": "ECARGO HOLDINGS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "EAR": {
+      "Name": "ECHO RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EPM": {
+      "Name": "ECLIPSE METALS LIMITED.",
+      "GICS industry group": "Energy"
+   },
+   "ECX": {
+      "Name": "ECLIPX GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "EDE": {
+      "Name": "EDEN INNOVATIONS LTD",
+      "GICS industry group": "Energy"
+   },
+   "EGA": {
+      "Name": "EGAN STREET RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EHX": {
+      "Name": "EHR RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EDC": {
+      "Name": "EILDON CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ENN": {
+      "Name": "ELANOR INVESTORS GROUP",
+      "GICS industry group": "Consumer Services"
+   },
+   "ERF": {
+      "Name": "ELANOR RETAIL PROPERTY FUND",
+      "GICS industry group": "Real Estate"
+   },
+   "ELD": {
+      "Name": "ELDERS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "EOS": {
+      "Name": "ELECTRO OPTIC SYSTEMS HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "ELT": {
+      "Name": "ELEMENTOS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EXR": {
+      "Name": "ELIXIR PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ELK": {
+      "Name": "ELK PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "EAI": {
+      "Name": "ELLERSTON ASIAN INVESTMENTS LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "EGI": {
+      "Name": "ELLERSTON GLOBAL INVESTMENTS LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "ELX": {
+      "Name": "ELLEX MEDICAL LASERS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ELO": {
+      "Name": "ELMO SOFTWARE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "ELS": {
+      "Name": "ELSIGHT LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "EYM": {
+      "Name": "ELYSIUM RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EMB": {
+      "Name": "EMBELTON LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "EHL": {
+      "Name": "EMECO HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "EMR": {
+      "Name": "EMERALD RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "EMG": {
+      "Name": "EMERGENT RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EMF": {
+      "Name": "EMERGING MARKETS MASTERS FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "EML": {
+      "Name": "EML PAYMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ERM": {
+      "Name": "EMMERSON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ERX": {
+      "Name": "EMPEROR RANGE GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EEG": {
+      "Name": "EMPIRE ENERGY GROUP LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "EGO": {
+      "Name": "EMPIRE OIL & GAS NL",
+      "GICS industry group": "Energy"
+   },
+   "ERL": {
+      "Name": "EMPIRE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EPD": {
+      "Name": "EMPIRED LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "EMU": {
+      "Name": "EMU NL",
+      "GICS industry group": "Materials"
+   },
+   "ENR": {
+      "Name": "ENCOUNTER RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ENB": {
+      "Name": "ENEABBA GAS LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "ENX": {
+      "Name": "ENEGEX LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "EMX": {
+      "Name": "ENERGIA MINERALS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "EAX": {
+      "Name": "ENERGY ACTION LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "EME": {
+      "Name": "ENERGY METALS LTD",
+      "GICS industry group": "Energy"
+   },
+   "EOL": {
+      "Name": "ENERGY ONE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "ERA": {
+      "Name": "ENERGY RESOURCES OF AUSTRALIA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "EGY": {
+      "Name": "ENERGY TECHNOLOGIES LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "EWC": {
+      "Name": "ENERGY WORLD CORPORATION LTD",
+      "GICS industry group": "Utilities"
+   },
+   "EGG": {
+      "Name": "ENERO GROUP LIMITED",
+      "GICS industry group": "Media"
+   },
+   "EGN": {
+      "Name": "ENGENCO LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "EOR": {
+      "Name": "ENHANCED OIL & GAS RECOVERY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ENC": {
+      "Name": "ENICE HOLDING COMPANY LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "EXO": {
+      "Name": "ENNOX GROUP LTD",
+      "GICS industry group": "Diversified Financials"
+   },
+   "E88": {
+      "Name": "ENSOGO LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "ENA": {
+      "Name": "ENSURANCE LTD",
+      "GICS industry group": "Insurance"
+   },
+   "ETE": {
+      "Name": "ENTEK ENERGY LTD",
+      "GICS industry group": "Energy"
+   },
+   "ENT": {
+      "Name": "ENTERPRISE METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EVM": {
+      "Name": "ENVIROMISSION LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "ESI": {
+      "Name": "ENVIRONMENTAL CLEAN TECHNOLOGIES LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "EGL": {
+      "Name": "ENVIRONMENTAL GROUP LIMITED (THE)",
+      "GICS industry group": "Capital Goods"
+   },
+   "EVS": {
+      "Name": "ENVIROSUITE LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "ENZ": {
+      "Name": "ENZUMO LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "EPT": {
+      "Name": "EPAT TECHNOLOGIES LTD",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "EPA": {
+      "Name": "EPHRAIM RESOURCES LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "EQT": {
+      "Name": "EQT HOLDINGS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "EQX": {
+      "Name": "EQUATORIAL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EQE": {
+      "Name": "EQUUS MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EPW": {
+      "Name": "ERM POWER LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "ESE": {
+      "Name": "ESENSE-LAB LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "ESV": {
+      "Name": "ESERVGLOBAL LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "ESM": {
+      "Name": "ESPERANCE MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ESH": {
+      "Name": "ESPORTS MOGUL ASIA PACIFIC LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "EHE": {
+      "Name": "ESTIA HEALTH LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ESR": {
+      "Name": "ESTRELLA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GOL": {
+      "Name": "ETFS METAL SECURITIES AUSTRALIA LIMITED.",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ESK": {
+      "Name": "ETHERSTACK PLC",
+      "GICS industry group": "Software & Services"
+   },
+   "EBG": {
+      "Name": "EUMUNDI GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "EGH": {
+      "Name": "EUREKA GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "EUC": {
+      "Name": "EUROPEAN COBALT LTD",
+      "GICS industry group": "Materials"
+   },
+   "EUR": {
+      "Name": "EUROPEAN LITHIUM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EMH": {
+      "Name": "EUROPEAN METALS HOLDINGS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EZL": {
+      "Name": "EUROZ LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "EGD": {
+      "Name": "EVANS & PARTNERS GLOBAL DISRUPTION FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "EVE": {
+      "Name": "EVE INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "EVT": {
+      "Name": "EVENT HOSPITALITY AND ENTERTAINMENT LTD",
+      "GICS industry group": "Media"
+   },
+   "EVN": {
+      "Name": "EVOLUTION MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EVO": {
+      "Name": "EVOLVE EDUCATION GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "EVZ": {
+      "Name": "EVZ LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "EXG": {
+      "Name": "EXCELSIOR GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EXU": {
+      "Name": "EXPLAURUM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EXC": {
+      "Name": "EXTERRA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "EZA": {
+      "Name": "EZA CORPORATION LTD",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "FTT": {
+      "Name": "FACTOR THERAPEUTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "FXJ": {
+      "Name": "FAIRFAX MEDIA LIMITED",
+      "GICS industry group": "Media"
+   },
+   "FZO": {
+      "Name": "FAMILY ZONE CYBER SAFETY LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "FAR": {
+      "Name": "FAR LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "FRM": {
+      "Name": "FARM PRIDE FOODS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "FFC": {
+      "Name": "FARMAFORCE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "FBR": {
+      "Name": "FASTBRICK ROBOTICS LTD",
+      "GICS industry group": "Capital Goods"
+   },
+   "FE8": {
+      "Name": "FASTER ENTERPRISES LTD",
+      "GICS industry group": "Real Estate"
+   },
+   "FPC": {
+      "Name": "FAT PROPHETS GLOBAL CONTRARIAN FUND LTD",
+      "GICS industry group": "Not Applic"
+   },
+   "FPP": {
+      "Name": "FAT PROPHETS GLOBAL PROPERTY FUND",
+      "GICS industry group": "Class Pend"
+   },
+   "FFG": {
+      "Name": "FATFISH INTERNET GROUP LTD",
+      "GICS industry group": "Diversified Financials"
+   },
+   "FEL": {
+      "Name": "FE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FCR": {
+      "Name": "FERRUM CRESCENT LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FTZ": {
+      "Name": "FERTOZ LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FFI": {
+      "Name": "FFI HOLDINGS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "FID": {
+      "Name": "FIDUCIAN GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "FSG": {
+      "Name": "FIELD SOLUTIONS HOLDINGS LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "FRI": {
+      "Name": "FINBAR GROUP LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "FND": {
+      "Name": "FINDERS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FGR": {
+      "Name": "FIRST GRAPHITE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FGF": {
+      "Name": "FIRST GROWTH FUNDS LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "FMA": {
+      "Name": "FIRSTMAC MORTGAGE FUNDING TRUST SERIES 1-2007",
+      "GICS industry group": "Not Applic"
+   },
+   "FCT": {
+      "Name": "FIRSTWAVE CLOUD TECHNOLOGY LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "FPH": {
+      "Name": "FISHER & PAYKEL HEALTHCARE CORPORATION LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "FZR": {
+      "Name": "FITZROY RIVER CORPORATION LTD",
+      "GICS industry group": "Energy"
+   },
+   "FSI": {
+      "Name": "FLAGSHIP INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "FWD": {
+      "Name": "FLEETWOOD CORPORATION LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "FBU": {
+      "Name": "FLETCHER BUILDING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FXL": {
+      "Name": "FLEXIGROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "FRX": {
+      "Name": "FLEXIROAM LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "FLT": {
+      "Name": "FLIGHT CENTRE TRAVEL GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "FMS": {
+      "Name": "FLINDERS MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FLC": {
+      "Name": "FLUENCE CORPORATION LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "FML": {
+      "Name": "FOCUS MINERALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "FET": {
+      "Name": "FOLKESTONE EDUCATION TRUST",
+      "GICS industry group": "Real Estate"
+   },
+   "FLK": {
+      "Name": "FOLKESTONE LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "FSF": {
+      "Name": "FONTERRA SHAREHOLDERS' FUND",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "FOR": {
+      "Name": "FORAGER AUSTRALIAN SHARES FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "4CE": {
+      "Name": "FORCE COMMODITIES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FRC": {
+      "Name": "FORTE CONSOLIDATED LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FMG": {
+      "Name": "FORTESCUE METALS GROUP LTD",
+      "GICS industry group": "Materials"
+   },
+   "FOY": {
+      "Name": "FOY GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FRN": {
+      "Name": "FRASER RANGE METALS GROUP LTD",
+      "GICS industry group": "Materials"
+   },
+   "FNP": {
+      "Name": "FREEDOM FOODS GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "FIG": {
+      "Name": "FREEDOM INSURANCE GROUP LTD",
+      "GICS industry group": "Insurance"
+   },
+   "FDM": {
+      "Name": "FREEDOM OIL AND GAS LTD",
+      "GICS industry group": "Energy"
+   },
+   "FHS": {
+      "Name": "FREEHILL MINING LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "FLN": {
+      "Name": "FREELANCER LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "FPL": {
+      "Name": "FREMONT PETROLEUM CORPORATION LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "FCG": {
+      "Name": "FRONTIER CAPITAL GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "FDV": {
+      "Name": "FRONTIER DIGITAL VENTURES LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "FNT": {
+      "Name": "FRONTIER RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "FSA": {
+      "Name": "FSA GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "FUN": {
+      "Name": "FUNTASTIC LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "FFT": {
+      "Name": "FUTURE FIBRE TECHNOLOGIES LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "FGG": {
+      "Name": "FUTURE GENERATION GLOBAL INVESTMENT COMPANY LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "FGX": {
+      "Name": "FUTURE GENERATION INVESTMENT COMPANY LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "FYI": {
+      "Name": "FYI RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GMV": {
+      "Name": "G MEDICAL INNOVATIONS HOLDINGS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "GUD": {
+      "Name": "G.U.D. HOLDINGS LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "GEM": {
+      "Name": "G8 EDUCATION LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "GRB": {
+      "Name": "GAGE ROADS BREWING CO LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "GXY": {
+      "Name": "GALAXY RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GAP": {
+      "Name": "GALE PACIFIC LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "G1A": {
+      "Name": "GALENA MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GLL": {
+      "Name": "GALILEE ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "GCM": {
+      "Name": "GARDA CAPITAL GROUP",
+      "GICS industry group": "Not Applic"
+   },
+   "GDF": {
+      "Name": "GARDA DIVERSIFIED PROPERTY FUND",
+      "GICS industry group": "Real Estate"
+   },
+   "GGX": {
+      "Name": "GAS2GRID LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "GCY": {
+      "Name": "GASCOYNE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GTY": {
+      "Name": "GATEWAY LIFESTYLE GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "GML": {
+      "Name": "GATEWAY MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GZL": {
+      "Name": "GAZAL CORPORATION LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "GBX": {
+      "Name": "GB ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "GBM": {
+      "Name": "GBM GOLD LTD",
+      "GICS industry group": "Materials"
+   },
+   "GBZ": {
+      "Name": "GBM RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GBT": {
+      "Name": "GBST HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "GDI": {
+      "Name": "GDI PROPERTY GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "GBI": {
+      "Name": "GENERA BIOSYSTEMS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "GNE": {
+      "Name": "GENESIS ENERGY LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "GMD": {
+      "Name": "GENESIS MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GES": {
+      "Name": "GENESIS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GSS": {
+      "Name": "GENETIC SIGNATURES LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "GTG": {
+      "Name": "GENETIC TECHNOLOGIES LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "GNX": {
+      "Name": "GENEX POWER LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "GTK": {
+      "Name": "GENTRACK GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "GMA": {
+      "Name": "GENWORTH MORTGAGE INSURANCE AUSTRALIA LIMITED",
+      "GICS industry group": "Banks"
+   },
+   "GEO": {
+      "Name": "GEOOP LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "GPR": {
+      "Name": "GEOPACIFIC RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "GSW": {
+      "Name": "GETSWIFT LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "GID": {
+      "Name": "GI DYNAMICS, INC",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "GBG": {
+      "Name": "GINDALBIE METALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "GLA": {
+      "Name": "GLADIATOR RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GC1": {
+      "Name": "GLENNON SMALL COMPANIES LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "GLE": {
+      "Name": "GLG CORP LTD",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "GCS": {
+      "Name": "GLOBAL CONSTRUCTION SERVICES LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "GEV": {
+      "Name": "GLOBAL ENERGY VENTURES LTD",
+      "GICS industry group": "Energy"
+   },
+   "GFI": {
+      "Name": "GLOBAL FORTUNE INVESTMENT LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GSC": {
+      "Name": "GLOBAL GEOSCIENCE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GGH": {
+      "Name": "GLOBAL GOLD HOLDINGS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "GLH": {
+      "Name": "GLOBAL HEALTH LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "GFL": {
+      "Name": "GLOBAL MASTERS FUND LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "GBP": {
+      "Name": "GLOBAL PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "GVF": {
+      "Name": "GLOBAL VALUE FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "GLB": {
+      "Name": "GLOBE INTERNATIONAL LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "GBE": {
+      "Name": "GLOBE METALS & MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GME": {
+      "Name": "GME RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GOE": {
+      "Name": "GO ENERGY GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "GCN": {
+      "Name": "GOCONNECT LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "GFY": {
+      "Name": "GODFREYS GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "GMN": {
+      "Name": "GOLD MOUNTAIN LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GOR": {
+      "Name": "GOLD ROAD RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GCR": {
+      "Name": "GOLDEN CROSS RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "GED": {
+      "Name": "GOLDEN DEEPS LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "G88": {
+      "Name": "GOLDEN MILE RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "GMR": {
+      "Name": "GOLDEN RIM RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "GMY": {
+      "Name": "GOLDFIELDS MONEY LIMITED",
+      "GICS industry group": "Banks"
+   },
+   "GDA": {
+      "Name": "GONDWANA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GMG": {
+      "Name": "GOODMAN GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "GMP": {
+      "Name": "GOODMAN PLUS TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "GOO": {
+      "Name": "GOOROO VENTURES LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "GOW": {
+      "Name": "GOWING BROS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "GPS": {
+      "Name": "GPS ALLIANCE HOLDINGS LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "GPT": {
+      "Name": "GPT GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "GNG": {
+      "Name": "GR ENGINEERING SERVICES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GNC": {
+      "Name": "GRAINCORP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "GGE": {
+      "Name": "GRAND GULF ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "GBA": {
+      "Name": "GRANDBRIDGE LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "GRR": {
+      "Name": "GRANGE RESOURCES LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "GPX": {
+      "Name": "GRAPHEX MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GBR": {
+      "Name": "GREAT BOULDER RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GTE": {
+      "Name": "GREAT WESTERN EXPLORATION LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "GSL": {
+      "Name": "GREATCELL SOLAR LIMITED",
+      "GICS industry group": "Semiconductors & Semiconductor Equipment"
+   },
+   "GXL": {
+      "Name": "GREENCROSS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "GGG": {
+      "Name": "GREENLAND MINERALS AND ENERGY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GPP": {
+      "Name": "GREENPOWER ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "GRV": {
+      "Name": "GREENVALE ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "GOZ": {
+      "Name": "GROWTHPOINT PROPERTIES AUSTRALIA",
+      "GICS industry group": "Real Estate"
+   },
+   "GTR": {
+      "Name": "GTI RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GTN": {
+      "Name": "GTN LIMITED",
+      "GICS industry group": "Media"
+   },
+   "GLF": {
+      "Name": "GULF INDUSTRIALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GMC": {
+      "Name": "GULF MANGANESE CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GUL": {
+      "Name": "GULLEWA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "GWA": {
+      "Name": "GWA GROUP LIMITED.",
+      "GICS industry group": "Capital Goods"
+   },
+   "GWR": {
+      "Name": "GWR GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HMX": {
+      "Name": "HAMMER METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HHM": {
+      "Name": "HAMPTON HILL MINING NL",
+      "GICS industry group": "Materials"
+   },
+   "HNR": {
+      "Name": "HANNANS LTD",
+      "GICS industry group": "Materials"
+   },
+   "HSN": {
+      "Name": "HANSEN TECHNOLOGIES LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "HAO": {
+      "Name": "HAOMA MINING NL",
+      "GICS industry group": "Materials"
+   },
+   "HAR": {
+      "Name": "HARANGA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HT8": {
+      "Name": "HARRIS TECHNOLOGY GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "HVN": {
+      "Name": "HARVEY NORMAN HOLDINGS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "HAS": {
+      "Name": "HASTINGS TECHNOLOGY METALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "HAV": {
+      "Name": "HAVILAH RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HOG": {
+      "Name": "HAWKLEY OIL AND GAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "HWK": {
+      "Name": "HAWKSTONE MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HAW": {
+      "Name": "HAWTHORN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HZR": {
+      "Name": "HAZER GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HSO": {
+      "Name": "HEALTHSCOPE LIMITED.",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "HMO": {
+      "Name": "HEARMEOUT LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "HE8": {
+      "Name": "HELIOS ENERGY LTD",
+      "GICS industry group": "Energy"
+   },
+   "HLX": {
+      "Name": "HELIX RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HLO": {
+      "Name": "HELLOWORLD TRAVEL LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "HML": {
+      "Name": "HENRY MORGAN LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "HRR": {
+      "Name": "HERON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HXG": {
+      "Name": "HEXAGON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HFA": {
+      "Name": "HFA HOLDINGS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "HNG": {
+      "Name": "HGL LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "HHY": {
+      "Name": "HHY FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "HPR": {
+      "Name": "HIGH PEAK ROYALTIES LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "HFR": {
+      "Name": "HIGHFIELD RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HIG": {
+      "Name": "HIGHLANDS PACIFIC LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HEG": {
+      "Name": "HILL END GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HGO": {
+      "Name": "HILLGROVE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HIL": {
+      "Name": "HILLS LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "HIT": {
+      "Name": "HITECH GROUP AUSTRALIA LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "HJB": {
+      "Name": "HJB CORPORATION LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "HCT": {
+      "Name": "HOLISTA COLLTECH LIMITED",
+      "GICS industry group": "Household & Personal Products"
+   },
+   "HOM": {
+      "Name": "HOMELOANS LIMITED",
+      "GICS industry group": "Banks"
+   },
+   "HRN": {
+      "Name": "HORIZON GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HZN": {
+      "Name": "HORIZON OIL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "HOR": {
+      "Name": "HORSESHOE METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HCH": {
+      "Name": "HOT CHILI LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HOT": {
+      "Name": "HOTCOPPER HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "HPI": {
+      "Name": "HOTEL PROPERTY INVESTMENTS",
+      "GICS industry group": "Real Estate"
+   },
+   "HRL": {
+      "Name": "HRL HOLDINGS LTD",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "HT1": {
+      "Name": "HT&E LIMITED",
+      "GICS industry group": "Media"
+   },
+   "HUB": {
+      "Name": "HUB24 LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "HGL": {
+      "Name": "HUDSON INVESTMENT GROUP LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "HDX": {
+      "Name": "HUGHES DRILLING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "HHV": {
+      "Name": "HUNTER HALL GLOBAL VALUE LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "HUO": {
+      "Name": "HUON AQUACULTURE GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "HTA": {
+      "Name": "HUTCHISON TELECOMMUNICATIONS (AUSTRALIA) LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "HGC": {
+      "Name": "HYGIEACARE, INC.",
+      "GICS industry group": "Class Pend"
+   },
+   "HCS": {
+      "Name": "HYUNDAI CAPITAL SERVICES, INC.",
+      "GICS industry group": "Not Applic"
+   },
+   "IS3": {
+      "Name": "I SYNERGY GROUP LIMITED",
+      "GICS industry group": "Media"
+   },
+   "IAN": {
+      "Name": "IAG FINANCE (NEW ZEALAND) LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "IB8": {
+      "Name": "IBOSSES CORPORATION LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "IBN": {
+      "Name": "IBUYNEW GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "ICI": {
+      "Name": "ICANDY INTERACTIVE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "ICQ": {
+      "Name": "ICAR ASIA LIMITED",
+      "GICS industry group": "Media"
+   },
+   "ICT": {
+      "Name": "ICOLLEGE LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "ICN": {
+      "Name": "ICON ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ICS": {
+      "Name": "ICSGLOBAL LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "IDF": {
+      "Name": "IDOL 2010-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "IDH": {
+      "Name": "IDOL 2011-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "IDJ": {
+      "Name": "IDOL 2011-2 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "IEL": {
+      "Name": "IDP EDUCATION LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "IDT": {
+      "Name": "IDT AUSTRALIA LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "IKE": {
+      "Name": "IKEGPS GROUP LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "IKW": {
+      "Name": "IKWEZI MINING LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ILU": {
+      "Name": "ILUKA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IMI": {
+      "Name": "IM MEDICAL LTD",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "IMA": {
+      "Name": "IMAGE RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "IBX": {
+      "Name": "IMAGION BIOSYSTEMS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "IMD": {
+      "Name": "IMDEX LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IMF": {
+      "Name": "IMF BENTHAM LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "IMC": {
+      "Name": "IMMURON LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "IPT": {
+      "Name": "IMPACT MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IPD": {
+      "Name": "IMPEDIMED LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "IPC": {
+      "Name": "IMPERIAL PACIFIC LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "IHL": {
+      "Name": "IMPRESSION HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "IMU": {
+      "Name": "IMUGENE LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "IAB": {
+      "Name": "INABOX GROUP LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "ICG": {
+      "Name": "INCA MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IPL": {
+      "Name": "INCITEC PIVOT LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IOG": {
+      "Name": "INCREMENTAL OIL AND GAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "INK": {
+      "Name": "INDAGO ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "IGO": {
+      "Name": "INDEPENDENCE GROUP NL",
+      "GICS industry group": "Materials"
+   },
+   "INF": {
+      "Name": "INDIA FUND LIMITED.",
+      "GICS industry group": "Class Pend"
+   },
+   "IRL": {
+      "Name": "INDIA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IDA": {
+      "Name": "INDIANA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IDO": {
+      "Name": "INDO MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IDC": {
+      "Name": "INDOCHINE MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IDZ": {
+      "Name": "INDOOR SKYDIVE AUSTRALIA GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "ICZ": {
+      "Name": "INDUS COAL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "IND": {
+      "Name": "INDUS ENERGY NL",
+      "GICS industry group": "Energy"
+   },
+   "IDR": {
+      "Name": "INDUSTRIA REIT",
+      "GICS industry group": "Real Estate"
+   },
+   "ICB": {
+      "Name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "IFN": {
+      "Name": "INFIGEN ENERGY",
+      "GICS industry group": "Utilities"
+   },
+   "IFM": {
+      "Name": "INFOMEDIA LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "IFT": {
+      "Name": "INFRATIL LIMITED.",
+      "GICS industry group": "Utilities"
+   },
+   "INA": {
+      "Name": "INGENIA COMMUNITIES GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "ING": {
+      "Name": "INGHAMS GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "IIL": {
+      "Name": "INNATE IMMUNOTHERAPEUTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "IAG": {
+      "Name": "INSURANCE AUSTRALIA GROUP LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "IDX": {
+      "Name": "INTEGRAL DIAGNOSTICS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ITL": {
+      "Name": "INTEGRATED MEDIA TECHNOLOGY LIMITED",
+      "GICS industry group": "Media"
+   },
+   "IP1": {
+      "Name": "INTEGRATED PAYMENT TECHNOLOGIES LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "IRI": {
+      "Name": "INTEGRATED RESEARCH LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "IRC": {
+      "Name": "INTERMIN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IEQ": {
+      "Name": "INTERNATIONAL EQUITIES CORPORATION LIMITED.",
+      "GICS industry group": "Real Estate"
+   },
+   "IFX": {
+      "Name": "INTERNATIONAL FINANCE CORPORATION",
+      "GICS industry group": "Not Applic"
+   },
+   "IGS": {
+      "Name": "INTERNATIONAL GOLDFIELDS LIMITED...",
+      "GICS industry group": "Materials"
+   },
+   "IHS": {
+      "Name": "INTERPOSE HOLDINGS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "IMG": {
+      "Name": "INTERSTAR MILLENNIUM SERIES 2002-1G TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "IMX": {
+      "Name": "INTERSTAR MILLENNIUM SERIES 2003-3G TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "IMQ": {
+      "Name": "INTERSTAR MILLENNIUM SERIES 2004-1E TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "IMK": {
+      "Name": "INTERSTAR MILLENNIUM SERIES 2004-2G TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "IMN": {
+      "Name": "INTERSTAR MILLENNIUM SERIES 2004-5 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "IMO": {
+      "Name": "INTERSTAR MILLENNIUM SERIES 2005-2L TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "INB": {
+      "Name": "INTERSTAR MILLENNIUM SERIES 2006-2G TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "INN": {
+      "Name": "INTERSTAR MILLENNIUM SERIES 2006-3L TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "INH": {
+      "Name": "INTERSTAR MILLENNIUM SERIES 2006-4H TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "IAM": {
+      "Name": "INTIGER GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "IEC": {
+      "Name": "INTRA ENERGY CORPORATION LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "IAU": {
+      "Name": "INTREPID MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IVT": {
+      "Name": "INVENTIS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "IOF": {
+      "Name": "INVESTA OFFICE FUND",
+      "GICS industry group": "Real Estate"
+   },
+   "IVR": {
+      "Name": "INVESTIGATOR RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "INV": {
+      "Name": "INVESTSMART GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "IVO": {
+      "Name": "INVIGOR GROUP LIMITED",
+      "GICS industry group": "Media"
+   },
+   "IVX": {
+      "Name": "INVION LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "IVQ": {
+      "Name": "INVITROCUE LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "IVC": {
+      "Name": "INVOCARE LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "IOD": {
+      "Name": "IODM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IFL": {
+      "Name": "IOOF HOLDINGS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "IOT": {
+      "Name": "IOT GROUP LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "IPB": {
+      "Name": "IPB PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "IPE": {
+      "Name": "IPE LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "IPH": {
+      "Name": "IPH LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "IQ3": {
+      "Name": "IQ3CORP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "IRE": {
+      "Name": "IRESS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "INM": {
+      "Name": "IRON MOUNTAIN INCORPORATED",
+      "GICS industry group": "Real Estate"
+   },
+   "IRD": {
+      "Name": "IRON ROAD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "IBC": {
+      "Name": "IRONBARK CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "IBG": {
+      "Name": "IRONBARK ZINC LTD",
+      "GICS industry group": "Materials"
+   },
+   "ISU": {
+      "Name": "ISELECT LIMITED.",
+      "GICS industry group": "Consumer Services"
+   },
+   "ISD": {
+      "Name": "ISENTIA GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "ICU": {
+      "Name": "ISENTRIC LIMITED.",
+      "GICS industry group": "Software & Services"
+   },
+   "IAA": {
+      "Name": "ISHARES ASIA 50 ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IZZ": {
+      "Name": "ISHARES CHINA LARGE-CAP ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IEU": {
+      "Name": "ISHARES EUROPE ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IOO": {
+      "Name": "ISHARES GLOBAL 100 ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IBK": {
+      "Name": "ISHARES MSCI BRIC ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IVE": {
+      "Name": "ISHARES MSCI EAFE ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IEM": {
+      "Name": "ISHARES MSCI EMERGING MARKETS ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IHK": {
+      "Name": "ISHARES MSCI HONG KONG ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IJP": {
+      "Name": "ISHARES MSCI JAPAN ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "ISG": {
+      "Name": "ISHARES MSCI SINGAPORE CAPPED ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IKO": {
+      "Name": "ISHARES MSCI SOUTH KOREA CAPPED ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "ITW": {
+      "Name": "ISHARES MSCI TAIWAN CAPPED ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IRU": {
+      "Name": "ISHARES RUSSELL 2000 ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IVV": {
+      "Name": "ISHARES S&P 500 ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "IJR": {
+      "Name": "ISHARES S&P SMALL-CAP ETF",
+      "GICS industry group": "Not Applic"
+   },
+   "ISH": {
+      "Name": "ISHINE INTERNATIONAL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ISX": {
+      "Name": "ISIGNTHIS LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "ITD": {
+      "Name": "ITL LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "IGL": {
+      "Name": "IVE GROUP LIMITED",
+      "GICS industry group": "Media"
+   },
+   "JIP": {
+      "Name": "JACK-IN GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "JKA": {
+      "Name": "JACKA RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "JHX": {
+      "Name": "JAMES HARDIE INDUSTRIES PLC",
+      "GICS industry group": "Materials"
+   },
+   "JAL": {
+      "Name": "JAMESON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "JHG": {
+      "Name": "JANUS HENDERSON GROUP PLC",
+      "GICS industry group": "Diversified Financials"
+   },
+   "JHC": {
+      "Name": "JAPARA HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "JAT": {
+      "Name": "JATENERGY LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "JHL": {
+      "Name": "JAYEX HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "JBH": {
+      "Name": "JB HI-FI LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "JCI": {
+      "Name": "JC INTERNATIONAL GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "JCS": {
+      "Name": "JCURVE SOLUTIONS LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "JRV": {
+      "Name": "JERVOIS MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "JJF": {
+      "Name": "JIAJIAFU MODERN AGRICULTURE LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "JRL": {
+      "Name": "JINDALEE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "JYC": {
+      "Name": "JOYCE CORPORATION LTD",
+      "GICS industry group": "Retailing"
+   },
+   "JIN": {
+      "Name": "JUMBO INTERACTIVE LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "JPR": {
+      "Name": "JUPITER ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "JKL": {
+      "Name": "JUSTKAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "JVG": {
+      "Name": "JV GLOBAL LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "KSC": {
+      "Name": "K & S CORPORATION LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "KAM": {
+      "Name": "K2 ASSET MANAGEMENT HOLDINGS LTD",
+      "GICS industry group": "Diversified Financials"
+   },
+   "KTE": {
+      "Name": "K2 ENERGY LIMITED.",
+      "GICS industry group": "Utilities"
+   },
+   "K2F": {
+      "Name": "K2FLY LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "KBU": {
+      "Name": "KABUNI LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "KLR": {
+      "Name": "KAILI RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "KIK": {
+      "Name": "KAIRIKI ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "KAI": {
+      "Name": "KAIROS MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KZR": {
+      "Name": "KALAMAZOO RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KPO": {
+      "Name": "KALINA POWER LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "KLL": {
+      "Name": "KALIUM LAKES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KGM": {
+      "Name": "KALNORTH GOLD MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KPT": {
+      "Name": "KANGAROO ISLAND PLANTATION TIMBERS LTD",
+      "GICS industry group": "Materials"
+   },
+   "KRL": {
+      "Name": "KANGAROO RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KAR": {
+      "Name": "KAROON GAS AUSTRALIA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "KAS": {
+      "Name": "KASBAH RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KAT": {
+      "Name": "KATANA CAPITAL LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "KMD": {
+      "Name": "KATHMANDU HOLDINGS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "KPC": {
+      "Name": "KAZAKHSTAN POTASH CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KBL": {
+      "Name": "KBL MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KPG": {
+      "Name": "KELLY PARTNERS GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "KEY": {
+      "Name": "KEY PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "KBC": {
+      "Name": "KEYBRIDGE CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "KFW": {
+      "Name": "KFW",
+      "GICS industry group": "Not Applic"
+   },
+   "KGL": {
+      "Name": "KGL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KNL": {
+      "Name": "KIBARAN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KDR": {
+      "Name": "KIDMAN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KIN": {
+      "Name": "KIN MINING NL",
+      "GICS industry group": "Materials"
+   },
+   "KPL": {
+      "Name": "KINA PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "KSL": {
+      "Name": "KINA SECURITIES LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "KKO": {
+      "Name": "KINETIKO ENERGY LTD",
+      "GICS industry group": "Energy"
+   },
+   "KIS": {
+      "Name": "KING ISLAND SCHEELITE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KRC": {
+      "Name": "KING RIVER COPPER LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KIG": {
+      "Name": "KINGFISHER TRUST 2016-1",
+      "GICS industry group": "Not Applic"
+   },
+   "KCN": {
+      "Name": "KINGSGATE CONSOLIDATED LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "KLO": {
+      "Name": "KINGSLAND GLOBAL LTD",
+      "GICS industry group": "Real Estate"
+   },
+   "KRM": {
+      "Name": "KINGSROSE MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KSN": {
+      "Name": "KINGSTON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KME": {
+      "Name": "KIP MCGRATH EDUCATION CENTRES LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "KNM": {
+      "Name": "KNEOMEDIA LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "KNO": {
+      "Name": "KNOSYS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "KGN": {
+      "Name": "KOGAN.COM LTD",
+      "GICS industry group": "Retailing"
+   },
+   "KFE": {
+      "Name": "KOGI IRON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KKL": {
+      "Name": "KOLLAKORN CORPORATION LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "KKT": {
+      "Name": "KONEKT LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "KNH": {
+      "Name": "KOON HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "KOR": {
+      "Name": "KORAB RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "K2P": {
+      "Name": "KORE POTASH LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KOP": {
+      "Name": "KOREA SOUTH-EAST POWER CO LTD",
+      "GICS industry group": "Not Applic"
+   },
+   "KOV": {
+      "Name": "KORVEST LTD",
+      "GICS industry group": "Capital Goods"
+   },
+   "KTA": {
+      "Name": "KRAKATOA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KRS": {
+      "Name": "KRESTA HOLDINGS LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "KGD": {
+      "Name": "KULA GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "KYK": {
+      "Name": "KYCKR LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "LSA": {
+      "Name": "LACHLAN STAR LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LCR": {
+      "Name": "LACONIA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LKE": {
+      "Name": "LAKE RESOURCES N.L.",
+      "GICS industry group": "Materials"
+   },
+   "LKO": {
+      "Name": "LAKES OIL NL",
+      "GICS industry group": "Energy"
+   },
+   "LHM": {
+      "Name": "LAND & HOMES GROUP LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "LMW": {
+      "Name": "LANDMARK WHITE LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "LNY": {
+      "Name": "LANEWAY RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "LGR": {
+      "Name": "LANKA GRAPHITE LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "LTN": {
+      "Name": "LANTERN HOTEL GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "LAM": {
+      "Name": "LARAMIDE RESOURCES LTD",
+      "GICS industry group": "Energy"
+   },
+   "LBL": {
+      "Name": "LASERBOND LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "LAA": {
+      "Name": "LATAM AUTOS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "LRS": {
+      "Name": "LATIN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LCN": {
+      "Name": "LATITUDE AUSTRALIA CREDIT CARD LOAN NOTE TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "LCD": {
+      "Name": "LATITUDE CONSOLIDATED LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LMG": {
+      "Name": "LATROBE MAGNESIUM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LSN": {
+      "Name": "LAWSON GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LBT": {
+      "Name": "LBT INNOVATIONS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "LER": {
+      "Name": "LEAF RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "LEX": {
+      "Name": "LEFROY EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LCY": {
+      "Name": "LEGACY IRON ORE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LGD": {
+      "Name": "LEGEND CORPORATION LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "LEG": {
+      "Name": "LEGEND MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LCK": {
+      "Name": "LEIGH CREEK ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "LLC": {
+      "Name": "LENDLEASE GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "LPD": {
+      "Name": "LEPIDICO LTD",
+      "GICS industry group": "Materials"
+   },
+   "LFC": {
+      "Name": "LIFE CORPORATION LTD",
+      "GICS industry group": "Consumer Services"
+   },
+   "LHC": {
+      "Name": "LIFEHEALTHCARE GROUP LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "LSH": {
+      "Name": "LIFESPOT HEALTH LTD",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "LIC": {
+      "Name": "LIFESTYLE COMMUNITIES LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "LML": {
+      "Name": "LINCOLN MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LIN": {
+      "Name": "LINDIAN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LAU": {
+      "Name": "LINDSAY AUSTRALIA LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "LNU": {
+      "Name": "LINIUS TECHNOLOGIES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LNK": {
+      "Name": "LINK ADMINISTRATION HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "LIO": {
+      "Name": "LION ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "LLO": {
+      "Name": "LION ONE METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LSX": {
+      "Name": "LION SELECTION GROUP LIMITED.",
+      "GICS industry group": "Diversified Financials"
+   },
+   "LHB": {
+      "Name": "LIONHUB GROUP LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "LTR": {
+      "Name": "LIONTOWN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LNG": {
+      "Name": "LIQUEFIED NATURAL GAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "LIT": {
+      "Name": "LITHIUM AUSTRALIA NL",
+      "GICS industry group": "Materials"
+   },
+   "LI3": {
+      "Name": "LITHIUM CONSOLIDATED MINERAL EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LPI": {
+      "Name": "LITHIUM POWER INTERNATIONAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LCA": {
+      "Name": "LITIGATION CAPITAL MANAGEMENT LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "LVH": {
+      "Name": "LIVEHIRE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "LVT": {
+      "Name": "LIVETILES LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "LCT": {
+      "Name": "LIVING CELL TECHNOLOGIES LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "LPE": {
+      "Name": "LOCALITY PLANNING ENERGY HOLDINGS LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "LSR": {
+      "Name": "LODESTAR MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LCM": {
+      "Name": "LOGICAMMS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "LCE": {
+      "Name": "LONDON CITY EQUITIES LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "LFR": {
+      "Name": "LONGFORD RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LGO": {
+      "Name": "LONGREACH OIL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "LVE": {
+      "Name": "LOVE GROUP GLOBAL LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "LOV": {
+      "Name": "LOVISA HOLDINGS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "LOM": {
+      "Name": "LUCAPA DIAMOND COMPANY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LGM": {
+      "Name": "LUIRI GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "LRM": {
+      "Name": "LUSTRUM MINERALS LTD",
+      "GICS industry group": "Class Pend"
+   },
+   "LWP": {
+      "Name": "LWP TECHNOLOGIES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "LYL": {
+      "Name": "LYCOPODIUM LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "LYC": {
+      "Name": "LYNAS CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MLD": {
+      "Name": "MACA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MMM": {
+      "Name": "MACARTHUR AUSTRALIA LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "M7T": {
+      "Name": "MACH7 TECHNOLOGIES LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "MAH": {
+      "Name": "MACMAHON HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "MRP": {
+      "Name": "MACPHERSONS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MQA": {
+      "Name": "MACQUARIE ATLAS ROADS GROUP",
+      "GICS industry group": "Transportation"
+   },
+   "MBL": {
+      "Name": "MACQUARIE BANK LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "MQG": {
+      "Name": "MACQUARIE GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MRN": {
+      "Name": "MACQUARIE MEDIA LIMITED",
+      "GICS industry group": "Media"
+   },
+   "MAQ": {
+      "Name": "MACQUARIE TELECOM GROUP LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "MFG": {
+      "Name": "MAGELLAN FINANCIAL GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MAG": {
+      "Name": "MAGMATIC RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MAU": {
+      "Name": "MAGNETIC RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "MGT": {
+      "Name": "MAGNETITE MINES LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "MNS": {
+      "Name": "MAGNIS RESOURCES LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "MPE": {
+      "Name": "MAGNUM GAS & POWER LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MGU": {
+      "Name": "MAGNUM MINING AND EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MGL": {
+      "Name": "MAGONTEC LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MAI": {
+      "Name": "MAINSTREAMBPO LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MHH": {
+      "Name": "MAJESTIC HORIZON HOLDINGS LTD",
+      "GICS industry group": "Class Pend"
+   },
+   "MAR": {
+      "Name": "MALACHITE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MGP": {
+      "Name": "MANAGED ACCOUNTS HOLDINGS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MTL": {
+      "Name": "MANALTO LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MSR": {
+      "Name": "MANAS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MDD": {
+      "Name": "MANDALONG RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MHC": {
+      "Name": "MANHATTAN CORPORATION LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MNM": {
+      "Name": "MANTLE MINING CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MTR": {
+      "Name": "MANTRA GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "MEY": {
+      "Name": "MARENICA ENERGY LTD",
+      "GICS industry group": "Energy"
+   },
+   "MTM": {
+      "Name": "MARETERRAM LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "MZN": {
+      "Name": "MARINDI METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MCX": {
+      "Name": "MARINER CORPORATION LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MEU": {
+      "Name": "MARMOTA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MQR": {
+      "Name": "MARQUEE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MJP": {
+      "Name": "MARTIN AIRCRAFT COMPANY LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "MYE": {
+      "Name": "MASTERMYNE GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MZZ": {
+      "Name": "MATADOR MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MCE": {
+      "Name": "MATRIX COMPOSITES & ENGINEERING LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MAT": {
+      "Name": "MATSA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MXR": {
+      "Name": "MAXIMUS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MXI": {
+      "Name": "MAXITRANS INDUSTRIES LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "MSP": {
+      "Name": "MAXSEC GROUP LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "MFD": {
+      "Name": "MAYFIELD CHILDCARE LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "MYX": {
+      "Name": "MAYNE PHARMA GROUP LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "MRL": {
+      "Name": "MAYUR RESOURCES LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "MEA": {
+      "Name": "MCGRATH LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "MMS": {
+      "Name": "MCMILLAN SHAKESPEARE LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "MXT": {
+      "Name": "MCP MASTER INCOME TRUST",
+      "GICS industry group": "Class Pend"
+   },
+   "MCP": {
+      "Name": "MCPHERSON'S LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "MSG": {
+      "Name": "MCS SERVICES LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "MMR": {
+      "Name": "MEC RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MDR": {
+      "Name": "MEDADVISOR LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "MBJ": {
+      "Name": "MEDALLION TRUST SERIES 2013-2",
+      "GICS industry group": "Not Applic"
+   },
+   "MDZ": {
+      "Name": "MEDALLION TRUST SERIES 2014-1",
+      "GICS industry group": "Not Applic"
+   },
+   "MPZ": {
+      "Name": "MEDALLION TRUST SERIES 2014-1P",
+      "GICS industry group": "Not Applic"
+   },
+   "MZB": {
+      "Name": "MEDALLION TRUST SERIES 2014-2",
+      "GICS industry group": "Not Applic"
+   },
+   "MZA": {
+      "Name": "MEDALLION TRUST SERIES 2015-1",
+      "GICS industry group": "Not Applic"
+   },
+   "MZC": {
+      "Name": "MEDALLION TRUST SERIES 2015-2",
+      "GICS industry group": "Not Applic"
+   },
+   "MZF": {
+      "Name": "MEDALLION TRUST SERIES 2016-1",
+      "GICS industry group": "Not Applic"
+   },
+   "MZT": {
+      "Name": "MEDALLION TRUST SERIES 2016-2",
+      "GICS industry group": "Not Applic"
+   },
+   "MZ1": {
+      "Name": "MEDALLION TRUST SERIES 2017-1",
+      "GICS industry group": "Not Applic"
+   },
+   "MPL": {
+      "Name": "MEDIBANK PRIVATE LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "MEB": {
+      "Name": "MEDIBIO LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "MLA": {
+      "Name": "MEDICAL AUSTRALIA LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "MVP": {
+      "Name": "MEDICAL DEVELOPMENTS INTERNATIONAL LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "MGZ": {
+      "Name": "MEDIGARD LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "MDC": {
+      "Name": "MEDLAB CLINICAL LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "MML": {
+      "Name": "MEDUSA MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MP1": {
+      "Name": "MEGAPORT LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MJC": {
+      "Name": "MEJORITY CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MAY": {
+      "Name": "MELBANA ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MLB": {
+      "Name": "MELBOURNE IT LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MEM": {
+      "Name": "MEMPHASYS LIMITED.",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "MVT": {
+      "Name": "MERCANTILE INVESTMENT COMPANY LTD",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MHI": {
+      "Name": "MERCHANT HOUSE INTERNATIONAL LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "MCY": {
+      "Name": "MERCURY NZ LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "MEZ": {
+      "Name": "MERIDIAN ENERGY LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "MED": {
+      "Name": "MERLIN DIAMONDS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MAS": {
+      "Name": "MESA MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MSB": {
+      "Name": "MESOBLAST LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "MBK": {
+      "Name": "METAL BANK LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MCT": {
+      "Name": "METALICITY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MLM": {
+      "Name": "METALLICA MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MNE": {
+      "Name": "METALLUM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MLS": {
+      "Name": "METALS AUSTRALIA LTD",
+      "GICS industry group": "Materials"
+   },
+   "MLX": {
+      "Name": "METALS X LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MTC": {
+      "Name": "METALSTECH LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MTS": {
+      "Name": "METCASH LIMITED",
+      "GICS industry group": "Food & Staples Retailing"
+   },
+   "MEI": {
+      "Name": "METEORIC RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "MEL": {
+      "Name": "METGASCO LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MEQ": {
+      "Name": "METLIFECARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "MNC": {
+      "Name": "METMINCO LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MMI": {
+      "Name": "METRO MINING LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MPP": {
+      "Name": "METRO PERFORMANCE GLASS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MFF": {
+      "Name": "MFF CAPITAL INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MGC": {
+      "Name": "MG UNIT TRUST",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "MXC": {
+      "Name": "MGC PHARMACEUTICALS LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "MWR": {
+      "Name": "MGM WIRELESS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MHM": {
+      "Name": "MHM METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MHJ": {
+      "Name": "MICHAEL HILL INTERNATIONAL LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "MX1": {
+      "Name": "MICRO-X LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "MDI": {
+      "Name": "MIDDLE ISLAND RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MWY": {
+      "Name": "MIDWAY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MIG": {
+      "Name": "MIGME LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MHD": {
+      "Name": "MILLENNIUM LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "MOY": {
+      "Name": "MILLENNIUM MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MIL": {
+      "Name": "MILLENNIUM SERVICES GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "MAX": {
+      "Name": "MILLINIUM'S ALTERNATIVES FUND.",
+      "GICS industry group": "Not Applic"
+   },
+   "MLT": {
+      "Name": "MILTON CORPORATION LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MNB": {
+      "Name": "MINBOS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MCR": {
+      "Name": "MINCOR RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "MDX": {
+      "Name": "MINDAX LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MRC": {
+      "Name": "MINERAL COMMODITIES LTD",
+      "GICS industry group": "Materials"
+   },
+   "MDL": {
+      "Name": "MINERAL DEPOSITS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MIN": {
+      "Name": "MINERAL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MEP": {
+      "Name": "MINOTAUR EXPLORATION LTD",
+      "GICS industry group": "Materials"
+   },
+   "MRR": {
+      "Name": "MINREX RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MNW": {
+      "Name": "MINT PAYMENTS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MLI": {
+      "Name": "MINTAILS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MIR": {
+      "Name": "MIRRABOOKA INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MGR": {
+      "Name": "MIRVAC GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "MBT": {
+      "Name": "MISSION NEWENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MSV": {
+      "Name": "MITCHELL SERVICES LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "MTH": {
+      "Name": "MITHRIL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MUA": {
+      "Name": "MITULA GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MRM": {
+      "Name": "MMA OFFSHORE LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "MMG": {
+      "Name": "MMG LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MMJ": {
+      "Name": "MMJ PHYTOTECH LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "MIH": {
+      "Name": "MNC MEDIA INVESTMENT LTD",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "MNF": {
+      "Name": "MNF GROUP LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "MBM": {
+      "Name": "MOBECOM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MBO": {
+      "Name": "MOBILARM LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "MBE": {
+      "Name": "MOBILE EMBRACE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MOB": {
+      "Name": "MOBILICOM LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "MOD": {
+      "Name": "MOD RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MOE": {
+      "Name": "MOELIS AUSTRALIA LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MKB": {
+      "Name": "MOKO SOCIAL MEDIA LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MPO": {
+      "Name": "MOLOPO ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "MND": {
+      "Name": "MONADELPHOUS GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "MA1": {
+      "Name": "MONASH ABSOLUTE INVESTMENT COMPANY LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "MVF": {
+      "Name": "MONASH IVF GROUP LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "MOX": {
+      "Name": "MONAX MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MNY": {
+      "Name": "MONEY3 CORPORATION LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MZM": {
+      "Name": "MONTEZUMA MINING COMPANY LTD",
+      "GICS industry group": "Materials"
+   },
+   "MRV": {
+      "Name": "MORETON RESOURCES LTD",
+      "GICS industry group": "Energy"
+   },
+   "MEC": {
+      "Name": "MORPHIC ETHICAL EQUITIES FUND LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MOC": {
+      "Name": "MORTGAGE CHOICE LIMITED",
+      "GICS industry group": "Banks"
+   },
+   "MOT": {
+      "Name": "MOTOPIA LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MTO": {
+      "Name": "MOTORCYCLE HOLDINGS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "MTB": {
+      "Name": "MOUNT BURGESS MINING NL",
+      "GICS industry group": "Materials"
+   },
+   "MGX": {
+      "Name": "MOUNT GIBSON IRON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MRD": {
+      "Name": "MOUNT RIDLEY MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MRQ": {
+      "Name": "MRG METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MPW": {
+      "Name": "MSL SOLUTIONS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MSM": {
+      "Name": "MSM CORPORATION INTERNATIONAL LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "MXU": {
+      "Name": "MULTIPLEX SITES TRUST",
+      "GICS industry group": "Real Estate"
+   },
+   "MSI": {
+      "Name": "MULTISTACK INTERNATIONAL LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "MCH": {
+      "Name": "MURCHISON HOLDINGS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "MCA": {
+      "Name": "MURRAY COD AUSTRALIA LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "MRG": {
+      "Name": "MURRAY RIVER ORGANICS GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "MGV": {
+      "Name": "MUSGRAVE MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MUS": {
+      "Name": "MUSTANG RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MPX": {
+      "Name": "MUSTERA PROPERTY GROUP LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "MYL": {
+      "Name": "MYANMAR METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "MYR": {
+      "Name": "MYER HOLDINGS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "MYQ": {
+      "Name": "MYFIZIQ LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MYO": {
+      "Name": "MYOB GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "MYS": {
+      "Name": "MYSTATE LIMITED",
+      "GICS industry group": "Banks"
+   },
+   "MZI": {
+      "Name": "MZI RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "N1H": {
+      "Name": "N1 HOLDINGS LIMITED",
+      "GICS industry group": "Banks"
+   },
+   "NAG": {
+      "Name": "NAGAMBIE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NAM": {
+      "Name": "NAMOI COTTON CO-OPERATIVE LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "NC6": {
+      "Name": "NANOLLOSE LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "NAN": {
+      "Name": "NANOSONICS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "NAC": {
+      "Name": "NAOS ABSOLUTE OPPORTUNITIES COMPANY LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "NCC": {
+      "Name": "NAOS EMERGING OPPORTUNITIES COMPANY LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "NAB": {
+      "Name": "NATIONAL AUSTRALIA BANK LIMITED",
+      "GICS industry group": "Banks"
+   },
+   "NAF": {
+      "Name": "NATIONAL RMBS TRUST 2011-1 SERIES 2011-1",
+      "GICS industry group": "Not Applic"
+   },
+   "NAO": {
+      "Name": "NATIONAL RMBS TRUST 2011-2 SERIES 2011-2",
+      "GICS industry group": "Not Applic"
+   },
+   "NAH": {
+      "Name": "NATIONAL RMBS TRUST 2012-2 SERIES 2012-2",
+      "GICS industry group": "Not Applic"
+   },
+   "NAJ": {
+      "Name": "NATIONAL RMBS TRUST 2015-1 SERIES 2015-1",
+      "GICS industry group": "Not Applic"
+   },
+   "NRM": {
+      "Name": "NATIONAL RMBS TRUST 2016-1",
+      "GICS industry group": "Not Applic"
+   },
+   "NSR": {
+      "Name": "NATIONAL STORAGE REIT",
+      "GICS industry group": "Real Estate"
+   },
+   "NVL": {
+      "Name": "NATIONAL VETERINARY CARE LTD",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "NML": {
+      "Name": "NAVARRE MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NAV": {
+      "Name": "NAVIGATOR RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NVT": {
+      "Name": "NAVITAS LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "NEA": {
+      "Name": "NEARMAP LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "NXR": {
+      "Name": "NEMEX RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NMT": {
+      "Name": "NEOMETALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "NMS": {
+      "Name": "NEPTUNE MARINE SERVICES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "NCL": {
+      "Name": "NETCCENTRIC LIMITED",
+      "GICS industry group": "Media"
+   },
+   "NTC": {
+      "Name": "NETCOMM WIRELESS LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "NET": {
+      "Name": "NETLINKZ LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "NEU": {
+      "Name": "NEUREN PHARMACEUTICALS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "NTI": {
+      "Name": "NEUROTECH INTERNATIONAL LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "NAE": {
+      "Name": "NEW AGE EXPLORATION LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "NCZ": {
+      "Name": "NEW CENTURY RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NHC": {
+      "Name": "NEW HOPE CORPORATION LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "NSE": {
+      "Name": "NEW STANDARD ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "NTL": {
+      "Name": "NEW TALISMAN GOLD MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NZK": {
+      "Name": "NEW ZEALAND KING SALMON INVESTMENTS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "NCM": {
+      "Name": "NEWCREST MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NWF": {
+      "Name": "NEWFIELD RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NWS": {
+      "Name": "NEWS CORPORATION..",
+      "GICS industry group": "Media"
+   },
+   "NWZ": {
+      "Name": "NEWZULU LIMITED",
+      "GICS industry group": "Media"
+   },
+   "NME": {
+      "Name": "NEX METALS EXPLORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NXT": {
+      "Name": "NEXTDC LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "NXM": {
+      "Name": "NEXUS MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NGE": {
+      "Name": "NGE CAPITAL LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "NHF": {
+      "Name": "NIB HOLDINGS LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "NCK": {
+      "Name": "NICK SCALI LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "NIO": {
+      "Name": "NICKELORE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NEC": {
+      "Name": "NINE ENTERTAINMENT CO. HOLDINGS LIMITED",
+      "GICS industry group": "Media"
+   },
+   "NIU": {
+      "Name": "NIUMINCO GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NKP": {
+      "Name": "NKWE PLATINUM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NMG": {
+      "Name": "NMG CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NMM": {
+      "Name": "NOBLE METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NBL": {
+      "Name": "NONI B LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "NIB": {
+      "Name": "NORDIC INVESTMENT BANK",
+      "GICS industry group": "Not Applic"
+   },
+   "N27": {
+      "Name": "NORTHERN COBALT LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "NTU": {
+      "Name": "NORTHERN MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NMI": {
+      "Name": "NORTHERN MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NST": {
+      "Name": "NORTHERN STAR RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "NWE": {
+      "Name": "NORWEST ENERGY NL",
+      "GICS industry group": "Energy"
+   },
+   "NOR": {
+      "Name": "NORWOOD SYSTEMS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "NOE": {
+      "Name": "NOVARISE RENEWABLE RESOURCES INTERNATIONAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NOV": {
+      "Name": "NOVATTI GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "NHL": {
+      "Name": "NOVITA HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "NLI": {
+      "Name": "NOVO LITIO LTD",
+      "GICS industry group": "Materials"
+   },
+   "NRT": {
+      "Name": "NOVOGEN LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "NVX": {
+      "Name": "NOVONIX LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NOX": {
+      "Name": "NOXOPHARM LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "NWH": {
+      "Name": "NRW HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "NSL": {
+      "Name": "NSL CONSOLIDATED LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NSX": {
+      "Name": "NSX LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "NTM": {
+      "Name": "NTM GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NCR": {
+      "Name": "NUCOAL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NGY": {
+      "Name": "NUENERGY GAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "NFN": {
+      "Name": "NUFARM FINANCE (NZ) LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "NUF": {
+      "Name": "NUFARM LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NUH": {
+      "Name": "NUHEARA LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "NUS": {
+      "Name": "NUSANTARA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "NVO": {
+      "Name": "NVOI LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "NZM": {
+      "Name": "NZME LIMITED",
+      "GICS industry group": "Media"
+   },
+   "NZC": {
+      "Name": "NZURI COPPER LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "OKJ": {
+      "Name": "OAKAJEE CORPORATION LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "OAR": {
+      "Name": "OAKDALE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "OAG": {
+      "Name": "OASIS GOLD LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "OBJ": {
+      "Name": "OBJ LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "OCL": {
+      "Name": "OBJECTIVE CORPORATION LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "OGC": {
+      "Name": "OCEANAGOLD CORPORATION",
+      "GICS industry group": "Materials"
+   },
+   "OCP": {
+      "Name": "OCEANIA CAPITAL PARTNERS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "OCA": {
+      "Name": "OCEANIA HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "OGH": {
+      "Name": "OCHRE GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "OXX": {
+      "Name": "OCTANEX LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ODN": {
+      "Name": "ODIN ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ODY": {
+      "Name": "ODYSSEY ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "OFX": {
+      "Name": "OFX GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "OBL": {
+      "Name": "OIL BASINS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "OSH": {
+      "Name": "OIL SEARCH LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "OEX": {
+      "Name": "OILEX LTD",
+      "GICS industry group": "Energy"
+   },
+   "OKR": {
+      "Name": "OKAPI RESOURCES LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "OKU": {
+      "Name": "OKLO RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "OLH": {
+      "Name": "OLDFIELDS HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "OLI": {
+      "Name": "OLIVER'S REAL FOOD LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "OMH": {
+      "Name": "OM HOLDINGS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "OMT": {
+      "Name": "OMNI MARKET TIDE LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "OSL": {
+      "Name": "ONCOSIL MEDICAL LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "1AL": {
+      "Name": "ONEALL INTERNATIONAL LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "ONE": {
+      "Name": "ONEVIEW HEALTHCARE PLC",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "OVH": {
+      "Name": "ONEVUE HOLDINGS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "OTR": {
+      "Name": "ONTERRAN LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "OML": {
+      "Name": "OOH!MEDIA LIMITED",
+      "GICS industry group": "Media"
+   },
+   "OOK": {
+      "Name": "OOKAMI LIMITED",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "OPN": {
+      "Name": "OPENDNA LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "OPT": {
+      "Name": "OPTHEA LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "OIL": {
+      "Name": "OPTISCAN IMAGING LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "OPG": {
+      "Name": "OPUS GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "OEC": {
+      "Name": "ORBITAL CORPORATION LIMITED",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "OGY": {
+      "Name": "ORCA ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ORR": {
+      "Name": "ORECORP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ORH": {
+      "Name": "ORH LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "ORI": {
+      "Name": "ORICA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "OTI": {
+      "Name": "ORIENTAL TECHNOLOGIES INVESTMENT LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "ORG": {
+      "Name": "ORIGIN ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "OGX": {
+      "Name": "ORINOCO GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "OEQ": {
+      "Name": "ORION EQUITIES LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "OHE": {
+      "Name": "ORION HEALTH GROUP LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ORM": {
+      "Name": "ORION METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ORN": {
+      "Name": "ORION MINERALS NL",
+      "GICS industry group": "Materials"
+   },
+   "OVL": {
+      "Name": "ORO VERDE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ORE": {
+      "Name": "OROCOBRE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ORA": {
+      "Name": "ORORA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ORL": {
+      "Name": "OROTONGROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "OEG": {
+      "Name": "ORPHEUS ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "OCC": {
+      "Name": "ORTHOCELL LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "OSP": {
+      "Name": "OSPREY MEDICAL INC",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "OLV": {
+      "Name": "OTHERLEVELS HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "OEL": {
+      "Name": "OTTO ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "OVN": {
+      "Name": "OVENTUS MEDICAL LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "OTW": {
+      "Name": "OVER THE WIRE HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "OVR": {
+      "Name": "OVERLAND RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "OZL": {
+      "Name": "OZ MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "OZG": {
+      "Name": "OZGROWTH LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "OZT": {
+      "Name": "OZTRADE PUBLISHING GROUP LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "PAK": {
+      "Name": "PACIFIC AMERICAN COAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PBX": {
+      "Name": "PACIFIC BAUXITE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PAC": {
+      "Name": "PACIFIC CURRENT GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PDF": {
+      "Name": "PACIFIC DAIRIES LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "PEA": {
+      "Name": "PACIFIC ENERGY LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "PFM": {
+      "Name": "PACIFIC MINING LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "PSQ": {
+      "Name": "PACIFIC SMILES GROUP LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "PNW": {
+      "Name": "PACIFIC STAR NETWORK LIMITED",
+      "GICS industry group": "Media"
+   },
+   "PMY": {
+      "Name": "PACIFICO MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PGH": {
+      "Name": "PACT GROUP HOLDINGS LTD",
+      "GICS industry group": "Materials"
+   },
+   "PDN": {
+      "Name": "PALADIN ENERGY LTD",
+      "GICS industry group": "Energy"
+   },
+   "PZC": {
+      "Name": "PAN ASIA CORPORATION LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PPP": {
+      "Name": "PAN PACIFIC PETROLEUM NL",
+      "GICS industry group": "Energy"
+   },
+   "PCL": {
+      "Name": "PANCONTINENTAL OIL & GAS NL",
+      "GICS industry group": "Energy"
+   },
+   "PSY": {
+      "Name": "PANORAMA SYNERGY LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "PAN": {
+      "Name": "PANORAMIC RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PGI": {
+      "Name": "PANTERRA GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PNR": {
+      "Name": "PANTORO LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PPY": {
+      "Name": "PAPYRUS AUSTRALIA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PAR": {
+      "Name": "PARADIGM BIOPHARMACEUTICALS LIMITED..",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PGC": {
+      "Name": "PARAGON CARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "PNL": {
+      "Name": "PARINGA RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PWN": {
+      "Name": "PARKWAY MINERALS NL",
+      "GICS industry group": "Materials"
+   },
+   "PAB": {
+      "Name": "PATRYS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PEK": {
+      "Name": "PEAK RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PKO": {
+      "Name": "PEAKO LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PEX": {
+      "Name": "PEEL MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PPC": {
+      "Name": "PEET LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "PUN": {
+      "Name": "PEGASUS METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PEL": {
+      "Name": "PELICAN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PCG": {
+      "Name": "PENGANA CAPITAL GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PEN": {
+      "Name": "PENINSULA ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PSM": {
+      "Name": "PENINSULA MINES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PTL": {
+      "Name": "PENTAL LIMITED",
+      "GICS industry group": "Household & Personal Products"
+   },
+   "PNN": {
+      "Name": "PEPINNINI MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PEP": {
+      "Name": "PEPPER GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PIL": {
+      "Name": "PEPPERMINT INNOVATION LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "PIC": {
+      "Name": "PERPETUAL EQUITY INVESTMENT COMPANY LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "PPT": {
+      "Name": "PERPETUAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PEC": {
+      "Name": "PERPETUAL RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PRU": {
+      "Name": "PERSEUS MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PTR": {
+      "Name": "PETRATHERM LTD",
+      "GICS industry group": "Utilities"
+   },
+   "PRL": {
+      "Name": "PETREL ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PSA": {
+      "Name": "PETSEC ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PAA": {
+      "Name": "PHARMAUST LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PXS": {
+      "Name": "PHARMAXIS LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PHI": {
+      "Name": "PHILEO AUSTRALIA LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "PHK": {
+      "Name": "PHOSLOCK WATER SOLUTIONS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "POH": {
+      "Name": "PHOSPHAGENICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PYC": {
+      "Name": "PHYLOGICA LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PLL": {
+      "Name": "PIEDMONT LITHIUM LTD",
+      "GICS industry group": "Materials"
+   },
+   "PLS": {
+      "Name": "PILBARA MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PGY": {
+      "Name": "PILOT ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PNI": {
+      "Name": "PINNACLE INVESTMENT MANAGEMENT GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PNC": {
+      "Name": "PIONEER CREDIT LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PIO": {
+      "Name": "PIONEER RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PEG": {
+      "Name": "PIXIE GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "PPZ": {
+      "Name": "PLACES FOR PEOPLE TREASURY PLC",
+      "GICS industry group": "Not Applic"
+   },
+   "PGS": {
+      "Name": "PLANET GAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PGM": {
+      "Name": "PLATINA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PAI": {
+      "Name": "PLATINUM ASIA INVESTMENTS LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "PTM": {
+      "Name": "PLATINUM ASSET MANAGEMENT LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PMC": {
+      "Name": "PLATINUM CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PL8": {
+      "Name": "PLATO INCOME MAXIMISER LIMITED.",
+      "GICS industry group": "Not Applic"
+   },
+   "PKA": {
+      "Name": "PLUKKA LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PLH": {
+      "Name": "PLYMOUTH MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PAF": {
+      "Name": "PM CAPITAL ASIAN OPPORTUNITIES FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "PGF": {
+      "Name": "PM CAPITAL GLOBAL OPPORTUNITIES FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "PMP": {
+      "Name": "PMP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "PNX": {
+      "Name": "PNX METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PVE": {
+      "Name": "PO VALLEY ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "3DP": {
+      "Name": "POINTERRA LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "PNV": {
+      "Name": "POLYNOVO LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "POS": {
+      "Name": "POSEIDON NICKEL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PVL": {
+      "Name": "POWERHOUSE VENTURES LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "POZ": {
+      "Name": "POZ MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PPK": {
+      "Name": "PPK GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "PPS": {
+      "Name": "PRAEMIUM LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "PDZ": {
+      "Name": "PRAIRIE MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PBT": {
+      "Name": "PRANA BIOTECHNOLOGY LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PDI": {
+      "Name": "PREDICTIVE DISCOVERY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PMV": {
+      "Name": "PREMIER INVESTMENTS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "PEZ": {
+      "Name": "PREMIERE EASTERN ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "PTX": {
+      "Name": "PRESCIENT THERAPEUTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PRR": {
+      "Name": "PRIMA BIOMED LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PGO": {
+      "Name": "PRIMARY GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PRY": {
+      "Name": "PRIMARY HEALTH CARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "POP": {
+      "Name": "PRIMARY OPINION LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "PFG": {
+      "Name": "PRIME FINANCIAL GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PRT": {
+      "Name": "PRIME MEDIA GROUP LIMITED",
+      "GICS industry group": "Media"
+   },
+   "PME": {
+      "Name": "PRO MEDICUS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "PPG": {
+      "Name": "PRO-PAC PACKAGING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PBP": {
+      "Name": "PROBIOTEC LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PRG": {
+      "Name": "PROGRAMMED MAINTENANCE SERVICES LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "POB": {
+      "Name": "PROGRESS 2010-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "PCH": {
+      "Name": "PROPERTY CONNECT HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "PLG": {
+      "Name": "PROPERTYLINK GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "PRO": {
+      "Name": "PROPHECY INTERNATIONAL HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "PRS": {
+      "Name": "PROSPECH LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "PSC": {
+      "Name": "PROSPECT RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PSP": {
+      "Name": "PROSPERITY RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "POW": {
+      "Name": "PROTEAN ENERGY LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "PIQ": {
+      "Name": "PROTEOMICS INTERNATIONAL LABORATORIES LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PSZ": {
+      "Name": "PS&C LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "PSI": {
+      "Name": "PSC INSURANCE GROUP LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "PVA": {
+      "Name": "PSIVIDA CORP.",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PTB": {
+      "Name": "PTB GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "PHA": {
+      "Name": "PUBLIC HOLDINGS (AUSTRALIA) LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "PUB": {
+      "Name": "PUMA MASTERFUND P-16",
+      "GICS industry group": "Not Applic"
+   },
+   "PUG": {
+      "Name": "PUMA MASTERFUND S-8",
+      "GICS industry group": "Not Applic"
+   },
+   "PUJ": {
+      "Name": "PUMA SERIES 2013-1",
+      "GICS industry group": "Not Applic"
+   },
+   "PUK": {
+      "Name": "PUMA SERIES 2014-1",
+      "GICS industry group": "Not Applic"
+   },
+   "PUO": {
+      "Name": "PUMA SERIES 2014-2",
+      "GICS industry group": "Not Applic"
+   },
+   "PUQ": {
+      "Name": "PUMA SERIES 2014-4P",
+      "GICS industry group": "Not Applic"
+   },
+   "PUU": {
+      "Name": "PUMA SERIES 2015-1",
+      "GICS industry group": "Not Applic"
+   },
+   "PUV": {
+      "Name": "PUMA SERIES 2015-3",
+      "GICS industry group": "Not Applic"
+   },
+   "PVD": {
+      "Name": "PURA VIDA ENERGY NL",
+      "GICS industry group": "Energy"
+   },
+   "PM1": {
+      "Name": "PURE MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "PPL": {
+      "Name": "PUREPROFILE LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "PUR": {
+      "Name": "PURSUIT MINERALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "PPH": {
+      "Name": "PUSHPAY HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "PWH": {
+      "Name": "PWR HOLDINGS LIMITED",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "PLX": {
+      "Name": "PYROLYX AG",
+      "GICS industry group": "Materials"
+   },
+   "QTG": {
+      "Name": "Q TECHNOLOGY GROUP LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "QAN": {
+      "Name": "QANTAS AIRWAYS LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "QIP": {
+      "Name": "QANTM INTELLECTUAL PROPERTY LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "QBE": {
+      "Name": "QBE INSURANCE GROUP LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "QMS": {
+      "Name": "QMS MEDIA LIMITED",
+      "GICS industry group": "Media"
+   },
+   "QRX": {
+      "Name": "QRXPHARMA LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "QFY": {
+      "Name": "QUANTIFY TECHNOLOGY HOLDINGS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "QTM": {
+      "Name": "QUANTUM ENERGY LIMITED.",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "QGL": {
+      "Name": "QUANTUM GRAPHITE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "QUR": {
+      "Name": "QUANTUM RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "QUB": {
+      "Name": "QUBE HOLDINGS LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "QBC": {
+      "Name": "QUEBEC",
+      "GICS industry group": "Not Applic"
+   },
+   "QBL": {
+      "Name": "QUEENSLAND BAUXITE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "QMN": {
+      "Name": "QUEENSLAND MINING CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "XQL": {
+      "Name": "QUEENSLAND TREASURY CORPORATION",
+      "GICS industry group": "Not Applic"
+   },
+   "QST": {
+      "Name": "QUEST INVESTMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "QNL": {
+      "Name": "QUEST MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "QUE": {
+      "Name": "QUESTE COMMUNICATIONS LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "QSS": {
+      "Name": "QUESTUS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "QHL": {
+      "Name": "QUICKSTEP HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "QIN": {
+      "Name": "QUINTIS LTD",
+      "GICS industry group": "Materials"
+   },
+   "QVE": {
+      "Name": "QV EQUITIES LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "R3D": {
+      "Name": "R3D GLOBAL LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "RAC": {
+      "Name": "RACE ONCOLOGY LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "RAF": {
+      "Name": "RAFFLES CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "RMS": {
+      "Name": "RAMELIUS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RMM": {
+      "Name": "RAMS MORTGAGE SECURITIES TRUST SERIES 2006-1",
+      "GICS industry group": "Not Applic"
+   },
+   "RMH": {
+      "Name": "RAMS MORTGAGE SECURITIES TRUST SERIES 2007-2H",
+      "GICS industry group": "Not Applic"
+   },
+   "RHC": {
+      "Name": "RAMSAY HEALTH CARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "RND": {
+      "Name": "RAND MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RAN": {
+      "Name": "RANGE INTERNATIONAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RRS": {
+      "Name": "RANGE RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "RPG": {
+      "Name": "RAPTIS GROUP LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "RPL": {
+      "Name": "RAPTOR RESOURCES LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "RAW": {
+      "Name": "RAWSON OIL AND GAS LTD",
+      "GICS industry group": "Energy"
+   },
+   "RBR": {
+      "Name": "RBR GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RCG": {
+      "Name": "RCG CORPORATION LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "RCR": {
+      "Name": "RCR TOMLINSON LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "REA": {
+      "Name": "REA GROUP LTD",
+      "GICS industry group": "Media"
+   },
+   "RLE": {
+      "Name": "REAL ENERGY CORPORATION LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "REV": {
+      "Name": "REAL ESTATE INVESTAR GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RRP": {
+      "Name": "REALM RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RCE": {
+      "Name": "RECCE LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "RKN": {
+      "Name": "RECKON LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RFT": {
+      "Name": "RECTIFIER TECHNOLOGIES LTD",
+      "GICS industry group": "Capital Goods"
+   },
+   "RED": {
+      "Name": "RED 5 LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RMP": {
+      "Name": "RED EMPEROR RESOURCES NL",
+      "GICS industry group": "Energy"
+   },
+   "RHI": {
+      "Name": "RED HILL IRON LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RDM": {
+      "Name": "RED METAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RMX": {
+      "Name": "RED MOUNTAIN MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RVR": {
+      "Name": "RED RIVER RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ROG": {
+      "Name": "RED SKY ENERGY LIMITED.",
+      "GICS industry group": "Energy"
+   },
+   "RCP": {
+      "Name": "REDBANK COPPER LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RBL": {
+      "Name": "REDBUBBLE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RDF": {
+      "Name": "REDFLEX HOLDINGS LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "RFX": {
+      "Name": "REDFLOW LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "RDH": {
+      "Name": "REDHILL EDUCATION LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "RDS": {
+      "Name": "REDSTONE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "REH": {
+      "Name": "REECE LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "RLC": {
+      "Name": "REEDY LAGOON CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RCT": {
+      "Name": "REEF CASINO TRUST",
+      "GICS industry group": "Consumer Services"
+   },
+   "RFN": {
+      "Name": "REFFIND LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RGP": {
+      "Name": "REFRESH GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "RGS": {
+      "Name": "REGENEUS LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "REX": {
+      "Name": "REGIONAL EXPRESS HOLDINGS LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "REG": {
+      "Name": "REGIS HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "RRL": {
+      "Name": "REGIS RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RD1": {
+      "Name": "REGISTRY DIRECT LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "RWC": {
+      "Name": "RELIANCE WORLDWIDE CORPORATION LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "RNU": {
+      "Name": "RENASCOR RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "RNT": {
+      "Name": "RENT.COM.AU LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RNE": {
+      "Name": "RENU ENERGY LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "RAP": {
+      "Name": "RESAPP HEALTH LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "RTC": {
+      "Name": "RESIMAC TRIOMPHE TRUST PREMIER 2017-2",
+      "GICS industry group": "Not Applic"
+   },
+   "RMD": {
+      "Name": "RESMED INC",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "RSG": {
+      "Name": "RESOLUTE MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RHT": {
+      "Name": "RESONANCE HEALTH LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "RBX": {
+      "Name": "RESOURCE BASE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RDG": {
+      "Name": "RESOURCE DEVELOPMENT GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RES": {
+      "Name": "RESOURCE GENERATION LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "RMI": {
+      "Name": "RESOURCE MINING CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "REZ": {
+      "Name": "RESOURCES & ENERGY GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RSH": {
+      "Name": "RESPIRI LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "RBD": {
+      "Name": "RESTAURANT BRANDS NEW ZEALAND LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "RFG": {
+      "Name": "RETAIL FOOD GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "RTE": {
+      "Name": "RETECH TECHNOLOGY CO., LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "RVA": {
+      "Name": "REVA MEDICAL, INC",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "REF": {
+      "Name": "REVERSE CORP LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "RWD": {
+      "Name": "REWARD MINERALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "RXH": {
+      "Name": "REWARDLE HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RXM": {
+      "Name": "REX MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "REY": {
+      "Name": "REY RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "RNO": {
+      "Name": "RHINOMED LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "RHP": {
+      "Name": "RHIPE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RHS": {
+      "Name": "RHS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "RIC": {
+      "Name": "RIDLEY CORPORATION LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "RIE": {
+      "Name": "RIEDEL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RVY": {
+      "Name": "RIFT VALLEY RESOURCES LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "RCW": {
+      "Name": "RIGHTCROWD LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "RIM": {
+      "Name": "RIMFIRE PACIFIC MINING NL",
+      "GICS industry group": "Materials"
+   },
+   "RIO": {
+      "Name": "RIO TINTO LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RNL": {
+      "Name": "RISION LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RIR": {
+      "Name": "RIVA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RGL": {
+      "Name": "RIVERSGOLD LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "RMT": {
+      "Name": "RMA ENERGY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RMG": {
+      "Name": "RMG LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RNY": {
+      "Name": "RNY PROPERTY TRUST",
+      "GICS industry group": "Real Estate"
+   },
+   "RBO": {
+      "Name": "ROBO 3D LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "RGI": {
+      "Name": "ROTO-GRO INTERNATIONAL LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "RXL": {
+      "Name": "ROX RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RWH": {
+      "Name": "ROYAL WOLF HOLDINGS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "RCO": {
+      "Name": "ROYALCO RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RUL": {
+      "Name": "RPMGLOBAL HOLDINGS LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RTG": {
+      "Name": "RTG MINING INC.",
+      "GICS industry group": "Materials"
+   },
+   "RUB": {
+      "Name": "RUBICOR GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "RTR": {
+      "Name": "RUMBLE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "RFF": {
+      "Name": "RURAL FUNDS GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "RHL": {
+      "Name": "RURALCO HOLDINGS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "RXP": {
+      "Name": "RXP SERVICES LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "RYD": {
+      "Name": "RYDER CAPITAL LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "S2R": {
+      "Name": "S2 RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "SBR": {
+      "Name": "SABRE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SGC": {
+      "Name": "SACGASCO LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SRH": {
+      "Name": "SAFEROADS HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "SAN": {
+      "Name": "SAGALIO ENERGY LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SLM": {
+      "Name": "SALMAT LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "SO4": {
+      "Name": "SALT LAKE POTASH LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SSN": {
+      "Name": "SAMSON OIL & GAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SFR": {
+      "Name": "SANDFIRE RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "SNC": {
+      "Name": "SANDON CAPITAL INVESTMENTS LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "SMI": {
+      "Name": "SANTANA MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "STO": {
+      "Name": "SANTOS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SAR": {
+      "Name": "SARACEN MINERAL HOLDINGS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SND": {
+      "Name": "SAUNDERS INTERNATIONAL LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "SYA": {
+      "Name": "SAYONA MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SCG": {
+      "Name": "SCENTRE GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "SCW": {
+      "Name": "SCENTRE GROUP TRUST 1",
+      "GICS industry group": "Real Estate"
+   },
+   "SCA": {
+      "Name": "SCENTRE GROUP TRUST 1 AND SCENTRE GROUP TRUST 2",
+      "GICS industry group": "Not Applic"
+   },
+   "SFC": {
+      "Name": "SCHAFFER CORPORATION LIMITED",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "SDV": {
+      "Name": "SCIDEV LTD",
+      "GICS industry group": "Materials"
+   },
+   "SIE": {
+      "Name": "SCIGEN LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "SCO": {
+      "Name": "SCOTTISH PACIFIC GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "SCT": {
+      "Name": "SCOUT SECURITY LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "SDI": {
+      "Name": "SDI LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "SFG": {
+      "Name": "SEAFARMS GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "SLK": {
+      "Name": "SEALINK TRAVEL GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "SP1": {
+      "Name": "SEARCH PARTY GROUP LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "SES": {
+      "Name": "SECOS GROUP LTD",
+      "GICS industry group": "Materials"
+   },
+   "S2G": {
+      "Name": "SECURE2GO GROUP LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "SAC": {
+      "Name": "SECURITISED AUSTRALIAN MORTGAGE TRUST 2011-1",
+      "GICS industry group": "Not Applic"
+   },
+   "SEK": {
+      "Name": "SEEK LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "SEG": {
+      "Name": "SEGUE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SHV": {
+      "Name": "SELECT HARVESTS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "SEN": {
+      "Name": "SENETAS CORPORATION LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "SXY": {
+      "Name": "SENEX ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SE1": {
+      "Name": "SENSERA LIMITED",
+      "GICS industry group": "Semiconductors & Semiconductor Equipment"
+   },
+   "SEQ": {
+      "Name": "SEQUOIA FINANCIAL GROUP LTD",
+      "GICS industry group": "Diversified Financials"
+   },
+   "REQ": {
+      "Name": "SERIES 2007-2 REDS TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WSC": {
+      "Name": "SERIES 2009-1 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "REK": {
+      "Name": "SERIES 2010-1 REDS TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "RDA": {
+      "Name": "SERIES 2010-2 REDS TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WSH": {
+      "Name": "SERIES 2011-1 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WSJ": {
+      "Name": "SERIES 2011-2 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WSN": {
+      "Name": "SERIES 2011-3 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WSO": {
+      "Name": "SERIES 2012-1 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "RFB": {
+      "Name": "SERIES 2012-1E REDS TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "HTB": {
+      "Name": "SERIES 2013-1 HARVEY TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WSQ": {
+      "Name": "SERIES 2013-1 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WSD": {
+      "Name": "SERIES 2013-2 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WSZ": {
+      "Name": "SERIES 2014-1 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WEK": {
+      "Name": "SERIES 2014-2 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WEJ": {
+      "Name": "SERIES 2015-1 WST TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "RFC": {
+      "Name": "SERIES 2017-1 REDS TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "SRV": {
+      "Name": "SERVCORP LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "SSM": {
+      "Name": "SERVICE STREAM LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "SVT": {
+      "Name": "SERVTECH GLOBAL HOLDINGS LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "SVW": {
+      "Name": "SEVEN GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "SWM": {
+      "Name": "SEVEN WEST MEDIA LIMITED",
+      "GICS industry group": "Media"
+   },
+   "SWL": {
+      "Name": "SEYMOUR WHYTE LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "SGF": {
+      "Name": "SG FLEET GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "SRO": {
+      "Name": "SHAREROOT LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "SM8": {
+      "Name": "SHARK MITIGATION SYSTEMS LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "SSG": {
+      "Name": "SHAVER SHOP GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "SRR": {
+      "Name": "SHAW RIVER MANGANESE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SFX": {
+      "Name": "SHEFFIELD RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SHU": {
+      "Name": "SHENHUA INTERNATIONAL LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "SHJ": {
+      "Name": "SHINE CORPORATE LTD",
+      "GICS industry group": "Consumer Services"
+   },
+   "SHZ": {
+      "Name": "SHINHAN BANK.",
+      "GICS industry group": "Not Applic"
+   },
+   "SCP": {
+      "Name": "SHOPPING CENTRES AUSTRALASIA PROPERTY GROUP",
+      "GICS industry group": "Real Estate"
+   },
+   "SHH": {
+      "Name": "SHREE MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SHM": {
+      "Name": "SHRIRO HOLDINGS LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "SBU": {
+      "Name": "SIBURAN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SDX": {
+      "Name": "SIENNA CANCER DIAGNOSTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "SSL": {
+      "Name": "SIETEL LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "SIG": {
+      "Name": "SIGMA HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "SIH": {
+      "Name": "SIHAYO GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SLX": {
+      "Name": "SILEX SYSTEMS LIMITED",
+      "GICS industry group": "Semiconductors & Semiconductor Equipment"
+   },
+   "SIV": {
+      "Name": "SILVER CHEF LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "SCI": {
+      "Name": "SILVER CITY MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SVH": {
+      "Name": "SILVER HERITAGE GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "SLR": {
+      "Name": "SILVER LAKE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SVL": {
+      "Name": "SILVER MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SVA": {
+      "Name": "SIMAVITA LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "SIO": {
+      "Name": "SIMONDS GROUP LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "SGM": {
+      "Name": "SIMS METAL MANAGEMENT LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SEH": {
+      "Name": "SINO GAS & ENERGY HOLDINGS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SNV": {
+      "Name": "SINOVUS MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SRI": {
+      "Name": "SIPA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SRX": {
+      "Name": "SIRTEX MEDICAL LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "SIT": {
+      "Name": "SITE GROUP INTERNATIONAL LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "SAM": {
+      "Name": "SIV ASSET MANAGEMENT LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "SKN": {
+      "Name": "SKIN ELEMENTS LIMITED",
+      "GICS industry group": "Household & Personal Products"
+   },
+   "SAS": {
+      "Name": "SKY AND SPACE GLOBAL LTD",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "SKT": {
+      "Name": "SKY NETWORK TELEVISION LIMITED.",
+      "GICS industry group": "Media"
+   },
+   "SKC": {
+      "Name": "SKYCITY ENTERTAINMENT GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "SKB": {
+      "Name": "SKYDIVE THE BEACH GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "SKF": {
+      "Name": "SKYFII LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "SKP": {
+      "Name": "SKYLAND PETROLEUM  GROUP LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SGH": {
+      "Name": "SLATER & GORDON LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "SAB": {
+      "Name": "SMART ABS SERIES 2014-2E TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "SSE": {
+      "Name": "SMART ABS SERIES 2014-4 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "SMT": {
+      "Name": "SMART ABS SERIES 2015-2 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "SXB": {
+      "Name": "SMART ABS SERIES 2015-4E TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "SS6": {
+      "Name": "SMART ABS SERIES 2016-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "SAZ": {
+      "Name": "SMART ABS SERIES 2016-3 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "SSF": {
+      "Name": "SMART ABS SERIES 2017-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "SS7": {
+      "Name": "SMART ABS SERIES 2017-2 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "SPZ": {
+      "Name": "SMART PARKING LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "SIQ": {
+      "Name": "SMARTGROUP CORPORATION LTD",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "SMP": {
+      "Name": "SMARTPAY HOLDINGS LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "SMA": {
+      "Name": "SMARTTRANS HOLDINGS LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "SOP": {
+      "Name": "SML CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SMX": {
+      "Name": "SMS MANAGEMENT & TECHNOLOGY LIMITED.",
+      "GICS industry group": "Software & Services"
+   },
+   "SOM": {
+      "Name": "SOMNOMED LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "SHL": {
+      "Name": "SONIC HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "SMG": {
+      "Name": "SOON MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SAY": {
+      "Name": "SOUTH AMERICAN IRON & STEEL CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SXI": {
+      "Name": "SOUTH EAST ASIA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SPB": {
+      "Name": "SOUTH PACIFIC RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "S32": {
+      "Name": "SOUTH32 LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SXE": {
+      "Name": "SOUTHERN CROSS ELECTRICAL ENGINEERING LTD",
+      "GICS industry group": "Capital Goods"
+   },
+   "SXX": {
+      "Name": "SOUTHERN CROSS EXPLORATION N.L.",
+      "GICS industry group": "Materials"
+   },
+   "SXL": {
+      "Name": "SOUTHERN CROSS MEDIA GROUP LIMITED",
+      "GICS industry group": "Media"
+   },
+   "SAU": {
+      "Name": "SOUTHERN GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SUH": {
+      "Name": "SOUTHERN HEMISPHERE MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SVM": {
+      "Name": "SOVEREIGN METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SKI": {
+      "Name": "SPARK INFRASTRUCTURE GROUP",
+      "GICS industry group": "Utilities"
+   },
+   "SPK": {
+      "Name": "SPARK NEW ZEALAND LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "STW": {
+      "Name": "SPDR S&P/ASX 200 FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "SLF": {
+      "Name": "SPDR S&P/ASX 200 LISTED PROPERTY FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "SFY": {
+      "Name": "SPDR S&P/ASX 50 FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "SFH": {
+      "Name": "SPECIALTY FASHION GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "SPX": {
+      "Name": "SPECTRUM RARE EARTHS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SP3": {
+      "Name": "SPECTUR LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "SDA": {
+      "Name": "SPEEDCAST INTERNATIONAL LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "SRS": {
+      "Name": "SPICERS LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "ST1": {
+      "Name": "SPIRIT TELECOM LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "SPI": {
+      "Name": "SPITFIRE MATERIALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "SFI": {
+      "Name": "SPOOKFISH LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "SHO": {
+      "Name": "SPORTSHERO LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "SPO": {
+      "Name": "SPOTLESS GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "SFL": {
+      "Name": "SPRING FG LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "SIX": {
+      "Name": "SPRINTEX LIMITED",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "SRG": {
+      "Name": "SRG LIMITED.",
+      "GICS industry group": "Capital Goods"
+   },
+   "SBM": {
+      "Name": "ST BARBARA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SGQ": {
+      "Name": "ST GEORGE MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SMR": {
+      "Name": "STANMORE COAL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "STL": {
+      "Name": "STARGROUP LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "SPL": {
+      "Name": "STARPHARMA HOLDINGS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "SVY": {
+      "Name": "STAVELY MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SDF": {
+      "Name": "STEADFAST GROUP LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "SST": {
+      "Name": "STEAMSHIPS TRADING COMPANY LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "SRZ": {
+      "Name": "STELLAR RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SCU": {
+      "Name": "STEMCELL UNITED LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "SBI": {
+      "Name": "STERLING PLANTATIONS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "SFS": {
+      "Name": "STIRFIRE LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "SGP": {
+      "Name": "STOCKLAND",
+      "GICS industry group": "Real Estate"
+   },
+   "SKS": {
+      "Name": "STOKES LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "SHK": {
+      "Name": "STONE RESOURCES AUSTRALIA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SWJ": {
+      "Name": "STONEWALL RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SRY": {
+      "Name": "STORY-I LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "STA": {
+      "Name": "STRANDLINE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SXA": {
+      "Name": "STRATA-X ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SOR": {
+      "Name": "STRATEGIC ELEMENTS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "SER": {
+      "Name": "STRATEGIC ENERGY RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SMC": {
+      "Name": "STRATEGIC MINERALS CORPORATION NL",
+      "GICS industry group": "Materials"
+   },
+   "SGO": {
+      "Name": "STREAM GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "STX": {
+      "Name": "STRIKE ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SRK": {
+      "Name": "STRIKE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SMN": {
+      "Name": "STRUCTURAL MONITORING SYSTEMS PLC",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "SGU": {
+      "Name": "SUCCESS GLOBAL MEDIA LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "SUD": {
+      "Name": "SUDA LTD",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "SDC": {
+      "Name": "SUGAR DRAGON LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "SUM": {
+      "Name": "SUMATRA COPPER & GOLD PLC",
+      "GICS industry group": "Materials"
+   },
+   "SNZ": {
+      "Name": "SUMMERSET GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "SMM": {
+      "Name": "SUMMIT RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SUR": {
+      "Name": "SUN RESOURCES NL",
+      "GICS industry group": "Energy"
+   },
+   "SBB": {
+      "Name": "SUNBRIDGE GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "SUN": {
+      "Name": "SUNCORP GROUP LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "SBK": {
+      "Name": "SUNCORP-METWAY LIMITED .",
+      "GICS industry group": "Insurance"
+   },
+   "SEA": {
+      "Name": "SUNDANCE ENERGY AUSTRALIA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SDL": {
+      "Name": "SUNDANCE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SDG": {
+      "Name": "SUNLAND GROUP LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "STM": {
+      "Name": "SUNSTONE METALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "SVS": {
+      "Name": "SUNVEST CORPORATION LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "SUL": {
+      "Name": "SUPER RETAIL GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "SPQ": {
+      "Name": "SUPERIOR RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SLC": {
+      "Name": "SUPERLOOP LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "SNL": {
+      "Name": "SUPPLY NETWORK LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "SRN": {
+      "Name": "SUREFIRE RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "SRF": {
+      "Name": "SURFSTITCH GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "SWE": {
+      "Name": "SWALA ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SWK": {
+      "Name": "SWICK MINING SERVICES LTD",
+      "GICS industry group": "Materials"
+   },
+   "SW1": {
+      "Name": "SWIFT NETWORKS GROUP LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "SYD": {
+      "Name": "SYDNEY AIRPORT",
+      "GICS industry group": "Transportation"
+   },
+   "SMD": {
+      "Name": "SYNDICATED METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "SYS": {
+      "Name": "SYNGAS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "SM1": {
+      "Name": "SYNLAIT MILK LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "SYT": {
+      "Name": "SYNTONIC LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "SYR": {
+      "Name": "SYRAH RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TAH": {
+      "Name": "TABCORP HOLDINGS LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "TAG": {
+      "Name": "TAG PACIFIC LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "TLG": {
+      "Name": "TALGA RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "TLM": {
+      "Name": "TALISMAN MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TPD": {
+      "Name": "TALON PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "TMK": {
+      "Name": "TAMASKA OIL AND GAS LTD",
+      "GICS industry group": "Energy"
+   },
+   "TWD": {
+      "Name": "TAMAWOOD LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "TAM": {
+      "Name": "TANAMI GOLD NL",
+      "GICS industry group": "Materials"
+   },
+   "TNO": {
+      "Name": "TANDO RESOURCES LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "TRL": {
+      "Name": "TANGA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TAP": {
+      "Name": "TAP OIL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "TEX": {
+      "Name": "TARGET ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "TAR": {
+      "Name": "TARUGA GOLD LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TFL": {
+      "Name": "TASFOODS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "TAS": {
+      "Name": "TASMAN RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "TGR": {
+      "Name": "TASSAL GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "TTS": {
+      "Name": "TATTS GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "TAW": {
+      "Name": "TAWANA RESOURCES NL",
+      "GICS industry group": "Materials"
+   },
+   "TDL": {
+      "Name": "TBG DIAGNOSTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "TMP": {
+      "Name": "TECH MPIRE LIMITED",
+      "GICS industry group": "Media"
+   },
+   "TCN": {
+      "Name": "TECHNICHE LIMITED.",
+      "GICS industry group": "Diversified Financials"
+   },
+   "TMT": {
+      "Name": "TECHNOLOGY METALS AUSTRALIA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TNE": {
+      "Name": "TECHNOLOGY ONE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "TGH": {
+      "Name": "TEGEL GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "TLS": {
+      "Name": "TELSTRA CORPORATION LIMITED.",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "TPW": {
+      "Name": "TEMPLE & WEBSTER GROUP LTD",
+      "GICS industry group": "Retailing"
+   },
+   "TGG": {
+      "Name": "TEMPLETON GLOBAL GROWTH FUND LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "TPP": {
+      "Name": "TEMPO AUSTRALIA LTD",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "TEN": {
+      "Name": "TEN NETWORK HOLDINGS LIMITED",
+      "GICS industry group": "Media"
+   },
+   "TGZ": {
+      "Name": "TERANGA GOLD CORPORATION",
+      "GICS industry group": "Materials"
+   },
+   "TER": {
+      "Name": "TERRACOM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "TMX": {
+      "Name": "TERRAIN MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TZN": {
+      "Name": "TERRAMIN AUSTRALIA LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "TNT": {
+      "Name": "TESSERENT LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "TES": {
+      "Name": "TEST SECURITY",
+      "GICS industry group": "Class Pend"
+   },
+   "A2M": {
+      "Name": "THE A2 MILK COMPANY LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "CGL": {
+      "Name": "THE CITADEL GROUP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "FOD": {
+      "Name": "THE FOOD REVOLUTION GROUP LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "GO2": {
+      "Name": "THE GO2 PEOPLE LTD",
+      "GICS industry group": "Class Pend"
+   },
+   "GGL": {
+      "Name": "THE GRUDEN GROUP LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "THC": {
+      "Name": "THE HYDROPONICS COMPANY LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "PGR": {
+      "Name": "THE PAS GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "TRS": {
+      "Name": "THE REJECT SHOP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "SGR": {
+      "Name": "THE STAR ENTERTAINMENT GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "TNK": {
+      "Name": "THINK CHILDCARE LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "TMZ": {
+      "Name": "THOMSON RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "THR": {
+      "Name": "THOR MINING PLC",
+      "GICS industry group": "Materials"
+   },
+   "TGA": {
+      "Name": "THORN GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "TOP": {
+      "Name": "THORNEY OPPORTUNITIES LTD",
+      "GICS industry group": "Not Applic"
+   },
+   "TEK": {
+      "Name": "THORNEY TECHNOLOGIES LTD",
+      "GICS industry group": "Energy"
+   },
+   "TPS": {
+      "Name": "THREAT PROTECT AUSTRALIA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "THD": {
+      "Name": "THRED LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "THX": {
+      "Name": "THUNDELARRA LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TIA": {
+      "Name": "TIAN AN AUSTRALIA LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "TPO": {
+      "Name": "TIAN POH RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TB8": {
+      "Name": "TIANMEI BEVERAGE GROUP CORPORATION LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "TGS": {
+      "Name": "TIGER RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TIG": {
+      "Name": "TIGERS REALM COAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TKF": {
+      "Name": "TIKFORCE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "TLT": {
+      "Name": "TILT RENEWABLES LIMITED.",
+      "GICS industry group": "Utilities"
+   },
+   "TML": {
+      "Name": "TIMAH RESOURCES LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "TNY": {
+      "Name": "TINYBEANS GROUP LTD",
+      "GICS industry group": "Software & Services"
+   },
+   "TTM": {
+      "Name": "TITAN MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TSL": {
+      "Name": "TITANIUM SANDS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TTT": {
+      "Name": "TITOMIC LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "TOU": {
+      "Name": "TLOU ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "TNG": {
+      "Name": "TNG LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TIN": {
+      "Name": "TNT MINES LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "TRT": {
+      "Name": "TODD RIVER RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TOM": {
+      "Name": "TOMIZONE LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "TBH": {
+      "Name": "TOPBETTA HOLDINGS LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "TTW": {
+      "Name": "TOPTUNG LTD",
+      "GICS industry group": "Materials"
+   },
+   "TNR": {
+      "Name": "TORIAN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TOE": {
+      "Name": "TORO ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "TRB": {
+      "Name": "TORRENS 2009-3 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TRP": {
+      "Name": "TORRENS SERIES 2010-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TRK": {
+      "Name": "TORRENS SERIES 2010-2 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TOA": {
+      "Name": "TORRENS SERIES 2010-3 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TNB": {
+      "Name": "TORRENS SERIES 2013-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TNF": {
+      "Name": "TORRENS SERIES 2013-2 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TNH": {
+      "Name": "TORRENS SERIES 2014-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TOZ": {
+      "Name": "TORRENS SERIES 2014-2 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TNJ": {
+      "Name": "TORRENS SERIES 2015-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TTZ": {
+      "Name": "TORRENS SERIES 2016-1 TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "TFG": {
+      "Name": "TOTAL FACE GROUP LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "TWR": {
+      "Name": "TOWER LIMITED",
+      "GICS industry group": "Insurance"
+   },
+   "TOX": {
+      "Name": "TOX FREE SOLUTIONS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "TPC": {
+      "Name": "TPC CONSOLIDATED LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "TPM": {
+      "Name": "TPG TELECOM LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "TPE": {
+      "Name": "TPI ENTERPRISES LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "TME": {
+      "Name": "TRADE ME GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "TTC": {
+      "Name": "TRADITIONAL THERAPY CLINICS LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "TTI": {
+      "Name": "TRAFFIC TECHNOLOGIES LTD.",
+      "GICS industry group": "Transportation"
+   },
+   "TKL": {
+      "Name": "TRAKA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TSN": {
+      "Name": "TRANSACTION SOLUTIONS INTERNATIONAL LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "TTL": {
+      "Name": "TRANSCENDENCE TECHNOLOGIES LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "TCO": {
+      "Name": "TRANSMETRO CORPORATION LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "TCL": {
+      "Name": "TRANSURBAN GROUP",
+      "GICS industry group": "Transportation"
+   },
+   "XVG": {
+      "Name": "TREASURY CORPORATION OF VICTORIA",
+      "GICS industry group": "Not Applic"
+   },
+   "TWE": {
+      "Name": "TREASURY WINE ESTATES LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "TKM": {
+      "Name": "TREK METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TEG": {
+      "Name": "TRIANGLE ENERGY (GLOBAL) LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "TBR": {
+      "Name": "TRIBUNE RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TIL": {
+      "Name": "TRILOGY INTERNATIONAL LIMITED",
+      "GICS industry group": "Household & Personal Products"
+   },
+   "TNP": {
+      "Name": "TRIPLE ENERGY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "TON": {
+      "Name": "TRITON MINERALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "TRY": {
+      "Name": "TROY RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TRM": {
+      "Name": "TRUSCOTT MINING CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TAU": {
+      "Name": "TRUSTEES AUSTRALIA LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "TTA": {
+      "Name": "TTA HOLDINGS LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "TUP": {
+      "Name": "TTG FINTECH LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "TGN": {
+      "Name": "TUNGSTEN MINING NL",
+      "GICS industry group": "Materials"
+   },
+   "TRA": {
+      "Name": "TURNERS AUTOMOTIVE GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "TV2": {
+      "Name": "TV2U INTERNATIONAL LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "TYK": {
+      "Name": "TYCHEAN RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "TYX": {
+      "Name": "TYRANNA RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "TZL": {
+      "Name": "TZ LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "UCW": {
+      "Name": "UCW LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "UIL": {
+      "Name": "UIL ENERGY LTD",
+      "GICS industry group": "Energy"
+   },
+   "UUL": {
+      "Name": "ULTIMA UNITED LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "UTR": {
+      "Name": "ULTRACHARGE LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "UNL": {
+      "Name": "UNITED NETWORKS LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "UOS": {
+      "Name": "UNITED OVERSEAS AUSTRALIA LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "UBI": {
+      "Name": "UNIVERSAL BIOSENSORS INC.",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "UNV": {
+      "Name": "UNIVERSAL COAL PLC",
+      "GICS industry group": "Energy"
+   },
+   "UPD": {
+      "Name": "UPDATER INC",
+      "GICS industry group": "Software & Services"
+   },
+   "UEQ": {
+      "Name": "URANIUM EQUITIES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "URI": {
+      "Name": "URANIUM RESOURCES INC",
+      "GICS industry group": "Energy"
+   },
+   "USA": {
+      "Name": "URANIUMSA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "URB": {
+      "Name": "URB INVESTMENTS LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "UBN": {
+      "Name": "URBANISE.COM LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "URF": {
+      "Name": "US MASTERS RESIDENTIAL PROPERTY FUND",
+      "GICS industry group": "Real Estate"
+   },
+   "USR": {
+      "Name": "US RESIDENTIAL FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "USF": {
+      "Name": "US SELECT PRIVATE OPPORTUNITIES FUND",
+      "GICS industry group": "Not Applic"
+   },
+   "USG": {
+      "Name": "US SELECT PRIVATE OPPORTUNITIES FUND II",
+      "GICS industry group": "Not Applic"
+   },
+   "USP": {
+      "Name": "US SELECT PRIVATE OPPORTUNITIES FUND III",
+      "GICS industry group": "Not Applic"
+   },
+   "UCM": {
+      "Name": "USCOM LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "UUV": {
+      "Name": "UUV AQUABOTIX LTD",
+      "GICS industry group": "Capital Goods"
+   },
+   "VMX": {
+      "Name": "VALMEC LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "VAL": {
+      "Name": "VALOR RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VAN": {
+      "Name": "VANGO MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VAR": {
+      "Name": "VARISCAN MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VLT": {
+      "Name": "VAULT INTELLIGENCE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VMG": {
+      "Name": "VDM GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "VEL": {
+      "Name": "VEALLS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "VEC": {
+      "Name": "VECTOR RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VBS": {
+      "Name": "VECTUS BIOSYSTEMS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "VEE": {
+      "Name": "VEEM LTD",
+      "GICS industry group": "Capital Goods"
+   },
+   "VP7": {
+      "Name": "VELOCITY PROPERTY GROUP LIMITED",
+      "GICS industry group": "Real Estate"
+   },
+   "VPC": {
+      "Name": "VELPIC LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "VRX": {
+      "Name": "VENTNOR RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "VMS": {
+      "Name": "VENTURE MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VXR": {
+      "Name": "VENTUREX RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VMC": {
+      "Name": "VENUS METALS CORPORATION LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VRM": {
+      "Name": "VERDANT MINERALS LTD",
+      "GICS industry group": "Materials"
+   },
+   "VRI": {
+      "Name": "VERILUMA LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "VRS": {
+      "Name": "VERIS LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "VG1": {
+      "Name": "VGI PARTNERS GLOBAL INVESTMENTS LIMITED",
+      "GICS industry group": "Class Pend"
+   },
+   "VIA": {
+      "Name": "VIAGOLD CAPITAL LIMITED",
+      "GICS industry group": "Consumer Services"
+   },
+   "VCX": {
+      "Name": "VICINITY CENTRES",
+      "GICS industry group": "Real Estate"
+   },
+   "VCD": {
+      "Name": "VICINITY CENTRES TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "VIG": {
+      "Name": "VICTOR GROUP HOLDINGS LIMITED",
+      "GICS industry group": "Media"
+   },
+   "VIC": {
+      "Name": "VICTORY MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VIE": {
+      "Name": "VIENTO GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "VII": {
+      "Name": "VIETNAM INDUSTRIAL INVESTMENTS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VKA": {
+      "Name": "VIKING MINES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VLW": {
+      "Name": "VILLA WORLD LIMITED.",
+      "GICS industry group": "Real Estate"
+   },
+   "VRL": {
+      "Name": "VILLAGE ROADSHOW LIMITED",
+      "GICS industry group": "Media"
+   },
+   "VMY": {
+      "Name": "VIMY RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "VLA": {
+      "Name": "VIRALYTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "VAH": {
+      "Name": "VIRGIN AUSTRALIA HOLDINGS LIMITED",
+      "GICS industry group": "Transportation"
+   },
+   "VRT": {
+      "Name": "VIRTUS HEALTH LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "VTI": {
+      "Name": "VISIONEERING TECHNOLOGIES, INC.",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "VGL": {
+      "Name": "VISTA GROUP INTERNATIONAL LIMITED.",
+      "GICS industry group": "Software & Services"
+   },
+   "VTG": {
+      "Name": "VITA GROUP LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "VLS": {
+      "Name": "VITA LIFE SCIENCES LIMITED..",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "VML": {
+      "Name": "VITAL METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VVR": {
+      "Name": "VIVA ENERGY REIT",
+      "GICS industry group": "Real Estate"
+   },
+   "VIV": {
+      "Name": "VIVID TECHNOLOGY LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "VMT": {
+      "Name": "VMOTO LIMITED",
+      "GICS industry group": "Automobiles & Components"
+   },
+   "VOC": {
+      "Name": "VOCUS GROUP LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "VHT": {
+      "Name": "VOLPARA HEALTH TECHNOLOGIES LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "VPR": {
+      "Name": "VOLT POWER GROUP LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "VRC": {
+      "Name": "VOLT RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "VIP": {
+      "Name": "VOLTAGE IP LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "WAK": {
+      "Name": "WAKENBY LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "WKT": {
+      "Name": "WALKABOUT RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "WAA": {
+      "Name": "WAM ACTIVE LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "WAM": {
+      "Name": "WAM CAPITAL LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "WLE": {
+      "Name": "WAM LEADERS LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "WMI": {
+      "Name": "WAM MICROCAP LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "WAX": {
+      "Name": "WAM RESEARCH LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "WGL": {
+      "Name": "WANGLE TECHNOLOGIES LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "SOL": {
+      "Name": "WASHINGTON H SOUL PATTINSON & COMPANY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "WRG": {
+      "Name": "WATER RESOURCES GROUP LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "WAT": {
+      "Name": "WATERCO LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "WGF": {
+      "Name": "WATERMARK GLOBAL LEADERS FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "WMK": {
+      "Name": "WATERMARK MARKET NEUTRAL FUND LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "WTP": {
+      "Name": "WATPAC LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "WHA": {
+      "Name": "WATTLE HEALTH AUSTRALIA LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "WAL": {
+      "Name": "WAVENET INTERNATIONAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WEH": {
+      "Name": "WEA FINANCE LLC",
+      "GICS industry group": "Not Applic"
+   },
+   "WEF": {
+      "Name": "WEA FINANCE LLC AND WESTFIELD UK & EUROPE FINANCE PLC",
+      "GICS industry group": "Not Applic"
+   },
+   "WDE": {
+      "Name": "WEALTH DEFENDER EQUITIES LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "WEB": {
+      "Name": "WEBJET LIMITED",
+      "GICS industry group": "Retailing"
+   },
+   "WBA": {
+      "Name": "WEBSTER LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "WBT": {
+      "Name": "WEEBIT NANO LTD",
+      "GICS industry group": "Materials"
+   },
+   "WLD": {
+      "Name": "WELLARD LIMITED",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "WLL": {
+      "Name": "WELLCOM GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "WES": {
+      "Name": "WESFARMERS LIMITED",
+      "GICS industry group": "Food & Staples Retailing"
+   },
+   "WAF": {
+      "Name": "WEST AFRICAN RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WWI": {
+      "Name": "WEST WITS MINING LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WSA": {
+      "Name": "WESTERN AREAS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WFD": {
+      "Name": "WESTFIELD CORPORATION",
+      "GICS industry group": "Real Estate"
+   },
+   "WGX": {
+      "Name": "WESTGOLD RESOURCES LIMITED.",
+      "GICS industry group": "Materials"
+   },
+   "WIC": {
+      "Name": "WESTOZ INVESTMENT COMPANY LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "WBC": {
+      "Name": "WESTPAC BANKING CORPORATION",
+      "GICS industry group": "Banks"
+   },
+   "WSI": {
+      "Name": "WESTSTAR INDUSTRIAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WFB": {
+      "Name": "WFD TRUST",
+      "GICS industry group": "Not Applic"
+   },
+   "WCN": {
+      "Name": "WHITE CLIFF MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WEC": {
+      "Name": "WHITE ENERGY COMPANY LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "WRM": {
+      "Name": "WHITE ROCK MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WBE": {
+      "Name": "WHITEBARK ENERGY LTD",
+      "GICS industry group": "Energy"
+   },
+   "WHF": {
+      "Name": "WHITEFIELD LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "WHC": {
+      "Name": "WHITEHAVEN COAL LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "WEL": {
+      "Name": "WINCHESTER ENERGY LTD",
+      "GICS industry group": "Energy"
+   },
+   "WND": {
+      "Name": "WINDLAB LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "WNR": {
+      "Name": "WINGARA AG LTD",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "WQW": {
+      "Name": "WINHA COMMERCE AND TRADE INTL LIMITED",
+      "GICS industry group": "Food & Staples Retailing"
+   },
+   "WFE": {
+      "Name": "WINMAR RESOURCES LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WTC": {
+      "Name": "WISETECH GLOBAL LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "WLF": {
+      "Name": "WOLF MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WOF": {
+      "Name": "WOLF PETROLEUM LTD",
+      "GICS industry group": "Energy"
+   },
+   "WSG": {
+      "Name": "WOLFSTRIKE RENTALS GROUP LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "WLC": {
+      "Name": "WOLLONGONG COAL LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "WMC": {
+      "Name": "WONHE MULTIMEDIA COMMERCE LTD",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "WPL": {
+      "Name": "WOODSIDE PETROLEUM LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "WOW": {
+      "Name": "WOOLWORTHS LIMITED",
+      "GICS industry group": "Food & Staples Retailing"
+   },
+   "WRR": {
+      "Name": "WORLD REACH LIMITED",
+      "GICS industry group": "Technology Hardware & Equipment"
+   },
+   "WNS": {
+      "Name": "WORLD.NET SERVICES LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "WOR": {
+      "Name": "WORLEYPARSONS LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "WPG": {
+      "Name": "WPG RESOURCES LTD",
+      "GICS industry group": "Materials"
+   },
+   "WPP": {
+      "Name": "WPP AUNZ LTD",
+      "GICS industry group": "Media"
+   },
+   "XAM": {
+      "Name": "XANADU MINES LTD",
+      "GICS industry group": "Materials"
+   },
+   "XIP": {
+      "Name": "XENITH IP GROUP LIMITED",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "XRO": {
+      "Name": "XERO LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "XPD": {
+      "Name": "XPD SOCCER GEAR GROUP LIMITED",
+      "GICS industry group": "Consumer Durables & Apparel"
+   },
+   "XPE": {
+      "Name": "XPED LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "XF1": {
+      "Name": "XREF LIMITED",
+      "GICS industry group": "Software & Services"
+   },
+   "XRF": {
+      "Name": "XRF SCIENTIFIC LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "XST": {
+      "Name": "XSTATE RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "XTD": {
+      "Name": "XTD LTD",
+      "GICS industry group": "Media"
+   },
+   "XTE": {
+      "Name": "XTEK LIMITED.",
+      "GICS industry group": "Capital Goods"
+   },
+   "XTV": {
+      "Name": "XTV NETWORKS LTD",
+      "GICS industry group": "Media"
+   },
+   "YAL": {
+      "Name": "YANCOAL AUSTRALIA LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "YCN": {
+      "Name": "YANCOAL SCN LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "YBR": {
+      "Name": "YELLOW BRICK ROAD HOLDINGS LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "YOJ": {
+      "Name": "YOJEE LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "YNB": {
+      "Name": "YONDER AND BEYOND GROUP LIMITED",
+      "GICS industry group": "Diversified Financials"
+   },
+   "YOW": {
+      "Name": "YOWIE GROUP LTD",
+      "GICS industry group": "Food, Beverage & Tobacco"
+   },
+   "YPB": {
+      "Name": "YPB GROUP LTD",
+      "GICS industry group": "Commercial & Professional Services"
+   },
+   "ZEL": {
+      "Name": "Z ENERGY LIMITED.",
+      "GICS industry group": "Energy"
+   },
+   "ZAM": {
+      "Name": "ZAMANCO MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ZGM": {
+      "Name": "ZAMIA METALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ZLD": {
+      "Name": "ZELDA THERAPEUTICS LIMITED",
+      "GICS industry group": "Pharmaceuticals, Biotechnology & Life Sciences"
+   },
+   "ZNT": {
+      "Name": "ZENITAS HEALTHCARE LIMITED",
+      "GICS industry group": "Health Care Equipment & Services"
+   },
+   "ZEN": {
+      "Name": "ZENITH ENERGY LIMITED",
+      "GICS industry group": "Utilities"
+   },
+   "ZNC": {
+      "Name": "ZENITH MINERALS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ZTA": {
+      "Name": "ZETA PETROLEUM PLC",
+      "GICS industry group": "Energy"
+   },
+   "ZER": {
+      "Name": "ZETA RESOURCES LIMITED",
+      "GICS industry group": "Not Applic"
+   },
+   "ZEU": {
+      "Name": "ZEUS RESOURCES LIMITED",
+      "GICS industry group": "Energy"
+   },
+   "ZGL": {
+      "Name": "ZICOM GROUP LIMITED",
+      "GICS industry group": "Capital Goods"
+   },
+   "ZIM": {
+      "Name": "ZIMPLATS HOLDINGS LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ZMI": {
+      "Name": "ZINC OF IRELAND NL",
+      "GICS industry group": "Materials"
+   },
+   "ZML": {
+      "Name": "ZIPMONEY LTD",
+      "GICS industry group": "Diversified Financials"
+   },
+   "ZIP": {
+      "Name": "ZIPTEL LIMITED",
+      "GICS industry group": "Telecommunication Services"
+   },
+   "ZNO": {
+      "Name": "ZOONO GROUP LIMITED",
+      "GICS industry group": "Materials"
+   },
+   "ZYB": {
+      "Name": "ZYBER HOLDINGS LTD",
+      "GICS industry group": "Software & Services"
    }
 }
