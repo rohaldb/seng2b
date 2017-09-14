@@ -13,42 +13,64 @@
       margin:0px !important;
       box-shadow: none;
     }
+    .wrapper, header, main, footer {
+      padding-left: 300px;
+    }
   </style>
 </head>
 <body>
-  <div class="row light-blue accent-2 no-space">
-    <div class="col s3">
-      <h3>Logo</h3>
-    </div>
-    <div class="input-field inline col s6">
-        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    </div>
+  <div class="wrapper">
+    <nav class="blue lighten-3">
+      <div class="nav-wrapper">
+        <form>
+          <div class="input-field">
+            <input id="search" type="search" required placeholder="">
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
   </div>
 
-  <div class="row no-space">
-    <div class="col s2 no-space">
-      <div class="card-panel light-blue accent-2 no-space" style="height:100vh;">This is a card panel with a teal lighten-2 class</div>
-    </div>
+  <ul id="slide-out" class="side-nav fixed blue lighten-3">
+    <li><div class="user-view center-align">
+          <h3 class="center-align">LOGO</h3>
+      </div>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">home</i>Home</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Portfolio</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>AMZN</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>MSFT</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>CBA</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>AAY</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>GOOG</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Groups</a></li>
+    <li><a href="#!"><i class="material-icons">group</i>GOOG</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="#!"><i class="material-icons">account_circle</i>Sign Out</a></li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
-    <div class="col s10 no-space">
-      <div class="card-panel light accent-2  no-space" style="height:100vh;">
-        <div class="section no-pad-bot" id="index-banner">
-          <div class="container">
-            <br><br>
-            <h1 class="header center orange-text">Starter Template</h1>
-            <div class="row center">
-              <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-            </div>
-            <div class="row center">
-              <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
-            </div>
-            <br><br>
-
-          </div>
+  <main>
+    <!-- ALL CONTENT GOES HERE -->
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">Starter Template</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
         </div>
+        <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+        </div>
+        <br><br>
       </div>
     </div>
-  </div>
+  </main>
+
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
