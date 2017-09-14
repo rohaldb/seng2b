@@ -12,3 +12,14 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+.no-space {
+  padding:0px !important;
+  margin:0px !important;
+  box-shadow: none;
+}
+.wrapper, header, main, footer {
+  padding-left: 300px;
+}
+nav, .side-nav {
+  box-shadow: none;
+}
