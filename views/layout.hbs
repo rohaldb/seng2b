@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <!-- Custom CSS for each page -->
+    {{#each css}}
+    <link rel="stylesheet" href="{{this}}" />
+    {{/each}}
+
+    <title>{{ title }}</title>
+</head>
+<body>
+<!-- Top Nav Bar -->
+<div class="wrapper">
+    <nav class="light-blue lighten-1">
+        <div class="nav-wrapper">
+            <form>
+                <div class="input-field">
+                    <input id="search autocomplete-input" type="search" class="autocomplete" required placeholder="">
+                    <!-- <input type="text" id="" class="autocomplete"> -->
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+</div>
+
+<!-- Side Nav Bar -->
+<ul id="slide-out" class="side-nav fixed light-blue lighten-1">
+    <li><div class="user-view center-align">
+        <h3 class="center-align">LOGO</h3>
+    </div>
+        </div></li>
+    <li><div class="divider"></div></li>
+    <li><a href="#!"><i class="material-icons">home</i>Home</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Portfolio</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>AMZN</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>MSFT</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>CBA</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>AAY</a></li>
+    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>GOOG</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Groups</a></li>
+    <li><a href="#!"><i class="material-icons">group</i>GOOG</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="#!"><i class="material-icons">account_circle</i>Sign Out</a></li>
+</ul>
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+<!-- ALL CONTENT GOES HERE -->
+<main>
+    {{{ body }}}
+</main>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script src="js/index.js"></script>
+
+<!-- Custom JS for each page -->
+{{#each js}}
+<script src="{{this}}" type="text/javascript"></script>
+{{/each}}
+</body>
+</html>
