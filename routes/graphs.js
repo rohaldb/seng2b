@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('graphs', { title: 'NewStock - Graphs',
+    res.render('graphs', {
+        title: 'NewStock - Graphs',
         css: [
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
@@ -23,7 +24,6 @@ router.get('/', function(req, res, next) {
             // Autocomplete
             "autocomplete/jquery.easy-autocomplete.min.js",
             // Local files
-            "js/listofcompanies.js",
             "js/graphs.js",
             "js/charts.js",
         ],

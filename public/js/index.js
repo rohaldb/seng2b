@@ -1,14 +1,8 @@
 $(document).ready(function(){
-
+console.log(company_keys);
 $('input.autocomplete').autocomplete({
-    data: {
-      "Apple": null,
-      "Microsoft": null,
-      "Google": null,
-      "Dodge": null,
-      "FB": null,
-    },
-    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+    data: company_keys,
+    limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
     onAutocomplete: function(val) {
       // Callback function when value is autcompleted.
     },
