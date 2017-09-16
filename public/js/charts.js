@@ -1,3 +1,5 @@
+  console.log("ben");
+  // getStockPriceOf("AMZN");
 
 function getStockPriceOf(stockInfo) {
   var code = stockInfo.Symbol;

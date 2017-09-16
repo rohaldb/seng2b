@@ -14,8 +14,6 @@ router.get('/', function(req, res, next) {
             "autocomplete/easy-autocomplete.themes.min.css",
         ],
         js: [
-            // JQuery
-            "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js",
             // AMCHARTS
             "amcharts/amcharts.js",
             "amcharts/serial.js",
@@ -24,9 +22,9 @@ router.get('/', function(req, res, next) {
             // Autocomplete
             "autocomplete/jquery.easy-autocomplete.min.js",
             // Local files
-            "js/graphs.js",
             "js/charts.js",
         ],
+        company_code: "AMZN"
     });
 });
 
