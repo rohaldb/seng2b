@@ -51,11 +51,39 @@
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
-  <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  <div class="modal-content container">
+    <div class="row">
+      <div class="col s6">
+        <h3 id="company-logo">AMZN</h3>
+        <h4 id="company-name">Amazon Inc.</h4>
+      </div>
+      <div class="col s6 right-align">
+        <h3 id="company-price">$106.4</h3>
+        <h4 id="company-change" class="green-text">+0.16%</h4>
+      </div>
+    </div>
+    <div class="center-align">
+      <div class="row">
+         <p class="range-field">
+           <div class="col s10">
+             <input type="range" id="tradeSlider" min="0" max="100" />
+           </div>
+           <div class="col s2">
+             <input type="number" id="tradeAmount" value="50">
+           </div>
+         </p>
+         <a href="#!" class="waves-effect waves-green blue btn">Units vs $</a>
+         <p class="">103.8 * $16 = $1,664.8 </p>
+      </div>
+      <div class="row">
+        <h5> Current Balance: $9928.77</h5>
+        <br>
+        <h5> Balance after transaction: $8,267.9</h5>
+      </div>
+      <div class="row">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green green btn">Confirm</a>
+      </div>
+    </div>
   </div>
 </div>
