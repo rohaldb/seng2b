@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
             // Local files
             "js/charts.js",
         ],
-        company_code: "AMZN"
+        code: req.params.code,
     });
 });
 

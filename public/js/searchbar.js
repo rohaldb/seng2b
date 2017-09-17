@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  console.warn("should be second");
 $('input.autocomplete').autocomplete({
     data: company_keys,
     limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
