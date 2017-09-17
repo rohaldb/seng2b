@@ -24,6 +24,44 @@
   </div>
 </div>
 
+<!-- leaderboard -->
+<div id="leader" class="row">
+  <div class="col s4">
+    <h5>TODO: leaderboard</h5>
+  </div>
+</div>
+
+<!-- group feed -->
+<div id="feed" class="row">
+  <div class="col s10">
+    <div class="activity">
+      <b>Friend A</b> bought 1.087 shares in <b>AMZN</b>.
+      Just Now
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="col s10">
+    <div class="activity">
+      <b>Friend C</b> bought 0.579 shares in <b>GOOG</b>.
+      5 minutes ago
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="col s10">
+    <div class="activity">
+      <b>You</b> sold 1.234 shares in <b>MSFT</b>.
+      2 hours ago
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="col s10">
+    <div class="activity">
+      <b>Friend C</b> joined the group.
+      1 day ago
+    </div>
+  </div>
+</div>
+
 <!-- group performance graph -->
 <div id="graphs" class="row">
   <div class="col s4">
@@ -34,19 +72,31 @@
   </div>
 </div>
 
-<!-- group feed -->
-<div id="feed" class="col s12">
-  <b>TODO: feed</b>
+<!-- leave group -->
+<div id="modal1" class="modal">
+  <div class="modal-content container">
+
+    <div class="row">
+      <div class="col s12">
+        <h4>Are you sure you want to leave the {{ group }} Group?</h4>
+      </div>
+    </div>
+
+    <!-- cancel and confirm buttons -->
+    <div class="center-align">
+      <div class="row">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green green btn">Confirm</a>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<!-- leaderboard -->
-<div id="leader" class="col s12">
-  <b>TODO: leaderboard</b>
-</div>
-
-<!-- Modal Structure -->
+<!-- invite members to group -->
 <div id="modal2" class="modal">
   <div class="modal-content container">
+
     <div class="row">
       <div class="col s12">
         <h4>Invite Members to {{ group }} Group</h4>
