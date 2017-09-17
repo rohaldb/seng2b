@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s10">
+                <h3 id="company-name">Amazon Inc</h3>
+                <h4 id="company-price">213.9</h4>
+            </div>
+            <div class="col s2">
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Trade</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+              <ul class="tabs">
+                  <li class="tab col s4"><a class="active" href="#graphs">Graphs</a></li>
+                  <li class="tab col s4"><a href="#news">News</a></li>
+                  <li class="tab col s4"><a href="#info">Company Information</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="news" class="col s12">
+    <h1>News!</h1>
+</div>
+<div id="info" class="col s12">
+    <h1>Info!</h1>
+</div>
+
+<div id="graphs" class="row">
+  <div class="col s6 offset-s3">
+    <ul class="tabs">
+        <!-- <li class="tab col s"><a class="active" href="#graph1">Graph 1</a></li> -->
+        <li class="tab col s6"><a href="#graph2">Graph 2</a></li>
+        <li class="tab col s6"><a href="#graph3">Graphs 3</a></li>
+    </ul>
+  </div>
+  <!-- graph tabs -->
+  <!-- <div id="graph1" class="col s12">
+      <div id="chartdiv1" style="width:100%; height:400px;"></div>
+  </div> -->
+  <div id="graph2" class="col s12">
+      <div id="chartdiv2" style="width:100%; height:400px;"></div>
+  </div>
+  <div id="graph3" class="col s12">
+      <div id="chartdiv3" style="width:100%; height:400px;"></div>
+  </div>
+</div>
+
+
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content container">
+    <div class="row">
+      <div class="col s6">
+        <h3 id="company-logo">AMZN</h3>
+        <h4 id="company-name">Amazon Inc.</h4>
+      </div>
+      <div class="col s6 right-align">
+        <h3 id="company-price">$106.4</h3>
+        <h4 id="company-change" class="green-text">+0.16%</h4>
+      </div>
+    </div>
+    <div class="center-align">
+      <div class="row">
+         <p class="range-field">
+           <div class="col s10">
+             <input type="range" id="tradeSlider" min="0" max="100" />
+           </div>
+           <div class="col s2">
+             <input type="number" id="tradeAmount" value="50">
+           </div>
+         </p>
+         <a href="#!" class="waves-effect waves-green blue btn">Units vs $</a>
+         <p class="">103.8 * $16 = $1,664.8 </p>
+      </div>
+      <div class="row">
+        <h5> Current Balance: $9928.77</h5>
+        <br>
+        <h5> Balance after transaction: $8,267.9</h5>
+      </div>
+      <div class="row">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green green btn">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,18 +1,22 @@
+getStockPriceOf(companies["MMM - 3M Company"]);
 
 function getStockPriceOf(stockInfo) {
   var code = stockInfo.Symbol;
-  $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=15min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
-    console.log(data);
-    data = Object.values(data)[1];
-    var chartData = generateChartData(data, 1);
-    console.warn(stockInfo);
-    $("#company-name").text(stockInfo.Name);
-    $("#company-price").text(chartData[chartData.length - 1].close);
-  });
-  $.get("https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
+  // $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=15min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
+  //   console.log(data);
+    // data = Object.values(data)[1];
+    // var chartData = generateChartData(data, 1);
+    // console.warn(stockInfo);
+    // $("#company-name").text(stockInfo.Name);
+    // $("#company-price").text(chartData[chartData.length - 1].close);
+  // });
+  console.log(code);
+  $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
     console.log(data);
     data = Object.values(data)[1];
     var chartData = generateChartData(data, 2);
+    $("#company-name").text(stockInfo.Name);
+    $("#company-price").text(chartData[chartData.length - 1].close);
   });
 }
 

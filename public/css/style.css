@@ -23,3 +23,10 @@
 nav, .side-nav {
   box-shadow: none;
 }
+
+/*.dropdown-content {
+  z-index: 5 !important;
+}
+.tabs {
+  z-index: 10 !important;
+}*/

@@ -19,7 +19,7 @@
 <body>
 <!-- Top Nav Bar -->
 <div class="wrapper">
-    <nav class="light-blue lighten-1">
+    <nav class="blue atlassian">
         <div class="nav-wrapper">
             <form>
                 <div class="input-field">
@@ -34,9 +34,9 @@
 </div>
 
 <!-- Side Nav Bar -->
-<ul id="slide-out" class="side-nav fixed light-blue lighten-1">
+<ul id="slide-out" class="side-nav fixed blue atlassian">
     <li><div class="user-view center-align">
-        <h3 class="center-align">LOGO</h3>
+        <h4 class="center-align">NewStock</h4>
     </div>
         </div></li>
     <li><div class="divider"></div></li>
@@ -64,12 +64,11 @@
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
-<script src="js/index.js"></script>
-
+<script src="js/listofcompanies.js"></script>
 <!-- Custom JS for each page -->
 {{#each js}}
 <script src="{{this}}" type="text/javascript"></script>
 {{/each}}
+<script src="js/searchbar.js"></script>
 </body>
 </html>
