@@ -4,7 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('groups', {
-        title: 'NewStock - Groups',
+        title: 'NewStock - Groups - ' + req.query.group,
+        group: req.query.group,
         css: [
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
