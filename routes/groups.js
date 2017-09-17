@@ -3,8 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('stock', {
-        title: 'NewStock - Stock',
+    res.render('groups', {
+        title: 'NewStock - Groups - ' + req.query.group,
+        group: req.query.group,
         css: [
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
@@ -12,6 +13,8 @@ router.get('/', function(req, res, next) {
             // AUTOCOMPLETE
             "autocomplete/easy-autocomplete.min.css",
             "autocomplete/easy-autocomplete.themes.min.css",
+            // activity feed css
+            "css/activity.css",
         ],
         js: [
             // AMCHARTS
@@ -24,7 +27,6 @@ router.get('/', function(req, res, next) {
             // Local files
             "js/charts.js",
             "js/stock.js",
-            "js/info.js", //company info
         ],
         code: req.params.code,
     });
