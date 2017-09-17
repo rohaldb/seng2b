@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <div class="col s8">
+        <h3 id="group-name">Friends</h3>
+        <h5 id="num-members">4 members</h5>
+      </div>
+      <div class="col s2">
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Leave Group</a>
+      </div>
+      <div class="col s2">
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Invite</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s4"><a class="active" href="#graphs">Graphs</a></li>
+          <li class="tab col s4"><a href="#feed">Feed</a></li>
+          <li class="tab col s4"><a href="#leader">Leaderboard</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- group performance graph -->
+<div id="graphs" class="row">
+  <div class="col s4">
+    <h5>Group Performance:</h5>
+  </div>
+  <div class="col s6 offset-s3">
+    <div id="chartdiv3" style="width:100%; height:400px;">
+  </div>
+</div>
+
+<!-- group feed -->
+<div id="feed" class="col s12">
+  <b>TODO: feed</b>
+</div>
+
+<!-- leaderboard -->
+<div id="leader" class="col s12">
+  <b>TODO: leaderboard</b>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+  <div class="modal-content container">
+    <div class="row">
+      <div class="col s8">
+        <h3>Invite Members</h3>
+      </div>
+    </div>
+
+    <!-- search bar -->
+    <div class="center-align">
+      <div class="row">
+        <form>
+          <div class="input-field">
+            <input id="search autocomplete-input" type="search" class="autocomplete" required placeholder="">
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- list friends currently invited -->
+    <div class="row">
+      <div class="col s8">
+        <h5>Inviting:</h5>
+      </div>
+    </div>
+
+    <!-- cancel and invite buttons -->
+    <div class="center-align">
+      <div class="row">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green green btn">Invite</a>
+      </div>
+    </div>
+
+  </div>
+</div>

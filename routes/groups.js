@@ -3,8 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('stock', {
-        title: 'NewStock - Stock',
+    res.render('groups', {
+        title: 'NewStock - Groups',
         css: [
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
