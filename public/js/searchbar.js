@@ -1,7 +1,7 @@
 $(document).ready(function(){
 $('input.autocomplete').autocomplete({
     data: company_keys,
-    limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
+    limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
     onAutocomplete: function(val) {
       // Callback function when value is autcompleted.
       console.log(companies[val]);

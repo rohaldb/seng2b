@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('graphs', {
+    res.render('stock', {
         title: 'NewStock - Graphs',
         css: [
             // AMCHARTS
@@ -23,6 +23,7 @@ router.get('/', function(req, res, next) {
             "autocomplete/jquery.easy-autocomplete.min.js",
             // Local files
             "js/charts.js",
+            "js/stock.js",
         ],
         code: req.params.code,
     });
