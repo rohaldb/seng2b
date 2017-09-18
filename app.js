@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var graphs = require('./routes/stock');
 
+var group_graphs = require('./routes/group_stock');
+
 var app = express();
 
 // view engine setup
@@ -24,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/stock', graphs);
+
+app.use('/group_stock', group_graphs);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
