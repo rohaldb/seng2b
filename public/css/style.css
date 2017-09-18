@@ -46,3 +46,8 @@ main {
 #graph-tabs .tab a.active {
   color: #2bbbad;
 }
+
+.input-field input:focus {
+   border-bottom: 1px solid #2bbbad !important;
+   box-shadow: 0 1px 0 0 #2bbbad !important
+ }
