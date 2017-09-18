@@ -12,18 +12,17 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
-.no-space {
-  padding:0px !important;
-  margin:0px !important;
-  box-shadow: none;
+.no-shaddow {
+  box-shadow:none !important;
 }
-.wrapper, header, main, footer {
-  padding-left: 300px;
-}
-nav, .side-nav {
-  box-shadow: none;
+.side-nav{
+    top: 65px;
+    width: 250px;
 }
 
+main {
+  padding-left: 250px;
+}
 /*.dropdown-content {
   z-index: 5 !important;
 }

@@ -17,24 +17,26 @@
     <title>{{ title }}</title>
 </head>
 <body>
-<!-- Top Nav Bar -->
-<div class="wrapper">
-    <nav class="blue atlassian">
-        <div class="nav-wrapper">
-            <form>
-                <div class="input-field">
-                    <input id="search autocomplete-input" type="search" class="autocomplete" required placeholder="">
-                    <!-- <input type="text" id="" class="autocomplete"> -->
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
+<header>
+  <div class="navbar-fixed no-shaddow">
+    <div class="nav-wrapper">
+      <nav class="no-shaddow blue atlassian" role="navigation">
+        <div class="nav-wrapper container">
+          <div class="row">
+            <div class="col s9">
+              <div class="input-field col s8 offset-s4">
+                <i class="material-icons prefix">search</i>
+                <input id="icon_prefix" type="text" class="validate" placeholder="Enter Stock">
+              </div>
+            </div>
+          </div>
         </div>
-    </nav>
-</div>
+      </nav>
+    </div>
+  </div>
+</header>
 
-<!-- Side Nav Bar -->
-<ul id="slide-out" class="side-nav fixed blue atlassian">
+<ul id="slide-out" class="side-nav fixed no-shaddow">
     <li>
       <div class="user-view center-align">
         <h4 class="center-align">NewStock</h4>
@@ -57,7 +59,6 @@
     <li><a href="#!"><i class="material-icons">account_circle</i>Sign Out</a></li>
 </ul>
 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-
 <!-- ALL CONTENT GOES HERE -->
 <main>
     {{{ body }}}
