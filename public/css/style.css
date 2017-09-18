@@ -23,9 +23,26 @@
 main {
   padding-left: 250px;
 }
-/*.dropdown-content {
-  z-index: 5 !important;
+
+
+.tabs .tab a.active {
+  color: #2bbbad;
 }
-.tabs {
-  z-index: 10 !important;
-}*/
+
+.tabs .tab a:hover {
+  color: #2bbbad;
+}
+
+.tabs .tab a {
+  color: #2c3e50;
+}
+.tabs .indicator {
+    background-color: #2bbbad;
+}
+
+#graph-tabs .indicator {
+    background-color: transparent;
+}
+#graph-tabs .tab a.active {
+  color: #2bbbad;
+}
