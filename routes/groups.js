@@ -13,8 +13,6 @@ router.get('/', function(req, res, next) {
             // AUTOCOMPLETE
             "autocomplete/easy-autocomplete.min.css",
             "autocomplete/easy-autocomplete.themes.min.css",
-            // activity feed css
-            "css/activity.css",
         ],
         js: [
             // AMCHARTS
