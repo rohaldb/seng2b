@@ -25,6 +25,7 @@ router.get('/', function(req, res, next) {
             // Local files
             "js/charts.js",
             "js/stock.js",
+            "js/listofusers.js",
         ],
         code: req.params.code,
     });
