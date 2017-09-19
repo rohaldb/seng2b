@@ -17,47 +17,44 @@
     <title>{{ title }}</title>
 </head>
 <body>
-<!-- Top Nav Bar -->
-<div class="wrapper">
-    <nav class="blue atlassian">
-        <div class="nav-wrapper">
-            <form>
-                <div class="input-field">
-                    <input id="search autocomplete-input" type="search" class="autocomplete autocomplete-main" required placeholder="">
-                    <!-- <input type="text" id="" class="autocomplete"> -->
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
+<header>
+  <div class="navbar-fixed no-shaddow">
+    <div class="nav-wrapper">
+      <nav class="no-shaddow atlassian" role="navigation">
+        <div class="nav-wrapper container">
+          <div class="row">
+            <div class="col s9">
+              <div class="input-field col s8 offset-s4">
+                <i class="material-icons prefix">search</i>
+                <input type="text" id="autocomplete" class="autocomplete autocomplete-main" placeholder="Enter Stock">
+              </div>
+            </div>
+          </div>
         </div>
-    </nav>
-</div>
+      </nav>
+    </div>
+  </div>
+</header>
 
-<!-- Side Nav Bar -->
-<ul id="slide-out" class="side-nav fixed blue atlassian">
+<ul id="slide-out" class="side-nav fixed no-shaddow atlassian-text">
     <li>
       <div class="user-view center-align">
         <h4 class="center-align">NewStock</h4>
       </div>
     </li>
-    <li><div class="divider"></div></li>
-    <li><a href="#!"><i class="material-icons">home</i>Home</a></li>
-    <li><div class="divider"></div></li>
+    <li><a href=""><i class="material-icons ">home</i>Home</a></li>
     <li><a class="subheader">Portfolio</a></li>
-    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>AMZN</a></li>
-    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>MSFT</a></li>
-    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>CBA</a></li>
-    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>AAY</a></li>
-    <li><a href="#!"><i class="material-icons">keyboard_arrow_right</i>GOOG</a></li>
-    <li><div class="divider"></div></li>
+    <li><a href="http://localhost:3000/stock?stock=AMZN&company=Amazon+Inc."><i class="material-icons ">keyboard_arrow_right</i>AMZN</a></li>
+    <li><a href="http://localhost:3000/stock?stock=MSFT&company=Microsoft"><i class="material-icons ">keyboard_arrow_right</i>MSFT</a></li>
+    <li><a href="http://localhost:3000/stock?stock=CBA&company=Commonwealth+Bank+of+Australia"><i class="material-icons ">keyboard_arrow_right</i>CBA</a></li>
+    <li><a href="http://localhost:3000/stock?stock=ALXN&company=Alexicon+Pharmaceuticals"><i class="material-icons ">keyboard_arrow_right</i>ALXN</a></li>
+    <li><a href="http://localhost:3000/stock?stock=GOOG&company=Google+Inc."><i class="material-icons ">keyboard_arrow_right</i>GOOG</a></li>
     <li><a class="subheader">Groups</a></li>
-    <li><a href="/groups?group=Work"><i class="material-icons">group</i>Work</a></li>
-    <li><a href="/groups?group=Friends"><i class="material-icons">group</i>Friends</a></li>
-    <li><div class="divider"></div></li>
-    <li><a href="#!"><i class="material-icons">account_circle</i>Sign Out</a></li>
+    <li><a href="/groups?group=Work"><i class="material-icons ">group</i>Work</a></li>
+    <li><a href="/groups?group=Friends"><i class="material-icons ">group</i>Friends</a></li>
+    <li><a href="#!"><i class="material-icons ">account_circle</i>Sign Out</a></li>
 </ul>
-<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons ">menu</i></a>
 <!-- ALL CONTENT GOES HERE -->
 <main>
     {{{ body }}}
