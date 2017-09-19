@@ -2,7 +2,7 @@
   <div class="col s12 m12">
     <div class="card atlassian">
       <div class="card-content white-text">
-        <span class="card-title orange-text" style="display:inline-block;">{{stock}} | <span id="company-name">{{company}}</span></span>
+        <span class="card-title orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</span></span>
         <h3><span id="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
         <div class="row">
           <div class="col s10">
@@ -70,20 +70,65 @@
 <div id="graphs" class="row">
   <div class="col s6 offset-s3">
     <ul class="tabs" id="graph-tabs">
-        <!-- <li class="tab col s"><a class="active" href="#graph1">Graph 1</a></li> -->
-        <li class="tab col s6"><a href="#graph2">Graph 2</a></li>
-        <li class="tab col s6"><a href="#graph3">Graphs 3</a></li>
+        <li class="tab col s4"><a class="active" href="#graph1">Intraday</a></li>
+        <li class="tab col s4"><a href="#graph2">Candlestick</a></li>
+        <li class="tab col s4"><a href="#graph3">Drawable</a></li>
     </ul>
   </div>
+
   <!-- graph tabs -->
-  <!-- <div id="graph1" class="col s12">
-      <div id="chartdiv1" style="width:100%; height:400px;"></div>
-  </div> -->
+  <div id="graph1" class="col s12">
+    <div class="center-align" id="graph1Loader" style="margin-top:50px;">
+      <div class="preloader-wrapper active">
+        <div class="spinner-layer spinner">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chartdiv1" style="width:97%; height:400px; margin-top:30px;"></div>
+  </div>
   <div id="graph2" class="col s12">
-      <div id="chartdiv2" style="width:97%; height:400px;"></div>
+
+    <div class="center-align" id="graph2Loader" style="margin-top:50px;">
+      <div class="preloader-wrapper active">
+        <div class="spinner-layer spinner">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chartdiv2" style="width:97%; height:400px;"></div>
   </div>
   <div id="graph3" class="col s12">
-      <div id="chartdiv3" style="width:97%; height:400px;"></div>
+
+    <div class="center-align" id="graph3Loader" style="margin-top:50px;">
+      <div class="preloader-wrapper active">
+        <div class="spinner-layer spinner">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chartdiv3" style="width:97%; height:400px;"></div>
   </div>
 </div>
 
