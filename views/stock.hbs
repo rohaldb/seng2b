@@ -1,14 +1,25 @@
 <div class="row">
-    <div class="col s12">
+  <div class="col s12 m12">
+    <div class="card atlassian">
+      <div class="card-content white-text">
+        <span class="card-title orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</span></span>
+        <h3><span id="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
         <div class="row">
-            <div class="col s10">
-                <h3 id="company-name">Amazon Inc</h3>
-                <h4 id="company-price">213.9</h4>
-            </div>
-            <div class="col s2">
-                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Trade</a>
-            </div>
+          <div class="col s10">
+            <p>Amazon.com  is an American electronic commerce and cloud computing company based in Seattle, Washington that was founded by Jeff Bezos on July 5, 1994.</p>
+          </div>
+          <div class="col s2">
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Buy</a>
+            <a class="waves-effect waves-light btn modal-trigger orange" href="#modal1">Sell</a>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col s12">
         <div class="row">
             <div class="col s12">
               <ul class="tabs">
@@ -92,61 +103,103 @@
 
 <div id="graphs" class="row">
   <div class="col s6 offset-s3">
-    <ul class="tabs">
-        <!-- <li class="tab col s"><a class="active" href="#graph1">Graph 1</a></li> -->
-        <li class="tab col s6"><a href="#graph2">Graph 2</a></li>
-        <li class="tab col s6"><a href="#graph3">Graphs 3</a></li>
+    <ul class="tabs" id="graph-tabs">
+        <li class="tab col s4"><a class="active" href="#graph1">Intraday</a></li>
+        <li class="tab col s4"><a href="#graph2">Candlestick</a></li>
+        <li class="tab col s4"><a href="#graph3">Drawable</a></li>
     </ul>
   </div>
+
   <!-- graph tabs -->
-  <!-- <div id="graph1" class="col s12">
-      <div id="chartdiv1" style="width:100%; height:400px;"></div>
-  </div> -->
+  <div id="graph1" class="col s12">
+    <div class="center-align" id="graph1Loader" style="margin-top:50px;">
+      <div class="preloader-wrapper active">
+        <div class="spinner-layer spinner">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chartdiv1" style="width:97%; height:400px; margin-top:30px;"></div>
+  </div>
   <div id="graph2" class="col s12">
-      <div id="chartdiv2" style="width:100%; height:400px;"></div>
+
+    <div class="center-align" id="graph2Loader" style="margin-top:50px;">
+      <div class="preloader-wrapper active">
+        <div class="spinner-layer spinner">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chartdiv2" style="width:97%; height:400px;"></div>
   </div>
   <div id="graph3" class="col s12">
-      <div id="chartdiv3" style="width:100%; height:400px;"></div>
+
+    <div class="center-align" id="graph3Loader" style="margin-top:50px;">
+      <div class="preloader-wrapper active">
+        <div class="spinner-layer spinner">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chartdiv3" style="width:97%; height:400px;"></div>
   </div>
 </div>
 
 
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
+<div id="modal1" class="modal atlassian center-align white-text">
   <div class="modal-content container">
     <div class="row">
-      <div class="col s6">
-        <h3 id="company-logo">AMZN</h3>
-        <h4 id="company-name">Amazon Inc.</h4>
-      </div>
-      <div class="col s6 right-align">
-        <h3 id="company-price">$106.4</h3>
-        <h4 id="company-change" class="green-text">+0.16%</h4>
-      </div>
+      <h4 class=" orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</h4>
+      <h3><span id="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
     </div>
-    <div class="center-align">
-      <div class="row">
-         <p class="range-field">
-           <div class="col s10">
-             <input type="range" id="tradeSlider" min="0" max="100" />
-           </div>
-           <div class="col s2">
-             <input type="number" id="tradeAmount" value="50">
-           </div>
-         </p>
-         <a href="#!" class="waves-effect waves-green blue btn">Units vs $</a>
-         <p class="">103.8 * $16 = $1,664.8 </p>
+    <div class="row center-align" >
+      <div class="col s2">
+        <a href="#" style="color:white;" id="subtractValue"><i class="medium material-icons">remove</i></a>
       </div>
-      <div class="row">
-        <h5> Current Balance: $9928.77</h5>
-        <br>
-        <h5> Balance after transaction: $8,267.9</h5>
+      <div class="col s8">
+        <input type="number" id="tradeAmount" value="50" style="font-size: 40px; text-align:center;">
       </div>
-      <div class="row">
-        <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
-        <a href="#!" class="modal-action modal-close waves-effect waves-green green btn">Confirm</a>
+      <div class="col s2">
+        <a href="#" style="color:white;" id="addValue"><i class="medium material-icons">add</i></a>
       </div>
+
+    </div>
+    <div class="row">
+       <a href="#!" class="waves-effect waves-blue blue btn" id="toggleUnits">Dollars</a>
+    </div>
+    <div class="row">
+      <h5 class="">103.8 * $16 = $1,664.8 </h5>
+    </div>
+    <div class="row">
+      <h5> Current Balance: $9928.77</h5>
+      <h5> Balance after transaction: $8,267.9</h5>
+    </div>
+    <div class="row">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green green btn">Confirm</a>
     </div>
   </div>
 </div>

@@ -10,11 +10,6 @@ router.get('/', function(req, res, next) {
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
             "amcharts/style.css",
-            // AUTOCOMPLETE
-            "autocomplete/easy-autocomplete.min.css",
-            "autocomplete/easy-autocomplete.themes.min.css",
-            // activity feed css
-            "css/activity.css",
         ],
         js: [
             // AMCHARTS
@@ -22,13 +17,11 @@ router.get('/', function(req, res, next) {
             "amcharts/serial.js",
             "amcharts/amstock.js",
             "https://www.amcharts.com/lib/3/plugins/export/export.min.js",
-            // Autocomplete
-            "autocomplete/jquery.easy-autocomplete.min.js",
             // Local files
             "js/charts.js",
             "js/stock.js",
+            "js/listofusers.js",
         ],
-        code: req.params.code,
     });
 });
 
