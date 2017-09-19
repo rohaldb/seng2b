@@ -1,13 +1,22 @@
 $('.modal').modal();
 
-$('#tradeSlider').on(' input change', function(){
-    console.log($('#tradeSlider').val());
-    $('#tradeAmount').val($('#tradeSlider').val());
+$("#addValue").on("click", function() {
+  $("#tradeAmount").val(parseInt($("#tradeAmount").val()) + 1);
+});
+$("#subtractValue").on("click", function() {
+  $("#tradeAmount").val(parseInt($("#tradeAmount").val()) - 1);
 });
 
-$('#tradeAmount').on('keyup', function(){
-    // console.log($('#tradeAmount').val());
-    $('#tradeSlider').val($('#tradeAmount').val());
+
+var dollar = true;
+$("#toggleUnits").on("click", function() {
+  if (dollar) {
+    dollar = false;
+    $(this).text("Units");
+  } else {
+    dollar = true;
+    $(this).text("Dollars");
+  }
 });
 
 getStockPriceOf(companies["MMM - 3M Company"]);
