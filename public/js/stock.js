@@ -7,17 +7,17 @@ $("#subtractValue").on("click", function() {
   $("#tradeAmount").val(parseInt($("#tradeAmount").val()) - 1);
 });
 
-//
-// var dollar = true;
-// $("#toggleUnits").on("click", function() {
-//   if (dollar) {
-//     dollar = false;
-//     $("#unit").text("Units");
-//   } else {
-//     dollar = true;
-//     $("#unit").text("$");
-//   }
-// });
+
+var dollar = true;
+$("#toggleUnits").on("click", function() {
+  if (dollar) {
+    dollar = false;
+    $(this).text("Units");
+  } else {
+    dollar = true;
+    $(this).text("Dollars");
+  }
+});
 
 getStockPriceOf(companies["MMM - 3M Company"]);
 
