@@ -10,8 +10,6 @@ router.get('/', function(req, res, next) {
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
             "amcharts/style.css",
-            // activity feed css
-            "css/activity.css",
         ],
         js: [
             // AMCHARTS
@@ -22,6 +20,7 @@ router.get('/', function(req, res, next) {
             // Local files
             "js/charts.js",
             "js/stock.js",
+            "js/listofusers.js",
         ],
     });
 });
