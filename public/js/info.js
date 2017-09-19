@@ -1,11 +1,35 @@
-getCompanyInfo(companies["AMZN - Amazon.com Inc"]);
+$(document).ready(function() {
+  getPageName();
+});
 
-function getCompanyInfo(company) {
-  company = 'amazon.com';
+function getPageName() {
+  var company = document.title.replace(/.* -\s*/, '');
+  var url = 'http://en.wikipedia.org/w/api.php?action=query&generator=allpages&search=';
+  url += company + '&format=json&gapfrom=' + company + '&gapto=' + company + '&prop=info&inprop=url';
+
+  //get wiki link to page from name of company
+  $.ajax({
+    url: url,
+    dataType: 'jsonp',
+    success: function (data) {
+      console.log('wiki', data.query.pages);
+      $.each(data.query.pages, function (key, val) {
+        var url = val.fullurl;
+        url = url.replace(/.*\//, '');
+        getCompanyInfo(url, company);
+      });
+    },
+    fail: function (data) {
+      console.log(data);
+    }
+  });
+
+}
+
+function getCompanyInfo(company, fullName) {
   console.log(company);
-
   var url = 'https://en.wikipedia.org/w/api.php?action=query&prop=extracts';
-  url += '&format=json&exintro=&explaintext=&titles=' + company + '&rvprop=content&callback=?';
+  url += '&format=json&exintro=&explaintext=&titles=' + company + '&rvprop=content&redirects&callback=?';
   //var url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=amazon.com&limit=1&format=json';
 
   //one-line summary of company
@@ -30,7 +54,7 @@ function getCompanyInfo(company) {
         i++;
       }
 
-      $('#company-summary').text(company + ' ' + summary);
+      $('#company-summary').text(fullName + ' ' + summary);
     } catch (err) {
       $('#company-summary').text(err.message);
     }
@@ -39,7 +63,7 @@ function getCompanyInfo(company) {
   //extract wiki infobox entries
   $.ajax({
     type: "GET",
-    url: 'http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&page=' + company + '&callback=?',
+    url: 'https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&page=' + company + '&redirects&callback=?',
     contentType: "application/json; charset=utf-8",
     async: false,
     dataType: "json",
@@ -54,6 +78,7 @@ function getCompanyInfo(company) {
       var founded = markup.match(/Founded.*\n(.*)/g)[0].match(/.*?[0-9]{4}/);
       var founder = markup.match(/Founder.*\n(.*)/g)[0];
       var headquarters = markup.match(/Headquarters.*\n(.*)/g)[0].replace(/Headquarters/i, '');
+      headquarters = headquarters.replace(/\[.*\]/g, '').replace(/\(.*\)/g, '');
       var ceo = markup.match(/Key People(.|\n)*/gi)[0].replace(/\([^(]*CEO(.|\n)*/, '').replace(/(.|\n)*\)/, '').replace(/Key People/i, '');
       var employees = markup.match(/Number of Employees.*(\n)*(.*)/gi)[0].replace(/[,;]\s+.*/, '').replace(/Number of Employees/i, '');
       employees = employees.replace(/\[.*\]/, '').replace(/\(.*\)/, '');
@@ -70,6 +95,9 @@ function getCompanyInfo(company) {
       var revenue = markup.match(/Revenue.*\n.*\n(.*)/g)[0].replace(/Revenue/, '');
       var year = revenue.match(/[0-9]{4}/)[0];
       revenue = revenue.replace(/\[.*\]/, '').replace(/\(.*\)/, '');
+      if (revenue === '' || revenue.length > 20) {
+        return;
+      }
       $('#finances-year').html('Finances (' + year + ')');
       $('#revenue').html(revenue);
 
