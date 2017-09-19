@@ -18,7 +18,6 @@ router.get('/', function(req, res, next) {
             "amcharts/amstock.js",
             "https://www.amcharts.com/lib/3/plugins/export/export.min.js",
             // Local files
-            "js/charts.js",
             "js/stock.js",
             "js/info.js", //company info
         ],
