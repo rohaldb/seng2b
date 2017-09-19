@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var graphs = require('./routes/stock');
 var groups = require('./routes/groups');
+var signup = require('./routes/signup');
+var landing = require('./routes/landing');
 
 var app = express();
 
@@ -23,9 +25,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.use('/', landing);
+app.use('/index', index);
 app.use('/stock', graphs);
 app.use('/groups', groups);
+app.use('/signup', signup);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
