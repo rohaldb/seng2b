@@ -5,7 +5,7 @@ router.get('/', function(req, res, next) {
     console.log(req.query);
     console.warn("benebnebebs");
     res.render('stock', {
-        title: 'NewStock - Stock',
+        title: 'NewStock - Stock - ' + req.query.stock,
         css: [
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
