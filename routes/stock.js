@@ -1,17 +1,15 @@
 var express = require('express');
 var router = express.Router();
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    console.log(req.query);
+    console.warn("benebnebebs");
     res.render('stock', {
         title: 'NewStock - Stock',
         css: [
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
             "amcharts/style.css",
-            // AUTOCOMPLETE
-            "autocomplete/easy-autocomplete.min.css",
-            "autocomplete/easy-autocomplete.themes.min.css",
         ],
         js: [
             // AMCHARTS
@@ -19,14 +17,13 @@ router.get('/', function(req, res, next) {
             "amcharts/serial.js",
             "amcharts/amstock.js",
             "https://www.amcharts.com/lib/3/plugins/export/export.min.js",
-            // Autocomplete
-            "autocomplete/jquery.easy-autocomplete.min.js",
             // Local files
             "js/charts.js",
             "js/stock.js",
             "js/info.js", //company info
         ],
-        code: req.params.code,
+        stock: req.query.stock,
+        company: req.query.company,
     });
 });
 
