@@ -6,7 +6,7 @@
         <h3><span id="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
         <div class="row">
           <div class="col s10" style="padding-left:0px;">
-            <p>Amazon.com  is an American electronic commerce and cloud computing company based in Seattle, Washington that was founded by Jeff Bezos on July 5, 1994.</p>
+            <p id="company-summary">Amazon.com  is an American electronic commerce and cloud computing company based in Seattle, Washington that was founded by Jeff Bezos on July 5, 1994.</p>
           </div>
           <div class="col s2">
             <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Buy</a>
@@ -38,9 +38,14 @@
 </div>
 
 <!-- company info tab -->
-<div id="info" class="col s12">
-  <p id="company-summary">summary of company</p>
-  <div>
+<div id="info" class="row">
+  <div class="col s7">
+    <h4>Overview</h3>
+    <p id="company-summary">Summary of {{ company }}</p>
+  </div>
+
+  <div class="col s7">
+    <h4>At a Glance</h3>
     <table class="striped">
       <tbody>
         <tr>
@@ -62,6 +67,34 @@
         <tr>
           <td>Number of Employees</td>
           <td id="employees">Unknown</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col s7">
+    <h4 id="finances-year">Finances</h3>
+    <table class="striped">
+      <tbody>
+        <tr>
+          <td>Revenue</td>
+          <td id="revenue">Unknown</td>
+        </tr>
+        <tr>
+          <td>Operating Income</td>
+          <td id="operating-income">Unknown</td>
+        </tr>
+        <tr>
+          <td>Net Income</td>
+          <td id="net-income">Unknown</td>
+        </tr>
+        <tr>
+          <td>Total Assets</td>
+          <td id="total-assets">Unknown</td>
+        </tr>
+        <tr>
+          <td>Total Equity</td>
+          <td id="total-equity">Unknown</td>
         </tr>
       </tbody>
     </table>
