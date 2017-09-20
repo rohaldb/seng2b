@@ -5,7 +5,9 @@ router.get('/', function(req, res, next) {
     console.log(req.query);
     console.warn("benebnebebs");
     res.render('stock', {
-        title: 'NewStock - Stock - ' + req.query.stock,
+        stock: req.query.stock,
+        company: req.query.company,
+        title: 'NewStock - Stock - ' + req.query.company,
         css: [
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
@@ -21,8 +23,6 @@ router.get('/', function(req, res, next) {
             "js/stock.js",
             "js/info.js", //company info
         ],
-        stock: req.query.stock,
-        company: req.query.company,
     });
 });
 
