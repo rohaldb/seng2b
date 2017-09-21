@@ -44,14 +44,16 @@
     </li>
     <li><a href="/"><i class="material-icons ">home</i>Home</a></li>
     <li><a class="subheader">Portfolio</a></li>
-    <li><a href="/stock?stock=AMZN&company=Amazon+Inc."><i class="material-icons ">keyboard_arrow_right</i>AMZN</a></li>
-    <li><a href="/stock?stock=MSFT&company=Microsoft"><i class="material-icons ">keyboard_arrow_right</i>MSFT</a></li>
-    <li><a href="/stock?stock=CBA&company=Commonwealth+Bank+of+Australia"><i class="material-icons ">keyboard_arrow_right</i>CBA</a></li>
+    <li><a href="/stock?stock=AMZN&company=Amazon.com+Inc"><i class="material-icons ">keyboard_arrow_right</i>AMZN</a></li>
+    <li><a href="/stock?stock=MSFT&company=Microsoft+Corp."><i class="material-icons ">keyboard_arrow_right</i>MSFT</a></li>
+    <li><a href="/stock?stock=NKE&company=Nike"><i class="material-icons ">keyboard_arrow_right</i>NKE</a></li>
     <li><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals"><i class="material-icons ">keyboard_arrow_right</i>ALXN</a></li>
-    <li><a href="/stock?stock=GOOG&company=Google+Inc."><i class="material-icons ">keyboard_arrow_right</i>GOOG</a></li>
+    <li><a href="/stock?stock=GOOGL&company=Alphabet+Inc+Class+A"><i class="material-icons ">keyboard_arrow_right</i>GOOG</a></li>
     <li><a class="subheader">Groups</a></li>
     <li><a href="/groups?group=Work"><i class="material-icons ">group</i>Work</a></li>
     <li><a href="/groups?group=Friends"><i class="material-icons ">group</i>Friends</a></li>
+    <li><a href="/groups?group=Work"><i class="material-icons ">add</i>New</a></li>
+    <li><a class="subheader">Account</a></li>
     <li><a href="#!"><i class="material-icons ">account_circle</i>Sign Out</a></li>
 </ul>
 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons ">menu</i></a>
@@ -62,12 +64,13 @@
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/urlParams.js"></script>
 <script src="js/materialize.js"></script>
 <script src="js/listofcompanies.js"></script>
+<script src="js/searchbar.js"></script>
 <!-- Custom JS for each page -->
 {{#each js}}
 <script src="{{this}}" type="text/javascript"></script>
 {{/each}}
-<script src="js/searchbar.js"></script>
 </body>
 </html>

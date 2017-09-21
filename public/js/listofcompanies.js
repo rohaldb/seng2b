@@ -2527,7 +2527,6 @@ var companies = {
 }
 
 var company_keys = {
-  "key": null,
   "MMM - 3M Company": null,
   "ABT - Abbott Laboratories": null,
   "ABBV - AbbVie": null,
