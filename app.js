@@ -10,6 +10,9 @@ var indexPage = require('./routes/index');
 var stockPage = require('./routes/stock');
 var groupsPage = require('./routes/groups');
 var profilePage = require('./routes/profile');
+var signupPage = require('./routes/signup');
+var loginPage = require('./routes/login');
+var landingPage = require('./routes/landing');
 
 var app = express();
 
@@ -26,10 +29,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routing for each page
-app.use('/', indexPage);
+app.use('/', landingPage);
+app.use('/index', indexPage);
 app.use('/stock', stockPage);
 app.use('/groups', groupsPage);
 app.use('/profile', profilePage);
+app.use('/signup', signupPage);
+app.use('/login', loginPage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
