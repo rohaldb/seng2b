@@ -56,3 +56,11 @@ main {
     margin-top: 5px;
     margin-bottom: 0;
 }
+
+.stock-change.change-positive {
+    color: #4caf50;
+}
+
+.stock-change.change-negative {
+    color: #f44336;
+}
