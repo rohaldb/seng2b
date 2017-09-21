@@ -15,8 +15,9 @@
   box-shadow:none !important;
 }
 .side-nav{
-    top: 65px;
+    margin-top: 65px;
     width: 250px;
+    height:100%;
 }
 
 main {
@@ -51,6 +52,7 @@ main {
    box-shadow: 0 1px 0 0 #2bbbad !important
  }
 
+<<<<<<< HEAD
  .leaderboard {
    margin-top: 50px;
    background-color: #123;
@@ -124,3 +126,18 @@ main {
  .leaderboard ol:hover li:not(:hover) {
    opacity: 0.3;
  }
+=======
+#return-text {
+    color: #2bbbad;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.stock-change.change-positive {
+    color: #4caf50;
+}
+
+.stock-change.change-negative {
+    color: #f44336;
+}
+>>>>>>> 34a5c4fbe249b0fa0cf49085a6a0a7e206f342c2

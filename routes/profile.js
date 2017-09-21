@@ -3,8 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('groups', {
-        title: 'NewStock - Groups - ' + req.query.group,
+    res.render('profile', {
+        title: 'NewStock - Profile',
         group: req.query.group,
         css: [
             // AMCHARTS
@@ -18,9 +18,7 @@ router.get('/', function(req, res, next) {
             "amcharts/amstock.js",
             "https://www.amcharts.com/lib/3/plugins/export/export.min.js",
             // Local files
-            //"js/stock.js",
-            "js/group_charts.js",
-            "js/listofusers.js",
+            "js/stock.js",
         ],
     });
 });
