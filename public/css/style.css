@@ -15,8 +15,9 @@
   box-shadow:none !important;
 }
 .side-nav{
-    top: 65px;
+    margin-top: 65px;
     width: 250px;
+    height:100%;
 }
 
 main {
