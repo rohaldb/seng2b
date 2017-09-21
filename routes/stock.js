@@ -22,6 +22,7 @@ router.get('/', function(req, res, next) {
             // Local files
             "js/stock.js",
             "js/info.js", //company info
+            "js/news.js", //news articles
         ],
     });
 });
