@@ -17,7 +17,7 @@ $(document).ready(function(){
   // Friends search bar autocompletion (e.g. invite) - reads data from listofusers.js
   // TODO populate from Firebase when login is setup instead
   $('input.autocomplete-friends').autocomplete({
-    data: company_keys,
+    data: user_keys,
     limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
     onAutocomplete: function(val) {
         // Callback function when value is autcompleted.
