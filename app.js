@@ -5,12 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var graphs = require('./routes/stock');
-var groups = require('./routes/groups');
-var signup = require('./routes/signup');
-var login = require('./routes/login');
-var landing = require('./routes/landing');
+// Include each page's /routes/*.js file here
+var indexPage = require('./routes/index');
+var stockPage = require('./routes/stock');
+var groupsPage = require('./routes/groups');
+var profilePage = require('./routes/profile');
+var signupPage = require('./routes/signup');
+var loginPage = require('./routes/login');
+var landingPage = require('./routes/landing');
 
 var app = express();
 
@@ -26,12 +28,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', landing);
-app.use('/index', index);
-app.use('/stock', graphs);
-app.use('/groups', groups);
-app.use('/signup', signup);
-app.use('/login', login);
+// Routing for each page
+app.use('/', landingPage);
+app.use('/index', indexPage);
+app.use('/stock', stockPage);
+app.use('/groups', groupsPage);
+app.use('/profile', profilePage);
+app.use('/signup', signupPage);
+app.use('/login', loginPage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

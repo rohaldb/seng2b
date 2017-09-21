@@ -2,15 +2,22 @@
   <div class="col s12 m12">
     <div class="card atlassian">
       <div class="card-content white-text">
-        <span class="card-title orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</span></span>
-        <h3><span id="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
         <div class="row">
-          <div class="col s10">
-            <p>Amazon.com  is an American electronic commerce and cloud computing company based in Seattle, Washington that was founded by Jeff Bezos on July 5, 1994.</p>
+          <div class="col s8" style="padding-left:0px;">
+            <span class="card-title orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</span></span>
           </div>
-          <div class="col s2">
+
+          <div class="col s4" align="right">
             <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Buy</a>
             <a class="waves-effect waves-light btn modal-trigger orange" href="#modal1">Sell</a>
+          </div>
+        </div>
+
+        <h3><span class="company-price">Loading</span> <small id="company-change" class="spaceship-text">(+0.13%)</small></h3>
+
+        <div class="row">
+          <div class="col s9" style="padding-left:0px;">
+            <p>Amazon.com  is an American electronic commerce and cloud computing company based in Seattle, Washington that was founded by Jeff Bezos on July 5, 1994.</p>
           </div>
         </div>
       </div>
@@ -34,13 +41,59 @@
 
 <!-- news tab -->
 <div id="news" class="col s12">
-  <h1>News!</h1>
+  <ul class="collection atlassian-text "  style="border:1px solid rgba(44, 62, 80, 0.52)">
+    <li class="collection-item avatar space-gray">
+      <span class="title spaceship-text">
+        <a href="https://www.theguardian.com/technology/2013/aug/06/jeff-bezos-amazon-washington-post">
+          <h5>Jeff Bezos: Amazon.com's 'dread pirate' founder</h5>
+        </a>
+      </span>
+      <p>
+        Each year, Jeff Bezos, the billionaire founder of Amazon, writes to his shareholders, attaching the same, three-page mailshot he first sent them following the company's stock market flotation. "Amazon.com passed many milestones in 1997," the historic missive opens. But this is Day 1 for the internet ... <a href="">Read More</a>
+       </p>
+    </li>
+    <li class="collection-item avatar space-gray">
+      <span class="title spaceship-text">
+        <a href="https://www.theguardian.com/books/2011/dec/07/amazon-com-publishing-children-books">
+          <h5>Amazon.com extends publishing arm into children's books</h5>
+        </a>
+      </span>
+      <p>
+        After dipping its toe into the waters of romance, mystery and science fiction publishing, Amazon.com has announced its biggest publishing venture yet with the acquisition of more than 450 children's books from US press Marshall Cavendish – and the revelation that similar deals are likely to follow ... <a href="">Read More</a>
+      <p>
+    </li>
+    <li class="collection-item avatar space-gray">
+      <span class="title spaceship-text">
+        <a href="https://www.theguardian.com/books/booksblog/2017/may/17/secondhand-book-sales-authors-cheap">
+          <h5>Cheap books, high price: why Amazon.com’s ‘one-click’ sales can cost authors dear</h5>
+        </a>
+      </span>
+      <p>
+        It is a hard sell: the idea that cheaper books might be a bad thing. But an adjustment to how Amazon sells books on its site is being attacked by authors’ groups, which claim secondhand copies of new books sold at rock-bottom prices are selling in such high quantities from the retailer that authors are unable to earn a living ... <a href="">Read More</a>
+      </p>
+    </li>
+    <li class="collection-item avatar space-gray">
+      <span class="title spaceship-text">
+        <a href="https://www.theguardian.com/world/richard-adams-blog/2011/jan/28/amazon-kindle-ebook-paperback-sales">
+          <h5>Amazon's ebook sales eclipse paperbacks for the first time</h5>
+        </a>
+      </span>
+      <p>
+        In what could be a landmark moment in the struggle between old versus new technology, Amazon has announced that it now sells more copies of its Kindle ebooks than traditional paperbacks ... <a href="">Read More</a>
+      </p>
+    </li>
+  </ul>
 </div>
 
 <!-- company info tab -->
-<div id="info" class="col s12">
-  <p id="company-summary">summary of company</p>
-  <div>
+<div id="info" class="row">
+  <div class="col s7">
+    <h4>Overview</h3>
+    <p id="company-summary">Summary of {{ company }}</p>
+  </div>
+
+  <div class="col s7">
+    <h4>At a Glance</h3>
     <table class="striped">
       <tbody>
         <tr>
@@ -62,6 +115,34 @@
         <tr>
           <td>Number of Employees</td>
           <td id="employees">Unknown</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col s7">
+    <h4 id="finances-year">Finances</h3>
+    <table class="striped">
+      <tbody>
+        <tr>
+          <td>Revenue</td>
+          <td id="revenue">Unknown</td>
+        </tr>
+        <tr>
+          <td>Operating Income</td>
+          <td id="operating-income">Unknown</td>
+        </tr>
+        <tr>
+          <td>Net Income</td>
+          <td id="net-income">Unknown</td>
+        </tr>
+        <tr>
+          <td>Total Assets</td>
+          <td id="total-assets">Unknown</td>
+        </tr>
+        <tr>
+          <td>Total Equity</td>
+          <td id="total-equity">Unknown</td>
         </tr>
       </tbody>
     </table>
@@ -140,7 +221,7 @@
   <div class="modal-content container">
     <div class="row">
       <h4 class=" orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</h4>
-      <h3><span id="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
+      <h3><span class="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
     </div>
     <div class="row center-align" >
       <div class="col s2">
@@ -157,11 +238,11 @@
     <div class="row">
        <a href="#!" class="waves-effect waves-blue blue btn" id="toggleUnits">Dollars</a>
     </div>
-    <div class="row">
-      <h5 class="">103.8 * $16 = $1,664.8 </h5>
+    <div class="row" id="price-calculation">
+      <h5>$50 / <span class="company-price">103.8</span> = 1.1 shares </h5>
     </div>
     <div class="row">
-      <h5> Current Balance: $9928.77</h5>
+      <h5>Current Balance: $9928.77</h5>
       <h5> Balance after transaction: $8,267.9</h5>
     </div>
     <div class="row">

@@ -1,78 +1,124 @@
 <div class="row">
-  <div class="col s12">
-    <div class="row">
-      <div class="col s8">
-        <h3 id="group-name">{{ group }}</h3>
-        <h5 id="num-members">4 members</h5>
-      </div>
-      <div class="col s2">
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Leave Group</a>
-      </div>
-      <div class="col s2">
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Invite</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <ul class="tabs">
-          <li class="tab col s4"><a class="active" href="#graphs">Graphs</a></li>
-          <li class="tab col s4"><a href="#feed">Feed</a></li>
-          <li class="tab col s4"><a href="#leader">Leaderboard</a></li>
-        </ul>
+  <div class="col s12 m12">
+    <div class="card atlassian">
+      <div class="card-content white-text">
+        <div class="row">
+          <div class="col s8" style="padding-left:0px;">
+            <span class="card-title orange-text" id="company-name" style="display:inline-block;">{{ group }}</span></span>
+          </div>
+
+          <div class="col s4" align="right">
+            <a class="waves-effect waves-light btn modal-trigger blue" href="#modal1">Invite</a>
+            <a class="waves-effect waves-light btn modal-trigger red" href="#modal1">Leave</a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s9" style="padding-left:0px;">
+            <p id="num-members">4 members</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s4"><a class="active" href="#graphs">Graphs</a></li>
+      <li class="tab col s4"><a href="#feed">Feed</a></li>
+      <li class="tab col s4"><a href="#leader">Leaderboard</a></li>
+    </ul>
+  </div>
+</div>
+
 
 <!-- leaderboard -->
 <div id="leader" class="row">
-  <div class="col s4">
-    <h5>TODO: leaderboard</h5>
+  <div class="col s4 offset-s4">
+    <div class="leaderboard">
+      <h4 style="text-align:center">Leaderboard</h4>
+      <ol>
+        <li><span class="name">Jason</span><span class="percent">2%</span></li>
+        <li><span class="name">Ben</span><span class="percent">1.8%</span></li>
+        <li><span class="name">David</span><span class="percent">0.2%</span></li>
+        <li><span class="name">Jessica</span><span class="percent">-0.3%</span></li>
+        <li><span class="name">Dom</span><span class="percent">-0.6%</span></li>
+        <li><span class="name">Michael</span><span class="percent">-1.2%</span></li>
+      </ol>
+    </div>
   </div>
 </div>
-
 <!-- group feed -->
-<div id="feed" class="row">
-  <ul class="collection">
-    <li class="collection-item avatar">
+<div id="feed" class="row" >
+  <ul class="collection atlassian-text "  style="border:1px solid rgba(44, 62, 80, 0.52)">
+    <li class="collection-item avatar space-gray">
       <img src="images/sample_user.png" alt="" class="circle">
-      <span class="title"><b>Friend A</b> bought 1.087 shares in <b>AMZN</b>.</span>
-      <p>Just now</p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <span class="title spaceship-text">Friend A</span>
+      <p>Bought 1.087 shares of AMZN.<br>
+        Just now
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
     </li>
 
-    <li class="collection-item avatar">
+    <li class="collection-item avatar space-gray">
       <img src="images/sample_user.png" alt="" class="circle">
-      <span class="title"><b>Friend C</b> bought 0.579 shares in <b>GOOG</b>.</span>
-      <p>Just now</p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <span class="title spaceship-text">Friend A</span>
+      <p>Bought 1.087 shares of AMZN.<br>
+        Just now
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
     </li>
 
-    <li class="collection-item avatar">
+    <li class="collection-item avatar space-gray">
       <img src="images/sample_user.png" alt="" class="circle">
-      <span class="title"><b>You</b> sold 1.234 shares in <b>MSFT</b>.</span>
-      <p>2 hours ago</p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <span class="title spaceship-text">Friend A</span>
+      <p>Bought 1.087 shares of AMZN.<br>
+        Just now
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
     </li>
 
-    <li class="collection-item avatar">
+    <li class="collection-item avatar space-gray">
       <img src="images/sample_user.png" alt="" class="circle">
-      <span class="title"><b>Friend C</b> joined the group.</span>
-      <p>1 day ago</p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <span class="title spaceship-text">Friend A</span>
+      <p>Bought 1.087 shares of AMZN.<br>
+        Just now
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
     </li>
   </ul>
 </div>
 
-<!-- group performance graph -->
+
 <div id="graphs" class="row">
+  <div class="col s6 offset-s3">
+    <ul class="tabs" id="graph-tabs">
+        <li class="tab col s6"><a class="active" href="#graph1">Multiple Panels</a></li>
+        <li class="tab col s6"><a href="#graph2">Compare Members</a></li>
+    </ul>
+  </div>
+
+<!-- graph tabs -->
+  <div id="graph1" class="col s12">
+      <div id="chartdiv1" style="width:100%; height:400px;"></div>
+  </div>
+  <div id="graph2" class="col s12">
+      <div id="chartdiv2" style="width:100%; height:400px;"></div>
+  </div>
+
+
+<!-- group performance graph -->
+<!-- <div id="graphs" class="row">
   <div class="col s4">
     <h5>Group Performance:</h5>
   </div>
   <div class="col s6 offset-s3">
     <div id="chartdiv3" style="width:100%; height:400px;">
   </div>
-</div>
+</div> -->
+
 
 <!-- leave group -->
 <div id="modal1" class="modal">
