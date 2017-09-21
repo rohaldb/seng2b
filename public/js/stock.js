@@ -1,5 +1,6 @@
 $('.modal').modal();
 
+stockValue = 0;
 $("#addValue").on("click", function() {
   $("#tradeAmount").val(parseInt($("#tradeAmount").val()) + 1);
 });
@@ -27,9 +28,13 @@ function getStockPriceOf(stockInfo) {
     data = Object.values(data)[1];
     var chartData = generateChartData(data, 1);
     $("#company-name").text(stockInfo.Symbol + " | " + stockInfo.Name);
-    $("#company-price").text(chartData[chartData.length - 1].close);
-    // $("#company-change").text();
 
+    $(".company-price").each(function( index ) {
+      $( this ).text(chartData[chartData.length - 1].close);
+    });
+
+    // $("#company-change").text();
+    stockValue = chartData[chartData.length - 1].close;
   });
   console.log(code);
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
