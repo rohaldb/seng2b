@@ -32,11 +32,11 @@
     </ul>
   </div>
 </div>
+
+
 <!-- leaderboard -->
 <div id="leader" class="row">
-  <div class="col s4">
-    <h5>TODO: leaderboard</h5>
-  </div>
+    <h5>Leaderboard</h5>
 </div>
 <!-- group feed -->
 <div id="feed" class="row" >
@@ -79,15 +79,34 @@
   </ul>
 </div>
 
-<!-- group performance graph -->
+
 <div id="graphs" class="row">
+  <div class="col s6 offset-s3">
+    <ul class="tabs" id="graph-tabs">
+        <li class="tab col s6"><a class="active" href="#graph1">Multiple Panels</a></li>
+        <li class="tab col s6"><a href="#graph2">Compare Members</a></li>
+    </ul>
+  </div>
+
+<!-- graph tabs -->
+  <div id="graph1" class="col s12">
+      <div id="chartdiv1" style="width:100%; height:400px;"></div>
+  </div>
+  <div id="graph2" class="col s12">
+      <div id="chartdiv2" style="width:100%; height:400px;"></div>
+  </div>
+
+
+<!-- group performance graph -->
+<!-- <div id="graphs" class="row">
   <div class="col s4">
     <h5>Group Performance:</h5>
   </div>
   <div class="col s6 offset-s3">
     <div id="chartdiv3" style="width:100%; height:400px;">
   </div>
-</div>
+</div> -->
+
 
 <!-- leave group -->
 <div id="modal1" class="modal">
