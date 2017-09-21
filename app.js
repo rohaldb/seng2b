@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var graphs = require('./routes/stock');
 var groups = require('./routes/groups');
 var signup = require('./routes/signup');
+var login = require('./routes/login');
 var landing = require('./routes/landing');
 
 var app = express();
@@ -30,6 +31,7 @@ app.use('/index', index);
 app.use('/stock', graphs);
 app.use('/groups', groups);
 app.use('/signup', signup);
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
