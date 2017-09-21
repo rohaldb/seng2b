@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
             // AMCHARTS
             "https://www.amcharts.com/lib/3/plugins/export/export.css",
             "amcharts/style.css",
+            "css/groups.css",
         ],
         js: [
             // AMCHARTS

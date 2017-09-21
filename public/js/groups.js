@@ -436,3 +436,16 @@ var chart = AmCharts.makeChart("chartdiv3",
     	"enabled": true
      }
 });
+
+
+$(document).ready(function(){
+  $('.chips-autocomplete').material_chip({
+    autocompleteOptions: {
+      data: user_keys,
+      limit: Infinity,
+      minLength: 1
+    },
+    placeholder: 'Enter a User',
+    secondaryPlaceholder: '+ User',
+  });
+});
