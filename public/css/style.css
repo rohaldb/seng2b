@@ -51,3 +51,12 @@ main {
    border-bottom: 1px solid #2bbbad !important;
    box-shadow: 0 1px 0 0 #2bbbad !important
  }
+
+ .stock-change.change-positive {
+    color: #4caf50;
+}
+
+.stock-change.change-negative {
+    color: #f44336;
+}
+
