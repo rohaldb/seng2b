@@ -32,16 +32,80 @@ function extractCompanySummary(src, length) {
   var summary = '';
   var src = src.substring(src.indexOf('is'), src.length);
   var components = src.split('.');
+  var prev = '';
   var i = 0;
+
   while (len < length) {
-    if (!components[i].match(/[^\s]+\s/)) {
-      break;
+    if (!components[i]) {
+      break; //section 0 too short
+    } else if (i > 0 && len + components[i].length + 1 >= length && !components[i].match('^[\s\n]')) {
+      break; //avoid mid-sentence cut-off
     }
+    prev = summary;
     summary += components[i] + '.';
     len = summary.length;
     i++;
   }
-  return summary;
+
+  if (i > 2 && components[i] && !components[i].match('^[\s\n]')) {
+    //avoid mid-sentence cut-off
+    if (!prev.match('[0-9]\.$') && !components[i - 1].match('^[0-9]')) {
+      //but avoid if last component was the end of a number
+      summary = prev;
+    }
+  } else if (components[i] && !components[i].match('\s')) {
+    summary += components[i] + '.'; //add single trailing word
+  }
+
+  return summary.replace(/[\s\.]+$/, '.');
+}
+
+//safely unescape html
+function unescapeHTML(src) {
+  var e = document.createElement('div');
+  e.innerHTML = src;
+  return (e.childNodes.length === 0) ? "" : e.childNodes[0].nodeValue;
+}
+
+//return the canonical name for a denomination
+//wiki formats it poorly sometimes, e.g. "b", "bil", "bill", ...
+function getCanonical(src) {
+  src = unescapeHTML(src);
+  src = src.replace(/^\s*|\s*$/g, '');
+  src = src.replace(/m$/i, 'million');
+  src = src.replace(/b$/i, 'billion');
+  src = src.replace(/ill?$/i, 'illion');
+  src = src.replace(/-/g, '');
+  var name = src.match(/\w+$/)[0];
+  if (name) {
+    src = src.replace(name, name.toLowerCase());
+  }
+  src = src.replace(/[0-9]([a-z]+)$/, ' $1');
+  return src;
+}
+
+//return a hash table of all financial information mapped to an increase/decrease icon
+function getIncreaseDecrease(html) {
+  var upDown = {};
+  var upIcon = '<img alt="increase" src="images/11px-Increase2.svg.png" width="11" height="11">';
+  var downIcon = '<img alt="decrease" src="images/11px-Decrease2.svg.png" width="11" height="11">';
+  var increases = html.match(/.*upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b0\/Increase2.svg\/11px-Increase2.svg.png[^>]+>(.*)/g);
+  var i = 0;
+  while (increases && increases[i]) {
+    var up = increases[i].replace(/<[^>]*>/g, '');
+    up = up.replace(/\[.*\]/g, '').replace(/\(.*\)/g, '').replace(/^\s*|\s*$/g, '');
+    upDown[up] = upIcon;
+    i++;
+  }
+  var decreases = html.match(/.*upload.wikimedia.org\/wikipedia\/commons\/thumb\/e\/ed\/Decrease2.svg\/11px-Decrease2.svg.png[^>]+>(.*)/g);
+  i = 0;
+  while (decreases && decreases[i]) {
+    var down = decreases[i].replace(/<[^>]*>/g, '');
+    down = down.replace(/\[.*\]/g, '').replace(/\(.*\)/g, '').replace(/^\s*|\s*$/g, '');
+    upDown[down] = downIcon;
+    i++;
+  }
+  return upDown;
 }
 
 function getCompanyInfo(company, fullName) {
@@ -59,12 +123,13 @@ function getCompanyInfo(company, fullName) {
     var obj = data.query.pages;
     var ob = Object.keys(obj)[0];
     var extract = obj[ob]['extract']
-    summary = extractCompanySummary(extract, 250);
+    summary = extractCompanySummary(extract, 450);
     $('#company-summary').text(fullName + ' ' + summary);
     companyOverview = extractCompanySummary(extract, 100);
   });
 
   //extract wiki infobox entries
+  var upDown = {};
   $.ajax({
     type: "GET",
     url: 'https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&page=' + company + '&redirects&callback=?',
@@ -73,46 +138,58 @@ function getCompanyInfo(company, fullName) {
     dataType: "json",
     success: function (data, textStatus, jqXHR) {
       var markup = data.parse.text["*"];
+      upDown = getIncreaseDecrease(markup);
 
       //infobox is the first thing on the page
       markup = markup.replace(/<[^>]*>/g, '');
 
       //at a glance...
+      $('.tooltipped').tooltip('remove');
       var industry = markup.match(/Industry.*(\n)*(.*)/g);
       if (industry) {
         industry = industry[0].replace(/Industry/, '');
-        $('#industry').html(industry);
+        $('#industry').attr('value', unescapeHTML(industry));
+        $('#industry').attr('data-tooltip', unescapeHTML(industry));
       }
       var founded = markup.match(/Founded.*\n(.*)/g);
       if (founded) {
-        founded = founded[0].match(/.*?[0-9]{4}/);
-        $('#founded').html(founded);
+        founded = founded[0].match(/.*?[0-9]{4}/)
+        $('#founded').attr('value', unescapeHTML(founded));
+        $('#founded').attr('data-tooltip', unescapeHTML(founded));
       }
       var founder = markup.match(/Founder.*\n(.*)/g);
       if (founder) {
         founder = founder[0];
-        $('#founder').html(founder);
+        $('#founder').attr('value', unescapeHTML(founder));
+        $('#founder').attr('data-tooltip', unescapeHTML(founder));
       }
       var headquarters = markup.match(/Headquarters.*\n(.*)/g);
       if (headquarters) {
         headquarters = headquarters[0].replace(/Headquarters/i, '');
-        headquarters = headquarters.replace(/\[.*\]/g, '').replace(/\(.*\)/g, '');
-        $('#headquarters').html(headquarters);
+        headquarters = headquarters.replace(/\[.*\]/g, '').replace(/\(.*\)/g, '').replace(/,$/, '');
+        $('#headquarters').attr('value', unescapeHTML(headquarters));
+        $('#headquarters').attr('data-tooltip', unescapeHTML(headquarters));
       }
       var ceo = markup.match(/Key( |&#\d+;)People(.|\n)*/gi);
       if (ceo) {
-        ceo = ceo[0].replace(/\([^(]*CEO(.|\n)*/, '').replace(/(.|\n)*\)/, '').replace(/Key( |&#\d+;)People/i, '');
-        $('#ceo').html(ceo);
+        ceo = ceo[0].replace(/\([^(]*CEO(.|\n)*/, '').replace(/(.|\n)*\)/, '').replace(/Key( |&#\d+;)People/i, '').replace(/,\s*$/, '');
+        if (ceo.length > 30) {
+          ceo = 'Unknown';
+        }
+        $('#ceo').attr('value', unescapeHTML(ceo));
+        $('#ceo').attr('data-tooltip', unescapeHTML(ceo));
       }
       var employees = markup.match(/Number of Employees.*(\n)*(.*)/gi);
       if (employees) {
         employees = employees[0].replace(/[,;]\s+.*/, '').replace(/Number of Employees/i, '');
-        employees = employees.replace(/\[.*\]/, '').replace(/\(.*\)/, '');
-        $('#employees').html(employees);
+        employees = employees.replace(/\[.*\]/, '').replace(/\(.*\)/, '').replace(/\(.*/, '');
+        $('#employees').attr('value', unescapeHTML(employees));
+        $('#employees').attr('data-tooltip', unescapeHTML(employees));
       }
+      $('.tooltipped').tooltip({delay: 50});
 
       //finances...
-      var revenue = markup.match(/Revenue.*\n.*\n(.*)/g);
+      var revenue = markup.match(/Revenue.*\n+(.*)/g);
       if (revenue) {
         revenue = revenue[0].replace(/Revenue/, '');
       } else {
@@ -120,35 +197,38 @@ function getCompanyInfo(company, fullName) {
         return;
       }
       var year = revenue.match(/[0-9]{4}/)[0];
-      revenue = revenue.replace(/\[.*\]/, '').replace(/\(.*\)/, '');
+      revenue = revenue.replace(/\[.*\]/, '').replace(/\(.*\)/, '').replace(/^\s*|\s*$/g, '');
       if (revenue === '' || revenue.length > 40) {
         return;
       }
       $('#finances-year').html('Finances (' + year + ')');
-      $('#revenue').html(revenue);
+      $('#revenue').html(upDown[revenue] + getCanonical(revenue));
       markup = markup.replace(/\[.*\]/g, '').replace(/\(.*\)/g, '');
-      var operating = markup.match(/Operating Income.*\n.*\n(.*)/gi);
+      var operating = markup.match(/Operating Income.*\n+(.*)/gi);
       if (operating) {
-        operating = operating[0].replace(/Operating Income/i, '');
-        $('#operating-income').html(operating);
+        operating = operating[0].replace(/Operating Income/i, '').replace(/^\s*|\s*$/g, '');
+        $('#operating-income').html(upDown[operating] + getCanonical(operating));
       }
-      var net = markup.match(/Net Income.*\n.*\n(.*)/gi);
+      var net = markup.match(/Net Income.*\n+(.*)/gi);
       if (net) {
-        net = net[0].replace(/Net Income/i, '');
-        $('#net-income').html(net);
+        net = net[0].replace(/Net Income/i, '').replace(/^\s*|\s*$/g, '');
+        $('#net-income').html(upDown[net] + getCanonical(net));
       }
-      var total = markup.match(/Total Assets.*\n.*\n(.*)/gi);
+      var total = markup.match(/Total Assets.*\n+(.*)/gi);
       if (total) {
-        total = total[0].replace(/Total Assets/i, '');
-        $('#total-assets').html(total);
+        total = total[0].replace(/Total Assets/i, '').replace(/^\s*|\s*$/g, '');
+        $('#total-assets').html(upDown[total] + getCanonical(total));
       }
-      var equity = markup.match(/Total Equity.*\n.*\n(.*)/gi);
+      var equity = markup.match(/Total Equity.*\n+(.*)/gi);
       if (equity) {
-        equity = equity[0].replace(/Total Equity/i, '');
-        $('#total-equity').html(equity);
+        equity = equity[0].replace(/Total Equity/i, '').replace(/^\s*|\s*$/g, '');
+        $('#total-equity').html(upDown[equity] + getCanonical(equity));
       }
 
       //display company overview at the end
+      if (companyOverview === '') {
+        fullName = '';
+      }
       $('#company-overview').text(fullName + ' ' + companyOverview);
     },
     error: function (errorMessage) {

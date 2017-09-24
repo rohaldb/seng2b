@@ -91,11 +91,45 @@
 
 <!-- company info tab -->
 <div id="info" class="row">
-  <div class="col s7">
-    <h4>Overview</h3>
-    <p id="company-summary">Summary of {{ company }}</p>
+  <div class="row">
+    <div class="col s12">
+      <h4>At a Glance</h4>
+    </div>
+    <div class="input-field col s2">
+      <i class="medium material-icons prefix">settings</i>
+      <input disabled value="Unknown" id="industry" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+      <label for="industry">Industry</label>
+    </div>
+    <div class="input-field col s2">
+      <i class="medium material-icons prefix">history</i>
+      <input disabled value="Unknown" id="founded" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+      <label for="founded">Founded</label>
+    </div>
+    <div class="input-field col s2">
+      <i class="medium material-icons prefix">location_city</i>
+      <input disabled value="Unknown" id="headquarters" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+      <label for="headquarters">Headquarters</label>
+    </div>
+    <div class="input-field col s2">
+      <i class="medium material-icons prefix">person_outline</i>
+      <input disabled value="Unknown" id="ceo" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+      <label for="ceo">CEO</label>
+    </div>
+    <div class="input-field col s2">
+      <i class="medium material-icons prefix">people_outline</i>
+      <input disabled value="Unknown" id="employees" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+      <label for="employees">Number of Employees</label>
+    </div>
   </div>
 
+  <div class="row">
+    <div class="col s8">
+      <h4>Overview</h4>
+      <p id="company-summary">Summary of {{ company }}</p>
+    </div>
+  </div>
+
+<!--
   <div class="col s7">
     <h4>At a Glance</h3>
     <table class="striped">
@@ -123,9 +157,10 @@
       </tbody>
     </table>
   </div>
+-->
 
   <div class="col s7">
-    <h4 id="finances-year">Finances</h3>
+    <h4 id="finances-year">Finances</h4>
     <table class="striped">
       <tbody>
         <tr>
@@ -151,6 +186,7 @@
       </tbody>
     </table>
   </div>
+
 </div>
 
 <div id="graphs" class="row">
@@ -224,7 +260,7 @@
 <div id="modal1" class="modal atlassian center-align white-text">
   <div class="modal-content container">
     <div class="row">
-      <h4 class=" orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</h4>
+      <h4 class=" orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</span></h4>
       <h3><span class="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
     </div>
     <div class="row center-align" >
