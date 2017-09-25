@@ -2,6 +2,10 @@ $(document).ready(function() {
   loadArticles(document.title.replace(/.* -\s*/, ''));
 });
 
+function sentimentAnalysis(title, body) {
+  //TODO
+}
+
 function loadArticles(company) {
   var url = 'http://content.guardianapis.com/search?q=' + company;
   url += '&order-by=relevance&show-blocks=body&show-fields=bodyText';
@@ -19,8 +23,9 @@ function loadArticles(company) {
       var title = obj[ob]['webTitle'];
       var link = obj[ob]['webUrl'];
       var date = obj[ob]['webPublicationDate'].replace(/[a-z]/gi, ' ');
-      var summary = obj[ob]['fields']['bodyText'].substring(0, 350);
-      summary = summary.replace(/\s[^\s]*$/, '').replace(/\s*[^a-z]+$/i, '');
+      var bodyText = obj[ob]['fields']['bodyText'];
+      sentimentAnalysis(title, bodyText);
+      var summary = bodyText.substring(0, 350).replace(/\s[^\s]*$/, '').replace(/\s*[^a-z]+$/i, '');
       var body = obj[ob]['blocks']['body']['0']['bodyHtml'];
 
       //remove hyperlinks from body
