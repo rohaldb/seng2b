@@ -26,66 +26,22 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
-        <div class="row">
-            <div class="col s12">
-              <ul class="tabs">
-                  <li class="tab col s4"><a class="active" href="#graphs">Graphs</a></li>
-                  <li class="tab col s4"><a href="#news">News</a></li>
-                  <li class="tab col s4"><a href="#info">Company Information</a></li>
-              </ul>
-            </div>
-        </div>
+  <div class="col s12">
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s4"><a class="active" href="#graphs">Graphs</a></li>
+          <li class="tab col s4"><a href="#news">News</a></li>
+          <li class="tab col s4"><a href="#info">Company Information</a></li>
+        </ul>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- news tab -->
 <div id="news" class="col s12">
-  <ul class="collection atlassian-text "  style="border:1px solid rgba(44, 62, 80, 0.52)">
-    <li class="collection-item avatar space-gray">
-      <span class="title spaceship-text">
-        <a target="_blank" href="https://www.theguardian.com/technology/2013/aug/06/jeff-bezos-amazon-washington-post">
-          <h5>Jeff Bezos: Amazon.com's 'dread pirate' founder</h5>
-          <p>20/09/2017</p>
-        </a>
-      </span>
-      <p>
-        Each year, Jeff Bezos, the billionaire founder of Amazon, writes to his shareholders, attaching the same, three-page mailshot he first sent them following the company's stock market flotation. "Amazon.com passed many milestones in 1997," the historic missive opens. But this is Day 1 for the internet ... <a class="modal-trigger" href="#news-1">Read More</a>
-       </p>
-    </li>
-    <li class="collection-item avatar space-gray">
-      <span class="title spaceship-text">
-        <a target="_blank" href="https://www.theguardian.com/books/2011/dec/07/amazon-com-publishing-children-books">
-          <h5>Amazon.com extends publishing arm into children's books</h5>
-          <p>19/09/2017</p>
-        </a>
-      </span>
-      <p>
-        After dipping its toe into the waters of romance, mystery and science fiction publishing, Amazon.com has announced its biggest publishing venture yet with the acquisition of more than 450 children's books from US press Marshall Cavendish – and the revelation that similar deals are likely to follow ... <a class="modal-trigger" href="#news-2">Read More</a>
-      <p>
-    </li>
-    <li class="collection-item avatar space-gray">
-      <span class="title spaceship-text">
-        <a target="_blank" href="https://www.theguardian.com/books/booksblog/2017/may/17/secondhand-book-sales-authors-cheap">
-          <h5>Cheap books, high price: why Amazon.com's 'one-click' sales can cost authors dear</h5>
-          <p>17/09/2017</p>
-        </a>
-      </span>
-      <p>
-        It is a hard sell: the idea that cheaper books might be a bad thing. But an adjustment to how Amazon sells books on its site is being attacked by authors' groups, which claim secondhand copies of new books sold at rock-bottom prices are selling in such high quantities from the retailer that authors are unable to earn a living ... <a class="modal-trigger" href="#news-3">Read More</a>
-      </p>
-    </li>
-    <li class="collection-item avatar space-gray">
-      <span class="title spaceship-text">
-        <a target="_blank" href="https://www.theguardian.com/world/richard-adams-blog/2011/jan/28/amazon-kindle-ebook-paperback-sales">
-          <h5>Amazon's ebook sales eclipse paperbacks for the first time</h5>
-          <p>11/09/2017</p>
-        </a>
-      </span>
-      <p>
-        In what could be a landmark moment in the struggle between old versus new technology, Amazon has announced that it now sells more copies of its Kindle ebooks than traditional paperbacks ... <a class="modal-trigger" href="#news-4">Read More</a>
-      </p>
-    </li>
+  <ul id="news-articles-list" class="collection atlassian-text" style="border:1px solid rgba(44, 62, 80, 0.52)">
   </ul>
 </div>
 
@@ -192,9 +148,9 @@
 <div id="graphs" class="row">
   <div class="col s6 offset-s3">
     <ul class="tabs" id="graph-tabs">
-        <li class="tab col s4"><a class="active" href="#graph1">Intraday</a></li>
-        <li class="tab col s4"><a href="#graph2">Candlestick</a></li>
-        <li class="tab col s4"><a href="#graph3">Drawable</a></li>
+      <li class="tab col s4"><a class="active" href="#graph1">Intraday</a></li>
+      <li class="tab col s4"><a href="#graph2">Candlestick</a></li>
+      <li class="tab col s4"><a href="#graph3">Drawable</a></li>
     </ul>
   </div>
 
@@ -254,8 +210,6 @@
   </div>
 </div>
 
-
-
 <!-- Modal Structure -->
 <div id="modal1" class="modal atlassian center-align white-text">
   <div class="modal-content container">
@@ -276,7 +230,7 @@
 
     </div>
     <div class="row">
-       <a href="#!" class="waves-effect waves-blue blue btn" id="toggleUnits">Dollars</a>
+      <a href="#!" class="waves-effect waves-blue blue btn" id="toggleUnits">Dollars</a>
     </div>
     <div class="row" id="price-calculation">
       <h5>$50 / <span class="company-price">103.8</span> = 1.1 shares </h5>
@@ -293,47 +247,103 @@
 </div>
 
 <!-- expanded news articles -->
-
 <div id="news-1" class="modal atlassian left-align white-text">
   <div class="modal-content container">
     <div class="row">
-      <h5>Jeff Bezos: Amazon.com's 'dread pirate' founder</h5>
-      <p>20/09/2017</p>
+      <h4 id="news-article-1-title">Loading...</h4>
+      <p id="news-article-1-date">Unknown</p>
     </div>
-    <div class="row" id="news-article-1">
+    <div class="row" id="news-article-1-body">
     </div>
   </div>
 </div>
-
 <div id="news-2" class="modal atlassian left-align white-text">
   <div class="modal-content container">
     <div class="row">
-      <h5>Amazon.com extends publishing arm into children's books</h5>
-      <p>19/09/2017</p>
+      <h4 id="news-article-2-title">Loading...</h4>
+      <p id="news-article-2-date">Unknown</p>
     </div>
-    <div class="row" id="news-article-2">
+    <div class="row" id="news-article-2-body">
     </div>
   </div>
 </div>
-
 <div id="news-3" class="modal atlassian left-align white-text">
   <div class="modal-content container">
     <div class="row">
-      <h5>Cheap books, high price: why Amazon.com's 'one-click' sales can cost authors dear</h5>
-      <p>17/09/2017</p>
+      <h4 id="news-article-3-title">Loading...</h4>
+      <p id="news-article-3-date">Unknown</p>
     </div>
-    <div class="row" id="news-article-3">
+    <div class="row" id="news-article-3-body">
     </div>
   </div>
 </div>
-
 <div id="news-4" class="modal atlassian left-align white-text">
   <div class="modal-content container">
     <div class="row">
-      <h5>Amazon's ebook sales eclipse paperbacks for the first time</h5>
-      <p>11/09/2017</p>
+      <h4 id="news-article-4-title">Loading...</h4>
+      <p id="news-article-4-date">Unknown</p>
     </div>
-    <div class="row" id="news-article-4">
+    <div class="row" id="news-article-4-body">
+    </div>
+  </div>
+</div>
+<div id="news-5" class="modal atlassian left-align white-text">
+  <div class="modal-content container">
+    <div class="row">
+      <h4 id="news-article-5-title">Loading...</h4>
+      <p id="news-article-5-date">Unknown</p>
+    </div>
+    <div class="row" id="news-article-5-body">
+    </div>
+  </div>
+</div>
+<div id="news-6" class="modal atlassian left-align white-text">
+  <div class="modal-content container">
+    <div class="row">
+      <h4 id="news-article-6-title">Loading...</h4>
+      <p id="news-article-6-date">Unknown</p>
+    </div>
+    <div class="row" id="news-article-6-body">
+    </div>
+  </div>
+</div>
+<div id="news-7" class="modal atlassian left-align white-text">
+  <div class="modal-content container">
+    <div class="row">
+      <h4 id="news-article-7-title">Loading...</h4>
+      <p id="news-article-7-date">Unknown</p>
+    </div>
+    <div class="row" id="news-article-7-body">
+    </div>
+  </div>
+</div>
+<div id="news-8" class="modal atlassian left-align white-text">
+  <div class="modal-content container">
+    <div class="row">
+      <h4 id="news-article-8-title">Loading...</h4>
+      <p id="news-article-8-date">Unknown</p>
+    </div>
+    <div class="row" id="news-article-8-body">
+    </div>
+  </div>
+</div>
+<div id="news-9" class="modal atlassian left-align white-text">
+  <div class="modal-content container">
+    <div class="row">
+      <h4 id="news-article-9-title">Loading...</h4>
+      <p id="news-article-9-date">Unknown</p>
+    </div>
+    <div class="row" id="news-article-9-body">
+    </div>
+  </div>
+</div>
+<div id="news-10" class="modal atlassian left-align white-text">
+  <div class="modal-content container">
+    <div class="row">
+      <h4 id="news-article-10-title">Loading...</h4>
+      <p id="news-article-10-date">Unknown</p>
+    </div>
+    <div class="row" id="news-article-10-body">
     </div>
   </div>
 </div>
