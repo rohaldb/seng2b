@@ -5,6 +5,27 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var firebase = require('firebase');
+require('firebase/auth');
+require('firebase/database');
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyA2KtZNGyaG2W8rYwb9GRVaLD3p03_7vSs",
+  authDomain: "seng2b-5c928.firebaseapp.com",
+  databaseURL: "https://seng2b-5c928.firebaseio.com",
+  projectId: "seng2b-5c928",
+  storageBucket: "seng2b-5c928.appspot.com",
+  messagingSenderId: "1080027242189"
+};
+firebase.initializeApp(config);
+
+firebase.auth().createUserWithEmailAndPassword("ben@gmail.com", "password").catch(function(error) {
+  var errorCode = error.code;
+  var errorMessage = error.message;
+});
+
+
 // Include each page's /routes/*.js file here
 var indexPage = require('./routes/index');
 var stockPage = require('./routes/stock');
