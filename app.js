@@ -20,6 +20,17 @@ var config = {
 };
 firebase.initializeApp(config);
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    var email = user.email;
+    console.log("user");
+  } else {
+    console.log("no X user");
+  }
+});
+
+
 // Include each page's /routes/*.js file here
 var indexPage = require('./routes/index');
 var stockPage = require('./routes/stock');
@@ -71,7 +82,8 @@ app.post('/sign_up_user', async function(req, res, next) {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
-                userId: result.uid
+                userId: result.uid,
+                balance: 1000000
             });
             console.log("successs");
             return true;
