@@ -11,20 +11,14 @@ require('firebase/database');
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyA2KtZNGyaG2W8rYwb9GRVaLD3p03_7vSs",
-  authDomain: "seng2b-5c928.firebaseapp.com",
-  databaseURL: "https://seng2b-5c928.firebaseio.com",
-  projectId: "seng2b-5c928",
-  storageBucket: "seng2b-5c928.appspot.com",
-  messagingSenderId: "1080027242189"
+    apiKey: 'AIzaSyCruoCX_m38WliVCubNRBPqyCjGfwA_M8k',
+    authDomain: 'newstock-4f49e.firebaseapp.com',
+    databaseURL: 'https://newstock-4f49e.firebaseio.com',
+    projectId: "newstock-4f49e",
+    storageBucket: '',
+    messagingSenderId: '877130652031'
 };
 firebase.initializeApp(config);
-firebase.auth().createUserWithEmailAndPassword("ben@gmail.com", "password").catch(function(error) {
-  var errorCode = error.code;
-  var errorMessage = error.message;
-});
-
-
 
 // Include each page's /routes/*.js file here
 var indexPage = require('./routes/index');
@@ -58,32 +52,56 @@ app.use('/profile', profilePage);
 app.use('/signup', signupPage);
 app.use('/login', loginPage);
 
-app.use('/sign_up_user', function(req, res) {
-    console.log("entered");
-    console.log(req.query.firstName);
-    console.log(req.query.lastName);
-    console.log(req.query.email);
-    console.log(req.query.password);
+app.post('/sign_up_user', async function(req, res, next) {
+    var firstName = req.body.firstName;
+    var lastName = req.body.lastName;
+    var email = req.body.email;
+    var password = req.body.password;
+    console.log("signing up with " + email + password);
     res.contentType('json');
-    res.send({ some: 'json' });
+    // createUser(firstName, lastName, email, password);
+
+    try {
+        const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        console.log("Erherhehreh")
+        if (result) {
+// await
+            console.log(result.uid)
+            firebase.database().ref(`users/${result.uid}`).set({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                userId: result.uid
+            });
+            console.log("successs");
+            return true;
+        }
+    } catch (e) {
+        console.log("failure");
+        return false;
+    } // ...
+
+
+
+    res.send({user_saved: false});
 });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;

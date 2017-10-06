@@ -1,12 +1,3 @@
-var app = firebase.initializeApp({
-  apiKey: 'AIzaSyCruoCX_m38WliVCubNRBPqyCjGfwA_M8k',
-  authDomain: 'newstock-4f49e.firebaseapp.com',
-  databaseURL: 'https://newstock-4f49e.firebaseio.com',
-  projectId: "newstock-4f49e",
-  storageBucket: '',
-  messagingSenderId: '877130652031'
-});
-
 $("#signUpSubmit").on("click", function() {
   var data = {
     firstName: $('#firstName').val(),
@@ -17,37 +8,16 @@ $("#signUpSubmit").on("click", function() {
   console.log(data);
   $.ajax({
     url: "/sign_up_user",
-    method: "get",
-    data: {firstName: "ben"},
+    method: "POST",
+    data: data,
     dataType: "json",
-    success: function(result){
-      console.log("success");
-    }
+    success: function(response){
+      console.log("success, result = " + JSON.stringify(response));
+    },
   });
 });
 
-//
-// if (firstName && lastName && email && password) {
-//
-//     try {
-//         const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
-//         if (result) {
-//             console.log(result.uid)
-//             await firebase.database().ref(`users/${result.uid}`).set({
-//               firstName: firstName,
-//               lastName: lastName,
-//               email: email,
-//               userId: result.uid
-//             });
-//             window.location.href = "/stock?" + result.uid;
-//             console.log("successs")
-//         }
-//     } catch (e) {
-//         console.log('The username you entered already exists');
-//         console.error(e);
-//     }
 
-// }
 $("#logInSubmit").on("click", async function() {
 
     var email = document.getElementById('email').value
