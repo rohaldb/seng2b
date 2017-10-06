@@ -6,22 +6,25 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var firebase = require('firebase');
-var fbAuth = require('firebase/auth');
-var fbDatabase = require('firebase/database');
-// var admin = require('firebase-admin');
+require('firebase/auth');
+require('firebase/database');
 
-var app = firebase.initializeApp({
-  apiKey: 'AIzaSyCruoCX_m38WliVCubNRBPqyCjGfwA_M8k',
-  authDomain: 'newstock-4f49e.firebaseapp.com',
-  databaseURL: 'https://newstock-4f49e.firebaseio.com',
-  projectId: "newstock-4f49e",
-  storageBucket: '',
-  messagingSenderId: '877130652031'
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyA2KtZNGyaG2W8rYwb9GRVaLD3p03_7vSs",
+  authDomain: "seng2b-5c928.firebaseapp.com",
+  databaseURL: "https://seng2b-5c928.firebaseio.com",
+  projectId: "seng2b-5c928",
+  storageBucket: "seng2b-5c928.appspot.com",
+  messagingSenderId: "1080027242189"
+};
+firebase.initializeApp(config);
+firebase.auth().createUserWithEmailAndPassword("ben@gmail.com", "password").catch(function(error) {
+  var errorCode = error.code;
+  var errorMessage = error.message;
 });
 
-// Import Admin SDK
-// Get a database reference to our blog
-// var db = admin.database();
+
 
 // Include each page's /routes/*.js file here
 var indexPage = require('./routes/index');
@@ -54,6 +57,16 @@ app.use('/groups', groupsPage);
 app.use('/profile', profilePage);
 app.use('/signup', signupPage);
 app.use('/login', loginPage);
+
+app.use('/sign_up_user', function(req, res) {
+    console.log("entered");
+    console.log(req.query.firstName);
+    console.log(req.query.lastName);
+    console.log(req.query.email);
+    console.log(req.query.password);
+    res.contentType('json');
+    res.send({ some: 'json' });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

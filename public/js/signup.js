@@ -7,36 +7,47 @@ var app = firebase.initializeApp({
   messagingSenderId: '877130652031'
 });
 
-$("#signUpSubmit").on("click", async function() {
-
-    var firstName = document.getElementById('firstName').value
-    var lastName = document.getElementById('lastName').value
-    var email = document.getElementById('email').value
-    var password = document.getElementById('password').value
-
-    if (firstName && lastName && email && password) {
-
-        try {
-            const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
-            if (result) {
-                console.log(result.uid)
-                await firebase.database().ref(`users/${result.uid}`).set({
-                  firstName: firstName,
-                  lastName: lastName,
-                  email: email,
-                  userId: result.uid
-                });
-                window.location.href = "/stock?" + result.uid;
-                console.log("successs")
-            }
-        } catch (e) {
-            console.log('The username you entered already exists');
-            console.error(e);
-        }
-
+$("#signUpSubmit").on("click", function() {
+  var data = {
+    firstName: $('#firstName').val(),
+    lastName: $('#lastName').val(),
+    email: $('#email').val(),
+    password: $('#password').val(),
+  };
+  console.log(data);
+  $.ajax({
+    url: "/sign_up_user",
+    method: "get",
+    data: {firstName: "ben"},
+    dataType: "json",
+    success: function(result){
+      console.log("success");
     }
+  });
 });
 
+//
+// if (firstName && lastName && email && password) {
+//
+//     try {
+//         const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
+//         if (result) {
+//             console.log(result.uid)
+//             await firebase.database().ref(`users/${result.uid}`).set({
+//               firstName: firstName,
+//               lastName: lastName,
+//               email: email,
+//               userId: result.uid
+//             });
+//             window.location.href = "/stock?" + result.uid;
+//             console.log("successs")
+//         }
+//     } catch (e) {
+//         console.log('The username you entered already exists');
+//         console.error(e);
+//     }
+
+// }
 $("#logInSubmit").on("click", async function() {
 
     var email = document.getElementById('email').value
