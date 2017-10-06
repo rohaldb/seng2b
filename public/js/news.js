@@ -70,6 +70,7 @@ function loadArticles(company) {
         }
 
         var summary = bodyText.substring(0, 350).replace(/\s[^\s]*$/, '').replace(/\s*[^a-z]+$/i, '');
+        var ob = Object.keys(obj)[articleNum];
         var body = obj[ob]['blocks']['body']['0']['bodyHtml'];
 
         //remove hyperlinks from body
