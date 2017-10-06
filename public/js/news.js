@@ -39,10 +39,15 @@ function sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, callback) {
 }
 
 function loadArticles(company) {
-  $('.tooltipped').tooltip('remove');
+  //$('.tooltipped').tooltip('remove');
   var url = 'http://content.guardianapis.com/search?q=' + company;
   url += '&order-by=relevance&show-blocks=body&show-fields=bodyText';
   url += '&api-key=35b90e54-3944-4e4f-9b0e-a511d0dda44d';
+
+  //object to be sent to stock.js for graph annotations
+  var sentimentJson = {};
+  var sentiments = []
+  sentimentJson.sentiments = sentiments;
 
   //download articles
   $.getJSON(url, function(data) {
@@ -103,6 +108,22 @@ function loadArticles(company) {
         $('#news-article-' + Object(articleNum + 1).toString() + '-title').html(title);
         $('#news-article-' + Object(articleNum + 1).toString() + '-date').html(date);
         $('#news-article-' + Object(articleNum + 1).toString() + '-body').html(body);
+
+        //append sentiment to json
+        var sentiment = {
+          "sentiment": sentimentScore,
+          "label": sentimentLabel,
+          "title": title,
+          "url": link
+        }
+        sentimentJson.sentiments.push(sentiment);
+
+        //don't load graphs until news articles are ready
+        if (articleNum == 9) {
+          //console.log(JSON.stringify(sentimentJson));
+          getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')], sentimentJson);
+        }
+
       });
 
       i++;
@@ -110,5 +131,5 @@ function loadArticles(company) {
 
   });
 
-  $('.tooltipped').tooltip({delay: 50});
+  //$('.tooltipped').tooltip({delay: 50});
 }

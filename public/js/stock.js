@@ -20,9 +20,10 @@ $("#toggleUnits").on("click", function() {
   }
 });
 
-getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
-function getStockPriceOf(stockInfo) {
+//getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
+function getStockPriceOf(stockInfo, sentiments) {
   var code = stockInfo.Symbol;
+  console.log(JSON.stringify(sentiments));
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=1min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
     console.log(data);
     data = Object.values(data)[1];
