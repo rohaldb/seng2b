@@ -21,9 +21,8 @@ $("#toggleUnits").on("click", function() {
 });
 
 //getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
-function getStockPriceOf(stockInfo, sentiments) {
+function getStockPriceOf(stockInfo, sentimentsJSON) {
   var code = stockInfo.Symbol;
-  console.log(JSON.stringify(sentiments));
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=1min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
     console.log(data);
     data = Object.values(data)[1];
@@ -41,11 +40,11 @@ function getStockPriceOf(stockInfo, sentiments) {
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
     console.log(data);
     data = Object.values(data)[1];
-    var chartData = generateChartData(data, 2);
+    var chartData = generateChartData(data, 2,sentimentsJSON);
   });
 }
 
-function generateChartData(data, type) {
+function generateChartData(data, type,sentimentsJSON) {
   var chartData = [];
   //extract date from object
   $(data).each(function(i,val){
@@ -63,12 +62,36 @@ function generateChartData(data, type) {
   });
   console.warn("" + chartData[0].date);
   if (type == 1) { generateIntradayChart(chartData);}
-  if (type == 2) { generateCandlestickChart(chartData); getStockEventChart(chartData);}
+  if (type == 2) { generateCandlestickChart(chartData); getStockEventChart(chartData,sentimentsJSON);}
   return chartData;
 }
 
 
-function getStockEventChart(chartData) {
+function getStockEventChart(chartData,sentimentsJSON) {
+
+// convert sentiments to correct format
+console.log(sentimentsJSON);
+events = [];
+for (var i = 0, len = sentimentsJSON.sentiments.length; i < len; i++) {
+  event = {
+    "date": sentimentsJSON.sentiments[i].date,
+    "type": "sign",
+    "graph": "g1",
+    "description": sentimentsJSON.sentiments[i].title,
+    "url": sentimentsJSON.sentiments[i].url,
+    "urlTarget": "_blank",
+  }
+  if (sentimentsJSON.sentiments[i].label == "positive") {
+    event["type"] = "arrowUp";
+    event["backgroundColor"] = "#2bbbad";
+  }
+  else {
+    event["type"] = "arrowDown";
+    event["backgroundColor"] = "#e51c23";
+  }
+  events.push(event);
+}
+
 var chart = AmCharts.makeChart( "chartdiv3", {
   "type": "stock",
   "theme": "light",
@@ -84,36 +107,7 @@ var chart = AmCharts.makeChart( "chartdiv3", {
     "dataProvider": chartData,
     "categoryField": "date",
     // EVENTS
-    "stockEvents": [ {
-      "date": new Date("" + chartData[10].date),
-      "type": "sign",
-      "backgroundColor": "#85CDE6",
-      "graph": "g1",
-      "text": "S",
-      "description": "This is description of an event"
-    }, {
-      "date": new Date("" + chartData[20].date),
-      "type": "flag",
-      "backgroundColor": "#FFFFFF",
-      "backgroundAlpha": 0.5,
-      "graph": "g1",
-      "text": "F",
-      "description": "Some longer\ntext can also\n be added"
-    }, {
-      "date": new Date("" + chartData[30].date),
-      "type": "sign",
-      "backgroundColor": "#85CDE6",
-      "graph": "g1",
-      "text": "J",
-      "description": "This is description of an event"
-    }, {
-      "date": new Date(("" + chartData[40].date)),
-      "type": "sign",
-      "backgroundColor": "#85CDE6",
-      "graph": "g1",
-      "text": "U",
-      "description": "This is description of an event"
-    }]
+    "stockEvents": events,
   } ],
 
 

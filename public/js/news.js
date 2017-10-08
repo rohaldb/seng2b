@@ -114,7 +114,8 @@ function loadArticles(company) {
           "sentiment": sentimentScore,
           "label": sentimentLabel,
           "title": title,
-          "url": link
+          "url": link,
+          "date": new Date(date)
         }
         sentimentJson.sentiments.push(sentiment);
 
