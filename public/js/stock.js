@@ -70,7 +70,6 @@ function generateChartData(data, type,sentimentsJSON) {
 function getStockEventChart(chartData,sentimentsJSON) {
 
 // convert sentiments to correct format
-console.log(sentimentsJSON);
 events = [];
 for (var i = 0, len = sentimentsJSON.sentiments.length; i < len; i++) {
   event = {
