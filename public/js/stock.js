@@ -28,6 +28,41 @@ var vue = new Vue({
   }
 })
 
+$("#getUserInfo").on("click", function() {
+    console.log("herheherheh")
+  $.ajax({
+    url: "/purchase_stock",
+    method: "POST",
+    data: "adam",
+    dataType: "json",
+    success: function(response){
+      console.log("success, result = " + JSON.stringify(response));
+    },
+  });
+});
+
+$("#confirm-buy").on("click", function() {
+   // console.log($('#tradeAmount').val())
+  var data = {
+    companyCode: getUrlParameter('stock'),
+    companyName: getUrlParameter('company'),
+    tradeAmount: $('#tradeAmount').val(),
+    // price: $('#price').val(),
+    // var companyName: $('#company-name').val()
+  };
+  console.log(data);
+  console.log("hi adam");
+  $.ajax({
+    url: "/purchase_stock",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response){
+      console.log("success, result = " + JSON.stringify(response));
+    },
+  });
+});
+
 getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
 
 
