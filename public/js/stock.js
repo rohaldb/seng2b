@@ -8,6 +8,13 @@ $("#subtractValue").on("click", function() {
   $("#tradeAmount").val(parseInt($("#tradeAmount").val()) - 1);
 });
 
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+
 
 var dollar = true;
 $("#toggleUnits").on("click", function() {

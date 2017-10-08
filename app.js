@@ -70,8 +70,6 @@ app.post('/sign_up_user', async function(req, res, next) {
     var password = req.body.password;
     console.log("signing up with " + email + password);
     res.contentType('json');
-    // createUser(firstName, lastName, email, password);
-
     try {
         console.log("hey ben");
         const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
