@@ -1,19 +1,34 @@
 $('.modal').modal();
 
-stockValue = 0;
-$("#addValue").on("click", function() {
-  $("#tradeAmount").val(parseInt($("#tradeAmount").val()) + 1);
-});
-$("#subtractValue").on("click", function() {
-  $("#tradeAmount").val(parseInt($("#tradeAmount").val()) - 1);
-});
 
-var app = new Vue({
-  el: '#app',
+var vue = new Vue({
+  el: '#elem1',
   data: {
-    message: 'Hello Vue!'
+    amount: 50,
+    dollars: false,
+    trade_cost: 0,
+    message: "Change to Dollars",
+    share_price: "Loading",
+    stock_symbol: getUrlParameter('stock'),
+    company_name: getUrlParameter('company'),
+    selling: null,
+    balance: 10000,
+  },
+  methods: {
+    toggleMessage: function () {
+      if (this.dollars == false) {this.dollars = true; this.message="Change to Units"}
+      else {this.dollars = false; this.message="Change to Dollars"}
+    }
+  },
+  computed: {
+    calculateCost: function () {
+      if (this.dollars) {return this.amount/this.share_price }
+      else {return this.amount * this.share_price}
+    }
   }
 })
+
+getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
 
 
 var dollar = true;
@@ -27,7 +42,6 @@ $("#toggleUnits").on("click", function() {
   }
 });
 
-getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
 function getStockPriceOf(stockInfo) {
   var code = stockInfo.Symbol;
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=1min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
@@ -39,6 +53,7 @@ function getStockPriceOf(stockInfo) {
     $(".company-price").each(function( index ) {
       $( this ).text(chartData[chartData.length - 1].close);
     });
+    vue.share_price = chartData[chartData.length - 1].close;
 
     // $("#company-change").text();
     stockValue = chartData[chartData.length - 1].close;

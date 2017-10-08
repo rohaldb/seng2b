@@ -1,6 +1,3 @@
-<div id="app" style="border:10px solid orange">
-  \{{ message }}
-</div>
 <div class="row">
   <div class="col s12 m12">
     <div class="card atlassian">
@@ -11,8 +8,8 @@
           </div>
 
           <div class="col s4" align="right">
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Buy</a>
-            <a class="waves-effect waves-light btn modal-trigger orange" href="#modal1">Sell</a>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Long</a>
+            <a class="waves-effect waves-light btn modal-trigger orange" href="#modal1">Short</a>
           </div>
         </div>
 
@@ -215,32 +212,34 @@
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal atlassian center-align white-text">
-  <div class="modal-content container">
+  <div class="modal-content container" id="elem1">
     <div class="row">
-      <h4 class=" orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</span></h4>
+      <h4 class=" orange-text" style="display:inline-block;">\{{stock_symbol}} | <span> \{{company_name}}</span></h4>
       <h3><span class="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
     </div>
     <div class="row center-align" >
       <div class="col s2">
-        <a href="#" style="color:white;" id="subtractValue"><i class="medium material-icons">remove</i></a>
+        <a href="#" @click="amount--" style="color:white;"><i class="medium material-icons">remove</i></a>
       </div>
       <div class="col s8">
-        <input type="number" id="tradeAmount" value="50" style="font-size: 40px; text-align:center;">
+        <input type="number" v-model.number="amount" style="font-size: 40px; text-align:center;">
       </div>
       <div class="col s2">
-        <a href="#" style="color:white;" id="addValue"><i class="medium material-icons">add</i></a>
+        <a href="#"  @click="amount++" style="color:white;"><i class="medium material-icons">add</i></a>
       </div>
 
     </div>
     <div class="row">
-      <a href="#!" class="waves-effect waves-blue blue btn" id="toggleUnits">Dollars</a>
+      <a href="#!" @click="toggleMessage" class="waves-effect waves-blue blue btn">\{{message}}</a>
     </div>
     <div class="row" id="price-calculation">
-      <h5>$50 / <span class="company-price">103.8</span> = 1.1 shares </h5>
+      <h5 v-if="dollars">$\{{amount}} / \{{share_price}} units = \{{calculateCost}} share(s)</h5>
+      <h5 v-else=>\{{amount}} units * $\{{share_price}} = $\{{calculateCost}}</h5>
     </div>
     <div class="row">
-      <h5>Current Balance: $9928.77</h5>
-      <h5> Balance after transaction: $8,267.9</h5>
+      <h5>Current Balance: \{{balance}}</h5>
+      <h5 v-if="selling">Balance after transaction: \{{balance + calculateCost}}</h5>
+      <h5 v-else>Balance after transaction: \{{balance - calculateCost}}</h5>
     </div>
     <div class="row">
       <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
