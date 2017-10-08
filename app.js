@@ -21,13 +21,13 @@ var config = {
 firebase.initializeApp(config);
 
 firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    var email = user.email;
-    console.log("user");
-  } else {
-    console.log("no X user");
-  }
+    if (user) {
+        // User is signed in.
+        var email = user.email;
+        console.log("user");
+    } else {
+        console.log("no X user");
+    }
 });
 
 
@@ -75,8 +75,8 @@ app.post('/sign_up_user', async function(req, res, next) {
         const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
         console.log("Erherhehreh");
         if (result) {
-          console.log(result.uid)
-          await firebase.database().ref(`users/${result.uid}`).set({
+            console.log(result.uid)
+            await firebase.database().ref(`users/${result.uid}`).set({
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
@@ -85,7 +85,7 @@ app.post('/sign_up_user', async function(req, res, next) {
             });
             res.send({user_saved: true});
             console.log("successs");
-          }
+        }
     } catch (e) {
         console.log("failure");
         console.log(e);
@@ -101,7 +101,7 @@ app.post('/sign_in_user', async function(req, res, next) {
     try {
         const result = await firebase.auth().signInWithEmailAndPassword(email, password);
         if (result) {
-            console.log("successs login")
+            console.log("successs login");
             res.send({user_logged_in: true});
         }
     } catch (e) {
@@ -111,7 +111,61 @@ app.post('/sign_in_user', async function(req, res, next) {
     }
 });
 
+app.post('/get_user_info', async function(req, res, next) {
+    res.contentType('json');
+    try {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                console.log(user.uid)
+            } else {
 
+            }
+        });
+        console.log(currUser)
+        res.send({purchase_made: currUser});
+        console.log("successs");
+    } catch (e) {
+        console.log('fail');
+        console.error(e);
+        res.send({purchase_made: false});
+    }
+})
+
+app.post('/purchase_stock', async function(req, res, next) {
+    var tradeAmount = req.body.tradeAmount;
+    var companyName = req.body.companyName;
+    var companyCode = req.body.companyCode;
+    console.log(companyCode);
+    console.log(companyName);
+    console.log(tradeAmount);
+    res.contentType('json');
+    var user = firebase.auth().currentUser.uid;
+    console.log("current user = " + user);
+    try {
+            if (user) {
+                console.log(user)
+                firebase.database().ref(`users/${user}/purchases`).push({
+                    tradeAmount: tradeAmount,
+                    companyName: companyName,
+                    companyCode: companyCode
+                });
+                var ref = firebase.database().ref(`users/${user}/balance`);
+                ref.once('value', function(snapshot) {
+                    console.log(snapshot.val());
+                    var newBalance = snapshot.val() - tradeAmount;
+                    firebase.database().ref(`users/${user}`).update({balance: newBalance})
+                    res.send({purchase_made: true});
+                });
+            } else {
+                res.send({purchase_made: false});
+            }
+        console.log("successs");
+    } catch (e) {
+        console.log('fail');
+        console.error(e);
+        res.send({purchase_made: false});
+    }
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -18,6 +18,24 @@ var vue = new Vue({
     toggleMessage: function () {
       if (this.dollars == false) {this.dollars = true; this.message="Change to Units"}
       else {this.dollars = false; this.message="Change to Dollars"}
+    },
+    buyStock: function () {
+     var data = {
+       companyCode: this.stock_symbol,
+       companyName: this.company_name,
+       tradeAmount: this.amount,
+     };
+     console.log(data);
+     console.log("hi adam");
+     $.ajax({
+       url: "/purchase_stock",
+       method: "POST",
+       data: data,
+       dataType: "json",
+       success: function(response){
+         console.log("success, result = " + JSON.stringify(response));
+       },
+     });
     }
   },
   computed: {
@@ -31,6 +49,22 @@ var vue = new Vue({
   }
 })
 
+$("#getUserInfo").on("click", function() {
+    console.log("herheherheh")
+  $.ajax({
+    url: "/purchase_stock",
+    method: "POST",
+    data: "adam",
+    dataType: "json",
+    success: function(response){
+      console.log("success, result = " + JSON.stringify(response));
+    },
+  });
+});
+
+$("#confirm-buy").on("click", function() {
+
+});
 
 getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
 

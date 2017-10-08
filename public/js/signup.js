@@ -13,6 +13,7 @@ $("#signUpSubmit").on("click", function() {
     dataType: "json",
     success: function(response){
       console.log("success, result = " + JSON.stringify(response));
+      window.location.href = "/index";
     },
   });
 });
@@ -31,6 +32,7 @@ $("#logInSubmit").on("click", async function() {
     dataType: "json",
     success: function(response){
       console.log("success, result = " + JSON.stringify(response));
+      window.location.href = "/index";
     },
   });
 });
