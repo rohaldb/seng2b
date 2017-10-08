@@ -19,7 +19,7 @@ $("#signUpSubmit").on("click", function() {
 });
 
 
-$("#logInSubmit").on("click", async function() {
+async function login () {
   var data = {
     email: $('#email').val(),
     password: $('#password').val(),
@@ -35,4 +35,11 @@ $("#logInSubmit").on("click", async function() {
       window.location.href = "/index";
     },
   });
+}
+
+$("#logInSubmit").on("click", login);
+$("#loginForm").keydown(function (e) {
+    if (e.which === 13) { // If enter pressed
+        login();
+    }
 });
