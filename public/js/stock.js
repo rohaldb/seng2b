@@ -11,7 +11,7 @@ var vue = new Vue({
     share_price: "Loading",
     stock_symbol: getUrlParameter('stock'),
     company_name: getUrlParameter('company'),
-    selling: null,
+    long: null,
     balance: 10000,
   },
   methods: {
@@ -22,11 +22,15 @@ var vue = new Vue({
   },
   computed: {
     calculateCost: function () {
-      if (this.dollars) {return this.amount/this.share_price }
-      else {return this.amount * this.share_price}
+      if (this.dollars) {return parseInt(this.amount/this.share_price)}
+      else {return parseInt(this.amount * this.share_price)}
     }
+  },
+  mounted() {
+    $('.modal').modal();
   }
 })
+
 
 getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
 
@@ -53,7 +57,7 @@ function getStockPriceOf(stockInfo) {
     $(".company-price").each(function( index ) {
       $( this ).text(chartData[chartData.length - 1].close);
     });
-    vue.share_price = chartData[chartData.length - 1].close;
+    vue.share_price = parseInt(chartData[chartData.length - 1].close);
 
     // $("#company-change").text();
     stockValue = chartData[chartData.length - 1].close;

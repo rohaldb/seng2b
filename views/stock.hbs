@@ -1,351 +1,352 @@
-<div class="row">
-  <div class="col s12 m12">
-    <div class="card atlassian">
-      <div class="card-content white-text">
-        <div class="row">
-          <div class="col s8" style="padding-left:0px;">
-            <span class="card-title orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</span></span>
-          </div>
-
-          <div class="col s4" align="right">
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Long</a>
-            <a class="waves-effect waves-light btn modal-trigger orange" href="#modal1">Short</a>
-          </div>
-        </div>
-
-        <h3><span class="company-price">Loading</span> <small id="company-change" class="spaceship-text">(+0.13%)</small></h3>
-
-        <div class="row">
-          <div class="col s9" style="padding-left:0px;">
-            <p id="company-overview"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12">
-    <div class="row">
-      <div class="col s12">
-        <ul class="tabs">
-          <li class="tab col s4"><a class="active" href="#graphs">Graphs</a></li>
-          <li class="tab col s4"><a href="#news">News</a></li>
-          <li class="tab col s4"><a href="#info">Company Information</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- news tab -->
-<div id="news" class="col s12">
-  <ul id="news-articles-list" class="collection atlassian-text" style="border:1px solid rgba(44, 62, 80, 0.52)">
-  </ul>
-</div>
-
-<!-- company info tab -->
-<div id="info" class="row">
+<div id="elem1">
   <div class="row">
-    <div class="col s12">
-      <h4>At a Glance</h4>
-    </div>
-    <div class="input-field col s2">
-      <i class="medium material-icons prefix">settings</i>
-      <input disabled value="Unknown" id="industry" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-      <label for="industry">Industry</label>
-    </div>
-    <div class="input-field col s2">
-      <i class="medium material-icons prefix">history</i>
-      <input disabled value="Unknown" id="founded" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-      <label for="founded">Founded</label>
-    </div>
-    <div class="input-field col s2">
-      <i class="medium material-icons prefix">location_city</i>
-      <input disabled value="Unknown" id="headquarters" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-      <label for="headquarters">Headquarters</label>
-    </div>
-    <div class="input-field col s2">
-      <i class="medium material-icons prefix">person_outline</i>
-      <input disabled value="Unknown" id="ceo" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-      <label id="ceo-label" for="ceo">CEO</label>
-    </div>
-    <div class="input-field col s2">
-      <i class="medium material-icons prefix">people_outline</i>
-      <input disabled value="Unknown" id="employees" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-      <label for="employees">Number of Employees</label>
+    <div class="col s12 m12">
+      <div class="card atlassian">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s8" style="padding-left:0px;">
+              <span class="card-title orange-text" id="company-name" style="display:inline-block;">{{stock}} | <span>{{company}}</span></span>
+            </div>
+
+            <div class="col s4" align="right">
+              <a class="waves-effect waves-light btn modal-trigger" href="#modal1" @click="long = true">Long</a>
+              <a class="waves-effect waves-light btn modal-trigger orange" href="#modal1" @click="long = false">Short</a>
+            </div>
+          </div>
+
+          <h3><span class="company-price">Loading</span> <small id="company-change" class="spaceship-text">(+0.13%)</small></h3>
+
+          <div class="row">
+            <div class="col s9" style="padding-left:0px;">
+              <p id="company-overview"></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col s8">
-      <h4>Overview</h4>
-      <p id="company-summary">Summary of {{ company }}</p>
+    <div class="col s12">
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s4"><a class="active" href="#graphs">Graphs</a></li>
+            <li class="tab col s4"><a href="#news">News</a></li>
+            <li class="tab col s4"><a href="#info">Company Information</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
-<!--
-  <div class="col s7">
-    <h4>At a Glance</h3>
-    <table class="striped">
-      <tbody>
-        <tr>
-          <td>Industry</td>
-          <td id="industry">Unknown</td>
-        </tr>
-        <tr>
-          <td>Founded</td>
-          <td id="founded">Unknown</td>
-        </tr>
-        <tr>
-          <td>Headquarters</td>
-          <td id="headquarters">Unknown</td>
-        </tr>
-        <tr>
-          <td>CEO</td>
-          <td id="ceo">Unknown</td>
-        </tr>
-        <tr>
-          <td>Number of Employees</td>
-          <td id="employees">Unknown</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
--->
-
-  <div class="col s7">
-    <h4 id="finances-year">Finances</h4>
-    <table class="striped">
-      <tbody>
-        <tr>
-          <td>Revenue</td>
-          <td id="revenue">Unknown</td>
-        </tr>
-        <tr>
-          <td>Operating Income</td>
-          <td id="operating-income">Unknown</td>
-        </tr>
-        <tr>
-          <td>Net Income</td>
-          <td id="net-income">Unknown</td>
-        </tr>
-        <tr>
-          <td>Total Assets</td>
-          <td id="total-assets">Unknown</td>
-        </tr>
-        <tr>
-          <td>Total Equity</td>
-          <td id="total-equity">Unknown</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-</div>
-
-<div id="graphs" class="row">
-  <div class="col s6 offset-s3">
-    <ul class="tabs" id="graph-tabs">
-      <li class="tab col s4"><a class="active" href="#graph1">Intraday</a></li>
-      <li class="tab col s4"><a href="#graph2">Candlestick</a></li>
-      <li class="tab col s4"><a href="#graph3">Drawable</a></li>
+  <!-- news tab -->
+  <div id="news" class="col s12">
+    <ul id="news-articles-list" class="collection atlassian-text" style="border:1px solid rgba(44, 62, 80, 0.52)">
     </ul>
   </div>
 
-  <!-- graph tabs -->
-  <div id="graph1" class="col s12">
-    <div class="center-align" id="graph1Loader" style="margin-top:50px;">
-      <div class="preloader-wrapper active">
-        <div class="spinner-layer spinner">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="chartdiv1" style="width:97%; height:400px; margin-top:30px;"></div>
-  </div>
-  <div id="graph2" class="col s12">
-
-    <div class="center-align" id="graph2Loader" style="margin-top:50px;">
-      <div class="preloader-wrapper active">
-        <div class="spinner-layer spinner">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="chartdiv2" style="width:97%; height:400px;"></div>
-  </div>
-  <div id="graph3" class="col s12">
-
-    <div class="center-align" id="graph3Loader" style="margin-top:50px;">
-      <div class="preloader-wrapper active">
-        <div class="spinner-layer spinner">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="chartdiv3" style="width:97%; height:400px;"></div>
-  </div>
-</div>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal atlassian center-align white-text">
-  <div class="modal-content container" id="elem1">
+  <!-- company info tab -->
+  <div id="info" class="row">
     <div class="row">
-      <h4 class=" orange-text" style="display:inline-block;">\{{stock_symbol}} | <span> \{{company_name}}</span></h4>
-      <h3><span class="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
-    </div>
-    <div class="row center-align" >
-      <div class="col s2">
-        <a href="#" @click="amount--" style="color:white;"><i class="medium material-icons">remove</i></a>
+      <div class="col s12">
+        <h4>At a Glance</h4>
       </div>
+      <div class="input-field col s2">
+        <i class="medium material-icons prefix">settings</i>
+        <input disabled value="Unknown" id="industry" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+        <label for="industry">Industry</label>
+      </div>
+      <div class="input-field col s2">
+        <i class="medium material-icons prefix">history</i>
+        <input disabled value="Unknown" id="founded" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+        <label for="founded">Founded</label>
+      </div>
+      <div class="input-field col s2">
+        <i class="medium material-icons prefix">location_city</i>
+        <input disabled value="Unknown" id="headquarters" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+        <label for="headquarters">Headquarters</label>
+      </div>
+      <div class="input-field col s2">
+        <i class="medium material-icons prefix">person_outline</i>
+        <input disabled value="Unknown" id="ceo" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+        <label id="ceo-label" for="ceo">CEO</label>
+      </div>
+      <div class="input-field col s2">
+        <i class="medium material-icons prefix">people_outline</i>
+        <input disabled value="Unknown" id="employees" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+        <label for="employees">Number of Employees</label>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col s8">
-        <input type="number" v-model.number="amount" style="font-size: 40px; text-align:center;">
+        <h4>Overview</h4>
+        <p id="company-summary">Summary of {{ company }}</p>
       </div>
-      <div class="col s2">
-        <a href="#"  @click="amount++" style="color:white;"><i class="medium material-icons">add</i></a>
+    </div>
+
+  <!--
+    <div class="col s7">
+      <h4>At a Glance</h3>
+      <table class="striped">
+        <tbody>
+          <tr>
+            <td>Industry</td>
+            <td id="industry">Unknown</td>
+          </tr>
+          <tr>
+            <td>Founded</td>
+            <td id="founded">Unknown</td>
+          </tr>
+          <tr>
+            <td>Headquarters</td>
+            <td id="headquarters">Unknown</td>
+          </tr>
+          <tr>
+            <td>CEO</td>
+            <td id="ceo">Unknown</td>
+          </tr>
+          <tr>
+            <td>Number of Employees</td>
+            <td id="employees">Unknown</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  -->
+
+    <div class="col s7">
+      <h4 id="finances-year">Finances</h4>
+      <table class="striped">
+        <tbody>
+          <tr>
+            <td>Revenue</td>
+            <td id="revenue">Unknown</td>
+          </tr>
+          <tr>
+            <td>Operating Income</td>
+            <td id="operating-income">Unknown</td>
+          </tr>
+          <tr>
+            <td>Net Income</td>
+            <td id="net-income">Unknown</td>
+          </tr>
+          <tr>
+            <td>Total Assets</td>
+            <td id="total-assets">Unknown</td>
+          </tr>
+          <tr>
+            <td>Total Equity</td>
+            <td id="total-equity">Unknown</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div id="graphs" class="row">
+    <div class="col s6 offset-s3">
+      <ul class="tabs" id="graph-tabs">
+        <li class="tab col s4"><a class="active" href="#graph1">Intraday</a></li>
+        <li class="tab col s4"><a href="#graph2">Candlestick</a></li>
+        <li class="tab col s4"><a href="#graph3">Drawable</a></li>
+      </ul>
+    </div>
+
+    <!-- graph tabs -->
+    <div id="graph1" class="col s12">
+      <div class="center-align" id="graph1Loader" style="margin-top:50px;">
+        <div class="preloader-wrapper active">
+          <div class="spinner-layer spinner">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
+      <div id="chartdiv1" style="width:97%; height:400px; margin-top:30px;"></div>
     </div>
-    <div class="row">
-      <a href="#!" @click="toggleMessage" class="waves-effect waves-blue blue btn">\{{message}}</a>
-    </div>
-    <div class="row" id="price-calculation">
-      <h5 v-if="dollars">$\{{amount}} / \{{share_price}} units = \{{calculateCost}} share(s)</h5>
-      <h5 v-else=>\{{amount}} units * $\{{share_price}} = $\{{calculateCost}}</h5>
-    </div>
-    <div class="row">
-      <h5>Current Balance: \{{balance}}</h5>
-      <h5 v-if="selling">Balance after transaction: \{{balance + calculateCost}}</h5>
-      <h5 v-else>Balance after transaction: \{{balance - calculateCost}}</h5>
-    </div>
-    <div class="row">
-      <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green green btn" onclick="Materialize.toast('Trade successful', 1250)">Confirm</a>
-    </div>
-  </div>
-</div>
+    <div id="graph2" class="col s12">
 
-<!-- expanded news articles -->
-<div id="news-1" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-1-title">Loading...</h4>
-      <p id="news-article-1-date">Unknown</p>
+      <div class="center-align" id="graph2Loader" style="margin-top:50px;">
+        <div class="preloader-wrapper active">
+          <div class="spinner-layer spinner">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="chartdiv2" style="width:97%; height:400px;"></div>
     </div>
-    <div class="row" id="news-article-1-body">
-    </div>
-  </div>
-</div>
-<div id="news-2" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-2-title">Loading...</h4>
-      <p id="news-article-2-date">Unknown</p>
-    </div>
-    <div class="row" id="news-article-2-body">
-    </div>
-  </div>
-</div>
-<div id="news-3" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-3-title">Loading...</h4>
-      <p id="news-article-3-date">Unknown</p>
-    </div>
-    <div class="row" id="news-article-3-body">
-    </div>
-  </div>
-</div>
-<div id="news-4" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-4-title">Loading...</h4>
-      <p id="news-article-4-date">Unknown</p>
-    </div>
-    <div class="row" id="news-article-4-body">
+    <div id="graph3" class="col s12">
+
+      <div class="center-align" id="graph3Loader" style="margin-top:50px;">
+        <div class="preloader-wrapper active">
+          <div class="spinner-layer spinner">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="chartdiv3" style="width:97%; height:400px;"></div>
     </div>
   </div>
-</div>
-<div id="news-5" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-5-title">Loading...</h4>
-      <p id="news-article-5-date">Unknown</p>
-    </div>
-    <div class="row" id="news-article-5-body">
-    </div>
-  </div>
-</div>
-<div id="news-6" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-6-title">Loading...</h4>
-      <p id="news-article-6-date">Unknown</p>
-    </div>
-    <div class="row" id="news-article-6-body">
-    </div>
-  </div>
-</div>
-<div id="news-7" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-7-title">Loading...</h4>
-      <p id="news-article-7-date">Unknown</p>
-    </div>
-    <div class="row" id="news-article-7-body">
-    </div>
-  </div>
-</div>
-<div id="news-8" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-8-title">Loading...</h4>
-      <p id="news-article-8-date">Unknown</p>
-    </div>
-    <div class="row" id="news-article-8-body">
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal atlassian center-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 class=" orange-text" style="display:inline-block;">\{{stock_symbol}} | <span> \{{company_name}}</span></h4>
+        <h3><span class="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
+      </div>
+      <div class="row center-align" >
+        <div class="col s2">
+          <a href="#" @click="amount--" style="color:white;"><i class="medium material-icons">remove</i></a>
+        </div>
+        <div class="col s8">
+          <input type="number" v-model.number="amount" style="font-size: 40px; text-align:center;">
+        </div>
+        <div class="col s2">
+          <a href="#"  @click="amount++" style="color:white;"><i class="medium material-icons">add</i></a>
+        </div>
+
+      </div>
+      <div class="row">
+        <a href="#!" @click="toggleMessage" class="waves-effect waves-blue blue btn">\{{message}}</a>
+      </div>
+      <div class="row" id="price-calculation">
+        <h5 v-if="dollars">$\{{amount}} / \{{share_price}} units = \{{calculateCost}} share(s)</h5>
+        <h5 v-else=>\{{amount}} units * $\{{share_price}} = $\{{calculateCost}}</h5>
+      </div>
+      <div class="row">
+        <h5>Current Balance: \{{balance}}</h5>
+        <h5>Balance after transaction: \{{(balance - calculateCost).toFixed(2)}}</h5>
+      </div>
+      <div class="row">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green green btn" onclick="Materialize.toast('Trade successful', 1250)">Confirm</a>
+      </div>
     </div>
   </div>
-</div>
-<div id="news-9" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-9-title">Loading...</h4>
-      <p id="news-article-9-date">Unknown</p>
-    </div>
-    <div class="row" id="news-article-9-body">
+
+  <!-- expanded news articles -->
+  <div id="news-1" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-1-title">Loading...</h4>
+        <p id="news-article-1-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-1-body">
+      </div>
     </div>
   </div>
-</div>
-<div id="news-10" class="modal atlassian left-align white-text">
-  <div class="modal-content container">
-    <div class="row">
-      <h4 id="news-article-10-title">Loading...</h4>
-      <p id="news-article-10-date">Unknown</p>
+  <div id="news-2" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-2-title">Loading...</h4>
+        <p id="news-article-2-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-2-body">
+      </div>
     </div>
-    <div class="row" id="news-article-10-body">
+  </div>
+  <div id="news-3" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-3-title">Loading...</h4>
+        <p id="news-article-3-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-3-body">
+      </div>
+    </div>
+  </div>
+  <div id="news-4" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-4-title">Loading...</h4>
+        <p id="news-article-4-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-4-body">
+      </div>
+    </div>
+  </div>
+  <div id="news-5" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-5-title">Loading...</h4>
+        <p id="news-article-5-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-5-body">
+      </div>
+    </div>
+  </div>
+  <div id="news-6" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-6-title">Loading...</h4>
+        <p id="news-article-6-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-6-body">
+      </div>
+    </div>
+  </div>
+  <div id="news-7" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-7-title">Loading...</h4>
+        <p id="news-article-7-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-7-body">
+      </div>
+    </div>
+  </div>
+  <div id="news-8" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-8-title">Loading...</h4>
+        <p id="news-article-8-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-8-body">
+      </div>
+    </div>
+  </div>
+  <div id="news-9" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-9-title">Loading...</h4>
+        <p id="news-article-9-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-9-body">
+      </div>
+    </div>
+  </div>
+  <div id="news-10" class="modal atlassian left-align white-text">
+    <div class="modal-content container">
+      <div class="row">
+        <h4 id="news-article-10-title">Loading...</h4>
+        <p id="news-article-10-date">Unknown</p>
+      </div>
+      <div class="row" id="news-article-10-body">
+      </div>
     </div>
   </div>
 </div>
