@@ -24,9 +24,13 @@ var vue = new Vue({
        companyCode: this.stock_symbol,
        companyName: this.company_name,
        tradeAmount: this.amount,
+       share_price: this.share_price
      };
-     console.log(data);
-     console.log("hi adam");
+     if (this.long) {data.type = "long"} else {data.type = "short"}
+     if (this.dollars) {data.num_units =  parseFloat(this.amount/this.share_price)}
+     else {data.num_units = parseFloat(this.amount * this.share_price)}
+
+     console.log("data = " + data);
      $.ajax({
        url: "/purchase_stock",
        method: "POST",
@@ -40,8 +44,8 @@ var vue = new Vue({
   },
   computed: {
     calculateCost: function () {
-      if (this.dollars) {return parseInt(this.amount/this.share_price)}
-      else {return parseInt(this.amount * this.share_price)}
+      if (this.dollars) {return parseFloat(this.amount/this.share_price)}
+      else {return parseFloat(this.amount * this.share_price)}
     }
   },
   mounted() {

@@ -135,6 +135,9 @@ app.post('/purchase_stock', async function(req, res, next) {
     var tradeAmount = req.body.tradeAmount;
     var companyName = req.body.companyName;
     var companyCode = req.body.companyCode;
+    var share_price = req.body.share_price;
+    var type = req.body.type;
+    var num_units = req.body.num_units;
     console.log(companyCode);
     console.log(companyName);
     console.log(tradeAmount);
@@ -142,24 +145,28 @@ app.post('/purchase_stock', async function(req, res, next) {
     var user = firebase.auth().currentUser.uid;
     console.log("current user = " + user);
     try {
-            if (user) {
-                console.log(user)
-                firebase.database().ref(`users/${user}/purchases`).push({
-                    tradeAmount: tradeAmount,
-                    companyName: companyName,
-                    companyCode: companyCode
-                });
-                var ref = firebase.database().ref(`users/${user}/balance`);
-                ref.once('value', function(snapshot) {
-                    console.log(snapshot.val());
-                    var newBalance = snapshot.val() - tradeAmount;
-                    firebase.database().ref(`users/${user}`).update({balance: newBalance})
-                    res.send({purchase_made: true});
-                });
-            } else {
-                res.send({purchase_made: false});
-            }
-        console.log("successs");
+        if (user) {
+            console.log(user)
+            firebase.database().ref(`users/${user}/purchases`).push({
+                tradeAmount: parseInt(tradeAmount),
+                companyName: companyName,
+                companyCode: companyCode,
+                date: Date.now(),
+                type: type,
+                num_units: num_units,
+                share_price: share_price
+            });
+            var ref = firebase.database().ref(`users/${user}/balance`);
+            ref.once('value', function(snapshot) {
+                console.log(snapshot.val());
+                var newBalance = snapshot.val() - tradeAmount;
+                firebase.database().ref(`users/${user}`).update({balance: newBalance})
+                res.send({purchase_made: true});
+            });
+        } else {
+            res.send({purchase_made: false});
+        }
+    console.log("successs");
     } catch (e) {
         console.log('fail');
         console.error(e);
