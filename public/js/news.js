@@ -2,12 +2,14 @@ $(document).ready(function() {
   loadArticles(document.title.replace(/.* -\s*/, ''));
 });
 
-function sentimentAnalysis(body, callback) {
+function sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, callback) {
   $.ajax({
     type: 'post',
-    url: 'http://localhost:3001/ibm?text=' + encodeURI(body),
+    url: 'http://localhost:3001/ibm?text=' + encodeURI(bodyTextA),
     dataType: 'json',
-    success: callback,
+    success: function(data) {
+      callback(i, titleA, linkA, dateA, bodyTextA, data);
+    },
     fail: function (data) {
       console.log(data);
     }
@@ -37,10 +39,15 @@ function sentimentAnalysis(body, callback) {
 }
 
 function loadArticles(company) {
-  $('.tooltipped').tooltip('remove');
+  //$('.tooltipped').tooltip('remove');
   var url = 'http://content.guardianapis.com/search?q=' + company;
   url += '&order-by=relevance&show-blocks=body&show-fields=bodyText';
   url += '&api-key=35b90e54-3944-4e4f-9b0e-a511d0dda44d';
+
+  //object to be sent to stock.js for graph annotations
+  var sentimentJson = {};
+  var sentiments = []
+  sentimentJson.sentiments = sentiments;
 
   //download articles
   $.getJSON(url, function(data) {
@@ -51,12 +58,12 @@ function loadArticles(company) {
     //show at most 10 articles
     while (i < 10 && Object.keys(obj)[i]) {
       var ob = Object.keys(obj)[i];
-      var title = obj[ob]['webTitle'];
-      var link = obj[ob]['webUrl'];
-      var date = obj[ob]['webPublicationDate'].replace(/[a-z]/gi, ' ');
-      var bodyText = obj[ob]['fields']['bodyText'];
+      var titleA = obj[ob]['webTitle'];
+      var linkA = obj[ob]['webUrl'];
+      var dateA = obj[ob]['webPublicationDate'].replace(/[a-z]/gi, ' ');
+      var bodyTextA = obj[ob]['fields']['bodyText'];
 
-      sentimentAnalysis(bodyText, function(ibm) {
+      sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, function(articleNum, title, link, date, bodyText, ibm) {
         console.log(ibm.sentiment.document.score + ' ' + ibm.sentiment.document.label);
         var sentimentScore = ibm.sentiment.document.score;
         var sentimentLabel = ibm.sentiment.document.label;
@@ -68,6 +75,7 @@ function loadArticles(company) {
         }
 
         var summary = bodyText.substring(0, 350).replace(/\s[^\s]*$/, '').replace(/\s*[^a-z]+$/i, '');
+        var ob = Object.keys(obj)[articleNum];
         var body = obj[ob]['blocks']['body']['0']['bodyHtml'];
 
         //remove hyperlinks from body
@@ -94,12 +102,29 @@ function loadArticles(company) {
           '<h5>' + title + '</h5><p>' + date + '</p></a></span>' +
           '<img src="' + sentimentIcon + '" alt="' + sentimentIcon + ' icon" title="Sentiment: ' +
           sentimentScore + ' (' + sentimentLabel + ')" height="20" width="20"><p>' + summary +
-          ' ... <a class="modal-trigger" href="#news-' + Object(i + 1).toString() + '">Read More</a></p></li>');
+          ' ... <a class="modal-trigger" href="#news-' + Object(articleNum + 1).toString() + '">Read More</a></p></li>');
 
         //add news article to modal
-        $('#news-article-' + Object(i + 1).toString() + '-title').html(title);
-        $('#news-article-' + Object(i + 1).toString() + '-date').html(date);
-        $('#news-article-' + Object(i + 1).toString() + '-body').html(body);
+        $('#news-article-' + Object(articleNum + 1).toString() + '-title').html(title);
+        $('#news-article-' + Object(articleNum + 1).toString() + '-date').html(date);
+        $('#news-article-' + Object(articleNum + 1).toString() + '-body').html(body);
+
+        //append sentiment to json
+        var sentiment = {
+          "sentiment": sentimentScore,
+          "label": sentimentLabel,
+          "title": title,
+          "url": link,
+          "date": new Date(date)
+        }
+        sentimentJson.sentiments.push(sentiment);
+
+        //don't load graphs until news articles are ready
+        if (articleNum == 9) {
+          //console.log(JSON.stringify(sentimentJson));
+          getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')], sentimentJson);
+        }
+
       });
 
       i++;
@@ -107,5 +132,5 @@ function loadArticles(company) {
 
   });
 
-  $('.tooltipped').tooltip({delay: 50});
+  //$('.tooltipped').tooltip({delay: 50});
 }
