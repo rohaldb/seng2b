@@ -21,9 +21,8 @@ $("#toggleUnits").on("click", function() {
 });
 
 //getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
-function getStockPriceOf(stockInfo, sentiments) {
+function getStockPriceOf(stockInfo, sentimentsJSON) {
   var code = stockInfo.Symbol;
-  console.log(JSON.stringify(sentiments));
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=1min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
     console.log(data);
     data = Object.values(data)[1];
@@ -41,11 +40,11 @@ function getStockPriceOf(stockInfo, sentiments) {
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
     console.log(data);
     data = Object.values(data)[1];
-    var chartData = generateChartData(data, 2);
+    var chartData = generateChartData(data, 2,sentimentsJSON);
   });
 }
 
-function generateChartData(data, type) {
+function generateChartData(data, type,sentimentsJSON) {
   var chartData = [];
   //extract date from object
   $(data).each(function(i,val){
@@ -61,14 +60,38 @@ function generateChartData(data, type) {
           } );
     });
   });
+  console.warn("" + chartData[0].date);
   if (type == 1) { generateIntradayChart(chartData);}
-  if (type == 2) { generateCandlestickChart(chartData); generateDrawableChart(chartData);}
+  if (type == 2) { generateCandlestickChart(chartData); getStockEventChart(chartData,sentimentsJSON);}
   return chartData;
 }
 
 
-function generateCandlestickChart(chartData) {
-  var chart = AmCharts.makeChart( "chartdiv3", {
+function getStockEventChart(chartData,sentimentsJSON) {
+
+// convert sentiments to correct format
+events = [];
+for (var i = 0, len = sentimentsJSON.sentiments.length; i < len; i++) {
+  event = {
+    "date": sentimentsJSON.sentiments[i].date,
+    "type": "sign",
+    "graph": "g1",
+    "description": sentimentsJSON.sentiments[i].title,
+    "url": sentimentsJSON.sentiments[i].url,
+    "urlTarget": "_blank",
+  }
+  if (sentimentsJSON.sentiments[i].label == "positive") {
+    event["type"] = "arrowUp";
+    event["backgroundColor"] = "#2bbbad";
+  }
+  else {
+    event["type"] = "arrowDown";
+    event["backgroundColor"] = "#e51c23";
+  }
+  events.push(event);
+}
+
+var chart = AmCharts.makeChart( "chartdiv3", {
   "type": "stock",
   "theme": "light",
   "dataSets": [ {
@@ -76,45 +99,42 @@ function generateCandlestickChart(chartData) {
     "fieldMappings": [ {
       "fromField": "value",
       "toField": "value"
+    }, {
+      "fromField": "volume",
+      "toField": "volume"
     } ],
     "dataProvider": chartData,
-    "categoryField": "date"
+    "categoryField": "date",
+    // EVENTS
+    "stockEvents": events,
   } ],
 
-  "panels": [ {
-    "showCategoryAxis": true,
-    "title": "Value",
-    "eraseAll": false,
-    "allLabels": [ {
-      "x": 0,
-      "y": 115,
-      "text": "Click on the pencil icon on top-right to start drawing",
-      "align": "center",
-      "size": 16
-    } ],
 
+  "panels": [ {
+    "title": "Value",
     "stockGraphs": [ {
       "id": "g1",
-      "valueField": "value",
-      "useDataSetColors": false
+      "valueField": "value"
     } ],
-
     "stockLegend": {
       "valueTextRegular": " ",
       "markerType": "none"
-    },
-
-    "drawingIconsEnabled": true
+    }
   } ],
 
   "chartScrollbarSettings": {
     "graph": "g1"
   },
+
   "chartCursorSettings": {
-    "valueBalloonsEnabled": true
+    "valueBalloonsEnabled": true,
+    "graphBulletSize": 1,
+    "valueLineBalloonEnabled": true,
+    "valueLineEnabled": true,
+    "valueLineAlpha": 0.5
   },
+
   "periodSelector": {
-    "position": "bottom",
     "periods": [ {
       "period": "DD",
       "count": 10,
@@ -134,13 +154,20 @@ function generateCandlestickChart(chartData) {
       "period": "MAX",
       "label": "MAX"
     } ]
+  },
+
+  "panelsSettings": {
+    "usePrefixes": true
+  },
+  "export": {
+    "enabled": true
   }
-  } );
-  $("#graph2Loader").hide();
+} );
+$("#graph3Loader").hide();
 
 }
 
-function generateDrawableChart(chartData) {
+function generateCandlestickChart(chartData) {
   var chart = AmCharts.makeChart( "chartdiv2", {
   "type": "serial",
   "theme": "light",
@@ -186,7 +213,7 @@ function generateDrawableChart(chartData) {
   }
 } );
 
-  $("#graph3Loader").hide();
+  $("#graph2Loader").hide();
   chart.addListener( "rendered", zoomChart );
   zoomChart();
   // this method is called when chart is first inited as we listen for "dataUpdated" event
@@ -204,7 +231,14 @@ function generateIntradayChart(chartData)  {
     "categoryAxesSettings": {
       "minPeriod": "mm"
     },
-
+    "stockEvents": [ {
+          "date": new Date( 2017, 9, 3, 15),
+          "type": "sign",
+          "backgroundColor": "#85CDE6",
+          "graph": "g1",
+          "text": "S",
+          "description": "This is description of an event"
+        }],
     "dataSets": [ {
       "color": "#b0de09",
       "fieldMappings": [ {
@@ -230,8 +264,6 @@ function generateIntradayChart(chartData)  {
         "lineThickness": 2,
         "bullet": "round"
       } ],
-
-
       "stockLegend": {
         "valueTextRegular": " ",
         "markerType": "none"
