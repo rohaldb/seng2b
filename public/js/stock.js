@@ -1,12 +1,76 @@
 $('.modal').modal();
 
-stockValue = 0;
-$("#addValue").on("click", function() {
-  $("#tradeAmount").val(parseInt($("#tradeAmount").val()) + 1);
+
+var vue = new Vue({
+  el: '#elem1',
+  data: {
+    amount: 50,
+    dollars: false,
+    trade_cost: 0,
+    message: "Change to Dollars",
+    share_price: "Loading",
+    stock_symbol: getUrlParameter('stock'),
+    company_name: getUrlParameter('company'),
+    long: null,
+    balance: 10000,
+  },
+  methods: {
+    toggleMessage: function () {
+      if (this.dollars == false) {this.dollars = true; this.message="Change to Units"}
+      else {this.dollars = false; this.message="Change to Dollars"}
+    },
+    buyStock: function () {
+     var data = {
+       companyCode: this.stock_symbol,
+       companyName: this.company_name,
+       tradeAmount: this.amount,
+       share_price: this.share_price
+     };
+     if (this.long) {data.type = "long"} else {data.type = "short"}
+     if (this.dollars) {data.num_units =  parseFloat(this.amount/this.share_price)}
+     else {data.num_units = parseFloat(this.amount * this.share_price)}
+
+     console.log("data = " + data);
+     $.ajax({
+       url: "/purchase_stock",
+       method: "POST",
+       data: data,
+       dataType: "json",
+       success: function(response){
+         console.log("success, result = " + JSON.stringify(response));
+       },
+     });
+    }
+  },
+  computed: {
+    calculateCost: function () {
+      if (this.dollars) {return parseFloat(this.amount/this.share_price)}
+      else {return parseFloat(this.amount * this.share_price)}
+    }
+  },
+  mounted() {
+    $('.modal').modal();
+  }
+})
+
+$("#getUserInfo").on("click", function() {
+    console.log("herheherheh")
+  $.ajax({
+    url: "/purchase_stock",
+    method: "POST",
+    data: "adam",
+    dataType: "json",
+    success: function(response){
+      console.log("success, result = " + JSON.stringify(response));
+    },
+  });
 });
-$("#subtractValue").on("click", function() {
-  $("#tradeAmount").val(parseInt($("#tradeAmount").val()) - 1);
+
+$("#confirm-buy").on("click", function() {
+
 });
+
+getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
 
 
 var dollar = true;
@@ -32,6 +96,7 @@ function getStockPriceOf(stockInfo, sentimentsJSON) {
     $(".company-price").each(function( index ) {
       $( this ).text(chartData[chartData.length - 1].close);
     });
+    vue.share_price = parseInt(chartData[chartData.length - 1].close);
 
     // $("#company-change").text();
     stockValue = chartData[chartData.length - 1].close;

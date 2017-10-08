@@ -3,7 +3,6 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
     console.log(req.query);
-    console.warn("benebnebebs");
     res.render('stock', {
         stock: req.query.stock,
         company: req.query.company,
