@@ -73,30 +73,47 @@ app.post('/sign_up_user', async function(req, res, next) {
     // createUser(firstName, lastName, email, password);
 
     try {
+        console.log("hey ben");
         const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
-        console.log("Erherhehreh")
+        console.log("Erherhehreh");
         if (result) {
-// await
-            console.log(result.uid)
-            firebase.database().ref(`users/${result.uid}`).set({
+          console.log(result.uid)
+          await firebase.database().ref(`users/${result.uid}`).set({
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
                 userId: result.uid,
                 balance: 1000000
             });
+            res.send({user_saved: true});
             console.log("successs");
-            return true;
-        }
+          }
     } catch (e) {
         console.log("failure");
-        return false;
-    } // ...
-
-
-
-    res.send({user_saved: false});
+        console.log(e);
+        res.send({user_saved: false});
+    }
 });
+
+app.post('/sign_in_user', async function(req, res, next) {
+    var email = req.body.email;
+    var password = req.body.password;
+    console.log("signing up with " + email + password);
+    res.contentType('json');
+    try {
+        const result = await firebase.auth().signInWithEmailAndPassword(email, password);
+        if (result) {
+            console.log("successs login")
+            res.send({user_logged_in: true});
+        }
+    } catch (e) {
+        console.log('wrong username or password');
+        console.error(e);
+        res.send({user_logged_in: false});
+    }
+});
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
