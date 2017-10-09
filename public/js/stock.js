@@ -4,7 +4,7 @@ $('.modal').modal();
 var vue = new Vue({
   el: '#elem1',
   data: {
-    amount: 50,
+    amount: 10,
     dollars: false,
     trade_cost: 0,
     message: "Change to Dollars",
@@ -16,8 +16,11 @@ var vue = new Vue({
   },
   methods: {
     toggleMessage: function () {
-      if (this.dollars == false) {this.dollars = true; this.message="Change to Units"}
-      else {this.dollars = false; this.message="Change to Dollars"}
+      if (this.dollars == false) {this.dollars = true; this.message="Change to Units"; this.amount = 0;}
+      else {this.dollars = false; this.message="Change to Dollars"; this.amount = 0;}
+    },
+    tryIncreaseAmount: function() {
+      this.amount++;
     },
     buyStock: function () {
      var data = {
@@ -43,9 +46,13 @@ var vue = new Vue({
     }
   },
   computed: {
-    calculateCost: function () {
+    calculatedCost: function () {
       if (this.dollars) {return parseFloat(this.amount/this.share_price)}
       else {return parseFloat(this.amount * this.share_price)}
+    },
+    balanceAfterTransaction: function () {
+      if (this.dollars) {return (this.balance - this.amount)}
+      else {return (this.balance - this.calculatedCost)}
     }
   },
   mounted() {
@@ -70,7 +77,7 @@ $("#confirm-buy").on("click", function() {
 
 });
 
-getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
+// getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
 
 
 var dollar = true;
@@ -96,7 +103,7 @@ function getStockPriceOf(stockInfo, sentimentsJSON) {
     $(".company-price").each(function( index ) {
       $( this ).text(chartData[chartData.length - 1].close);
     });
-    vue.share_price = parseInt(chartData[chartData.length - 1].close);
+    vue.share_price = parseFloat(chartData[chartData.length - 1].close).toFixed(2);
 
     // $("#company-change").text();
     stockValue = chartData[chartData.length - 1].close;

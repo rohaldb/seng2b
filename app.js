@@ -63,6 +63,7 @@ app.use('/profile', profilePage);
 app.use('/signup', signupPage);
 app.use('/login', loginPage);
 
+
 app.post('/sign_up_user', async function(req, res, next) {
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
@@ -93,6 +94,13 @@ app.post('/sign_up_user', async function(req, res, next) {
     }
 });
 
+firebase.auth().signInWithEmailAndPassword("rohaldb@gmail.com", "minimini").catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  console.log("couldnt sign user in manually");
+});
+
 app.post('/sign_in_user', async function(req, res, next) {
     var email = req.body.email;
     var password = req.body.password;
@@ -114,13 +122,6 @@ app.post('/sign_in_user', async function(req, res, next) {
 app.post('/get_user_info', async function(req, res, next) {
     res.contentType('json');
     try {
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                console.log(user.uid)
-            } else {
-
-            }
-        });
         console.log(currUser)
         res.send({purchase_made: currUser});
         console.log("successs");
