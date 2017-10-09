@@ -4,7 +4,7 @@ $('.modal').modal();
 var vue = new Vue({
   el: '#elem1',
   data: {
-    amount: 10,
+    amount: 5,
     dollars: false,
     trade_cost: 0,
     message: "Change to Dollars",
@@ -13,6 +13,7 @@ var vue = new Vue({
     company_name: getUrlParameter('company'),
     long: null,
     balance: 10000,
+    errorMessage: "",
   },
   methods: {
     toggleMessage: function () {
@@ -55,6 +56,12 @@ var vue = new Vue({
       else {return (this.balance - this.calculatedCost)}
     }
   },
+  watch: {
+  amount: function (newValue, oldValue) {
+    if (this.dollars && (this.balance - newValue) < 0) {this.amount = oldValue;}
+    else if (!this.dollars && (this.balance - this.calculatedCost) < 0) {this.amount = oldValue;}
+    else if (newValue < 0) {this.amount = 0;}
+  }},
   mounted() {
     $('.modal').modal();
   }
