@@ -1,3 +1,10 @@
+var vue = new Vue({
+  el: '#elem1',
+  data: {
+    errorMessage: "",
+  }
+});
+
 $("#signUpSubmit").on("click", function() {
   var data = {
     firstName: $('#firstName').val(),
@@ -14,6 +21,9 @@ $("#signUpSubmit").on("click", function() {
     success: function(response){
       console.log("success, result = " + JSON.stringify(response));
       window.location.href = "/index";
+    },
+    error: function(response){
+      vue.errorMessage = response.responseJSON.error.message;
     },
   });
 });
@@ -33,6 +43,9 @@ $("#logInSubmit").on("click", async function() {
     success: function(response){
       console.log("success, result = " + JSON.stringify(response));
       window.location.href = "/index";
+    },
+    error: function(response){
+      vue.errorMessage = "Invalid username or password";
     },
   });
 });
