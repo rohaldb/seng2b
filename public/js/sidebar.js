@@ -41,7 +41,7 @@ $.ajax({
       var name = response.groups['name'];
       var type = response.groups['type'];
       console.log('group: ' + name + ' ' + type);
-      $('#slide-out').prepend('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
+      $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
     }
   },
   error: function(response) {
