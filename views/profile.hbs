@@ -9,18 +9,42 @@
             </div>
           </div>
           <div class="col s4">
-            <span class="card-title orange-text" id="profile-name" style="display:inline-block;">John Citizen</span></span>
+            <span class="card-title orange-text" id="profile-name" style="display:inline-block;">Loading...</span>
             <p>Current Balance</p>
-            <h3 id="return-text">$103.4</h3>
+            <h3 id="current-balance">Loading...</h3>
           </div>
 
           <div class="col s6">
             <h5>Bio</h5>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.</p>
+            <p id="display-bio">No bio yet</p>
+            <br>
+            <a class="waves-effect waves-light btn modal-trigger" href="#edit-bio">Edit</a>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- edit bio popup -->
+<div id="edit-bio" class="modal atlassian left-align white-text">
+  <div class="modal-content container">
+
+    <div class="row">
+      <h4 class="orange-text" style="display:inline-block;">Edit Personal Bio</h4>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="new-bio-text" class="materialize-textarea" placeholder="No bio yet." maxlength="1000"></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+      <a id="update-bio" href="#!" class="modal-action modal-close waves-effect waves-green green btn" onclick="Materialize.toast('Bio updated', 1250)">Update Bio</a>
+    </div>
+
   </div>
 </div>
 
