@@ -82,7 +82,8 @@ app.post('/sign_up_user', async function(req, res, next) {
                 lastName: lastName,
                 email: email,
                 userId: result.uid,
-                balance: 1000000
+                balance: 1000000,
+                bio: ''
             });
             console.log("successs");
             res.send({ success: 'Saved!' });
@@ -120,8 +121,9 @@ app.post('/get_user_info', async function(req, res, next) {
       var first = snapshot.val().firstName;
       var last = snapshot.val().lastName;
       var bal = snapshot.val().balance;
-      console.log(`profile info: ${first}, ${last}, ${bal}`);
-      res.send({'name': first + ' ' + last, 'balance': bal});
+      var bio = snapshot.val().bio;
+      console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}`);
+      res.send({'name': first + ' ' + last, 'balance': bal, 'bio': bio});
     });
     console.log('success');
   } catch (e) {
@@ -129,7 +131,24 @@ app.post('/get_user_info', async function(req, res, next) {
     console.error(e);
     res.send({'name': 'Unknown', 'balance': 'Unknown'});
   }
-})
+});
+
+app.post('/update_bio', async function(req, res, next) {
+  var newBio = req.body.bio;
+  res.contentType('json');
+  try {
+    var user = firebase.auth().currentUser.uid;
+    console.log("current user = " + user);
+    var userId = firebase.auth().currentUser.uid;
+    firebase.database().ref(`users/${user}`).update({bio: newBio})
+    res.send({'bio': true});
+    console.log('success');
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'bio': false});
+  }
+});
 
 app.post('/purchase_stock', async function(req, res, next) {
     var tradeAmount = req.body.tradeAmount;

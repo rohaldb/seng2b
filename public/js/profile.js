@@ -10,10 +10,13 @@ $.ajax({
     console.log("success, result = " + JSON.stringify(response));
     $('#profile-name').text(response.name);
     $('#current-balance').text('$' + response.balance);
+    $('#display-bio').text(response.bio);
+    $('#new-bio-text').text(response.bio);
+    $('#new-bio-text').trigger('autoresize');
   },
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));
-  },
+  }
 });
 
 stockValue = 0;
@@ -24,6 +27,29 @@ $("#subtractValue").on("click", function() {
     $("#tradeAmount").val(parseInt($("#tradeAmount").val()) - 1);
 });
 
+//update user's bio in firebase and update displayed bio
+$("#update-bio").on("click", function() {
+  var bio = $('#new-bio-text').val();
+  var data = {
+    'bio': bio
+  };
+  console.log(data);
+  $.ajax({
+    url: "/update_bio",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      console.log("success, result = " + JSON.stringify(response));
+      $('#display-bio').text(bio);
+      $('#next-bio-text').text(bio);
+      $('#new-bio-text').trigger('autoresize');
+    },
+    error: function(response) {
+      console.log("failed, result = " + JSON.stringify(response));
+    }
+  });
+});
 
 var dollar = true;
 $("#toggleUnits").on("click", function() {
