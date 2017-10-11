@@ -1,5 +1,21 @@
 $('.modal').modal();
 
+//display profile information in top banner
+$.ajax({
+  url: "/get_user_info",
+  method: "POST",
+  data: '',
+  dataType: "json",
+  success: function(response) {
+    console.log("success, result = " + JSON.stringify(response));
+    $('#profile-name').text(response.name);
+    $('#current-balance').text('$' + response.balance);
+  },
+  error: function(response) {
+    console.log("failed, result = " + JSON.stringify(response));
+  },
+});
+
 stockValue = 0;
 $("#addValue").on("click", function() {
     $("#tradeAmount").val(parseInt($("#tradeAmount").val()) + 1);

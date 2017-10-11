@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         var email = user.email;
-        console.log("user");
+        console.log("user: " + email);
     } else {
         console.log("no X user");
     }
@@ -111,16 +111,24 @@ app.post('/sign_in_user', async function(req, res, next) {
 });
 
 app.post('/get_user_info', async function(req, res, next) {
-    res.contentType('json');
-    try {
-        console.log(currUser)
-        res.send({purchase_made: currUser});
-        console.log("successs");
-    } catch (e) {
-        console.log('fail');
-        console.error(e);
-        res.send({purchase_made: false});
-    }
+  res.contentType('json');
+  try {
+    var user = firebase.auth().currentUser.uid;
+    console.log("current user = " + user);
+    var userId = firebase.auth().currentUser.uid;
+    firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+      var first = snapshot.val().firstName;
+      var last = snapshot.val().lastName;
+      var bal = snapshot.val().balance;
+      console.log(`profile info: ${first}, ${last}, ${bal}`);
+      res.send({'name': first + ' ' + last, 'balance': bal});
+    });
+    console.log('success');
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'name': 'Unknown', 'balance': 'Unknown'});
+  }
 })
 
 app.post('/purchase_stock', async function(req, res, next) {
@@ -158,7 +166,7 @@ app.post('/purchase_stock', async function(req, res, next) {
         } else {
             res.send({purchase_made: false});
         }
-    console.log("successs");
+        console.log("successs");
     } catch (e) {
         console.log('fail');
         console.error(e);
