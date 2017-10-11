@@ -29,7 +29,7 @@ $("#signUpSubmit").on("click", function() {
 });
 
 
-$("#logInSubmit").on("click", async function() {
+async function login () {
   var data = {
     email: $('#email').val(),
     password: $('#password').val(),
@@ -48,4 +48,11 @@ $("#logInSubmit").on("click", async function() {
       vue.errorMessage = "Invalid username or password";
     },
   });
+}
+
+$("#logInSubmit").on("click", login);
+$("#loginForm").keydown(function (e) {
+    if (e.which === 13) { // If enter pressed
+        login();
+    }
 });

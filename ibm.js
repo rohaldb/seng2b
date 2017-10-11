@@ -7,6 +7,7 @@ app.use(cors({origin: 'http://localhost:3000'}));
 
 app.post('/ibm', function(req, res) {
   var articleText = req.query.text;
+  //console.log(articleText);
   var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
 
   //use ibm analytics module
