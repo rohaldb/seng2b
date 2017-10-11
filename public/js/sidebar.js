@@ -14,14 +14,8 @@ $("#new-group-bttn").on("click", function() {
     dataType: "json",
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
-/*
-      for (var group in response.groups) {
-        var name = response.groups['name'];
-        var type = response.groups['type'];
-        console.log('group: ' + name + ' ' + type);
-        $('#slide-out').prepend('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
-      }
-*/
+      $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
+      $('#new-group-name').text('');
     },
     error: function(response) {
       console.log("failed, result = " + JSON.stringify(response));
