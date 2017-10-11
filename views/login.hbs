@@ -34,7 +34,7 @@
     	</div>
     </nav>
 
-    <div class="wrapper">
+    <div class="wrapper" id="elem1">
 		<div class="header header-filter" style="background-image: url('../assets/city.jpg'); background-size: cover; background-position: top center;">
 			<div class="container">
 				<div class="row">
@@ -71,7 +71,7 @@
 									</div>
 								</div>
 								<div class="footer text-center">
-                                    <!-- href="/index" -->
+									<p style="color:red">\{{errorMessage}}</p>
 									<a class="btn btn-simple btn-primary btn-lg" id="logInSubmit">Let's Trade</a>
 								</div>
 							</form>
@@ -85,9 +85,8 @@
 
 
 </body>
-
-    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
-
+	<script src="https://unpkg.com/vue"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 	<!--   Core JS Files   -->
 	<script src="../js/jquery.min.js" type="text/javascript"></script>
 	<script src="../js/bootstrap.min.js" type="text/javascript"></script>

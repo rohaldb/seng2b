@@ -225,7 +225,7 @@
           <input type="number" v-model.number="amount" style="font-size: 40px; text-align:center;">
         </div>
         <div class="col s2">
-          <a href="#"  @click="amount++" style="color:white;"><i class="medium material-icons">add</i></a>
+          <a href="#"  @click="tryIncreaseAmount" style="color:white;"><i class="medium material-icons">add</i></a>
         </div>
 
       </div>
@@ -233,12 +233,13 @@
         <a href="#!" @click="toggleMessage" class="waves-effect waves-blue blue btn">\{{message}}</a>
       </div>
       <div class="row" id="price-calculation">
-        <h5 v-if="dollars">$\{{amount}} / \{{share_price}} units = \{{calculateCost}} share(s)</h5>
-        <h5 v-else=>\{{amount}} units * $\{{share_price}} = $\{{calculateCost}}</h5>
+        <h5 v-if="dollars">$\{{amount}} / \{{share_price}} units = \{{calculatedCost.toFixed(2)}} share(s)</h5>
+        <h5 v-else=>\{{amount}} units * $\{{share_price}} = $\{{calculatedCost.toFixed(2)}}</h5>
       </div>
       <div class="row">
         <h5>Current Balance: \{{balance}}</h5>
-        <h5>Balance after transaction: \{{(balance - calculateCost).toFixed(2)}}</h5>
+        <h5>Balance after transaction: \{{balanceAfterTransaction.toFixed(2)}}</h5>
+        <p class="red-text">\{{errorMessage}}</p>
       </div>
       <div class="row">
         <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>

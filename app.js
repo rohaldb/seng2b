@@ -63,6 +63,7 @@ app.use('/profile', profilePage);
 app.use('/signup', signupPage);
 app.use('/login', loginPage);
 
+
 app.post('/sign_up_user', async function(req, res, next) {
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
@@ -83,13 +84,12 @@ app.post('/sign_up_user', async function(req, res, next) {
                 userId: result.uid,
                 balance: 1000000
             });
-            res.send({user_saved: true});
             console.log("successs");
+            res.send({ success: 'Saved!' });
         }
     } catch (e) {
-        console.log("failure");
         console.log(e);
-        res.send({user_saved: false});
+        res.status(500).send({ error: e});
     }
 });
 
@@ -102,25 +102,17 @@ app.post('/sign_in_user', async function(req, res, next) {
         const result = await firebase.auth().signInWithEmailAndPassword(email, password);
         if (result) {
             console.log("successs login");
-            res.send({user_logged_in: true});
+            res.send({ success: 'Saved!' });
         }
     } catch (e) {
-        console.log('wrong username or password');
-        console.error(e);
-        res.send({user_logged_in: false});
+        console.log(e);
+        res.status(500).send({ error: e});
     }
 });
 
 app.post('/get_user_info', async function(req, res, next) {
     res.contentType('json');
     try {
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                console.log(user.uid)
-            } else {
-
-            }
-        });
         console.log(currUser)
         res.send({purchase_made: currUser});
         console.log("successs");
