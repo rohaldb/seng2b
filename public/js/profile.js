@@ -11,7 +11,9 @@ $.ajax({
     $('#profile-name').text(response.name);
     $('#current-balance').text('$' + response.balance);
     $('#display-bio').text(response.bio);
-    $('#new-bio-text').text(response.bio);
+    if (response.bio !== 'No bio yet.') {
+      $('#new-bio-text').text(response.bio);
+    }
     $('#new-bio-text').trigger('autoresize');
   },
   error: function(response) {

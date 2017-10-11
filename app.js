@@ -83,7 +83,7 @@ app.post('/sign_up_user', async function(req, res, next) {
                 email: email,
                 userId: result.uid,
                 balance: 1000000,
-                bio: ''
+                bio: 'No bio yet.'
             });
             console.log("successs");
             res.send({ success: 'Saved!' });
@@ -122,8 +122,14 @@ app.post('/get_user_info', async function(req, res, next) {
       var last = snapshot.val().lastName;
       var bal = snapshot.val().balance;
       var bio = snapshot.val().bio;
-      console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}`);
-      res.send({'name': first + ' ' + last, 'balance': bal, 'bio': bio});
+      var groups;
+      if (snapshot.val().groups != null) {
+        groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
+      } else {
+        groups = [];
+      }
+      console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}`);
+      res.send({'name': first + ' ' + last, 'balance': bal, 'bio': bio, 'groups': groups});
     });
     console.log('success');
   } catch (e) {
@@ -140,13 +146,42 @@ app.post('/update_bio', async function(req, res, next) {
     var user = firebase.auth().currentUser.uid;
     console.log("current user = " + user);
     var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref(`users/${user}`).update({bio: newBio})
+    firebase.database().ref(`users/${user}`).update({'bio': newBio});
     res.send({'bio': true});
     console.log('success');
   } catch (e) {
     console.log('fail');
     console.error(e);
     res.send({'bio': false});
+  }
+});
+
+app.post('/new_group', async function(req, res, next) {
+  var name = req.body.name;
+  var type = req.body.type;
+  res.contentType('json');
+  try {
+    var user = firebase.auth().currentUser.uid;
+    console.log("current user = " + user);
+    var userId = firebase.auth().currentUser.uid;
+    var ref = firebase.database().ref(`users/${user}/groups`);
+    ref.once('value', function(snapshot) {
+      var groups = snapshot.val();
+      if (snapshot.val() != null) {
+        groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
+        groups['name'] = name;
+      } else {
+        groups = {'name': name};
+      }
+      console.log(JSON.stringify(groups));
+      firebase.database().ref(`users/${user}/groups`).update({'groups': groups});
+    });
+    res.send({'new-group': true});
+    console.log('success');
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'new-group': false});
   }
 });
 

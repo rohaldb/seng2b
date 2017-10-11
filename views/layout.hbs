@@ -51,8 +51,8 @@
     <li><a href="/stock?stock=MSFT&company=Microsoft+Corp."><i class="material-icons ">keyboard_arrow_right</i>MSFT</a></li>
     <li><a href="/stock?stock=NKE&company=Nike"><i class="material-icons ">keyboard_arrow_right</i>NKE</a></li>
     <li><a class="subheader">Groups</a></li>
-    <li><a href="/groups?group=Work"><i class="material-icons ">group</i>Work</a></li>
-    <li><a href="/groups?group=Friends"><i class="material-icons ">group</i>Friends</a></li>
+<!--    <li><a href="/groups?group=Work"><i class="material-icons ">group</i>Work</a></li>
+    <li><a href="/groups?group=Friends"><i class="material-icons ">group</i>Friends</a></li>-->
     <li><a class="modal-trigger" href="#new-group"><i class="material-icons ">add</i>New</a></li>
     <li><a class="subheader">Account</a></li>
     <li><a href="/"><i class="material-icons ">account_circle</i>Sign Out</a></li>
@@ -67,12 +67,12 @@
     </div>
 
     <div class="row">
-      <input type="text" id="group-name" value="" placeholder="New group name, e.g. 'Uni Friends'" style="font-size: 20px; text-align:left;">
+      <input type="text" id="new-group-name" value="" placeholder="New group name, e.g. 'Uni Friends'" style="font-size: 20px; text-align:left;">
     </div>
 
     <div class="row">
       <!-- dropdown trigger -->
-      <a class='dropdown-button btn' href='#' data-activates='group-type'>Group Type</a>
+      <a id="new-group-type" class='dropdown-button btn' href='#' data-activates='group-type'>Group Type</a>
 
       <!-- dropdown structure -->
       <ul id='group-type' class='dropdown-content'>
@@ -83,7 +83,7 @@
 
     <div class="row">
       <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green green btn" onclick="Materialize.toast('Group created', 1250)">Create</a>
+      <a id="new-group-bttn" href="#!" class="modal-action modal-close waves-effect waves-green green btn" onclick="Materialize.toast('Group created', 1250)">Create</a>
     </div>
   </div>
 </div>
@@ -99,6 +99,7 @@
 <script src="js/materialize.js"></script>
 <script src="js/listofcompanies.js"></script>
 <script src="js/searchbar.js"></script>
+<script src="js/sidebar.js"></script>
 <!-- Custom JS for each page -->
 {{#each js}}
 <script src="{{this}}" type="text/javascript"></script>
