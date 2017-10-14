@@ -5,12 +5,15 @@ $(document).ready(function() {
 function sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, callback) {
   $.ajax({
     type: 'post',
-    url: 'http://localhost:3001/ibm?text=' + encodeURIComponent(bodyTextA),
+    url: '/ibm',
+    data: {'text': bodyTextA},
     dataType: 'json',
     success: function(data) {
+      console.log(i + ' sentiment analysis worked');
       callback(i, titleA, linkA, dateA, bodyTextA, data);
     },
     fail: function (data) {
+      console.log(i + ' sentiment analysis failed');
       console.log(data);
     }
   });
