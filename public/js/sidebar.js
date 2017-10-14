@@ -3,7 +3,14 @@ $('.modal').modal();
 //add new group to user's profile in firebase & update displayed groups on sidebar
 $("#new-group-bttn").on("click", function() {
   var name = $('#new-group-name').val();
-  $('#new-group-name').val('');
+  if (name.match(/^\s*$/)) {
+    Materialize.toast('Please enter a group name first', 1250);
+    $('#new-group-name').val('');
+    return;
+  } else {
+    name = name.replace(/\s+/g, ' ').trim();
+    $('#new-group-name').val('');
+  }
   var data = {
     'name': name
   }
@@ -16,8 +23,10 @@ $("#new-group-bttn").on("click", function() {
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
       $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
+      Materialize.toast('Group created', 1250);
     },
     error: function(response) {
+      Materialize.toast('Could not create group', 1250);
       console.log("failed, result = " + JSON.stringify(response));
     }
   });
