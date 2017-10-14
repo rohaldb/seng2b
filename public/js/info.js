@@ -4,8 +4,9 @@ $(document).ready(function() {
 
 function getPageName(c) {
   var company = c;
+  var escaped = encodeURIComponent(c);
   var url = 'http://en.wikipedia.org/w/api.php?action=query&generator=allpages&search=';
-  url += company + '&format=json&gapfrom=' + company + '&gapto=' + company + '&prop=info&inprop=url';
+  url += escaped + '&format=json&gapfrom=' + escaped + '&gapto=' + escaped + '&prop=info&inprop=url';
 
   //get wiki link to page from name of company
   $.ajax({
@@ -156,7 +157,7 @@ function getCompanyInfo(company, fullName) {
 
       //at a glance...
       $('.tooltipped').tooltip('remove');
-      var industry = markup.match(/Industry.*(\n)*(.*)/g);
+      var industry = markup.match(/Industry\s*(\n)+(.*)/g);
       if (industry) {
         numAtAGlance++;
         var industry = industry[0].replace(/Industry/, '');
@@ -164,7 +165,7 @@ function getCompanyInfo(company, fullName) {
         $('#industry').attr('value', unescapeHTML(industry));
         $('#industry').attr('data-tooltip', unescapeHTML(industry));
       }
-      var founded = markup.match(/Founded.*(\n)*(.*)/g);
+      var founded = markup.match(/Founded\s*(\n)+(.*)/g);
       if (founded) {
         numAtAGlance++;
         founded = founded[0].match(/.*?[0-9]{4}/)[0];
@@ -173,13 +174,13 @@ function getCompanyInfo(company, fullName) {
         $('#founded').attr('data-tooltip', unescapeHTML(founded));
       }
       var foundFounder = false;
-      var founder = markup.match(/Founder.*(\n)*(.*)/g);
+      var founder = markup.match(/Founder\s*(\n)+(.*)/g);
       if (founder) {
         numAtAGlance++;
         founder = founder[0].replace(/Founder/, '');
         foundFounder = true;
       }
-      var headquarters = markup.match(/Headquarters.*(\n)*(.*)/g);
+      var headquarters = markup.match(/Headquarters\s*(\n)+(.*)/g);
       if (headquarters) {
         numAtAGlance++;
         headquarters = headquarters[0].replace(/Headquarters/i, '');
@@ -203,7 +204,7 @@ function getCompanyInfo(company, fullName) {
         $('#ceo').attr('data-tooltip', unescapeHTML(founder));
         $('#ceo-label').html('Founder');
       }
-      var employees = markup.match(/(Employees|Number of [Ee]mployees).*(\n)*(.*)/g);
+      var employees = markup.match(/(Employees|Number of [Ee]mployees)\s*(\n)+(.*)/g);
       if (employees) {
         numAtAGlance++;
         employees = employees[0].replace(/[,;]\s+.*/, '').replace(/.*Employees/i, '');
@@ -214,7 +215,7 @@ function getCompanyInfo(company, fullName) {
       $('.tooltipped').tooltip({delay: 50});
 
       //finances...
-      var revenue = markup.match(/Revenue.*\n+(.*)/g);
+      var revenue = markup.match(/Revenue\s*\n+(.*)/g);
       if (revenue) {
         revenue = revenue[0].replace(/Revenue/, '');
         var year = revenue.match(/[0-9]{4}/)[0];
@@ -231,22 +232,22 @@ function getCompanyInfo(company, fullName) {
 
       //rest of finances
       markup = markup.replace(/\[.*\]/g, '').replace(/\(.*\)/g, '');
-      var operating = markup.match(/Operating Income.*\n+(.*)/gi);
+      var operating = markup.match(/Operating Income\s*\n+(.*)/gi);
       if (operating) {
         operating = operating[0].replace(/Operating Income/i, '').replace(/^\s*|\s*$/g, '');
         $('#operating-income').html(upDown[operating] + getCanonical(operating));
       }
-      var net = markup.match(/Net Income.*\n+(.*)/gi);
+      var net = markup.match(/Net Income\s*\n+(.*)/gi);
       if (net) {
         net = net[0].replace(/Net Income/i, '').replace(/^\s*|\s*$/g, '');
         $('#net-income').html(upDown[net] + getCanonical(net));
       }
-      var total = markup.match(/Total Assets.*\n+(.*)/gi);
+      var total = markup.match(/Total Assets\s*\n+(.*)/gi);
       if (total) {
         total = total[0].replace(/Total Assets/i, '').replace(/^\s*|\s*$/g, '');
         $('#total-assets').html(upDown[total] + getCanonical(total));
       }
-      var equity = markup.match(/Total Equity.*\n+(.*)/gi);
+      var equity = markup.match(/Total Equity\s*\n+(.*)/gi);
       if (equity) {
         equity = equity[0].replace(/Total Equity/i, '').replace(/^\s*|\s*$/g, '');
         $('#total-equity').html(upDown[equity] + getCanonical(equity));

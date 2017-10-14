@@ -30,7 +30,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
-
 // Include each page's /routes/*.js file here
 var indexPage = require('./routes/index');
 var stockPage = require('./routes/stock');
@@ -62,7 +61,6 @@ app.use('/groups', groupsPage);
 app.use('/profile', profilePage);
 app.use('/signup', signupPage);
 app.use('/login', loginPage);
-
 
 app.post('/sign_up_user', async function(req, res, next) {
     var firstName = req.body.firstName;
