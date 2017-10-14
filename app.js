@@ -122,9 +122,9 @@ app.post('/get_user_info', async function(req, res, next) {
       var bio = snapshot.val().bio;
       var groups;
       if (snapshot.val().groups != null) {
-        groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
+        groups = snapshot.val().groups;
       } else {
-        groups = [];
+        groups = {};
       }
       console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}`);
       res.send({'name': first + ' ' + last, 'balance': bal, 'bio': bio, 'groups': groups});
@@ -160,19 +160,14 @@ app.post('/new_group', async function(req, res, next) {
   try {
     var user = firebase.auth().currentUser.uid;
     console.log("current user = " + user);
-    var userId = firebase.auth().currentUser.uid;
-    var ref = firebase.database().ref(`users/${user}/groups`);
-    ref.once('value', function(snapshot) {
-      var groups = snapshot.val();
-      if (snapshot.val() != null) {
-        groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
-        groups['name'] = name;
-      } else {
-        groups = {'name': name};
-      }
-      console.log(JSON.stringify(groups));
-      firebase.database().ref(`users/${user}/groups`).update({'groups': groups});
-    });
+
+    //create the new group
+    var newGroupKey = firebase.database().ref().child('groups').push().key;
+    var updates = {};
+    updates[`/groups/${newGroupKey}`] = {'name': name, users: [user]};
+    updates[`/users/${user}/groups/${newGroupKey}`] = name;
+    firebase.database().ref().update(updates);
+
     res.send({'new-group': true});
     console.log('success');
   } catch (e) {
