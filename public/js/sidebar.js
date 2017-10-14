@@ -1,5 +1,10 @@
 $('.modal').modal();
 
+function escapeHtml(unsafe) {
+  return unsafe.replace(/&/g, '&amp;').replace(/</g, '&lt;').
+  replace(/>/g, '&gt;').replace(/"/g, '&#034;').replace(/'/g, '&#039;');
+}
+
 //add new group to user's profile in firebase & update displayed groups on sidebar
 $("#new-group-bttn").on("click", function() {
   var name = $('#new-group-name').val();
@@ -22,7 +27,10 @@ $("#new-group-bttn").on("click", function() {
     dataType: "json",
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
-      $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
+      var groupLink = '<a href="/groups?group=' + encodeURIComponent(name) +
+        '&id=' + encodeURIComponent(response.group) +  '"><i class="material-icons ">group</i>' +
+        escapeHtml(name) + '</a>';
+      $('#list-of-groups').append('<li>' + groupLink + '</li>');
       Materialize.toast('Group created', 1250);
     },
     error: function(response) {
@@ -45,7 +53,10 @@ $.ajax({
       Object.keys(obj).forEach(function(key) {
         var name = obj[key];
         console.log('adding group "' + name + '" to sidebar');
-        $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
+        var groupLink = '<a href="/groups?group=' + encodeURIComponent(name) +
+          '&id=' + encodeURIComponent(response.group) +  '"><i class="material-icons ">group</i>' +
+          escapeHtml(name) + '</a>';
+        $('#list-of-groups').append('<li>' + groupLink + '</li>');
       });
     }
   },

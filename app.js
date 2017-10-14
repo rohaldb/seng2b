@@ -131,7 +131,7 @@ app.post('/get_user_info', async function(req, res, next) {
   } catch (e) {
     console.log('fail');
     console.error(e);
-    res.send({'name': 'Unknown', 'balance': 'Unknown'});
+    res.send({'name': 'Unknown', 'balance': 'Unknown', 'bio': 'Unknown', 'groups': 'Unknown'});
   }
 });
 
@@ -166,12 +166,29 @@ app.post('/new_group', async function(req, res, next) {
     updates[`/users/${user}/groups/${newGroupKey}`] = name;
     firebase.database().ref().update(updates);
 
-    res.send({'new-group': true});
+    res.send({'group': newGroupKey});
     console.log('success');
   } catch (e) {
     console.log('fail');
     console.error(e);
-    res.send({'new-group': false});
+    res.send({'group': false});
+  }
+});
+
+app.post('/get_group_info', async function(req, res, next) {
+  var id = req.body.id;
+  res.contentType('json');
+  try {
+    firebase.database().ref('/groups/' + id).once('value').then(function(snapshot) {
+      var num = snapshot.val().users.length;
+      console.log(`number of users: ${num}`);
+      res.send({'num': num});
+    });
+    console.log('success');
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'num': 'Unknown'});
   }
 });
 

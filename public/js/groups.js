@@ -1,8 +1,27 @@
 $('.modal').modal();
 
+//load number of group members
+var data = {
+  'id': getUrlParameter('id')
+};
+$.ajax({
+  url: "/get_group_info",
+  method: "POST",
+  data: data,
+  dataType: "json",
+  success: function(response) {
+    console.log("success, result = " + JSON.stringify(response));
+    var num = response.num;
+    console.log('number of group members: ' + num);
+    $('#num-group-members').text(num + ' members');
+  },
+  error: function(response) {
+    console.log("failed, result = " + JSON.stringify(response));
+  }
+});
+
 var chartDataMultiPanel = [];
 generateChartDataMultiPanel();
-
 
 function generateChartDataMultiPanel() {
     var firstDate = new Date();
