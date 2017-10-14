@@ -6,6 +6,9 @@ var vue = new Vue({
         purchaseList: [],
         historyList: [],
         watchList: [],
+    },
+    mounted: function() {
+       $("#edit-bio").modal();
     }
 })
 
@@ -31,9 +34,7 @@ $.ajax({
         console.log("success History, result = " + JSON.stringify(response));
         $('#historyList').text(response.historyList);
         var historyList = response.historyList;
-        console.log("Here are your History results");
         for(let items of historyList) {
-            console.log(items.companyName);
             vue.historyList.push({
                 companyName: items.companyName,
                 companyCode: items.companyCode,
@@ -44,8 +45,6 @@ $.ajax({
                 type: items.type
             })
         }
-        console.log("print vue lsit")
-        console.log(vue.historyList)
     },
     error: function(response) {
         console.log("failed History, result = " + JSON.stringify(response));
@@ -62,16 +61,12 @@ $.ajax({
         console.log("success Watch, result = " + JSON.stringify(response));
         $('#watchList').text(response.watchList);
         var watchList = response.watchList;
-        console.log("Here are your Watch results");
         for(let items of watchList) {
-            console.log(items.companyName);
             vue.watchList.push({
                 companyName: items.companyName,
                 companyCode: items.companyCode
             })
         }
-        console.log("print vue lsit")
-        console.log(vue.watchList)
     },
     error: function(response) {
         console.log("failed Watch, result = " + JSON.stringify(response));
@@ -86,7 +81,6 @@ $.ajax({
     data: '',
     dataType: "json",
     success: function(response) {
-        console.log("hi ad")
         console.log("success, result = " + JSON.stringify(response));
         $('#profile-name').text(response.name);
         $('#current-balance').text('$' + response.balance);
@@ -115,7 +109,6 @@ $("#update-bio").on("click", function() {
     var data = {
         'bio': bio
     };
-    console.log(data);
     $.ajax({
         url: "/update_bio",
         method: "POST",
