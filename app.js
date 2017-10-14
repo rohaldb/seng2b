@@ -30,6 +30,13 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
+firebase.auth().signInWithEmailAndPassword("adam@gm.com", "adam1234").catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
 
 // Include each page's /routes/*.js file here
 var indexPage = require('./routes/index');

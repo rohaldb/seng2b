@@ -12,12 +12,6 @@ router.get('/', function(req, res, next) {
             "amcharts/style.css",
         ],
         js: [
-            // AMCHARTS
-            "amcharts/amcharts.js",
-            "amcharts/serial.js",
-            "amcharts/amstock.js",
-            "https://www.amcharts.com/lib/3/plugins/export/export.min.js",
-            // Local files
             "js/profile.js",
         ],
     });
