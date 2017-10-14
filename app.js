@@ -69,13 +69,10 @@ app.post('/sign_up_user', async function(req, res, next) {
     var password = req.body.password;
     console.log("signing up with " + email + password);
     res.contentType('json');
-    try {
-        console.log("hey ben");
-        const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
-        console.log("Erherhehreh");
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result) {
         if (result) {
-            console.log(result.uid)
-            await firebase.database().ref(`users/${result.uid}`).set({
+            console.log(result.uid);
+            firebase.database().ref(`users/${result.uid}`).set({
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
@@ -86,10 +83,11 @@ app.post('/sign_up_user', async function(req, res, next) {
             console.log("successs");
             res.send({ success: 'Saved!' });
         }
-    } catch (e) {
-        console.log(e);
-        res.status(500).send({ error: e});
-    }
+    }, function(error) {
+        console.log('cannot sign up');
+        console.log(error);
+        res.status(500).send({ error: error });
+    });
 });
 
 app.post('/sign_in_user', async function(req, res, next) {

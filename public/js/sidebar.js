@@ -41,11 +41,13 @@ $.ajax({
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
     var obj = response.groups;
-    Object.keys(obj).forEach(function(key) {
-      var name = obj[key];
-      console.log('adding group "' + name + '" to sidebar');
-      $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
-    });
+    if (obj !== undefined) {
+      Object.keys(obj).forEach(function(key) {
+        var name = obj[key];
+        console.log('adding group "' + name + '" to sidebar');
+        $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
+      });
+    }
   },
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));

@@ -12,20 +12,24 @@ $("#signUpSubmit").on("click", function() {
     email: $('#email').val(),
     password: $('#password').val(),
   };
-  console.log(data);
-  $.ajax({
-    url: "/sign_up_user",
-    method: "POST",
-    data: data,
-    dataType: "json",
-    success: function(response){
-      console.log("success, result = " + JSON.stringify(response));
-      window.location.href = "/index";
-    },
-    error: function(response){
-      vue.errorMessage = response.responseJSON.error.message;
-    },
-  });
+  if (data.firstName.match(/^\s*$/) || data.lastName.match(/^\s*$/) || data.email.match(/^\s*$/) || data.password === '') {
+    vue.errorMessage = 'All fields required';
+  } else {
+    console.log(data);
+    $.ajax({
+      url: "/sign_up_user",
+      method: "POST",
+      data: data,
+      dataType: "json",
+      success: function(response){
+        console.log("success, result = " + JSON.stringify(response));
+        window.location.href = "/index";
+      },
+      error: function(response){
+        vue.errorMessage = response.responseJSON.error.message;
+      },
+    });
+  }
 });
 
 
