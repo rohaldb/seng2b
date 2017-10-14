@@ -112,77 +112,207 @@ app.post('/sign_in_user', async function(req, res, next) {
 });
 
 app.post('/get_user_info', async function(req, res, next) {
-  res.contentType('json');
-  try {
-    var user = firebase.auth().currentUser.uid;
-    console.log("current user = " + user);
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-      var first = snapshot.val().firstName;
-      var last = snapshot.val().lastName;
-      var bal = snapshot.val().balance;
-      var bio = snapshot.val().bio;
-      var groups;
-      if (snapshot.val().groups != null) {
-        groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
-      } else {
-        groups = [];
-      }
-      console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}`);
-      res.send({'name': first + ' ' + last, 'balance': bal, 'bio': bio, 'groups': groups});
-    });
-    console.log('success');
-  } catch (e) {
-    console.log('fail');
-    console.error(e);
-    res.send({'name': 'Unknown', 'balance': 'Unknown'});
-  }
+    res.contentType('json');
+    try {
+        var user = firebase.auth().currentUser.uid;
+        console.log("current user = " + user);
+        var userId = firebase.auth().currentUser.uid;
+        firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+            var first = snapshot.val().firstName;
+            var last = snapshot.val().lastName;
+            var bal = snapshot.val().balance;
+            var bio = snapshot.val().bio;
+            var groups;
+            if (snapshot.val().groups != null) {
+                groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
+            } else {
+                groups = [];
+            }
+            console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}`);
+            res.send({'name': first + ' ' + last, 'balance': bal, 'bio': bio, 'groups': groups});
+        });
+        console.log('success');
+    } catch (e) {
+        console.log('fail');
+        console.error(e);
+        res.send({'name': 'Unknown', 'balance': 'Unknown'});
+    }
 });
 
-app.post('/update_bio', async function(req, res, next) {
-  var newBio = req.body.bio;
-  res.contentType('json');
-  try {
+app.post('/get_user_purchases', async function(req, res, next) {
+    res.contentType('json');
+    try {
+        var user = firebase.auth().currentUser.uid;
+        console.log("current user = " + user);
+        var userId = firebase.auth().currentUser.uid;
+        var purchaseList = []
+        firebase.database().ref(`/users/${userId}/purchases/`).once('value').then(function(snapshot) {
+            snapshot.forEach(x => {
+                purchaseList.push({
+                    companyCode: x.val().companyCode,
+                    companyName: x.val().companyName,
+                    date: x.val().date,
+                    num_units: x.val().num_units,
+                    share_price: x.val().share_price,
+                    tradeAmount: x.val().tradeAmount,
+                    type: x.val().type
+                })
+            })
+            console.log(purchaseList)
+            for (let items of purchaseList) {
+                console.log(items)
+            }
+            res.send({'purchaseList': purchaseList});
+        });
+        console.log('success Purchases');
+    } catch (e) {
+        console.log('fail Purchases');
+        console.error(e);
+        res.send({'purchaseList': 'Unknown'});
+    }
+});
+
+app.post('/get_user_purchase_history', async function(req, res, next) {
+    res.contentType('json');
+    try {
+        var user = firebase.auth().currentUser.uid;
+        console.log("current user = " + user);
+        var userId = firebase.auth().currentUser.uid;
+        var historyList = []
+        firebase.database().ref(`/users/${userId}/history/`).once('value').then(function(snapshot) {
+            snapshot.forEach(x => {
+                historyList.push({
+                    companyCode: x.val().companyCode,
+                    companyName: x.val().companyName
+                })
+            })
+            console.log(historyList)
+            for (let items of historyList) {
+                console.log(items)
+            }
+            res.send({'historyList': historyList});
+        });
+        console.log('success history');
+    } catch (e) {
+        console.log('fail history');
+        console.error(e);
+        res.send({'historyList': 'Unknown'});
+    }
+});
+
+app.post('/get_user_watchList', async function(req, res, next) {
+    res.contentType('json');
+    try {
+        var user = firebase.auth().currentUser.uid;
+        console.log("current user = " + user);
+        var userId = firebase.auth().currentUser.uid;
+        var watchList = []
+        firebase.database().ref(`/users/${userId}/watchList/`).once('value').then(function(snapshot) {
+            snapshot.forEach(x => {
+                watchList.push({
+                    companyCode: x.val().companyCode,
+                    companyName: x.val().companyName,
+                    share_price: x.val().share_price
+                })
+            })
+            console.log(watchList)
+            for (let items of watchList) {
+                console.log(items)
+            }
+            res.send({'watchList': watchList});
+        });
+        console.log('success watch');
+    } catch (e) {
+        console.log('fail watch');
+        console.error(e);
+        res.send({'watchList': 'Unknown'});
+    }
+});
+
+app.post('/add_To_Watch_List', async function(req, res, next) {
+    var companyName = req.body.companyName;
+    var companyCode = req.body.companyCode;
+    console.log(companyCode);
+    console.log(companyName);
+    res.contentType('json');
     var user = firebase.auth().currentUser.uid;
     console.log("current user = " + user);
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref(`users/${user}`).update({'bio': newBio});
-    res.send({'bio': true});
-    console.log('success');
-  } catch (e) {
-    console.log('fail');
-    console.error(e);
-    res.send({'bio': false});
-  }
+    try {
+        if (user) {
+            console.log(user)
+            let ref = firebase.database().ref(`users/${user}/watchList`);
+            firebase.database().ref(`/users/${user}/watchList/`).once('value').then(function(snapshot) {
+                var alreadyWatching = false;
+                snapshot.forEach(x => {
+                    if (x.val().companyName == companyName) {
+                        alreadyWatching = true;
+                    }
+                    console.log(x.val().companyName)
+                })
+                console.log(alreadyWatching)
+                if (!alreadyWatching) {
+                    firebase.database().ref(`users/${user}/watchList`).push({
+                        companyName: companyName,
+                        companyCode: companyCode,
+                    });
+                }
+            })
+        } else {
+            res.send({watchAdded: false});
+        }
+        console.log("successs");
+    } catch (e) {
+        console.log('fail');
+        console.error(e);
+        res.send({watchAdded: false});
+    }
+});
+
+
+app.post('/update_bio', async function(req, res, next) {
+    var newBio = req.body.bio;
+    res.contentType('json');
+    try {
+        var user = firebase.auth().currentUser.uid;
+        console.log("current user = " + user);
+        var userId = firebase.auth().currentUser.uid;
+        firebase.database().ref(`users/${user}`).update({'bio': newBio});
+        res.send({'bio': true});
+        console.log('success');
+    } catch (e) {
+        console.log('fail');
+        console.error(e);
+        res.send({'bio': false});
+    }
 });
 
 app.post('/new_group', async function(req, res, next) {
-  var name = req.body.name;
-  var type = req.body.type;
-  res.contentType('json');
-  try {
-    var user = firebase.auth().currentUser.uid;
-    console.log("current user = " + user);
-    var userId = firebase.auth().currentUser.uid;
-    var ref = firebase.database().ref(`users/${user}/groups`);
-    ref.once('value', function(snapshot) {
-      var groups = snapshot.val();
-      if (snapshot.val() != null) {
-        groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
-        groups['name'] = name;
-      } else {
-        groups = {'name': name};
-      }
-      console.log(JSON.stringify(groups));
-      firebase.database().ref(`users/${user}/groups`).update({'groups': groups});
-    });
-    res.send({'new-group': true});
-    console.log('success');
-  } catch (e) {
-    console.log('fail');
-    console.error(e);
-    res.send({'new-group': false});
-  }
+    var name = req.body.name;
+    var type = req.body.type;
+    res.contentType('json');
+    try {
+        var user = firebase.auth().currentUser.uid;
+        console.log("current user = " + user);
+        var userId = firebase.auth().currentUser.uid;
+        var ref = firebase.database().ref(`users/${user}/groups`);
+        ref.once('value', function(snapshot) {
+            var groups = snapshot.val();
+            if (snapshot.val() != null) {
+                groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
+                groups['name'] = name;
+            } else {
+                groups = {'name': name};
+            }
+            console.log(JSON.stringify(groups));
+            firebase.database().ref(`users/${user}/groups`).update({'groups': groups});
+        });
+        res.send({'new-group': true});
+        console.log('success');
+    } catch (e) {
+        console.log('fail');
+        console.error(e);
+        res.send({'new-group': false});
+    }
 });
 
 app.post('/purchase_stock', async function(req, res, next) {
