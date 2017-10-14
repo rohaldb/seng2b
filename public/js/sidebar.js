@@ -3,11 +3,10 @@ $('.modal').modal();
 //add new group to user's profile in firebase & update displayed groups on sidebar
 $("#new-group-bttn").on("click", function() {
   var name = $('#new-group-name').val();
-  var type = $('#group-type').val();
+  $('#new-group-name').val('');
   var data = {
-    'name': name,
-    'type': type
-  };
+    'name': name
+  }
   console.log(data);
   $.ajax({
     url: "/new_group",
@@ -17,7 +16,6 @@ $("#new-group-bttn").on("click", function() {
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
       $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
-      $('#new-group-name').text('');
     },
     error: function(response) {
       console.log("failed, result = " + JSON.stringify(response));
@@ -35,8 +33,7 @@ $.ajax({
     console.log("success, result = " + JSON.stringify(response));
     for (var group in response.groups) {
       var name = response.groups['name'];
-      var type = response.groups['type'];
-      console.log('group: ' + name + ' ' + type);
+      console.log('group: ' + name);
       $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
     }
   },

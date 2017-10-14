@@ -156,7 +156,6 @@ app.post('/update_bio', async function(req, res, next) {
 
 app.post('/new_group', async function(req, res, next) {
   var name = req.body.name;
-  var type = req.body.type;
   res.contentType('json');
   try {
     var user = firebase.auth().currentUser.uid;
