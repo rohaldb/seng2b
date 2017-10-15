@@ -67,137 +67,142 @@
     <!-- watch list tab -->
     <div id="watch_list" class="row">
         <div class="col s12 align-center">
-                <table class="striped">
-                    <thead>
-                        <th>Name</th>
-                        <th>Current</th>
-                        <!-- <th>Change</th>
-                        <th>High</th>
-                        <th>Low</th> -->
-                    </thead>
-                    <tbody>
-                        <tr v-for="item in watchList">
-                            <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
-                            <td class="stock-current">\{{item.companyCode}}</td>
-                            <td class="stock-change change-negative">-0.02%</td>
-                            <td class="stock-high">$153.27</td>
-                            <td class="stock-low">$105.90</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <table class="striped">
+                <thead>
+                    <th>Name</th>
+                    <th>Current</th>
+                    <!-- <th>Change</th>
+                    <th>High</th>
+                    <th>Low</th> -->
+                </thead>
+                <tbody>
+                    <tr v-for="item in watchList">
+                        <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
+                        <td class="stock-current">\{{item.companyCode}}</td>
+                        <td class="stock-change change-negative">-0.02%</td>
+                        <td class="stock-high">$153.27</td>
+                        <td class="stock-low">$105.90</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <!-- open trades tab -->
     <div id="open_trades" class="row">
         <div class="col s12 align-center">
-                <table class="striped">
-                    <thead>
-                        <th>Name</th>
-                        <th>Current</th>
-                        <th>Change</th>
-                        <th>High</th>
-                        <th>Low</th>
-                    </thead>
-                    <tbody>
-                        <tr v-for="item in purchaseList">
-                            <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
-                            <td class="stock-current">\{{item.companyCode}}</td>
-                            <td class="stock-change change-negative">-0.02%</td>
-                            <td class="stock-high">$153.27</td>
-                            <td class="stock-low">$105.90</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <table class="striped">
+                <thead>
+                    <th>Name</th>
+                    <th>Units</th>
+                    <th>Invested</th>
+                    <th>P/L($)</th>
+                    <th>P/L(%)</th>
+                    <th>Value</th>
+                    <th>Type</th>
+                </thead>
+                <tbody>
+                    <tr v-for="item in purchaseList">
+                        <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
+                        <td>\{{item.num_units.toFixed(2)}}</td>
+                        <td>$\{{item.trade_amount.toFixed(2)}}</td>
+                        <td>$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                        <td>\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                        <td>\{{item.value.toFixed(2)}}</td>
+                        <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
+                        <td><a href="#" ><i @click="closeTrade(item)" class="red-text material-icons">close</i></a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <!-- history tab -->
     <div id="history" class="row">
         <div class="col s12 align-center">
-                <table class="striped">
-                    <thead>
-                        <th>Name</th>
-                        <th>Current</th>
-                        <th>Change</th>
-                        <th>High</th>
-                        <th>Low</th>
-                    </thead>
-                    <tbody>
-                        <tr v-for="item in historyList">
-                            <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
-                            <td class="stock-current">\{{item.companyCode}}</td>
-                            <td class="stock-change change-negative">-0.02%</td>
-                            <td class="stock-high">$153.27</td>
-                            <td class="stock-low">$105.90</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <table class="striped">
+                <thead>
+                    <th>Name</th>
+                    <th>Current</th>
+                    <th>Change</th>
+                    <th>High</th>
+                    <th>Low</th>
+                </thead>
+                <tbody>
+                    <tr v-for="item in historyList">
+                        <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
+                        <td class="stock-current">\{{item.companyCode}}</td>
+                        <td class="stock-change change-negative">-0.02%</td>
+                        <td class="stock-high">$153.27</td>
+                        <td class="stock-low">$105.90</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
 
     <!-- <div id="graphs" class="row">
-        <div class="col s6 offset-s3">
-            <ul class="tabs" id="graph-tabs">
-                <li class="tab col s4"><a class="active" href="#graph1">Intraday</a></li>
-                <li class="tab col s4"><a href="#graph2">Candlestick</a></li>
-                <li class="tab col s4"><a href="#graph3">Drawable</a></li>
-            </ul>
-        </div>
+    <div class="col s6 offset-s3">
+    <ul class="tabs" id="graph-tabs">
+    <li class="tab col s4"><a class="active" href="#graph1">Intraday</a></li>
+    <li class="tab col s4"><a href="#graph2">Candlestick</a></li>
+    <li class="tab col s4"><a href="#graph3">Drawable</a></li>
+</ul>
+</div>
 
-        <div id="graph1" class="col s12">
-            <div class="center-align" id="graph1Loader" style="margin-top:50px;">
-                <div class="preloader-wrapper active">
-                    <div class="spinner-layer spinner">
-                        <div class="circle-clipper left">
-                            <div class="circle"></div>
-                        </div><div class="gap-patch">
-                            <div class="circle"></div>
-                        </div><div class="circle-clipper right">
-                            <div class="circle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div id="graph1" class="col s12">
+<div class="center-align" id="graph1Loader" style="margin-top:50px;">
+<div class="preloader-wrapper active">
+<div class="spinner-layer spinner">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div><div class="gap-patch">
+<div class="circle"></div>
+</div><div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+</div>
+</div>
 
-            <div id="chartdiv1" style="width:97%; height:400px; margin-top:30px;"></div>
-        </div>
-        <div id="graph2" class="col s12">
+<div id="chartdiv1" style="width:97%; height:400px; margin-top:30px;"></div>
+</div>
+<div id="graph2" class="col s12">
 
-            <div class="center-align" id="graph2Loader" style="margin-top:50px;">
-                <div class="preloader-wrapper active">
-                    <div class="spinner-layer spinner">
-                        <div class="circle-clipper left">
-                            <div class="circle"></div>
-                        </div><div class="gap-patch">
-                            <div class="circle"></div>
-                        </div><div class="circle-clipper right">
-                            <div class="circle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="center-align" id="graph2Loader" style="margin-top:50px;">
+<div class="preloader-wrapper active">
+<div class="spinner-layer spinner">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div><div class="gap-patch">
+<div class="circle"></div>
+</div><div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+</div>
+</div>
 
-            <div id="chartdiv2" style="width:97%; height:400px;"></div>
-        </div>
-        <div id="graph3" class="col s12">
+<div id="chartdiv2" style="width:97%; height:400px;"></div>
+</div>
+<div id="graph3" class="col s12">
 
-            <div class="center-align" id="graph3Loader" style="margin-top:50px;">
-                <div class="preloader-wrapper active">
-                    <div class="spinner-layer spinner">
-                        <div class="circle-clipper left">
-                            <div class="circle"></div>
-                        </div><div class="gap-patch">
-                            <div class="circle"></div>
-                        </div><div class="circle-clipper right">
-                            <div class="circle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="center-align" id="graph3Loader" style="margin-top:50px;">
+<div class="preloader-wrapper active">
+<div class="spinner-layer spinner">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div><div class="gap-patch">
+<div class="circle"></div>
+</div><div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+</div>
+</div>
 
-            <div id="chartdiv3" style="width:97%; height:400px;"></div>
-        </div>
-    </div> -->
+<div id="chartdiv3" style="width:97%; height:400px;"></div>
+</div>
+</div> -->
 </div>

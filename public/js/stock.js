@@ -43,13 +43,12 @@ var vue = new Vue({
             var data = {
                 companyCode: this.stock_symbol,
                 companyName: this.company_name,
-                tradeAmount: this.amount,
+                tradeAmount: this.balance - this.balanceAfterTransaction,
                 share_price: this.share_price
             };
             if (this.long) {data.type = "long"} else {data.type = "short"}
             if (this.dollars) {data.num_units =  parseFloat(this.amount/this.share_price)}
-            else {data.num_units = parseFloat(this.amount * this.share_price)}
-
+            else {data.num_units = parseFloat(this.amount)}
             console.log("data = " + data);
             $.ajax({
                 url: "/purchase_stock",

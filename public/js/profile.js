@@ -7,10 +7,51 @@ var vue = new Vue({
         historyList: [],
         watchList: [],
     },
+    methods: {
+        closeTrade: function (item) {
+            console.log("closing on item:");
+            console.log(item);
+        }
+    },
     mounted: function() {
        $("#edit-bio").modal();
     }
 })
+
+function getStockPriceOf(code, index) {
+    $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=1min&outputsize=compact&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
+        data = Object.values(data)[1];
+        console.warn(data);
+        extractedData = [];
+        $(data).each(function(i,val){
+            $.each(val,function(key,val){
+                extractedData.unshift( {
+                    "date": key,
+                    "value": parseFloat(val["4. close"]),
+                    "open": parseFloat(val["1. open"]),
+                    "high": parseFloat(val["2. high"]),
+                    "low": parseFloat(val["3. low"]),
+                    "close" : parseFloat(val["4. close"]),
+                    "volume": parseFloat(val["5. volume"])
+                } );
+                // return 0;
+            });
+        });
+        if (extractedData[0].close) {
+            profitLoss(index, extractedData[extractedData.length - 1].close);
+            console.warn(extractedData[extractedData.length - 1].close);
+        } else {console.warn("Couldnt find stock price");}
+    });
+}
+
+function profitLoss(index, current) {
+    var element = vue.purchaseList[index];
+    var tradeValue = current * element.num_units;
+    element.value = tradeValue;
+    console.log("TradeValue = " + tradeValue + " trade_amount = " + element.trade_amount);
+    element.profit_loss_dollars = (tradeValue - element.trade_amount);
+    element.profit_loss_percent = (element.profit_loss_dollars/element.trade_amount);
+}
 
 $.ajax({
     url: "/get_user_purchases",
@@ -18,7 +59,24 @@ $.ajax({
     data: '',
     dataType: "json",
     success: function(response) {
-        vue.purchaseList = response.purchaseList;
+
+        response.purchaseList;
+        console.warn(response.purchaseList);
+        response.purchaseList.forEach(function (item, index) {
+            getStockPriceOf(item.companyCode,index);
+            console.log(item);
+            vue.purchaseList.push({
+                companyCode: item.companyCode,
+                companyName: item.companyName,
+                num_units: parseFloat(item.num_units),
+                trade_amount: parseFloat(item.tradeAmount),
+                type: item.type,
+                current: 0,
+                value: 0,
+                profit_loss_dollars: 0,
+                profit_loss_percent: 0,
+            });
+        });
     },
     error: function(response) {
         console.log("failed Purchases, result = " + JSON.stringify(response));

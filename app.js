@@ -339,7 +339,7 @@ app.post('/purchase_stock', async function(req, res, next) {
         if (user) {
             console.log(user)
             firebase.database().ref(`users/${user}/purchases`).push({
-                tradeAmount: parseInt(tradeAmount),
+                tradeAmount: tradeAmount,
                 companyName: companyName,
                 companyCode: companyCode,
                 date: Date.now(),
