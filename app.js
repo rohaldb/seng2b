@@ -138,24 +138,23 @@ app.post('/get_user_info', async function(req, res, next) {
 app.post('/get_user_list', async function(req, res, next) {
   res.contentType('json');
   try {
-    var usersRef = firebase.database().ref('users').once('value', function(snapshot){
+      var userList = [];
+      firebase.database().ref('/users').once('value').then(function(snapshot) {
       console.log(snapshot.val());
-      snapshot.forEach(function(childSnapshot) {
-        //var key = childSnapshot.key;
-        //var childData = childSnapshot.val();
-        var first = childSnapshot.val().firstName;
-        var last = childSnapshot.val().lastName;
+      console.log("PLEASEPALEASEAE");
+      snapshot.forEach(x => {
+        userList.push({
+          name: x.val().firstName + ' ' + x.val().lastName
 
-        //console.log('heres a key: ' + key);
-        console.log('name ' + first + ' ' + last);
-        //console.log('heres data: ' + childData);
-        res.send({'name': first + ' ' + last});
-      });
+        })
+      })
+        res.send({'userList': userList});
     });
+    console.log('success user list');
   } catch (e) {
-    console.log('fail');
+    console.log('fail user list');
     console.error(e);
-    res.send({'name': 'unknown'});
+    res.send({'userList': 'unknown'});
   }
 });
 

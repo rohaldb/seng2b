@@ -26,16 +26,19 @@ $.ajax({
   data: '',
   dataType: "json",
   success: function(response) {
-    console.log("success, result = " + JSON.stringify(response));
-    var name = response.name;
-    console.log('and the name is: ' + name);
-    //console.log('please data is:' + data);
-    //$('#num-group-members').text(num + ' members');
+    console.log("HERE WE ARE!!!!");
+    //console.log("success, result = " + JSON.stringify(response));
+    //var name = response.name;
+    //console.log('and the name is: ' + name);
+    response.userList.forEach(function (item,index){
+      console.log("success name is = " item[index]);
+    });
   },
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
+
 /*
 $.ajax({
   url: "/get_user_list",
