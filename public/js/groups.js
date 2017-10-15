@@ -11,9 +11,11 @@ $.ajax({
   dataType: "json",
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
-    var num = response.num;
-    console.log('number of group members: ' + num);
-    $('#num-group-members').text(num + ' members');
+    var numMembers = response.numMembers;
+    console.log('number of group members: ' + numMembers);
+    var memberText = numMembers == 1 ? ' member': ' members';
+
+    $('#num-group-members').text(numMembers + memberText); // Update members count HTML
     var name = response.name;
     console.log('name is: ' + name);
   },

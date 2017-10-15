@@ -205,10 +205,10 @@ app.post('/get_group_info', async function(req, res, next) {
   res.contentType('json');
   var num,first,last; //adding this stopped (node:24272) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): ReferenceError: first is not defined
   try {
+    var numMembers = 0;
     firebase.database().ref('/groups/' + id).once('value').then(function(snapshot) {
-      var num = snapshot.val().users.length;
+      numMembers = snapshot.val().users.length;
       console.log(`number of users: ${num}`);
-      //res.send({'num': num});
     });
     var usersRef = firebase.database().ref('/users').once('value').then(function(snapshot){
       //console.log(snapshot.val());
@@ -219,13 +219,13 @@ app.post('/get_group_info', async function(req, res, next) {
         console.log('name ' + first + ' ' + last);
         //console.log('heres data: ' + childData);
       });
-      res.send({'num': num, 'name': first + ' ' + last});
+      res.send({'numMembers': numMembers});
     });
     console.log('success');
   } catch (e) {
     console.log('fail');
     console.error(e);
-    res.send({'num': 'Unknown', 'name': 'Unknown'});
+    res.send({'numMembers': 'Unknown', 'name': 'Unknown'});
   }
 });
 
