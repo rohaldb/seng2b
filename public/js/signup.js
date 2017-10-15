@@ -20,7 +20,7 @@ $("#signUpSubmit").on("click", function() {
     dataType: "json",
     success: function(response){
       console.log("success, result = " + JSON.stringify(response));
-      window.location.href = "/index";
+      window.location.href = "/profile";
     },
     error: function(response){
       vue.errorMessage = response.responseJSON.error.message;
@@ -42,7 +42,7 @@ async function login () {
     dataType: "json",
     success: function(response){
       console.log("success, result = " + JSON.stringify(response));
-      window.location.href = "/index";
+      window.location.href = "/profile";
     },
     error: function(response){
       vue.errorMessage = "Invalid username or password";
