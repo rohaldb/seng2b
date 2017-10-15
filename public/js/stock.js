@@ -153,16 +153,26 @@ function getStockPriceOf(stockInfo, sentimentsJSON) {
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=1min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status) {
     console.log(data);
     data = Object.values(data)[1];
-    var chartData = generateChartData(data, 1);
-    $("#company-name").text(stockInfo.Symbol + " | " + stockInfo.Name);
-    vue.share_price = parseFloat(chartData[chartData.length - 1].close).toFixed(2);
-    vue.share_percent_change  = (chartData[chartData.length - 1].close - chartData[0].close)/chartData[0].close;
+    if (jQuery.isEmptyObject(data)) {
+      console.warn("If you see me then no stock data has been returned. Calling self");
+      getStockPriceOf(stockInfo, sentimentsJSON);
+    } else {
+      var chartData = generateChartData(data, 1);
+      $("#company-name").text(stockInfo.Symbol + " | " + stockInfo.Name);
+      vue.share_price = parseFloat(chartData[chartData.length - 1].close).toFixed(2);
+      vue.share_percent_change  = (chartData[chartData.length - 1].close - chartData[0].close)/chartData[0].close;
+    }
   });
   console.log(code);
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status) {
     console.log(data);
     data = Object.values(data)[1];
-    var chartData = generateChartData(data, 2, sentimentsJSON);
+    if (jQuery.isEmptyObject(data)) {
+      console.warn("If you see me then no stock data has been returned. Calling self");
+      getStockPriceOf(stockInfo, sentimentsJSON);
+    } else {
+      var chartData = generateChartData(data, 2, sentimentsJSON);
+    }
   });
 }
 
@@ -182,7 +192,6 @@ function generateChartData(data, type, sentimentsJSON) {
       });
     });
   });
-  console.warn("" + chartData[0].date);
   if (type == 1) {
     generateIntradayChart(chartData);
   }

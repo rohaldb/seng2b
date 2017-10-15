@@ -21,12 +21,12 @@ var config = {
 firebase.initializeApp(config);
 
 // uncomment for easy sign in .. replace username and password
-// firebase.auth().signInWithEmailAndPassword("test@gmail.com", "minimini").catch(function(error) {
-//   // Handle Errors here.
-//   var errorCode = error.code;
-//   var errorMessage = error.message;
-//   // ...
-// });
+firebase.auth().signInWithEmailAndPassword("test@gmail.com", "minimini").catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
 
 
 // Include each page's /routes/*.js file here
