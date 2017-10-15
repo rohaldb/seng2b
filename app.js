@@ -30,7 +30,6 @@ firebase.initializeApp(config);
 
 
 // Include each page's /routes/*.js file here
-var indexPage = require('./routes/index');
 var stockPage = require('./routes/stock');
 var groupsPage = require('./routes/groups');
 var profilePage = require('./routes/profile');
@@ -54,7 +53,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routing for each page
 app.use('/', landingPage);
-app.use('/index', indexPage);
 app.use('/stock', stockPage);
 app.use('/groups', groupsPage);
 app.use('/profile', profilePage);
