@@ -247,7 +247,6 @@ app.post('/add_To_Watch_List', async function(req, res, next) {
                     }
                     // console.log(x.val().companyName)
                 })
-                // console.log(alreadyWatching)
                 if (!alreadyWatching) {
                     firebase.database().ref(`users/${user}/watchList`).push({
                         companyName: companyName,
@@ -255,10 +254,10 @@ app.post('/add_To_Watch_List', async function(req, res, next) {
                     });
                 }
             })
+            res.send({watchAdded: true});
         } else {
             res.send({watchAdded: false});
         }
-        console.log("successs");
     } catch (e) {
         console.log('fail');
         console.error(e);

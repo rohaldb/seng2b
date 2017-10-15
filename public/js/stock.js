@@ -29,7 +29,6 @@ var vue = new Vue({
         dataType: "json",
         success: function(response) {
           Materialize.toast('Added to watchlist', 1250);
-          console.log("success, result = " + JSON.stringify(response));
         }
       });
     },
@@ -71,6 +70,7 @@ var vue = new Vue({
         dataType: "json",
         success: function(response) {
           console.log("success, result = " + JSON.stringify(response));
+          Materialize.toast('Trade successful', 1250)
           vue.appendToSideBar();
         }
       });
