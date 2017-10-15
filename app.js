@@ -20,22 +20,13 @@ var config = {
 };
 firebase.initializeApp(config);
 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        // User is signed in.
-        var email = user.email;
-        console.log("user: " + email);
-    } else {
-        console.log("no X user");
-    }
-});
-
-firebase.auth().signInWithEmailAndPassword("test@gmail.com", "minimini").catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
+// uncomment for easy sign in .. replace username and password
+// firebase.auth().signInWithEmailAndPassword("test@gmail.com", "minimini").catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // ...
+// });
 
 
 // Include each page's /routes/*.js file here
