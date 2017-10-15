@@ -70,7 +70,6 @@ app.use('/profile', profilePage);
 app.use('/signup', signupPage);
 app.use('/login', loginPage);
 
-
 app.post('/sign_up_user', async function(req, res, next) {
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
@@ -220,7 +219,7 @@ app.post('/get_user_watchList', async function(req, res, next) {
                 watchList.push({
                     companyCode: x.val().companyCode,
                     companyName: x.val().companyName,
-                    share_price: x.val().share_price
+                    // share_price: x.val().share_price
                 })
             })
             // console.log(watchList)
@@ -276,6 +275,58 @@ app.post('/add_To_Watch_List', async function(req, res, next) {
     }
 });
 
+app.post('/close_trade', async function(req, res, next) {
+    var item = req.body;
+    console.log("Stock to close:");
+    console.log(item);
+    res.contentType('json');
+    try {
+        // item.profit_loss_dollars
+        var user = firebase.auth().currentUser.uid;
+        console.log("current user = " + user);
+        var userId = firebase.auth().currentUser.uid;
+        firebase.database().ref(`users/${user}/history`).push({
+            tradeAmount: item.trade_amount,
+            companyName: item.companyName,
+            companyCode: item.companyCode,
+            date: Date.now(),
+            type: item.type,
+            num_units: item.num_units,
+            profit_loss_dollars: item.profit_loss_dollars,
+            profit_loss_percent: item.profit_loss_percent
+        });
+
+        firebase.database().ref(`/users/${userId}/purchases/`).once('value').then(function(snapshot) {
+            var getPurchsaseId;
+            snapshot.forEach(x => {
+                if (item.companyCode == x.val().companyCode && x.val().num_units == item.num_units && x.val().date == item.date) {
+                    console.log("remove this item");
+                    getPurchsaseId = x.key
+                }
+            });
+            console.log("Purchase id");
+            console.log(getPurchsaseId)
+            firebase.database().ref(`users/${user}/purchases/${getPurchsaseId}`).remove();
+        });
+
+        var ref = firebase.database().ref(`users/${user}/balance`);
+        ref.once('value', function(snapshot) {
+            console.log(snapshot.val());
+            // var newBalance = snapshot.val();
+            // var worth = item.profit_loss_percent*item.value
+            var i = parseFloat(item.trade_amount);
+            var newBalance = parseFloat(snapshot.val() + i).toFixed(2);
+            // var newBalance = parseFloat(snapshot.val() + item.profit_loss_dollars).toFixed(2);
+            firebase.database().ref(`users/${user}`).update({balance: newBalance})
+        });
+        res.send({'closed': true});
+        console.log('success');
+    } catch (e) {
+        console.log('fail');
+        console.error(e);
+        res.send({'closed': false});
+    }
+});
 
 app.post('/update_bio', async function(req, res, next) {
     var newBio = req.body.bio;

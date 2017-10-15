@@ -5,7 +5,7 @@ var vue = new Vue({
     data: {
         purchaseList: [],
         historyList: [],
-        watchList: [],
+        watchList: []
     },
     methods: {
         closeTrade: function (item) {
@@ -13,21 +13,44 @@ var vue = new Vue({
         },
         get_url: function (item) {
             console.log(item);
+            getStockPriceOf(item.companyCode, 1, 2);
+            $.ajax({
+                url: "/close_trade",
+                method: "POST",
+                data: item,
+                dataType: "json",
+                success: function(response) {
+                    console.log("success, result = " + JSON.stringify(response));
+                    var index = vue.purchaseList.indexOf(item);
+                    console.log(index);
+                    if (index > -1) {
+                        vue.purchaseList.splice(index, 1);
+                    }
+                },
+                error: function(response) {
+                    console.log("failed, result = " + JSON.stringify(response));
+                }
+            });
+        },
+        get_url: function (item) {
+            console.log(item);
             string = "/stock?stock=" + item.companyCode + "&company=" + item.companyName;
             return string;
         }
     },
+
     mounted: function() {
-       $("#edit-bio").modal();
+        $("#edit-bio").modal();
+        $("#close-trade").modal();
     }
 })
 
-function getStockPriceOf(code, index) {
+function getStockPriceOf(code, index, type) {
     $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=1min&outputsize=compact&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
         data = Object.values(data)[1];
         extractedData = [];
-        $(data).each(function(i,val){
-            $.each(val,function(key,val){
+        $(data).each(function(i,val) {
+            $.each(val,function(key,val) {
                 extractedData.unshift( {
                     "date": key,
                     "value": parseFloat(val["4. close"]),
@@ -40,9 +63,15 @@ function getStockPriceOf(code, index) {
                 // return 0;
             });
         });
-        if (extractedData[0].close) {
-            profitLoss(index, extractedData[extractedData.length - 1].close);
-        } else {console.warn("Couldnt find stock price");}
+        if (type == 0) {
+            if (extractedData[0].close) {
+                profitLoss(index, extractedData[extractedData.length - 1].close);
+                console.log(extractedData[extractedData.length - 1].close);
+                // return extractedData[extractedData.length - 1].close;
+            } else {console.warn("Couldnt find stock price");}
+        } else if (type == 1) {
+            vue.watchList[index].value = extractedData[extractedData.length - 1].close;
+        }
     });
 }
 
@@ -61,7 +90,7 @@ $.ajax({
     dataType: "json",
     success: function(response) {
         response.purchaseList.forEach(function (item, index) {
-            getStockPriceOf(item.companyCode,index);
+            getStockPriceOf(item.companyCode,index, 0);
             vue.purchaseList.push({
                 companyCode: item.companyCode,
                 companyName: item.companyName,
@@ -69,6 +98,7 @@ $.ajax({
                 trade_amount: parseFloat(item.tradeAmount),
                 type: item.type,
                 current: 0,
+                date: item.date,
                 value: 0,
                 profit_loss_dollars: 0,
                 profit_loss_percent: 0,
@@ -86,25 +116,25 @@ $.ajax({
     data: '',
     dataType: "json",
     success: function(response) {
-        $('#historyList').text(response.historyList);
-        var historyList = response.historyList;
-        for(let items of historyList) {
+        response.historyList.forEach(function (item, index) {
+            // console.log(item);
             vue.historyList.push({
-                companyName: items.companyName,
-                companyCode: items.companyCode,
-                date: items.date,
-                num_units: items.num_units,
-                share_price: items.share_price,
-                tradeAmount: items.tradeAmount,
-                type: items.type
-            })
-        }
+                companyCode: item.companyCode,
+                companyName: item.companyName,
+                // num_units: parseFloat(item.num_units),
+                // trade_amount: parseFloat(item.tradeAmount),
+                // type: item.type,
+                // current: 0,
+                // value: 0,
+                // profit_loss_dollars: 0,
+                // profit_loss_percent: 0,
+            });
+        });
     },
     error: function(response) {
         console.log("failed History, result = " + JSON.stringify(response));
     }
 });
-
 
 $.ajax({
     url: "/get_user_watchList",
@@ -112,20 +142,19 @@ $.ajax({
     data: '',
     dataType: "json",
     success: function(response) {
-        $('#watchList').text(response.watchList);
-        var watchList = response.watchList;
-        for(let items of watchList) {
+        response.watchList.forEach(function (item, index) {
+            getStockPriceOf(item.companyCode, index, 1);
             vue.watchList.push({
-                companyName: items.companyName,
-                companyCode: items.companyCode
-            })
-        }
+                companyCode: item.companyCode,
+                companyName: item.companyName,
+                value: 0
+            });
+        });
     },
     error: function(response) {
         console.log("failed Watch, result = " + JSON.stringify(response));
     }
 });
-
 
 //display profile information in top banner
 $.ajax({
