@@ -12,10 +12,15 @@ $.ajax({
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
     var numMembers = response.numMembers;
+    var memberNames = response.memberNames;
+
     console.log('number of group members: ' + numMembers);
-    var memberText = numMembers == 1 ? ' member': ' members';
+    var memberText = numMembers === 1 ? ' member': ' members';
+
+    console.log('member names: ' + memberNames);
 
     $('#num-group-members').text(numMembers + memberText); // Update members count HTML
+    $('#group-member-names').text(memberNames); // Update member names HTML
     var name = response.name;
     console.log('name is: ' + name);
   },

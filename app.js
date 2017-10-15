@@ -206,26 +206,35 @@ app.post('/get_group_info', async function(req, res, next) {
   var num,first,last; //adding this stopped (node:24272) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): ReferenceError: first is not defined
   try {
     var numMembers = 0;
+    var memberIds = [];
+    var memberNames = [];
     firebase.database().ref('/groups/' + id).once('value').then(function(snapshot) {
+      memberIds = snapshot.val().users;
       numMembers = snapshot.val().users.length;
       console.log(`number of users: ${num}`);
     });
+
+
     var usersRef = firebase.database().ref('/users').once('value').then(function(snapshot){
       //console.log(snapshot.val());
       snapshot.forEach(function(childSnapshot) {
-        var first = childSnapshot.val().firstName;
-        var last = childSnapshot.val().lastName;
-        //console.log('heres a key: ' + key);
-        console.log('name ' + first + ' ' + last);
-        //console.log('heres data: ' + childData);
+        // If user id is in memberIds, add to memberNames
+        if (memberIds.indexOf(childSnapshot.val().userId) !== -1) {
+          console.log("USERID: "  + childSnapshot.val().userId);
+          var first = childSnapshot.val().firstName;
+          var last = childSnapshot.val().lastName;
+          var name = first + ' ' + last;
+          console.log('name ' + name);
+          memberNames.push(name);
+        }
       });
-      res.send({'numMembers': numMembers});
+      res.send({'numMembers': numMembers, 'memberNames': memberNames});
     });
     console.log('success');
   } catch (e) {
     console.log('fail');
     console.error(e);
-    res.send({'numMembers': 'Unknown', 'name': 'Unknown'});
+    res.send({'numMembers': 'Unknown', 'memberNames': []});
   }
 });
 
