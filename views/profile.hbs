@@ -49,6 +49,22 @@
         </div>
     </div>
 
+    <!-- close trade popup -->
+    <div id="close-trade" class="modal modal-bio atlassian left-align white-text">
+        <div class="modal-content container">
+
+            <div class="row">
+                <h4 class="orange-text" style="display:inline-block;">Are You sure you would like to close your trade</h4>
+            </div>
+
+            <div class="row">
+                <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+                <a id="close-your-trade" href="#!" class="modal-action modal-close waves-effect waves-green green btn" onclick="Materialize.toast('Closed', 1250)">Yes</a>
+            </div>
+
+        </div>
+    </div>
+
     <div class="row">
         <div class="col s12">
             <div class="row">
@@ -56,35 +72,11 @@
                     <ul class="tabs">
                         <li class="tab col s4"><a href="#history">History</a></li>
                         <li class="tab col s4"><a class="active" href="#open_trades">Open Trades</a></li>
-                        <li class="tab col s4"><a href="#watch_list" >Watch List</a></li>
+                        <li class="tab col s4"><a href="#watch_list"> Watch List</a></li>
                         <!-- <li class="tab col s6"><a href="#graphs">Graphs</a></li> -->
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- watch list tab -->
-    <div id="watch_list" class="row">
-        <div class="col s12 align-center">
-            <table class="striped">
-                <thead>
-                    <th>Name</th>
-                    <th>Current</th>
-                    <!-- <th>Change</th>
-                    <th>High</th>
-                    <th>Low</th> -->
-                </thead>
-                <tbody>
-                    <tr v-for="item in watchList">
-                        <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
-                        <td class="stock-current">\{{item.companyCode}}</td>
-                        <td class="stock-change change-negative">-0.02%</td>
-                        <td class="stock-high">$153.27</td>
-                        <td class="stock-low">$105.90</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 
@@ -103,14 +95,16 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in purchaseList">
-                        <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
+                        <td class="stock-name"><a>\{{item.companyName}}</a></td>
                         <td>\{{item.num_units.toFixed(2)}}</td>
                         <td>$\{{item.trade_amount.toFixed(2)}}</td>
                         <td>$\{{item.profit_loss_dollars.toFixed(2)}}</td>
                         <td>\{{item.profit_loss_percent.toFixed(2)}}%</td>
                         <td>\{{item.value.toFixed(2)}}</td>
                         <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
-                        <td><a href="#" ><i @click="closeTrade(item)" class="red-text material-icons">close</i></a></td>
+                        <td><a class="waves-effect waves-light btn modal-trigger" @click=closeTrade(item)>Close</a> </td>
+                        <!--  href="#close-trade" -->
+                        <!-- <td href="#edit-bio"><a><i class="red-text material-icons">close</i></a></td> -->
                     </tr>
                 </tbody>
             </table>
@@ -123,24 +117,37 @@
             <table class="striped">
                 <thead>
                     <th>Name</th>
-                    <th>Current</th>
-                    <th>Change</th>
-                    <th>High</th>
-                    <th>Low</th>
+                    <th>Code</th>
                 </thead>
                 <tbody>
                     <tr v-for="item in historyList">
-                        <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
-                        <td class="stock-current">\{{item.companyCode}}</td>
-                        <td class="stock-change change-negative">-0.02%</td>
-                        <td class="stock-high">$153.27</td>
-                        <td class="stock-low">$105.90</td>
+                        <td class="stock-name"><a>\{{item.companyName}}</a></td>
+                        <td>\{{item.companyCode}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
+    <!-- watch list tab -->
+    <div id="watch_list" class="row">
+        <div class="col s12 align-center">
+            <table class="striped">
+                <thead>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Value</th>
+                </thead>
+                <tbody>
+                    <tr v-for="item in watchList">
+                        <td class="stock-name"><a>\{{item.companyName}}</a></td>
+                        <td>\{{item.companyCode}}</td>
+                        <td>\{{item.value}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <!-- <div id="graphs" class="row">
     <div class="col s6 offset-s3">
