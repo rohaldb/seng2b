@@ -64,7 +64,7 @@ function loadArticles(company) {
       var bodyTextA = obj[ob]['fields']['bodyText'];
 
       sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, function(articleNum, title, link, date, bodyText, ibm) {
-        console.log(ibm.sentiment.document.score + ' ' + ibm.sentiment.document.label);
+        // console.log(ibm.sentiment.document.score + ' ' + ibm.sentiment.document.label);
         var sentimentScore = ibm.sentiment.document.score;
         var sentimentLabel = ibm.sentiment.document.label;
         var sentimentIcon = 'images/blue-neutral-800px.png';

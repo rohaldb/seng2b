@@ -36,7 +36,7 @@
   </div>
 </header>
 
-<ul id="slide-out" class="side-nav fixed no-shaddow atlassian-text">
+<ul id="sidebar" class="side-nav fixed no-shaddow atlassian-text">
     <li>
       <div class="user-view center-align">
         <h4 class="center-align">NewStock</h4>
@@ -45,11 +45,15 @@
     <li><a href="/index"><i class="material-icons ">home</i>Home</a></li>
     <li><a href="/profile"><i class="material-icons ">account_circle</i>Profile</a></li>
     <li><a class="subheader">Portfolio</a></li>
-    <li><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals"><i class="material-icons ">keyboard_arrow_right</i>ALXN</a></li>
+    <!-- <li><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals"><i class="material-icons ">keyboard_arrow_right</i>ALXN</a></li>
     <li><a href="/stock?stock=AMZN&company=Amazon.com+Inc"><i class="material-icons ">keyboard_arrow_right</i>AMZN</a></li>
     <li><a href="/stock?stock=GOOGL&company=Alphabet+Inc+Class+A"><i class="material-icons ">keyboard_arrow_right</i>GOOG</a></li>
     <li><a href="/stock?stock=MSFT&company=Microsoft+Corp."><i class="material-icons ">keyboard_arrow_right</i>MSFT</a></li>
-    <li><a href="/stock?stock=NKE&company=Nike"><i class="material-icons ">keyboard_arrow_right</i>NKE</a></li>
+    <li><a href="/stock?stock=NKE&company=Nike"><i class="material-icons ">keyboard_arrow_right</i>NKE</a></li> -->
+
+    <li v-for="value in purchaseSet">
+      <a v-bind:href="get_url(value)"><i class="material-icons ">keyboard_arrow_right</i>\{{value.companyCode}}</a>
+    </li>
     <li><a class="subheader">Groups</a></li>
     <div id="list-of-groups">
 <!--    <li><a href="/groups?group=Work"><i class="material-icons ">group</i>Work</a></li>

@@ -6,7 +6,6 @@ router.get('/', function(req, res, next) {
     res.render('index', {
         title: 'NewStock - Home',
         js: [
-            "js/sidebar.js"
         ]
     });
 });

@@ -1,24 +1,194 @@
-$('.modal').modal();
+var vue = new Vue({
+    el: '#elem1',
+    data: {
+        purchaseList: [],
+        historyList: [],
+        watchList: []
+    },
+    methods: {
+        closeTrade: function (item) {
+            getStockPriceOf(item.companyCode, 1, 2);
+            $.ajax({
+                url: "/close_trade",
+                method: "POST",
+            data: item,
+                dataType: "json",
+                success: function(response) {
+                    var index = vue.purchaseList.indexOf(item);
+                    if (index > -1) {
+                        vue.purchaseList.splice(index, 1);
+                    }
+                    sidebarVue.removeItemFromList(item.companyCode, item.companyName)
+                },
+                error: function(response) {
+                    console.log("failed, result = " + JSON.stringify(response));
+                }
+            });
+        },
+        get_url: function (item) {
+            console.log(item);
+            getStockPriceOf(item.companyCode, 1, 2);
+            $.ajax({
+                url: "/close_trade",
+                method: "POST",
+                data: item,
+                dataType: "json",
+                success: function(response) {
+                    console.log("success, result = " + JSON.stringify(response));
+                    var index = vue.purchaseList.indexOf(item);
+                    console.log(index);
+                    if (index > -1) {
+                        vue.purchaseList.splice(index, 1);
+                    }
+                },
+                error: function(response) {
+                    console.log("failed, result = " + JSON.stringify(response));
+                }
+            });
+        },
+        get_url: function (item) {
+            string = "/stock?stock=" + item.companyCode + "&company=" + item.companyName;
+            return string;
+        }
+    },
+    computed: {
+
+    },
+    mounted: function() {
+        $("#edit-bio").modal();
+    }
+})
+
+function getStockPriceOf(code, index, type) {
+    $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=1min&outputsize=compact&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
+        data = Object.values(data)[1];
+        extractedData = [];
+        $(data).each(function(i,val) {
+            $.each(val,function(key,val) {
+                extractedData.unshift( {
+                    "date": key,
+                    "value": parseFloat(val["4. close"]),
+                    "open": parseFloat(val["1. open"]),
+                    "high": parseFloat(val["2. high"]),
+                    "low": parseFloat(val["3. low"]),
+                    "close" : parseFloat(val["4. close"]),
+                    "volume": parseFloat(val["5. volume"])
+                } );
+                // return 0;
+            });
+        });
+        if (type == 0) {
+            if (extractedData[0].close) {
+                profitLoss(index, extractedData[extractedData.length - 1].close);
+                console.log(extractedData[extractedData.length - 1].close);
+                // return extractedData[extractedData.length - 1].close;
+            } else {console.warn("Couldnt find stock price");}
+        } else if (type == 1) {
+            vue.watchList[index].value = extractedData[extractedData.length - 1].close;
+        }
+    });
+}
+
+function profitLoss(index, current) {
+    var element = vue.purchaseList[index];
+    var tradeValue = current * element.num_units;
+    element.value = tradeValue;
+    element.profit_loss_dollars = (tradeValue - element.trade_amount);
+    element.profit_loss_percent = (element.profit_loss_dollars/element.trade_amount);
+}
+
+$.ajax({
+    url: "/get_user_purchase_history",
+    method: "POST",
+    data: '',
+    dataType: "json",
+    success: function(response) {
+        response.historyList.forEach(function (item, index) {
+            // console.log(item);
+            vue.historyList.push({
+                companyCode: item.companyCode,
+                companyName: item.companyName,
+                // num_units: parseFloat(item.num_units),
+                // trade_amount: parseFloat(item.tradeAmount),
+                // type: item.type,
+                // current: 0,
+                // value: 0,
+                // profit_loss_dollars: 0,
+                // profit_loss_percent: 0,
+            });
+        });
+    },
+    error: function(response) {
+        console.log("failed History, result = " + JSON.stringify(response));
+    }
+});
+
+
+$.ajax({
+    url: "/get_user_purchases",
+    method: "POST",
+    data: '',
+    dataType: "json",
+    success: function(response) {
+        response.purchaseList.forEach(function (item, index) {
+            getStockPriceOf(item.companyCode,index, 0);
+            vue.purchaseList.push({
+                companyCode: item.companyCode,
+                companyName: item.companyName,
+                num_units: parseFloat(item.num_units),
+                trade_amount: parseFloat(item.tradeAmount),
+                type: item.type,
+                current: 0,
+                date: item.date,
+                value: 0,
+                profit_loss_dollars: 0,
+                profit_loss_percent: 0,
+            });
+        });
+    },
+    error: function(response) {
+        console.log("failed Purchases, result = " + JSON.stringify(response));
+    }
+});
+
+$.ajax({
+    url: "/get_user_watchList",
+    method: "POST",
+    data: '',
+    dataType: "json",
+    success: function(response) {
+        response.watchList.forEach(function (item, index) {
+            getStockPriceOf(item.companyCode, index, 1);
+            vue.watchList.push({
+                companyCode: item.companyCode,
+                companyName: item.companyName,
+                value: 0
+            });
+        });
+    },
+    error: function(response) {
+        console.log("failed Watch, result = " + JSON.stringify(response));
+    }
+});
 
 //display profile information in top banner
 $.ajax({
-  url: "/get_user_info",
-  method: "POST",
-  data: '',
-  dataType: "json",
-  success: function(response) {
-    console.log("success, result = " + JSON.stringify(response));
-    $('#profile-name').text(response.name);
-    $('#current-balance').text('$' + response.balance);
-    $('#display-bio').text(response.bio);
-    if (response.bio !== 'No bio yet.') {
-      $('#new-bio-text').text(response.bio);
+    url: "/get_user_info",
+    method: "POST",
+    data: '',
+    dataType: "json",
+    success: function(response) {
+        $('#profile-name').text(response.name);
+        $('#current-balance').text('$' + response.balance);
+        $('#display-bio').text(response.bio);
+        if (response.bio !== 'No bio yet.') {
+            $('#new-bio-text').text(response.bio);
+        }
+        $('#new-bio-text').trigger('autoresize');
+    },
+    error: function(response) {
+        console.log("failed, result = " + JSON.stringify(response));
     }
-    $('#new-bio-text').trigger('autoresize');
-  },
-  error: function(response) {
-    console.log("failed, result = " + JSON.stringify(response));
-  }
 });
 
 stockValue = 0;
@@ -31,320 +201,22 @@ $("#subtractValue").on("click", function() {
 
 //update user's bio in firebase and update displayed bio
 $("#update-bio").on("click", function() {
-  var bio = $('#new-bio-text').val();
-  var data = {
-    'bio': bio
-  };
-  console.log(data);
-  $.ajax({
-    url: "/update_bio",
-    method: "POST",
-    data: data,
-    dataType: "json",
-    success: function(response) {
-      console.log("success, result = " + JSON.stringify(response));
-      $('#display-bio').text(bio);
-      $('#next-bio-text').text(bio);
-      $('#new-bio-text').trigger('autoresize');
-    },
-    error: function(response) {
-      console.log("failed, result = " + JSON.stringify(response));
-    }
-  });
-});
-
-var dollar = true;
-$("#toggleUnits").on("click", function() {
-    if (dollar) {
-        dollar = false;
-        $(this).text("Units");
-    } else {
-        dollar = true;
-        $(this).text("Dollars");
-    }
-});
-
-getStockPriceOf({
-    "Name": "3M Company",
-    "Symbol": "MMM",
-    "Sector": "Industrials"
-});
-
-function getStockPriceOf(stockInfo) {
-    var code = stockInfo.Symbol;
-    $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=1min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
-        console.log(data);
-        data = Object.values(data)[1];
-        var chartData = generateChartData(data, 1);
-        $("#company-name").text(stockInfo.Symbol + " | " + stockInfo.Name);
-
-        $(".company-price").each(function( index ) {
-            $( this ).text(chartData[chartData.length - 1].close);
-        });
-
-        // $("#company-change").text();
-        stockValue = chartData[chartData.length - 1].close;
-    });
-    console.log(code);
-    $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
-        console.log(data);
-        data = Object.values(data)[1];
-        var chartData = generateChartData(data, 2);
-    });
-}
-
-function generateChartData(data, type) {
-    var chartData = [];
-    //extract date from object
-    $(data).each(function(i,val){
-        $.each(val,function(key,val){
-            chartData.unshift( {
-                "date": key,
-                "value": parseFloat(val["4. close"]),
-                "open": parseFloat(val["1. open"]),
-                "high": parseFloat(val["2. high"]),
-                "low": parseFloat(val["3. low"]),
-                "close" : parseFloat(val["4. close"]),
-                "volume": parseFloat(val["5. volume"])
-            } );
-        });
-    });
-    if (type == 1) { generateIntradayChart(chartData);}
-    if (type == 2) { generateCandlestickChart(chartData); generateDrawableChart(chartData);}
-    return chartData;
-}
-
-
-function generateCandlestickChart(chartData) {
-    var chart = AmCharts.makeChart( "chartdiv3", {
-        "type": "stock",
-        "theme": "light",
-        "dataSets": [ {
-            "color": "#b0de09",
-            "fieldMappings": [ {
-                "fromField": "value",
-                "toField": "value"
-            } ],
-            "dataProvider": chartData,
-            "categoryField": "date"
-        } ],
-
-        "panels": [ {
-            "showCategoryAxis": true,
-            "title": "Value",
-            "eraseAll": false,
-            "allLabels": [ {
-                "x": 0,
-                "y": 115,
-                "text": "Click on the pencil icon on top-right to start drawing",
-                "align": "center",
-                "size": 16
-            } ],
-
-            "stockGraphs": [ {
-                "id": "g1",
-                "valueField": "value",
-                "useDataSetColors": false
-            } ],
-
-            "stockLegend": {
-                "valueTextRegular": " ",
-                "markerType": "none"
-            },
-
-            "drawingIconsEnabled": true
-        } ],
-
-        "chartScrollbarSettings": {
-            "graph": "g1"
+    var bio = $('#new-bio-text').val();
+    var data = {
+        'bio': bio
+    };
+    $.ajax({
+        url: "/update_bio",
+        method: "POST",
+        data: data,
+        dataType: "json",
+        success: function(response) {
+            $('#display-bio').text(bio);
+            $('#next-bio-text').text(bio);
+            $('#new-bio-text').trigger('autoresize');
         },
-        "chartCursorSettings": {
-            "valueBalloonsEnabled": true
-        },
-        "periodSelector": {
-            "position": "bottom",
-            "periods": [ {
-                "period": "DD",
-                "count": 10,
-                "label": "10 days"
-            }, {
-                "period": "MM",
-                "count": 1,
-                "label": "1 month"
-            }, {
-                "period": "YYYY",
-                "count": 1,
-                "label": "1 year"
-            }, {
-                "period": "YTD",
-                "label": "YTD"
-            }, {
-                "period": "MAX",
-                "label": "MAX"
-            } ]
+        error: function(response) {
+            console.log("failed, result = " + JSON.stringify(response));
         }
-    } );
-    $("#graph2Loader").hide();
-
-}
-
-function generateDrawableChart(chartData) {
-    var chart = AmCharts.makeChart( "chartdiv2", {
-        "type": "serial",
-        "theme": "light",
-        "dataDateFormat":"YYYY-MM-DD",
-        "valueAxes": [ {
-            "position": "left"
-        } ],
-        "graphs": [ {
-            "id": "g1",
-            "proCandlesticks": true,
-            "balloonText": "Open:<b>[[open]]</b><br>Low:<b>[[low]]</b><br>High:<b>[[high]]</b><br>Close:<b>[[close]]</b><br>",
-            "closeField": "close",
-            "fillColors": "#7f8da9",
-            "highField": "high",
-            "lineColor": "#7f8da9",
-            "lineAlpha": 1,
-            "lowField": "low",
-            "fillAlphas": 0.9,
-            "negativeFillColors": "#db4c3c",
-            "negativeLineColor": "#db4c3c",
-            "openField": "open",
-            "title": "Price:",
-            "type": "candlestick",
-            "valueField": "close"
-        } ],
-        "chartScrollbar": {
-            "graph": "g1",
-            "graphType": "line",
-            "scrollbarHeight": 30
-        },
-        "chartCursor": {
-            "valueLineEnabled": true,
-            "valueLineBalloonEnabled": true
-        },
-        "categoryField": "date",
-        "categoryAxis": {
-            "parseDates": true
-        },
-        "dataProvider": chartData,
-        "export": {
-            "enabled": true,
-            "position": "bottom-right"
-        }
-    } );
-
-    $("#graph3Loader").hide();
-    chart.addListener( "rendered", zoomChart );
-    zoomChart();
-    // this method is called when chart is first inited as we listen for "dataUpdated" event
-    function zoomChart() {
-        // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
-        chart.zoomToIndexes( chart.dataProvider.length - 50, chart.dataProvider.length - 1 );
-    }
-}
-
-
-function generateIntradayChart(chartData)  {
-    var chart = AmCharts.makeChart( "chartdiv1", {
-        "type": "stock",
-        "theme": "light",
-        "categoryAxesSettings": {
-            "minPeriod": "mm"
-        },
-
-        "dataSets": [ {
-            "color": "#b0de09",
-            "fieldMappings": [ {
-                "fromField": "value",
-                "toField": "value"
-            }, {
-                "fromField": "volume",
-                "toField": "volume"
-            } ],
-            "dataProvider": chartData,
-            "categoryField": "date"
-        } ],
-
-        "panels": [ {
-            "showCategoryAxis": false,
-            "title": "Value",
-            "percentHeight": 70,
-
-            "stockGraphs": [ {
-                "id": "g1",
-                "valueField": "value",
-                "type": "smoothedLine",
-                "lineThickness": 2,
-                "bullet": "round"
-            } ],
-
-
-            "stockLegend": {
-                "valueTextRegular": " ",
-                "markerType": "none"
-            }
-        }, {
-            "title": "Volume",
-            "percentHeight": 30,
-            "stockGraphs": [ {
-                "valueField": "volume",
-                "type": "column",
-                "cornerRadiusTop": 2,
-                "fillAlphas": 1
-            } ],
-
-            "stockLegend": {
-                "valueTextRegular": " ",
-                "markerType": "none"
-            }
-        } ],
-
-        "chartScrollbarSettings": {
-            "graph": "g1",
-            "usePeriod": "10mm",
-            "position": "top"
-        },
-
-        "chartCursorSettings": {
-            "valueBalloonsEnabled": true
-        },
-
-        "periodSelector": {
-            "position": "top",
-            "dateFormat": "YYYY-MM-DD JJ:NN",
-            "inputFieldWidth": 150,
-            "periods": [ {
-                "period": "hh",
-                "count": 1,
-                "label": "1 hour"
-            }, {
-                "period": "hh",
-                "count": 2,
-                "label": "2 hours"
-            }, {
-                "period": "hh",
-                "count": 5,
-                "selected": true,
-                "label": "5 hour"
-            }, {
-                "period": "hh",
-                "count": 12,
-                "label": "12 hours"
-            }, {
-                "period": "MAX",
-                "label": "MAX"
-            } ]
-        },
-
-        "panelsSettings": {
-            "usePrefixes": true
-        },
-
-        "export": {
-            "enabled": true,
-            "position": "bottom-right"
-        }
-    } );
-    $("#graph1Loader").hide();
-}
+    });
+});
