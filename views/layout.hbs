@@ -50,9 +50,15 @@
     <li><a href="/stock?stock=MSFT&company=Microsoft+Corp."><i class="material-icons ">keyboard_arrow_right</i>MSFT</a></li>
     <li><a href="/stock?stock=NKE&company=Nike"><i class="material-icons ">keyboard_arrow_right</i>NKE</a></li> -->
 
-    <li v-for="value in purchaseSet">
+    <!-- <li v-for="value in purchaseSet">
       <a v-bind:href="get_url(value)"><i class="material-icons ">keyboard_arrow_right</i>\{{value.companyCode}}</a>
-    </li>
+    </li> -->
+
+    <transition-group name="list" tag="div" >
+      <li v-for="value in purchaseSet" v-bind:key="value" class="list-item" style="width:100%">
+        <a v-bind:href="get_url(value)"><i class="material-icons ">keyboard_arrow_right</i>\{{value.companyCode}}</a>
+      </li>
+    </transition-group>
     <li><a class="subheader">Groups</a></li>
     <div id="list-of-groups">
 <!--    <li><a href="/groups?group=Work"><i class="material-icons ">group</i>Work</a></li>
