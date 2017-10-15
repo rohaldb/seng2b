@@ -10,6 +10,11 @@ var vue = new Vue({
     methods: {
         closeTrade: function (item) {
             console.log("closing on item:");
+        },
+        get_url: function (item) {
+            console.log(item);
+            string = "/stock?stock=" + item.companyCode + "&company=" + item.companyName;
+            return string;
         }
     },
     mounted: function() {

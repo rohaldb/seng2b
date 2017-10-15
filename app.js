@@ -79,9 +79,7 @@ app.post('/sign_up_user', async function(req, res, next) {
     console.log("signing up with " + email + password);
     res.contentType('json');
     try {
-        console.log("hey ben");
         const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
-        console.log("Erherhehreh");
         if (result) {
             console.log(result.uid)
             await firebase.database().ref(`users/${result.uid}`).set({

@@ -12,8 +12,6 @@ var sidebarVue = new Vue({
   }
 });
 
-console.warn("should always see me");
-
 //add new group to user's profile in firebase & update displayed groups on sidebar
 $("#new-group-bttn").on("click", function() {
   var name = $('#new-group-name').val();
