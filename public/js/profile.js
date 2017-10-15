@@ -57,7 +57,6 @@ var vue = new Vue({
 
     mounted: function() {
         $("#edit-bio").modal();
-        $("#close-trade").modal();
     }
 })
 

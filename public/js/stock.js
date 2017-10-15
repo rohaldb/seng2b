@@ -28,6 +28,7 @@ var vue = new Vue({
         data: data,
         dataType: "json",
         success: function(response) {
+          Materialize.toast('Added to watchlist', 1250);
           console.log("success, result = " + JSON.stringify(response));
         }
       });
