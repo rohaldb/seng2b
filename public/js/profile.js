@@ -9,7 +9,23 @@ var vue = new Vue({
     },
     methods: {
         closeTrade: function (item) {
-            console.log("closing on item:");
+            getStockPriceOf(item.companyCode, 1, 2);
+            $.ajax({
+                url: "/close_trade",
+                method: "POST",
+                data: item,
+                dataType: "json",
+                success: function(response) {
+                    var index = vue.purchaseList.indexOf(item);
+                    console.log(index);
+                    if (index > -1) {
+                        vue.purchaseList.splice(index, 1);
+                    }
+                },
+                error: function(response) {
+                    console.log("failed, result = " + JSON.stringify(response));
+                }
+            });
         },
         get_url: function (item) {
             console.log(item);
