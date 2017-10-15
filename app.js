@@ -135,29 +135,6 @@ app.post('/get_user_info', async function(req, res, next) {
   }
 });
 
-app.post('/get_user_list', async function(req, res, next) {
-  res.contentType('json');
-  try {
-    var usersRef = firebase.database().ref('users').once('value', function(snapshot){
-      console.log(snapshot.val());
-      snapshot.forEach(function(childSnapshot) {
-        //var key = childSnapshot.key;
-        //var childData = childSnapshot.val();
-        var first = childSnapshot.val().firstName;
-        var last = childSnapshot.val().lastName;
-
-        //console.log('heres a key: ' + key);
-        console.log('name ' + first + ' ' + last);
-        //console.log('heres data: ' + childData);
-        res.send({'name': first + ' ' + last});
-      });
-    });
-  } catch (e) {
-    console.log('fail');
-    console.error(e);
-    res.send({'name': 'unknown'});
-  }
-});
 
 app.post('/update_bio', async function(req, res, next) {
   var newBio = req.body.bio;
@@ -198,21 +175,57 @@ app.post('/new_group', async function(req, res, next) {
     res.send({'group': false});
   }
 });
+/*
+app.post('/get_user_list', async function(req, res, next) {
+  res.contentType('json');
+  try {
+    var usersRef = firebase.database().ref('users').once('value', function(snapshot){
+      console.log(snapshot.val());
+      snapshot.forEach(function(childSnapshot) {
+        //var key = childSnapshot.key;
+        //var childData = childSnapshot.val();
+        var first = childSnapshot.val().firstName;
+        var last = childSnapshot.val().lastName;
 
+        //console.log('heres a key: ' + key);
+        console.log('name ' + first + ' ' + last);
+        //console.log('heres data: ' + childData);
+        res.send({'name': first + ' ' + last});
+      });
+    });
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'name': 'unknown'});
+  }
+});
+*/
 app.post('/get_group_info', async function(req, res, next) {
   var id = req.body.id;
   res.contentType('json');
+  var num,first,last; //adding this stopped (node:24272) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): ReferenceError: first is not defined
   try {
     firebase.database().ref('/groups/' + id).once('value').then(function(snapshot) {
       var num = snapshot.val().users.length;
       console.log(`number of users: ${num}`);
-      res.send({'num': num});
+      //res.send({'num': num});
+    });
+    var usersRef = firebase.database().ref('/users').once('value').then(function(snapshot){
+      //console.log(snapshot.val());
+      snapshot.forEach(function(childSnapshot) {
+        var first = childSnapshot.val().firstName;
+        var last = childSnapshot.val().lastName;
+        //console.log('heres a key: ' + key);
+        console.log('name ' + first + ' ' + last);
+        //console.log('heres data: ' + childData);
+      });
+      res.send({'num': num, 'name': first + ' ' + last});
     });
     console.log('success');
   } catch (e) {
     console.log('fail');
     console.error(e);
-    res.send({'num': 'Unknown'});
+    res.send({'num': 'Unknown', 'name': 'Unknown'});
   }
 });
 

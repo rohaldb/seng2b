@@ -14,12 +14,14 @@ $.ajax({
     var num = response.num;
     console.log('number of group members: ' + num);
     $('#num-group-members').text(num + ' members');
+    var name = response.name;
+    console.log('name is: ' + name);
   },
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
-
+/*
 $.ajax({
   url: "/get_user_list",
   method: "POST",
@@ -36,6 +38,7 @@ $.ajax({
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
+*/
 /*
 $.ajax({
   url: "/get_user_list",
