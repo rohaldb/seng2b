@@ -54,7 +54,7 @@ $.ajax({
         var name = obj[key];
         console.log('adding group "' + name + '" to sidebar');
         var groupLink = '<a href="/groups?group=' + encodeURIComponent(name) +
-          '&id=' + encodeURIComponent(response.group) +  '"><i class="material-icons ">group</i>' +
+          '&id=' + encodeURIComponent(key) +  '"><i class="material-icons ">group</i>' +
           escapeHtml(name) + '</a>';
         $('#list-of-groups').append('<li>' + groupLink + '</li>');
       });
