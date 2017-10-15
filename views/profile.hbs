@@ -77,7 +77,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in watchList">
-                        <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
+                        <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
                         <td class="stock-current">\{{item.companyCode}}</td>
                         <td class="stock-change change-negative">-0.02%</td>
                         <td class="stock-high">$153.27</td>
@@ -103,7 +103,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in purchaseList">
-                        <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
+                        <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
                         <td>\{{item.num_units.toFixed(2)}}</td>
                         <td>$\{{item.trade_amount.toFixed(2)}}</td>
                         <td>$\{{item.profit_loss_dollars.toFixed(2)}}</td>
@@ -130,7 +130,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in historyList">
-                        <td class="stock-name"><a href="/stock?stock=ALXN&company=Alexion+Pharmaceuticals">\{{item.companyName}}</a></td>
+                        <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
                         <td class="stock-current">\{{item.companyCode}}</td>
                         <td class="stock-change change-negative">-0.02%</td>
                         <td class="stock-high">$153.27</td>

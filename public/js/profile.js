@@ -10,7 +10,6 @@ var vue = new Vue({
     methods: {
         closeTrade: function (item) {
             console.log("closing on item:");
-            console.log(item);
         }
     },
     mounted: function() {
@@ -21,7 +20,6 @@ var vue = new Vue({
 function getStockPriceOf(code, index) {
     $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=1min&outputsize=compact&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
         data = Object.values(data)[1];
-        console.warn(data);
         extractedData = [];
         $(data).each(function(i,val){
             $.each(val,function(key,val){
@@ -39,7 +37,6 @@ function getStockPriceOf(code, index) {
         });
         if (extractedData[0].close) {
             profitLoss(index, extractedData[extractedData.length - 1].close);
-            console.warn(extractedData[extractedData.length - 1].close);
         } else {console.warn("Couldnt find stock price");}
     });
 }
@@ -48,7 +45,6 @@ function profitLoss(index, current) {
     var element = vue.purchaseList[index];
     var tradeValue = current * element.num_units;
     element.value = tradeValue;
-    console.log("TradeValue = " + tradeValue + " trade_amount = " + element.trade_amount);
     element.profit_loss_dollars = (tradeValue - element.trade_amount);
     element.profit_loss_percent = (element.profit_loss_dollars/element.trade_amount);
 }
@@ -59,12 +55,8 @@ $.ajax({
     data: '',
     dataType: "json",
     success: function(response) {
-
-        response.purchaseList;
-        console.warn(response.purchaseList);
         response.purchaseList.forEach(function (item, index) {
             getStockPriceOf(item.companyCode,index);
-            console.log(item);
             vue.purchaseList.push({
                 companyCode: item.companyCode,
                 companyName: item.companyName,
@@ -89,7 +81,6 @@ $.ajax({
     data: '',
     dataType: "json",
     success: function(response) {
-        console.log("success History, result = " + JSON.stringify(response));
         $('#historyList').text(response.historyList);
         var historyList = response.historyList;
         for(let items of historyList) {
@@ -116,7 +107,6 @@ $.ajax({
     data: '',
     dataType: "json",
     success: function(response) {
-        console.log("success Watch, result = " + JSON.stringify(response));
         $('#watchList').text(response.watchList);
         var watchList = response.watchList;
         for(let items of watchList) {
@@ -139,7 +129,6 @@ $.ajax({
     data: '',
     dataType: "json",
     success: function(response) {
-        console.log("success, result = " + JSON.stringify(response));
         $('#profile-name').text(response.name);
         $('#current-balance').text('$' + response.balance);
         $('#display-bio').text(response.bio);
@@ -173,7 +162,6 @@ $("#update-bio").on("click", function() {
         data: data,
         dataType: "json",
         success: function(response) {
-            console.log("success, result = " + JSON.stringify(response));
             $('#display-bio').text(bio);
             $('#next-bio-text').text(bio);
             $('#new-bio-text').trigger('autoresize');

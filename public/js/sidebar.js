@@ -1,3 +1,19 @@
+var sidebarVue = new Vue({
+  el: '#sidebar',
+  data: {
+    purchaseList: []
+  },
+  methods: {
+    get_url: function (item) {
+        console.log(item);
+        string = "/stock?stock=" + item.companyCode + "&company=" + item.companyName;
+        return string;
+    }
+  }
+});
+
+console.warn("should always see me");
+
 //add new group to user's profile in firebase & update displayed groups on sidebar
 $("#new-group-bttn").on("click", function() {
   var name = $('#new-group-name').val();
@@ -23,12 +39,28 @@ $("#new-group-bttn").on("click", function() {
   });
 });
 
+$.ajax({
+    url: "/get_user_purchases",
+    method: "POST",
+    data: '',
+    dataType: "json",
+    success: function(response) {
+        response.purchaseList.forEach(function (item, index) {
+            sidebarVue.purchaseList.push({
+                companyCode: item.companyCode,
+                companyName: item.companyName,
+            });
+        });
+    },
+    error: function(response) {
+        console.log("failed Purchases, result = " + JSON.stringify(response));
+    }
+});
+
 //get current user's groups and append to sidebar
 $.ajax({
   url: "/get_user_info",
   method: "POST",
-  data: '',
-  dataType: "json",
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
     for (var group in response.groups) {
