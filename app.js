@@ -135,6 +135,30 @@ app.post('/get_user_info', async function(req, res, next) {
   }
 });
 
+app.post('/get_user_list', async function(req, res, next) {
+  res.contentType('json');
+  try {
+    var usersRef = firebase.database().ref('users').once('value', function(snapshot){
+      console.log(snapshot.val());
+      snapshot.forEach(function(childSnapshot) {
+        //var key = childSnapshot.key;
+        //var childData = childSnapshot.val();
+        var first = childSnapshot.val().firstName;
+        var last = childSnapshot.val().lastName;
+
+        //console.log('heres a key: ' + key);
+        console.log('name ' + first + ' ' + last);
+        //console.log('heres data: ' + childData);
+        res.send({'name': first + ' ' + last});
+      });
+    });
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'name': 'unknown'});
+  }
+});
+
 app.post('/update_bio', async function(req, res, next) {
   var newBio = req.body.bio;
   res.contentType('json');
