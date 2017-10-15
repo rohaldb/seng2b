@@ -1,5 +1,3 @@
-$('.modal').modal();
-
 var vue = new Vue({
     el: '#elem1',
     data: {
@@ -13,14 +11,14 @@ var vue = new Vue({
             $.ajax({
                 url: "/close_trade",
                 method: "POST",
-                data: item,
+            data: item,
                 dataType: "json",
                 success: function(response) {
                     var index = vue.purchaseList.indexOf(item);
-                    console.log(index);
                     if (index > -1) {
                         vue.purchaseList.splice(index, 1);
                     }
+                    sidebarVue.removeItemFromList(item.companyCode, item.companyName)
                 },
                 error: function(response) {
                     console.log("failed, result = " + JSON.stringify(response));
@@ -49,12 +47,13 @@ var vue = new Vue({
             });
         },
         get_url: function (item) {
-            console.log(item);
             string = "/stock?stock=" + item.companyCode + "&company=" + item.companyName;
             return string;
         }
     },
+    computed: {
 
+    },
     mounted: function() {
         $("#edit-bio").modal();
     }
@@ -99,6 +98,33 @@ function profitLoss(index, current) {
 }
 
 $.ajax({
+    url: "/get_user_purchase_history",
+    method: "POST",
+    data: '',
+    dataType: "json",
+    success: function(response) {
+        response.historyList.forEach(function (item, index) {
+            // console.log(item);
+            vue.historyList.push({
+                companyCode: item.companyCode,
+                companyName: item.companyName,
+                // num_units: parseFloat(item.num_units),
+                // trade_amount: parseFloat(item.tradeAmount),
+                // type: item.type,
+                // current: 0,
+                // value: 0,
+                // profit_loss_dollars: 0,
+                // profit_loss_percent: 0,
+            });
+        });
+    },
+    error: function(response) {
+        console.log("failed History, result = " + JSON.stringify(response));
+    }
+});
+
+
+$.ajax({
     url: "/get_user_purchases",
     method: "POST",
     data: '',
@@ -122,32 +148,6 @@ $.ajax({
     },
     error: function(response) {
         console.log("failed Purchases, result = " + JSON.stringify(response));
-    }
-});
-
-$.ajax({
-    url: "/get_user_purchase_history",
-    method: "POST",
-    data: '',
-    dataType: "json",
-    success: function(response) {
-        response.historyList.forEach(function (item, index) {
-            // console.log(item);
-            vue.historyList.push({
-                companyCode: item.companyCode,
-                companyName: item.companyName,
-                // num_units: parseFloat(item.num_units),
-                // trade_amount: parseFloat(item.tradeAmount),
-                // type: item.type,
-                // current: 0,
-                // value: 0,
-                // profit_loss_dollars: 0,
-                // profit_loss_percent: 0,
-            });
-        });
-    },
-    error: function(response) {
-        console.log("failed History, result = " + JSON.stringify(response));
     }
 });
 

@@ -49,21 +49,6 @@
         </div>
     </div>
 
-    <!-- close trade popup -->
-    <div id="close-trade" class="modal modal-bio atlassian left-align white-text">
-        <div class="modal-content container">
-
-            <div class="row">
-                <h4 class="orange-text" style="display:inline-block;">Are You sure you would like to close your trade</h4>
-            </div>
-
-            <div class="row">
-                <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
-                <a id="close-your-trade" href="#!" class="modal-action modal-close waves-effect waves-green green btn" onclick="Materialize.toast('Closed', 1250)">Yes</a>
-            </div>
-
-        </div>
-    </div>
 
     <div class="row">
         <div class="col s12">
@@ -126,7 +111,7 @@
                         <td>\{{item.profit_loss_percent.toFixed(2)}}%</td>
                         <td>\{{item.value.toFixed(2)}}</td>
                         <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
-                        <td><a class="waves-effect waves-light btn modal-trigger" @click=closeTrade(item)>Close</a> </td>
+                        <td><a class="waves-effect waves-light btn" @click=closeTrade(item)>Close</a> </td>
                         <!--  href="#close-trade" -->
                         <!-- <td href="#edit-bio"><a><i class="red-text material-icons">close</i></a></td> -->
                     </tr>

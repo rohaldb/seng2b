@@ -51,7 +51,7 @@
     <li><a href="/stock?stock=MSFT&company=Microsoft+Corp."><i class="material-icons ">keyboard_arrow_right</i>MSFT</a></li>
     <li><a href="/stock?stock=NKE&company=Nike"><i class="material-icons ">keyboard_arrow_right</i>NKE</a></li> -->
 
-    <li v-for="value in purchaseList">
+    <li v-for="value in purchaseSet">
       <a v-bind:href="get_url(value)"><i class="material-icons ">keyboard_arrow_right</i>\{{value.companyCode}}</a>
     </li>
     <li><a class="subheader">Groups</a></li>

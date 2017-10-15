@@ -1,13 +1,39 @@
 var sidebarVue = new Vue({
   el: '#sidebar',
   data: {
-    purchaseList: []
+    purchaseList: [],
+    purchaseSet: [],
   },
   methods: {
     get_url: function (item) {
-        console.log(item);
         string = "/stock?stock=" + item.companyCode + "&company=" + item.companyName;
         return string;
+    },
+    removeItemFromList(code, name) {
+      var lookup = {companyCode: code,companyName:name}
+      var index = 0;
+      for (i of this.purchaseList)  {
+        if (i.companyCode == code && i.companyName == name) {
+          this.purchaseList.splice(index, 1);
+          break;
+        } else {
+          index++;
+        }
+      }
+    }
+  },
+  watch: {
+    purchaseList: function(oldValue, newValue) {
+      this.purchaseSet = [];
+      var lookup = {};
+      var array = [];
+      for (i of newValue) {
+        if (!lookup[i.companyCode]) {
+          lookup[i.companyCode] = 1;
+          array.push(i);
+        }
+      }
+      this.purchaseSet = array;
     }
   }
 });

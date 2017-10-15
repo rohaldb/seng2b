@@ -64,10 +64,6 @@ var vue = new Vue({
       } else {
         data.num_units = parseFloat(this.amount)
       }
-      // console.log("balance: " + this.balance + " after transaction " + this.balanceAfterTransaction + " calculated " + this.calculatedCost);
-      console.log(this.balance - this.balanceAfterTransaction);
-      console.warn(data.tradeAmount);
-      console.log(data);
       $.ajax({
         url: "/purchase_stock",
         method: "POST",
@@ -80,18 +76,10 @@ var vue = new Vue({
       });
     },
     appendToSideBar: function() {
-      var exists = false;
-      for (item of sidebarVue.purchaseList) {
-        if (item.companyName == this.company_name) {exists = true;}
-      }
-      if (!exists) {
-        sidebarVue.purchaseList.push({
-            companyCode: this.stock_symbol,
-            companyName: this.company_name
-        });
-      } else {
-        console.log("exists");
-      }
+      sidebarVue.purchaseList.push({
+          companyCode: this.stock_symbol,
+          companyName: this.company_name
+      });
     }
   },
   computed: {
@@ -106,8 +94,6 @@ var vue = new Vue({
       if (this.dollars) {
         return (this.balance - this.amount)
       } else {
-        console.log(this.balance + " - " + this.calculatedCost);
-        console.log(this.balance - this.calculatedCost);
         return (parseFloat(this.balance) - this.calculatedCost)
       }
     }
@@ -129,7 +115,6 @@ var vue = new Vue({
 });
 
 $("#getUserInfo").on("click", function() {
-  console.log("herheherheh")
   $.ajax({
     url: "/purchase_stock",
     method: "POST",
@@ -143,13 +128,13 @@ $("#getUserInfo").on("click", function() {
 
 $("#confirm-buy").on("click", function() {});
 
-$.ajax({
-  url: "/get_user_info",
-  method: "POST",
-  success: function(response) {
-    console.log("success, result = " + JSON.stringify(response));
-  }
-});
+// $.ajax({
+//   url: "/get_user_info",
+//   method: "POST",
+//   success: function(response) {
+//     console.log("success, result = " + JSON.stringify(response));
+//   }
+// });
 
 var dollar = true;
 $("#toggleUnits").on("click", function() {
