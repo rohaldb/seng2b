@@ -12,6 +12,7 @@ var vue = new Vue({
     company_name: getUrlParameter('company'),
     long: null,
     balance: 10000,
+    share_percent_change: 0,
     errorMessage: ""
   },
   methods: {
@@ -168,14 +169,8 @@ function getStockPriceOf(stockInfo, sentimentsJSON) {
     data = Object.values(data)[1];
     var chartData = generateChartData(data, 1);
     $("#company-name").text(stockInfo.Symbol + " | " + stockInfo.Name);
-
-    $(".company-price").each(function(index) {
-      $(this).text(chartData[chartData.length - 1].close);
-    });
     vue.share_price = parseFloat(chartData[chartData.length - 1].close).toFixed(2);
-
-    console.warn(chartData);
-    stockValue = chartData[chartData.length - 1].close;
+    vue.share_percent_change  = (chartData[chartData.length - 1].close - chartData[0].close)/chartData[0].close;
   });
   console.log(code);
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status) {

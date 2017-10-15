@@ -11,11 +11,11 @@
                         <div class="col s4" align="right">
                             <a class="waves-effect waves-light btn modal-trigger" href="#modal1" @click="long = true">Long</a>
                             <a class="waves-effect waves-light btn modal-trigger orange" href="#modal1" @click="long = false">Short</a>
-                            <a class="waves-effect waves-light btn modal-trigger green"  @click="addToWatchList">Watch</a>
+                            <a class="waves-effect waves-light btn modal-trigger green"  @click="addToWatchList;"  onclick="Materialize.toast('Added to watchlist', 1250)">Watch</a>
                         </div>
                     </div>
 
-                    <h3><span class="company-price">Loading</span> <small id="company-change" class="spaceship-text">(+0.13%)</small></h3>
+                    <h3><span class="company-price">\{{share_price}}</span><small id="company-change" class="spaceship-text">(\{{share_percent_change.toFixed(2)}}%)</small></h3>
 
                     <div class="row">
                         <div class="col s9" style="padding-left:0px;">
@@ -216,7 +216,7 @@
     <div class="modal-content container">
         <div class="row">
             <h4 class=" orange-text" style="display:inline-block;">\{{stock_symbol}} | <span> \{{company_name}}</span></h4>
-            <h3><span class="company-price">$103.4</span> <small class="spaceship-text">(+0.13%)</small></h3>
+            <h3><span class="company-price">\{{share_price}}</span> <small class="spaceship-text">(share_percent_change%)</small></h3>
         </div>
         <div class="row center-align" >
             <div class="col s2">
