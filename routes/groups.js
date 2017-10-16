@@ -21,7 +21,6 @@ router.get('/', function(req, res, next) {
             // Local files
             //"js/stock.js",
             "js/groups.js",
-            "js/listofusers.js",
         ],
     });
 });

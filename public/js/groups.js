@@ -1,4 +1,12 @@
-$('.modal').modal();
+
+// var groupsVue = new Vue({
+//   el: '#groupID',
+//   data: {
+//   },
+//   mounted() {
+//     $('.modal').modal();
+//   }
+// });
 
 //load number of group members
 var data = {
@@ -28,24 +36,51 @@ $.ajax({
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
-/*
+var user_keys = {};
+
 $.ajax({
   url: "/get_user_list",
   method: "POST",
   data: '',
   dataType: "json",
   success: function(response) {
+    console.warn("hey ben success");
     console.log("success, result = " + JSON.stringify(response));
     var name = response.name;
-    console.log('and the name is: ' + name);
-    //console.log('please data is:' + data);
-    //$('#num-group-members').text(num + ' members');
+    console.log(response.userList);
+    response.userList.forEach(function(item){
+      //console.log(item.name);
+      user_keys[item.name] = null;
+      $('.chips-autocomplete').material_chip({
+        autocompleteOptions: {
+          data: user_keys,
+          limit: Infinity,
+          minLength: 1
+        },
+        placeholder: 'Enter a User',
+        secondaryPlaceholder: '+ User',
+      });
+      console.log(item.name + ' == ' + user_keys[item.name]);
+    });
   },
   error: function(response) {
+    console.warn("hey ben failed");
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
-*/
+
+// $(document).ready(function(){
+//   $('.chips-autocomplete').material_chip({
+//     autocompleteOptions: {
+//       data: user_keys,
+//       limit: Infinity,
+//       minLength: 1
+//     },
+//     placeholder: 'Enter a User',
+//     secondaryPlaceholder: '+ User',
+//   });
+// });
+
 /*
 $.ajax({
   url: "/get_user_list",
@@ -447,16 +482,3 @@ var chart = AmCharts.makeChart( "chartdiv2", {
     }
   } );
 //}
-
-
-$(document).ready(function(){
-  $('.chips-autocomplete').material_chip({
-    autocompleteOptions: {
-      data: user_keys,
-      limit: Infinity,
-      minLength: 1
-    },
-    placeholder: 'Enter a User',
-    secondaryPlaceholder: '+ User',
-  });
-});
