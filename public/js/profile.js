@@ -62,34 +62,30 @@ var vue = new Vue({
 function getStockPriceOf(code, index, type) {
     $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=1min&outputsize=compact&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
         data = Object.values(data)[1];
-        if (jQuery.isEmptyObject(data)) {
-          console.warn("If you see me then no stock data has been returned. Calling self");
-          getStockPriceOf(code, index, type);
-        } else {
-          extractedData = [];
-          $(data).each(function(i,val) {
-              $.each(val,function(key,val) {
-                  extractedData.unshift( {
-                      "date": key,
-                      "value": parseFloat(val["4. close"]),
-                      "open": parseFloat(val["1. open"]),
-                      "high": parseFloat(val["2. high"]),
-                      "low": parseFloat(val["3. low"]),
-                      "close" : parseFloat(val["4. close"]),
-                      "volume": parseFloat(val["5. volume"])
-                  } );
-                  // return 0;
-              });
-          });
-          if (type == 0) {
-              if (extractedData[0].close) {
-                  profitLoss(index, extractedData[extractedData.length - 1].close);
-                  console.log(extractedData[extractedData.length - 1].close);
-                  // return extractedData[extractedData.length - 1].close;
-              } else {console.warn("Couldnt find stock price");}
-          } else if (type == 1) {
-              vue.watchList[index].value = extractedData[extractedData.length - 1].close;
-          }
+        if (jQuery.isEmptyObject(data)) {console.warn("If you see me then no stock data has been returned.");}
+        extractedData = [];
+        $(data).each(function(i,val) {
+            $.each(val,function(key,val) {
+                extractedData.unshift( {
+                    "date": key,
+                    "value": parseFloat(val["4. close"]),
+                    "open": parseFloat(val["1. open"]),
+                    "high": parseFloat(val["2. high"]),
+                    "low": parseFloat(val["3. low"]),
+                    "close" : parseFloat(val["4. close"]),
+                    "volume": parseFloat(val["5. volume"])
+                } );
+                // return 0;
+            });
+        });
+        if (type == 0) {
+            if (extractedData[0].close) {
+                profitLoss(index, extractedData[extractedData.length - 1].close);
+                console.log(extractedData[extractedData.length - 1].close);
+                // return extractedData[extractedData.length - 1].close;
+            } else {console.warn("Couldnt find stock price");}
+        } else if (type == 1) {
+            vue.watchList[index].value = extractedData[extractedData.length - 1].close;
         }
     });
 }

@@ -128,13 +128,18 @@ $("#getUserInfo").on("click", function() {
 
 $("#confirm-buy").on("click", function() {});
 
-// $.ajax({
-//   url: "/get_user_info",
-//   method: "POST",
-//   success: function(response) {
-//     console.log("success, result = " + JSON.stringify(response));
-//   }
-// });
+$.ajax({
+    url: "/get_user_info",
+    method: "POST",
+    data: '',
+    dataType: "json",
+    success: function(response) {
+        vue.balance = response.balance;
+    },
+    error: function(response) {
+        console.log("failed, result = " + JSON.stringify(response));
+    }
+});
 
 var dollar = true;
 $("#toggleUnits").on("click", function() {
@@ -153,26 +158,18 @@ function getStockPriceOf(stockInfo, sentimentsJSON) {
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=1min&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status) {
     console.log(data);
     data = Object.values(data)[1];
-    if (jQuery.isEmptyObject(data)) {
-      console.warn("If you see me then no stock data has been returned. Calling self");
-      getStockPriceOf(stockInfo, sentimentsJSON);
-    } else {
-      var chartData = generateChartData(data, 1);
-      $("#company-name").text(stockInfo.Symbol + " | " + stockInfo.Name);
-      vue.share_price = parseFloat(chartData[chartData.length - 1].close).toFixed(2);
-      vue.share_percent_change  = (chartData[chartData.length - 1].close - chartData[0].close)/chartData[0].close;
-    }
+    if (jQuery.isEmptyObject(data)) {console.warn("If you see me then no stock data has been returned.");}
+    var chartData = generateChartData(data, 1);
+    $("#company-name").text(stockInfo.Symbol + " | " + stockInfo.Name);
+    vue.share_price = parseFloat(chartData[chartData.length - 1].close).toFixed(2);
+    vue.share_percent_change  = (chartData[chartData.length - 1].close - chartData[0].close)/chartData[0].close;
   });
   console.log(code);
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status) {
     console.log(data);
     data = Object.values(data)[1];
-    if (jQuery.isEmptyObject(data)) {
-      console.warn("If you see me then no stock data has been returned. Calling self");
-      getStockPriceOf(stockInfo, sentimentsJSON);
-    } else {
-      var chartData = generateChartData(data, 2, sentimentsJSON);
-    }
+    if (jQuery.isEmptyObject(data)) {console.warn("If you see me then no stock data has been returned.");}
+    var chartData = generateChartData(data, 2, sentimentsJSON);
   });
 }
 

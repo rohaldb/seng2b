@@ -182,10 +182,6 @@ app.post('/get_user_purchase_history', async function(req, res, next) {
                     companyName: x.val().companyName
                 })
             })
-            // console.log(historyList)
-            for (let items of historyList) {
-                console.log(items)
-            }
             res.send({'historyList': historyList});
         });
         console.log('success history');

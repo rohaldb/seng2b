@@ -121,7 +121,7 @@ function loadArticles(company) {
 
         //don't load graphs until news articles are ready
         if (articleNum == 9) {
-          //console.log(JSON.stringify(sentimentJson));
+          console.log(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')]);
           getStockPriceOf(companies[getUrlParameter('stock') + " - " + getUrlParameter('company')], sentimentJson);
         }
 
