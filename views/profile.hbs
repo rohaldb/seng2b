@@ -105,9 +105,17 @@
                         <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
                         <td>\{{item.num_units.toFixed(2)}}</td>
                         <td>$\{{item.trade_amount.toFixed(2)}}</td>
-                        <td>$\{{item.profit_loss_dollars.toFixed(2)}}</td>
-                        <td>\{{item.profit_loss_percent.toFixed(2)}}%</td>
+
+                        <td v-if="item.profit_loss_dollars > 0" class="green-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                        <td v-else-if="item.profit_loss_dollars == 0" class="blue-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                        <td v-else class="red-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+
+                        <td v-if="item.profit_loss_percent > 0" class="green-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+                        <td v-else-if="item.profit_loss_percent == 0" class="blue-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+                        <td v-else class="red-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+
                         <td>\{{item.value.toFixed(2)}}</td>
+
                         <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
                         <td><a class="waves-effect waves-light btn  red darken-2" @click=closeTrade(item)>Close</a> </td>
                     </tr>

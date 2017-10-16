@@ -97,7 +97,8 @@ function profitLoss(index, current) {
     var tradeValue = current * element.num_units;
     element.value = tradeValue;
     element.profit_loss_dollars = (tradeValue - element.trade_amount);
-    element.profit_loss_percent = (element.profit_loss_dollars/element.trade_amount);
+    console.log(element.profit_loss_dollars);
+    element.profit_loss_percent = ((element.profit_loss_dollars/element.trade_amount)*100);
 }
 
 $.ajax({
