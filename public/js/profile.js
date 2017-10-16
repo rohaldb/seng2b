@@ -3,7 +3,8 @@ var vue = new Vue({
     data: {
         purchaseList: [],
         historyList: [],
-        watchList: []
+        watchList: [],
+        balance: 0,
     },
     methods: {
         closeTrade: function (item) {
@@ -11,13 +12,14 @@ var vue = new Vue({
             $.ajax({
                 url: "/close_trade",
                 method: "POST",
-            data: item,
+                data: item,
                 dataType: "json",
                 success: function(response) {
                     var index = vue.purchaseList.indexOf(item);
                     if (index > -1) {
                         vue.purchaseList.splice(index, 1);
                     }
+                    vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount)
                     sidebarVue.removeItemFromList(item.companyCode, item.companyName)
                 },
                 error: function(response) {
@@ -180,7 +182,7 @@ $.ajax({
     dataType: "json",
     success: function(response) {
         $('#profile-name').text(response.name);
-        $('#current-balance').text('$' + response.balance);
+        vue.balance = response.balance;
         $('#display-bio').text(response.bio);
         if (response.bio !== 'No bio yet.') {
             $('#new-bio-text').text(response.bio);

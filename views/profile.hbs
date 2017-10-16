@@ -12,7 +12,7 @@
                         <div class="col s4">
                             <span class="card-title orange-text" id="profile-name" style="display:inline-block;">Loading...</span>
                             <p>Current Balance</p>
-                            <h3 id="current-balance">Loading...</h3>
+                            <h3 id="current-balance">\{{balance}}</h3>
                         </div>
 
                         <div class="col s6">
@@ -111,7 +111,7 @@
                         <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
                         <td><a class="waves-effect waves-light btn  red darken-2" @click=closeTrade(item)>Close</a> </td>
                         <!--  href="#close-trade" -->
-                        <!-- <td href="#edit-bio"><a><i class="red-text material-icons">close</i></a></td> -->
+                        <!-- <td href="#edit-bio"><a><i class="red-text material-icons">close</i></a></td> -->>
                     </tr>
                 </tbody>
             </table>
