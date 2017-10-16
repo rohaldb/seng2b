@@ -253,15 +253,18 @@ app.post('/get_group_info', async function(req, res, next) {
     var usersRef = firebase.database().ref('/users').once('value').then(function(snapshot){
       //console.log(snapshot.val());
       snapshot.forEach(function(childSnapshot) {
+        var userId = childSnapshot.val().userId;
         // If user id is in memberIds, add to memberNames
-        if (memberIds.indexOf(childSnapshot.val().userId) !== -1) {
-          console.log("USERID: "  + childSnapshot.val().userId);
+        if (memberIds.indexOf(userId) !== -1) {
           var first = childSnapshot.val().firstName;
           var last = childSnapshot.val().lastName;
           var name = first + ' ' + last;
-          console.log('name ' + name);
+
+          var balance = childSnapshot.val().balance;
+
           members[childSnapshot.val().userId] = {
-            name: name
+            name: name,
+            balance: balance,
           }
         }
       });

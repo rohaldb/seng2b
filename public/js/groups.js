@@ -32,6 +32,7 @@ $.ajax({
     var memberText = numMembers === 1 ? ' member': ' members';
 
     console.log('member names: ' + memberNames);
+    console.log('members: ' + JSON.stringify(members));
 
     $('#num-group-members').text(numMembers + memberText); // Update members count HTML
     $('#group-member-names').text(memberNames); // Update member names HTML
