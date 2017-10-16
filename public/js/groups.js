@@ -21,24 +21,20 @@ $.ajax({
     console.log("success, result = " + JSON.stringify(response));
     var numMembers = response.numMembers;
     var members = response.members;
+    var memberNameIds = response.memberNameIds;
     var leaderboardIds = response.leaderboardIds;
+    var memberCountText = numMembers === 1 ? ' member': ' members';
 
-    var memberNames = [];
+    $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
 
-    for (var key in members) {
-      memberNames.push(members[key].name);
-    }
-    memberNames.sort();
-
-    console.log('number of group members: ' + numMembers);
-    var memberText = numMembers === 1 ? ' member': ' members';
-
-    console.log('member names: ' + memberNames);
-    console.log('members: ' + JSON.stringify(members));
-    console.log('leaderboard: ' + leaderboardIds);
-
-    $('#num-group-members').text(numMembers + memberText); // Update members count HTML
-    $('#group-member-names').text(memberNames); // Update member names HTML
+    var memberListText = "";
+    memberNameIds.forEach(x => {
+      if (memberListText !== "") {
+        memberListText += ", "
+      }
+      memberListText += members[x].name;
+    });
+    $('#group-member-names').text(memberListText); // Update member names HTML
 
     leaderboardIds.forEach(x => {
       $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)

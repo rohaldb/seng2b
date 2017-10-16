@@ -254,15 +254,13 @@ app.post('/get_group_info', async function(req, res, next) {
       //console.log(snapshot.val());
       snapshot.forEach(function(childSnapshot) {
         var userId = childSnapshot.val().userId;
-        // If user id is in memberIds, add to memberNames
-        if (memberIds.indexOf(userId) !== -1) {
+        if (memberIds.indexOf(userId) !== -1) { // If user id is in memberIds, add to memberNames
           var first = childSnapshot.val().firstName;
           var last = childSnapshot.val().lastName;
           var name = first + ' ' + last;
-
           var balance = childSnapshot.val().balance;
 
-          members[childSnapshot.val().userId] = {
+          members[userId] = {
             name: name,
             balance: balance,
           }
@@ -279,19 +277,34 @@ app.post('/get_group_info', async function(req, res, next) {
         balance: '456'
       };*/
 
+      // Generates an array of member user ids in alphabetical order
+      var memberNameIds = Object.keys(members).sort(function (a, b) {
+        return members[a].name - members[b].name;
+      });
+
       // Generate leaderboard based on balance - TODO use better formula
       // This generates an array of member user ids in descending order of balance
       var leaderboardIds = Object.keys(members).sort(function (a, b) {
         return members[b].balance - members[a].balance;
       });
 
-      res.send({'numMembers': numMembers, 'members': members, 'leaderboardIds': leaderboardIds});
+      res.send({
+        'numMembers': numMembers,
+        'members': members,
+        'memberNameIds': memberNameIds,
+        'leaderboardIds': leaderboardIds
+      });
     });
     console.log('success');
   } catch (e) {
     console.log('fail');
     console.error(e);
-    res.send({'numMembers': 'Unknown', 'members': {}});
+    res.send({
+      'numMembers': 'Unknown',
+      'members': {},
+      'memberNameIds': [],
+      'leaderboardIds': []
+    });
   }
 });
 
