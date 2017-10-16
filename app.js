@@ -269,7 +269,23 @@ app.post('/get_group_info', async function(req, res, next) {
         }
       });
 
-      res.send({'numMembers': numMembers, 'members': members});
+      // MOCK DATA - TODO REMOVE
+      /*members['User1'] = {
+        name: 'User 1',
+        balance: '123'
+      };
+      members['User2'] = {
+        name: 'User 2',
+        balance: '456'
+      };*/
+
+      // Generate leaderboard based on balance - TODO use better formula
+      // This generates an array of member user ids in descending order of balance
+      var leaderboardIds = Object.keys(members).sort(function (a, b) {
+        return members[b].balance - members[a].balance;
+      });
+
+      res.send({'numMembers': numMembers, 'members': members, 'leaderboardIds': leaderboardIds});
     });
     console.log('success');
   } catch (e) {

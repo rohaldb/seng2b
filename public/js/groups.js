@@ -21,6 +21,8 @@ $.ajax({
     console.log("success, result = " + JSON.stringify(response));
     var numMembers = response.numMembers;
     var members = response.members;
+    var leaderboardIds = response.leaderboardIds;
+
     var memberNames = [];
 
     for (var key in members) {
@@ -33,9 +35,15 @@ $.ajax({
 
     console.log('member names: ' + memberNames);
     console.log('members: ' + JSON.stringify(members));
+    console.log('leaderboard: ' + leaderboardIds);
 
     $('#num-group-members').text(numMembers + memberText); // Update members count HTML
     $('#group-member-names').text(memberNames); // Update member names HTML
+
+    leaderboardIds.forEach(x => {
+      $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
+    });
+
     //var name = response.name;
     //console.log('name is: ' + name);
   },
