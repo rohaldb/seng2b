@@ -20,7 +20,13 @@ $.ajax({
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
     var numMembers = response.numMembers;
-    var memberNames = response.memberNames;
+    var members = response.members;
+    var memberNames = [];
+
+    for (var key in members) {
+      memberNames.push(members[key].name);
+    }
+    memberNames.sort();
 
     console.log('number of group members: ' + numMembers);
     var memberText = numMembers === 1 ? ' member': ' members';

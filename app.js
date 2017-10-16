@@ -241,7 +241,8 @@ app.post('/get_group_info', async function(req, res, next) {
   try {
     var numMembers = 0;
     var memberIds = [];
-    var memberNames = [];
+    var members = {};
+
     firebase.database().ref('/groups/' + id).once('value').then(function(snapshot) {
       memberIds = snapshot.val().users;
       numMembers = snapshot.val().users.length;
@@ -259,16 +260,19 @@ app.post('/get_group_info', async function(req, res, next) {
           var last = childSnapshot.val().lastName;
           var name = first + ' ' + last;
           console.log('name ' + name);
-          memberNames.push(name);
+          members[childSnapshot.val().userId] = {
+            name: name
+          }
         }
       });
-      res.send({'numMembers': numMembers, 'memberNames': memberNames});
+
+      res.send({'numMembers': numMembers, 'members': members});
     });
     console.log('success');
   } catch (e) {
     console.log('fail');
     console.error(e);
-    res.send({'numMembers': 'Unknown', 'memberNames': []});
+    res.send({'numMembers': 'Unknown', 'members': {}});
   }
 });
 
