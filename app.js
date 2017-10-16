@@ -220,7 +220,8 @@ app.post('/get_user_list', async function(req, res, next) {
       //console.log("PLEASEPALEASEAE");
       snapshot.forEach(x => {
         userList.push({
-          name: x.val().firstName + ' ' + x.val().lastName
+          name: x.val().firstName + ' ' + x.val().lastName,
+          uid: x.val().userId
         })
       })
       res.send({'userList': userList});

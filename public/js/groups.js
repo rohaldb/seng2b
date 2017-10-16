@@ -29,14 +29,15 @@ $.ajax({
 
     $('#num-group-members').text(numMembers + memberText); // Update members count HTML
     $('#group-member-names').text(memberNames); // Update member names HTML
-    var name = response.name;
-    console.log('name is: ' + name);
+    //var name = response.name;
+    //console.log('name is: ' + name);
   },
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
 var user_keys = {};
+var user_ids = {};
 
 $.ajax({
   url: "/get_user_list",
@@ -44,13 +45,15 @@ $.ajax({
   data: '',
   dataType: "json",
   success: function(response) {
-    console.warn("hey ben success");
-    console.log("success, result = " + JSON.stringify(response));
+    //console.warn("hey ben success");
+    //console.log("success, result = " + JSON.stringify(response));
     var name = response.name;
-    console.log(response.userList);
+    //console.log(response.userList);
     response.userList.forEach(function(item){
       //console.log(item.name);
+      //console.log("hey");
       user_keys[item.name] = null;
+      user_ids[item.name] = item.uid;
       $('.chips-autocomplete').material_chip({
         autocompleteOptions: {
           data: user_keys,
@@ -60,14 +63,20 @@ $.ajax({
         placeholder: 'Enter a User',
         secondaryPlaceholder: '+ User',
       });
-      console.log(item.name + ' == ' + user_keys[item.name]);
+      //console.log(item.name + ' == ' + user_keys[item.name]);
     });
   },
   error: function(response) {
-    console.warn("hey ben failed");
+    //console.warn("hey ben failed");
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
+
+$('.chips').on('chip.add', function(e, chip){
+    console.log('chip is' + chip.tag);
+    console.log('name is ' + chip.tag + 'uid is ' + user_ids[chip.tag]);
+
+  });
 
 // $(document).ready(function(){
 //   $('.chips-autocomplete').material_chip({
