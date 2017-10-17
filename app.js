@@ -30,13 +30,12 @@ firebase.initializeApp(config);
 //     }
 // });
 
-//firebase.auth().signInWithEmailAndPassword('jblogg@gmail.com', '123456').catch(function(error) {
-firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
+// firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // ...
+// });
 
 
 // Include each page's /routes/*.js file here
@@ -84,7 +83,7 @@ app.post('/sign_up_user', async function(req, res, next) {
                 lastName: lastName,
                 email: email,
                 userId: result.uid,
-                balance: 1000000,
+                balance: 100000.00,
                 bio: 'No bio yet.'
             });
             console.log("successs");
@@ -303,13 +302,19 @@ app.post('/close_trade', async function(req, res, next) {
 
         var ref = firebase.database().ref(`users/${user}/balance`);
         ref.once('value', function(snapshot) {
+            console.log("USERBALANCE");
             console.log(snapshot.val());
             // var newBalance = snapshot.val();
             // var worth = item.profit_loss_percent*item.value
             var i = parseFloat(item.trade_amount);
-            var newBalance = parseFloat(snapshot.val() + i).toFixed(2);
+            console.log(i);
+            var curBalance = parseFloat(snapshot.val());
+            // console.log(curBalance);
+            // var newBalance = parseFloat(newBalance + i).toFixed(2);
+            var newBalance = parseFloat(curBalance + i);
+            console.log(newBalance);
             // var newBalance = parseFloat(snapshot.val() + item.profit_loss_dollars).toFixed(2);
-            firebase.database().ref(`users/${user}`).update({balance: newBalance})
+            firebase.database().ref(`users/${user}`).update({balance: newBalance});
         });
         res.send({'closed': true});
         console.log('success');
