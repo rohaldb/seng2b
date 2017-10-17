@@ -9,6 +9,93 @@ var groupsVue = new Vue({
 */
 $('.modal').modal();
 
+//make a comment on a feed event
+$("#post-new-comment").on("click", function() {
+  var comment = $('#new-comment-text').val();
+  var postId = $('#post-comment-id').val();
+  if (comment.match(/^\s*$/)) {
+    Materialize.toast('Nothing to post.', 1250);
+    $('#new-comment-text').val('');
+    $('#new-comment-text').trigger('autoresize');
+    return;
+  } else {
+    comment = comment.replace(/\s+/g, ' ').trim();
+    $('#new-comment-text').val(comment);
+    $('#new-comment-text').trigger('autoresize');
+  }
+
+  //TODO - don't hardcode these - get from ajax
+  var whoami = 'me';
+  var commentId = Math.random();
+
+  var d = new Date();
+  var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+  var data = {
+    'comment': comment,
+    'postId': postId,
+    'timestamp': timestamp
+  };
+  console.log(data);
+/*
+  $.ajax({
+    url: "/comment_on_feed",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      console.log("success, result = " + JSON.stringify(response));
+*/
+//TODO: actually add comment to db - i.e. create this route
+      Materialize.toast('Comment added.', 1250);
+      $('#new-comment-text').val('');
+      $('#new-comment-text').trigger('autoresize');
+      $('#comment-id-' + postId).append(
+      '<div id="comment-id-' + commentId + '">' +
+      '<li class="collection-item avatar space-gray">' +
+      '  <img src="images/sample_user.png" alt="" class="circle">' +
+      '  <span class="title spaceship-text">' + whoami + '</span>' +
+      '  <p>' + comment + '<br>' + timestamp +
+      '  </p>' +
+      '  <a class="waves-effect waves-light btn modal-trigger" href="#delete-comment-on-feed-form"' +
+      '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\'";>Delete</a>' +
+      '  <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
+      '</li></div>');
+/*
+    },
+    error: function(response) {
+      Materialize.toast('Could not add comment.', 1250);
+      console.log("failed, result = " + JSON.stringify(response));
+    }
+  });
+*/
+});
+
+//delete a comment on a feed event
+$("#delete-comment-bttn").on("click", function() {
+/*
+  $.ajax({
+    url: "/delete_comment_on_feed",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      console.log("success, result = " + JSON.stringify(response));
+*/
+//TODO: actually delete comment in db - i.e. create this route
+  var commentId = $('#delete-comment-id').val();
+  $(commentId).empty(); //TODO deletion
+  $(commentId).remove();
+  Materialize.toast('Comment deleted.', 1250);
+/*
+    },
+    error: function(response) {
+      Materialize.toast('Could not add comment.', 1250);
+      console.log("failed, result = " + JSON.stringify(response));
+    }
+  });
+*/
+});
+
 //load number of group members
 var data = {
   'id': getUrlParameter('id')
