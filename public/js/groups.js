@@ -75,6 +75,12 @@ $.ajax({
         secondaryPlaceholder: '+ User',
       });
       //console.log(item.name + ' == ' + user_keys[item.name]);
+    console.log("HERE WE ARE!!!!");
+    //console.log("success, result = " + JSON.stringify(response));
+    //var name = response.name;
+    //console.log('and the name is: ' + name);
+    response.userList.forEach(function (item,index){
+      console.log("success name is = " item[index]);
     });
   },
   error: function(response) {

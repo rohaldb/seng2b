@@ -143,6 +143,28 @@ app.post('/get_user_info', async function(req, res, next) {
   }
 });
 
+app.post('/get_user_list', async function(req, res, next) {
+  res.contentType('json');
+  try {
+      var userList = [];
+      firebase.database().ref('/users').once('value').then(function(snapshot) {
+      console.log(snapshot.val());
+      console.log("PLEASEPALEASEAE");
+      snapshot.forEach(x => {
+        userList.push({
+          name: x.val().firstName + ' ' + x.val().lastName
+
+        })
+      })
+        res.send({'userList': userList});
+    });
+    console.log('success user list');
+  } catch (e) {
+    console.log('fail user list');
+    console.error(e);
+    res.send({'userList': 'unknown'});
+  }
+});
 
 app.post('/update_bio', async function(req, res, next) {
   var newBio = req.body.bio;
