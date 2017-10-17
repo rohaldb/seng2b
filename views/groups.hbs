@@ -108,10 +108,10 @@
 <!-- popup to comment on an event in the feed -->
 <div id="comment-on-feed" class="modal atlassian left-align white-text">
   <div class="modal-content container">
-
     <div class="row">
-      <div class="input-field col s12">
-        <textarea id="new-comment-text" class="materialize-textarea" placeholder="Enter comment." maxlength="500"></textarea>
+      <h4 class="orange-text">Post comment</h4>
+      <div class="input-field col s12 modal-body-box">
+        <textarea id="new-comment-text" class="materialize-textarea" placeholder="Comment" maxlength="500"></textarea>
       </div>
     </div>
 
@@ -126,10 +126,10 @@
 <!-- popup to delete a comment in the feed -->
 <div id="delete-comment-on-feed-form" class="modal atlassian left-align white-text">
   <div class="modal-content container">
-
-    <p>
-      Delete post? This cannot be undone.
-    </p>
+    <div class="row">
+      <h4 class="orange-text">Delete comment</h4>
+      <p>Are you sure? This cannot be undone.</p>
+    </div>
 
     <div class="row">
       <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
