@@ -114,38 +114,32 @@ app.post('/sign_in_user', async function(req, res, next) {
 });
 
 app.post('/get_user_info', async function(req, res, next) {
-    res.contentType('json');
-    try {
-        var user = firebase.auth().currentUser.uid;
-        console.log("current user = " + user);
-        var userId = firebase.auth().currentUser.uid;
-        firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-            var first = snapshot.val().firstName;
-            var last = snapshot.val().lastName;
-            var bal = snapshot.val().balance;
-            var bio = snapshot.val().bio;
-            var purchases = snapshot.val().purchases;
-            var groups;
-            if (snapshot.val().groups != null) {
-                groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
-            } else {
-                groups = [];
-            }
-            // console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}, ${purchases}`);
-            res.send({
-              name: first + ' ' + last,
-              balance: bal,
-              bio: bio,
-              groups: groups,
-              purchases: purchases
-            });
-        });
-        console.log('success');
-    } catch (e) {
-        console.log('fail');
-        console.error(e);
-        res.send({'name': 'Unknown', 'balance': 'Unknown'});
-    }
+  res.contentType('json');
+  try {
+    var user = firebase.auth().currentUser.uid;
+    console.log("current user = " + user);
+    var userId = firebase.auth().currentUser.uid;
+    firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+      var first = snapshot.val().firstName;
+      var last = snapshot.val().lastName;
+      var bal = snapshot.val().balance;
+      var bio = snapshot.val().bio;
+      var purchases = snapshot.val().purchases;
+      var groups;
+      if (snapshot.val().groups != null) {
+        groups = snapshot.val().groups;
+      } else {
+        groups = {};
+      }
+      // console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}, ${purchases}`);
+      res.send({'name': first + ' ' + last, 'balance': bal, 'bio': bio, 'groups': groups, 'purchases': purchases});
+    });
+    console.log('success');
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'name': 'Unknown', 'balance': 'Unknown', 'bio': 'Unknown', 'groups': 'Unknown', 'purchases': purchases});
+  }
 });
 
 app.post('/get_user_purchases', async function(req, res, next) {
