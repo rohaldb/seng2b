@@ -102,6 +102,8 @@ $.ajax({
 $.ajax({
   url: "/get_user_info",
   method: "POST",
+  data: '',
+  dataType: "json",
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
     var obj = response.groups;
