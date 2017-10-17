@@ -47,18 +47,22 @@ $("#post-new-comment").on("click", function() {
 */
 //TODO: actually add comment to db - i.e. create this route
       Materialize.toast('Comment added.', 1250);
+      var numComments = $('#num-comments-' + postId).text().match(/\d+/)[0];
+      numComments++;
+      var plural = (numComments === 1) ? '' : 's';
+      $('#num-comments-' + postId).text(numComments + ' comment' + plural);
       $('#new-comment-text').val('');
       $('#new-comment-text').trigger('autoresize');
       $('#comment-id-' + postId).append(
       '<div id="comment-id-' + commentId + '">' +
-      '<li class="collection-item avatar space-gray">' +
+
+      '<li class="collection-item avatar space-gray feed-item">' +
       '  <img src="images/sample_user.png" alt="" class="circle">' +
-      '  <span class="title spaceship-text">' + whoami + '</span>' +
-      '  <p>' + comment + '<br>' + timestamp +
-      '  </p>' +
-      '  <a class="waves-effect waves-light btn modal-trigger" href="#delete-comment-on-feed-form"' +
+      '  <span class="title spaceship-text feed-username"><a href="#">' + whoami + '</a></span>' +
+      '  <span class="feed-action">' + comment + '</span>' +
+      '  <p><small class="feed-timestamp">' + timestamp + '</small></p>' +
+      '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
       '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\'";>Delete</a>' +
-      '  <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
       '</li></div>');
 /*
     },
@@ -152,26 +156,27 @@ function getFeed(id, user) {
     dataType: "json",
     success: function(response) {
       response.purchaseList.forEach(function (item, index) {
-alert(item);
         var companyCode = item.companyCode;
         var numUnits = parseFloat(item.num_units);
         var tradeAmount = parseFloat(item.tradeAmount);
         var date = item.date;
+        var d = new Date(date);
+        var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
         var purchaseId = item.id;
         $('#group-feed-events').append(
-  '<div class="col s12">' +
-  '  <li class="collection-item avatar space-gray">' +
+  '<div class="col s12" feed-col>' +
+  '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
-  `    <span class="title spaceship-text">${user}</span>` +
-  `    <p>Bought ${numUnits} in ${companyCode} for $${tradeAmount}.<br>` +
-  `      ${date}` +
-  '    </p>' +
-  `    <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}';">Comment</a>` +
+  `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
+  `    <span class="feed-action">bought ${numUnits} in ${companyCode} for $${tradeAmount}.<span>` +
+  `   <p><small class="feed-timestamp">${timestamp}</small></p>` +
+  `   <a href="#" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
+  `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}';">Comment</a>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
   '  </li>' +
   '</div>' +
   '<br>' +
-  `<div class="col s10 offset-s1" id="comment-id-${purchaseId}">` +
+  `<div class="col s11 offset-s1 feed-col" id="comment-id-${purchaseId}">` +
   '<ul>' +
   '  <!-- comments for feed event above -->' +
   '</ul>' +
