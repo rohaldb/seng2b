@@ -202,22 +202,34 @@ $("#subtractValue").on("click", function() {
 
 //update user's bio in firebase and update displayed bio
 $("#update-bio").on("click", function() {
-    var bio = $('#new-bio-text').val();
-    var data = {
-        'bio': bio
-    };
-    $.ajax({
-        url: "/update_bio",
-        method: "POST",
-        data: data,
-        dataType: "json",
-        success: function(response) {
-            $('#display-bio').text(bio);
-            $('#next-bio-text').text(bio);
-            $('#new-bio-text').trigger('autoresize');
-        },
-        error: function(response) {
-            console.log("failed, result = " + JSON.stringify(response));
-        }
-    });
+  var bio = $('#new-bio-text').val();
+  if (bio.match(/^\s*$/)) {
+    Materialize.toast('Please enter a bio first', 1250);
+    $('#new-bio-text').val('');
+    $('#new-bio-text').trigger('autoresize');
+    return;
+  } else {
+    bio = bio.replace(/\s+/g, ' ').trim();
+    $('#new-bio-text').val(bio);
+    $('#new-bio-text').trigger('autoresize');
+  }
+  var data = {
+    'bio': bio
+  };
+  console.log(data);
+  $.ajax({
+    url: "/update_bio",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      console.log("success, result = " + JSON.stringify(response));
+      Materialize.toast('Profile bio updated', 1250);
+      $('#display-bio').text(bio);
+    },
+    error: function(response) {
+      Materialize.toast('Could not update bio', 1250);
+      console.log("failed, result = " + JSON.stringify(response));
+    }
+  });
 });

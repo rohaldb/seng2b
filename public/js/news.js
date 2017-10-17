@@ -5,19 +5,22 @@ $(document).ready(function() {
 function sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, callback) {
   $.ajax({
     type: 'post',
-    url: 'http://localhost:3001/ibm?text=' + encodeURI(bodyTextA),
+    url: '/ibm',
+    data: {'text': bodyTextA},
     dataType: 'json',
     success: function(data) {
+      console.log(i + ' sentiment analysis worked');
       callback(i, titleA, linkA, dateA, bodyTextA, data);
     },
     fail: function (data) {
+      console.log(i + ' sentiment analysis failed');
       console.log(data);
     }
   });
 
   /*
   var url = 'https://gateway.watsonplatform.net/natural-language-understanding/ap/v1/';
-  url += 'analyze?version=2017-02-27&text=' + encodeURI(body) + '&features=sentiment"';
+  url += 'analyze?version=2017-02-27&text=' + encodeURIComponent(body) + '&features=sentiment"';
   var username = 'b61b2519-acb6-47b8-bbb9-608226b76020';
   var password = 'Vm0fss16s7rJ';
 
@@ -40,7 +43,7 @@ function sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, callback) {
 
 function loadArticles(company) {
   //$('.tooltipped').tooltip('remove');
-  var url = 'http://content.guardianapis.com/search?q=' + company;
+  var url = 'http://content.guardianapis.com/search?q=' + encodeURIComponent(company);
   url += '&order-by=relevance&show-blocks=body&show-fields=bodyText';
   url += '&api-key=35b90e54-3944-4e4f-9b0e-a511d0dda44d';
 

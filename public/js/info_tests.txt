@@ -28,3 +28,8 @@ http://localhost:3000/stock?stock=CMCSA&company=Comcast+Corp.
 http://localhost:3000/stock?stock=COP&company=ConocoPhillips
 http://localhost:3000/stock?stock=FTV&company=Fortive+Corp
 http://localhost:3000/stock?stock=APD&company=Air+Products%20&%20Chemicals%20Inc
+http://localhost:3000/stock?stock=MTB&company=M%26T%20Bank%20Corp.
+http://localhost:3000/stock?stock=AIV&company=Apartment%20Investment%20%26%20Mgmt
+http://localhost:3000/stock?stock=BBT&company=BB%26T%20Corporation
+http://localhost:3000/stock?stock=YUM&company=Yum!%20Brands%20Inc
+http://localhost:3000/stock?stock=KSS&company=Kohl%27s%20Corp.

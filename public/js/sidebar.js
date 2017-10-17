@@ -38,14 +38,27 @@ var sidebarVue = new Vue({
   }
 });
 
+$('.modal').modal();
+
+function escapeHtml(unsafe) {
+  return unsafe.replace(/&/g, '&amp;').replace(/</g, '&lt;').
+  replace(/>/g, '&gt;').replace(/"/g, '&#034;').replace(/'/g, '&#039;');
+}
+
 //add new group to user's profile in firebase & update displayed groups on sidebar
 $("#new-group-bttn").on("click", function() {
   var name = $('#new-group-name').val();
-  var type = $('#group-type').val();
+  if (name.match(/^\s*$/)) {
+    Materialize.toast('Please enter a group name first', 1250);
+    $('#new-group-name').val('');
+    return;
+  } else {
+    name = name.replace(/\s+/g, ' ').trim();
+    $('#new-group-name').val('');
+  }
   var data = {
-    'name': name,
-    'type': type
-  };
+    'name': name
+  }
   console.log(data);
   $.ajax({
     url: "/new_group",
@@ -54,10 +67,14 @@ $("#new-group-bttn").on("click", function() {
     dataType: "json",
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
-      $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
-      $('#new-group-name').text('');
+      var groupLink = '<a href="/groups?group=' + encodeURIComponent(name) +
+        '&id=' + encodeURIComponent(response.group) +  '"><i class="material-icons ">group</i>' +
+        escapeHtml(name) + '</a>';
+      $('#list-of-groups').append('<li>' + groupLink + '</li>');
+      Materialize.toast('Group created', 1250);
     },
     error: function(response) {
+      Materialize.toast('Could not create group', 1250);
       console.log("failed, result = " + JSON.stringify(response));
     }
   });
@@ -87,11 +104,16 @@ $.ajax({
   method: "POST",
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
-    for (var group in response.groups) {
-      var name = response.groups['name'];
-      var type = response.groups['type'];
-      console.log('group: ' + name + ' ' + type);
-      $('#list-of-groups').append('<li><a href="/groups?group=' + name + '"><i class="material-icons ">group</i>' + name + '</a></li>');
+    var obj = response.groups;
+    if (obj !== undefined) {
+      Object.keys(obj).forEach(function(key) {
+        var name = obj[key];
+        console.log('adding group "' + name + '" to sidebar');
+        var groupLink = '<a href="/groups?group=' + encodeURIComponent(name) +
+          '&id=' + encodeURIComponent(key) +  '"><i class="material-icons ">group</i>' +
+          escapeHtml(name) + '</a>';
+        $('#list-of-groups').append('<li>' + groupLink + '</li>');
+      });
     }
   },
   error: function(response) {

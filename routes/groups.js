@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
             // Local files
             //"js/stock.js",
             "js/groups.js",
-            "js/listofusers.js",
+            "js/listofusers.js", //leave this in until loading of users is working
         ],
     });
 });

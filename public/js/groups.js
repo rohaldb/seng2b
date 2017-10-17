@@ -1,8 +1,235 @@
+/*
+var groupsVue = new Vue({
+  el: '#groupID',
+  data: {
+ },
+  mounted() {
+  }
+});
+*/
 $('.modal').modal();
+
+//make a comment on a feed event
+$("#post-new-comment").on("click", function() {
+  var comment = $('#new-comment-text').val();
+  var postId = $('#post-comment-id').val();
+  if (comment.match(/^\s*$/)) {
+    Materialize.toast('Nothing to post.', 1250);
+    $('#new-comment-text').val('');
+    $('#new-comment-text').trigger('autoresize');
+    return;
+  } else {
+    comment = comment.replace(/\s+/g, ' ').trim();
+    $('#new-comment-text').val(comment);
+    $('#new-comment-text').trigger('autoresize');
+  }
+
+  //TODO - don't hardcode these - get from ajax
+  var whoami = 'me';
+  var commentId = Math.random();
+
+  var d = new Date();
+  var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+  var data = {
+    'comment': comment,
+    'postId': postId,
+    'timestamp': timestamp
+  };
+  console.log(data);
+/*
+  $.ajax({
+    url: "/comment_on_feed",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      console.log("success, result = " + JSON.stringify(response));
+*/
+//TODO: actually add comment to db - i.e. create this route
+      Materialize.toast('Comment added.', 1250);
+      $('#new-comment-text').val('');
+      $('#new-comment-text').trigger('autoresize');
+      $('#comment-id-' + postId).append(
+      '<div id="comment-id-' + commentId + '">' +
+      '<li class="collection-item avatar space-gray">' +
+      '  <img src="images/sample_user.png" alt="" class="circle">' +
+      '  <span class="title spaceship-text">' + whoami + '</span>' +
+      '  <p>' + comment + '<br>' + timestamp +
+      '  </p>' +
+      '  <a class="waves-effect waves-light btn modal-trigger" href="#delete-comment-on-feed-form"' +
+      '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\'";>Delete</a>' +
+      '  <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
+      '</li></div>');
+/*
+    },
+    error: function(response) {
+      Materialize.toast('Could not add comment.', 1250);
+      console.log("failed, result = " + JSON.stringify(response));
+    }
+  });
+*/
+});
+
+//delete a comment on a feed event
+$("#delete-comment-bttn").on("click", function() {
+/*
+  $.ajax({
+    url: "/delete_comment_on_feed",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      console.log("success, result = " + JSON.stringify(response));
+*/
+//TODO: actually delete comment in db - i.e. create this route
+  var commentId = $('#delete-comment-id').val();
+  $(commentId).empty(); //TODO deletion
+  $(commentId).remove();
+  Materialize.toast('Comment deleted.', 1250);
+/*
+    },
+    error: function(response) {
+      Materialize.toast('Could not add comment.', 1250);
+      console.log("failed, result = " + JSON.stringify(response));
+    }
+  });
+*/
+});
+
+//load number of group members
+var data = {
+  'id': getUrlParameter('id')
+};
+$.ajax({
+  url: "/get_group_info",
+  method: "POST",
+  data: data,
+  dataType: "json",
+  success: function(response) {
+    console.log("success, result = " + JSON.stringify(response));
+    var numMembers = response.numMembers;
+    var members = response.members;
+    var memberNameIds = response.memberNameIds;
+    var leaderboardIds = response.leaderboardIds;
+    var memberCountText = (numMembers === 1) ? ' member' : ' members';
+
+    $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
+
+    var memberListText = "";
+    memberNameIds.forEach(x => {
+      if (memberListText !== "") {
+        memberListText += ", "
+      }
+      memberListText += members[x].name;
+    });
+    $('#group-member-names').text(memberListText); // Update member names HTML
+
+    leaderboardIds.forEach(x => {
+      $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
+    });
+
+    //var name = response.name;
+    //console.log('name is: ' + name);
+  },
+  error: function(response) {
+    console.log("failed, result = " + JSON.stringify(response));
+  }
+});
+
+/*
+var user_keys = {};
+var user_ids = {};
+
+$.ajax({
+  url: "/get_user_list",
+  method: "POST",
+  data: '',
+  dataType: "json",
+  success: function(response) {
+    //console.warn("hey ben success");
+    //console.log("success, result = " + JSON.stringify(response));
+    var name = response.name;
+    //console.log(response.userList);
+    response.userList.forEach(function(item){
+      //console.log(item.name);
+      //console.log("hey");
+      user_keys[item.name] = null;
+      user_ids[item.name] = item.uid;
+      $('.chips-autocomplete').material_chip({
+        autocompleteOptions: {
+          data: user_keys,
+          limit: Infinity,
+          minLength: 1
+        },
+        placeholder: 'Enter a User',
+        secondaryPlaceholder: '+ User',
+      });
+      //console.log(item.name + ' == ' + user_keys[item.name]);
+    console.log("HERE WE ARE!!!!");
+    //console.log("success, result = " + JSON.stringify(response));
+    //var name = response.name;
+    //console.log('and the name is: ' + name);
+    response.userList.forEach(function (item,index){
+      console.log("success name is = " item[index]);
+    });
+  },
+  error: function(response) {
+    //console.warn("hey ben failed");
+    console.log("failed, result = " + JSON.stringify(response));
+  }
+});
+
+$('.chips').on('chip.add', function(e, chip){
+    console.log('chip is' + chip.tag);
+    console.log('name is ' + chip.tag + 'uid is ' + user_ids[chip.tag]);
+
+  });
+*/
+
+//load user name chips
+$(document).ready(function(){
+  $('.chips-autocomplete').material_chip({
+    autocompleteOptions: {
+      data: user_keys,
+      limit: Infinity,
+      minLength: 1
+    },
+    placeholder: 'Enter a User',
+    secondaryPlaceholder: '+ User',
+  });
+});
+
+/*
+$.ajax({
+  url: "/get_user_list",
+  method: "POST"
+  data: '',
+  dataType: "json",
+  success: function(response) {
+    console.log("success, result = " + JSON.stringify(response));
+    var first = response.first;
+    var last = response.last;
+    console.log('first = ' + first + ' last = ' + last);
+  },
+  error: function(response) {
+    console.log("failed, result = " + JSON.stringify(response)) {
+  }
+});
+
+*/
+/*
+$.ajax({
+  url: '/get_user_list',
+  type: 'GET' // this is default, but worth pointing out
+}).done(function(data){
+  console.log("data is = " + JSON.stringify(data));
+  // you may use "data" to access the underlying data
+}
+*/
+
 
 var chartDataMultiPanel = [];
 generateChartDataMultiPanel();
-
 
 function generateChartDataMultiPanel() {
     var firstDate = new Date();
@@ -373,79 +600,3 @@ var chart = AmCharts.makeChart( "chartdiv2", {
     }
   } );
 //}
-
-//Leaderboard Graphs
-var chart = AmCharts.makeChart("chartdiv3",
-{
-    "type": "serial",
-    "theme": "light",
-    "dataProvider": [{
-        "name": "Friend A",
-        "points": 35654,
-        "color": "#7F8DA9",
-        "bullet": "https://www.amcharts.com/lib/images/faces/A04.png"
-    }, {
-        "name": "Friend B",
-        "points": 65456,
-        "color": "#FEC514",
-        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
-    }, {
-        "name": "Friend C",
-        "points": 45724,
-        "color": "#DB4C3C",
-        "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
-    }, {
-        "name": "Friend D",
-        "points": 13654,
-        "color": "#DAF0FD",
-        "bullet": "https://www.amcharts.com/lib/images/faces/E01.png"
-    }],
-    "valueAxes": [{
-        "maximum": 80000,
-        "minimum": 0,
-        "axisAlpha": 0,
-        "dashLength": 4,
-        "position": "left"
-    }],
-    "startDuration": 1,
-    "graphs": [{
-        "balloonText": "<span style='font-size:13px;'>[[category]]: <b>[[value]]</b></span>",
-        "bulletOffset": 10,
-        "bulletSize": 52,
-        "colorField": "color",
-        "cornerRadiusTop": 8,
-        "customBulletField": "bullet",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0,
-        "type": "column",
-        "valueField": "points"
-    }],
-    "marginTop": 0,
-    "marginRight": 0,
-    "marginLeft": 0,
-    "marginBottom": 0,
-    "autoMargins": false,
-    "categoryField": "name",
-    "categoryAxis": {
-        "axisAlpha": 0,
-        "gridAlpha": 0,
-        "inside": true,
-        "tickLength": 0
-    },
-    "export": {
-    	"enabled": true
-     }
-});
-
-
-$(document).ready(function(){
-  $('.chips-autocomplete').material_chip({
-    autocompleteOptions: {
-      data: user_keys,
-      limit: Infinity,
-      minLength: 1
-    },
-    placeholder: 'Enter a User',
-    secondaryPlaceholder: '+ User',
-  });
-});

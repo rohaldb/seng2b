@@ -20,8 +20,17 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// uncomment for easy sign in .. replace username and password
-firebase.auth().signInWithEmailAndPassword("test@gmail.com", "minimini").catch(function(error) {
+// firebase.auth().onAuthStateChanged(function(user) {
+//     if (user) {
+//         // User is signed in.
+//         var email = user.email;
+//         console.log("user: " + email);
+//     } else {
+//         console.log("no X user");
+//     }
+// });
+
+firebase.auth().signInWithEmailAndPassword('jblogg@gmail.com', '123456').catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
@@ -66,11 +75,10 @@ app.post('/sign_up_user', async function(req, res, next) {
     var password = req.body.password;
     console.log("signing up with " + email + password);
     res.contentType('json');
-    try {
-        const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result) {
         if (result) {
-            console.log(result.uid)
-            await firebase.database().ref(`users/${result.uid}`).set({
+            console.log(result.uid);
+            firebase.database().ref(`users/${result.uid}`).set({
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
@@ -81,10 +89,11 @@ app.post('/sign_up_user', async function(req, res, next) {
             console.log("successs");
             res.send({ success: 'Saved!' });
         }
-    } catch (e) {
-        console.log(e);
-        res.status(500).send({ error: e});
-    }
+    }, function(error) {
+        console.log('cannot sign up');
+        console.log(error);
+        res.status(500).send({ error: error });
+    });
 });
 
 app.post('/sign_in_user', async function(req, res, next) {
@@ -330,32 +339,150 @@ app.post('/update_bio', async function(req, res, next) {
 });
 
 app.post('/new_group', async function(req, res, next) {
-    var name = req.body.name;
-    var type = req.body.type;
-    res.contentType('json');
-    try {
-        var user = firebase.auth().currentUser.uid;
-        console.log("current user = " + user);
-        var userId = firebase.auth().currentUser.uid;
-        var ref = firebase.database().ref(`users/${user}/groups`);
-        ref.once('value', function(snapshot) {
-            var groups = snapshot.val();
-            if (snapshot.val() != null) {
-                groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
-                groups['name'] = name;
-            } else {
-                groups = {'name': name};
-            }
-            // console.log(JSON.stringify(groups));
-            firebase.database().ref(`users/${user}/groups`).update({'groups': groups});
-        });
-        res.send({'new-group': true});
-        console.log('success');
-    } catch (e) {
-        console.log('fail');
-        console.error(e);
-        res.send({'new-group': false});
-    }
+  var name = req.body.name;
+  res.contentType('json');
+  try {
+    var user = firebase.auth().currentUser.uid;
+    console.log("current user = " + user);
+
+    //create the new group
+    var newGroupKey = firebase.database().ref().child('groups').push().key;
+    var updates = {};
+    updates[`/groups/${newGroupKey}`] = {'name': name, users: [user]};
+    updates[`/users/${user}/groups/${newGroupKey}`] = name;
+    firebase.database().ref().update(updates);
+
+    res.send({'group': newGroupKey});
+    console.log('success');
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'group': false});
+  }
+});
+
+// app.post('/get_user_list', async function(req, res, next) {
+//   res.contentType('json');
+//   console.log("@!$#!@$H!@H$!@H#H!@$@");
+//   try {
+//     var usersRef = firebase.database().ref('users').once('value', function(snapshot){
+//       console.log(snapshot.val());
+//       // snapshot.forEach(function(childSnapshot) {
+//       //   //var key = childSnapshot.key;
+//       //   //var childData = childSnapshot.val();
+//       //   var first = childSnapshot.val().firstName;
+//       //   var last = childSnapshot.val().lastName;
+//       //
+//       //   //console.log('heres a key: ' + key);
+//       //   console.log('name ' + first + ' ' + last);
+//       //   //console.log('heres data: ' + childData);
+//       //   res.send({'name': first + ' ' + last});
+//       // });
+//       users = {}
+//
+//     });
+//   } catch (e) {
+//     console.log('fail');
+//     console.error(e);
+//     res.send({'name': 'unknown'});
+//   }
+// });
+
+app.post('/get_user_list', async function(req, res, next) {
+  res.contentType('json');
+  try {
+      var userList = [];
+      firebase.database().ref('/users').once('value').then(function(snapshot) {
+      //console.log(snapshot.val());
+      //console.log("PLEASEPALEASEAE");
+      snapshot.forEach(x => {
+        userList.push({
+          name: x.val().firstName + ' ' + x.val().lastName,
+          uid: x.val().userId
+        })
+      })
+      res.send({'userList': userList});
+    });
+    console.log('success user list');
+  } catch (e) {
+    console.log('fail user list');
+    console.error(e);
+    res.send({'userList': 'unknown'});
+  }
+});
+
+app.post('/get_group_info', async function(req, res, next) {
+  var id = req.body.id;
+  res.contentType('json');
+  var num,first,last; //adding this stopped (node:24272) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): ReferenceError: first is not defined
+  try {
+    var numMembers = 0;
+    var memberIds = [];
+    var members = {};
+
+    firebase.database().ref('/groups/' + id).once('value').then(function(snapshot) {
+      memberIds = snapshot.val().users;
+      numMembers = snapshot.val().users.length;
+      console.log(`number of users: ${num}`);
+    });
+
+
+    var usersRef = firebase.database().ref('/users').once('value').then(function(snapshot){
+      //console.log(snapshot.val());
+      snapshot.forEach(function(childSnapshot) {
+        var userId = childSnapshot.val().userId;
+        if (memberIds.indexOf(userId) !== -1) { // If user id is in memberIds, add to memberNames
+          var first = childSnapshot.val().firstName;
+          var last = childSnapshot.val().lastName;
+          var name = first + ' ' + last;
+          var balance = childSnapshot.val().balance;
+
+          members[userId] = {
+            name: name,
+            balance: balance,
+          }
+        }
+      });
+
+      // MOCK DATA - TODO REMOVE
+      /*members['User1'] = {
+        name: 'User 1',
+        balance: '123'
+      };
+      members['User2'] = {
+        name: 'User 2',
+        balance: '456'
+      };*/
+
+      // Generates an array of member user ids in alphabetical order
+      var memberNameIds = Object.keys(members).sort(function (a, b) {
+        return members[a].name - members[b].name;
+      });
+
+      // Generate leaderboard based on balance - TODO use better formula
+      // This generates an array of member user ids in descending order of balance
+      var leaderboardIds = Object.keys(members).sort(function (a, b) {
+        return members[b].balance - members[a].balance;
+      });
+
+      res.send({
+        'numMembers': numMembers,
+        'members': members,
+        'memberNameIds': memberNameIds,
+        'leaderboardIds': leaderboardIds
+      });
+    });
+    console.log('success');
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({
+      'numMembers': 'Unknown',
+      'members': {},
+      'memberNameIds': [],
+      'leaderboardIds': []
+    });
+  }
 });
 
 app.post('/purchase_stock', async function(req, res, next) {
@@ -399,6 +526,45 @@ app.post('/purchase_stock', async function(req, res, next) {
         console.error(e);
         res.send({purchase_made: false});
     }
+});
+
+app.post('/ibm', async function(req, res, next) {
+  var articleText = req.body.text;
+  //console.log(articleText);
+  var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
+
+  //use ibm analytics module
+  var natural_language_understanding = new NaturalLanguageUnderstandingV1({
+    'username': 'b61b2519-acb6-47b8-bbb9-608226b76020',
+    'password': 'Vm0fss16s7rJ',
+    'version_date': '2017-02-27'
+  });
+
+  //request sentiment for the article
+  var parameters = {
+    'text': articleText,
+    'features': {
+      'sentiment': {
+      }
+    }
+  };
+
+  natural_language_understanding.analyze(parameters, function(err, response) {
+    if (err) {
+      console.log('error:', err);
+    } else {
+      //send back the flat json
+      var data = JSON.stringify(response, null, 2);
+      //console.log('sentiment result: ' + JSON.stringify(data));
+      res.writeHead(200, {
+        'Content-Type': 'text/html',
+        'Content-Length': data.length
+      });
+      res.write(data);
+      res.end();
+    }
+  });
+
 });
 
 // catch 404 and forward to error handler

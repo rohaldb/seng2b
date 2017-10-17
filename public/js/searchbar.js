@@ -7,8 +7,10 @@ $(document).ready(function(){
         // Callback function when value is autcompleted.
         console.log(companies[val]);
         console.warn("Searching for stock " + companies[val].Name);
-        window.location.replace("http://localhost:3000/stock?stock=" + companies[val].Symbol + "&company=" + companies[val].Name.replace(" ", "+"));
-        // getStockPriceOf(companies[val].Symbol);
+        var escapedSymbol = encodeURIComponent(companies[val].Symbol);
+        var escapedName = encodeURIComponent(companies[val].Name);
+        window.location.replace("/stock?stock=" + escapedSymbol + "&company=" + escapedName);
+        // getStockPriceOf(escapedSymbol);
       },
       minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
     });

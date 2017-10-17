@@ -34,7 +34,7 @@
       <div class="row">
         <form>
           <div class="input-field col s12">
-            <div class="chips chips-autocomplete chips-placeholde"></div>
+            <div class="chips chips-autocomplete chips-placeholder"></div>
           </div>
         </form>
       </div>
@@ -67,7 +67,14 @@
 
         <div class="row">
           <div class="col s9" style="padding-left:0px;">
-            <p id="num-members">4 members</p>
+            <p id="num-group-members">members</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s9" style="padding-left:0px;">
+            <b>Members: </b>
+            <p id="group-member-names"></p>
           </div>
         </div>
       </div>
@@ -90,59 +97,137 @@
   <div class="col s8 offset-s2 center-align">
     <div class="leaderboard">
       <h4 style="text-align:center">Leaderboard</h4>
-      <ol>
-        <li><span class="name">Jason</span><span class="percent">2%</span></li>
-        <li><span class="name">Ben</span><span class="percent">1.8%</span></li>
-        <li><span class="name">David</span><span class="percent">0.2%</span></li>
-        <li><span class="name">Jessica</span><span class="percent">-0.3%</span></li>
-        <li><span class="name">Dom</span><span class="percent">-0.6%</span></li>
-        <li><span class="name">Michael</span><span class="percent">-1.2%</span></li>
+      <ol id="leaderboard-list">
+        <!--<li><span class="name">Sample</span><span class="percent">2%</span></li>-->
       </ol>
     </div>
   </div>
 </div>
 
+<!-- popup to comment on an event in the feed -->
+<div id="comment-on-feed" class="modal atlassian left-align white-text">
+  <div class="modal-content container">
+
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="new-comment-text" class="materialize-textarea" placeholder="Enter comment." maxlength="500"></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+      <a id="post-new-comment" href="#!" class="modal-action modal-close waves-effect waves-green green btn">Post</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- popup to delete a comment in the feed -->
+<div id="delete-comment-on-feed-form" class="modal atlassian left-align white-text">
+  <div class="modal-content container">
+
+    <p>
+      Delete post? This cannot be undone.
+    </p>
+
+    <div class="row">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
+      <a id="delete-comment-bttn" href="#!" class="modal-action modal-close waves-effect waves-green green btn">Delete</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- used to pass feed/event id when making/deleting a comment -->
+<form method="POST" action="">
+  <input id="post-comment-id" type="hidden" value="">
+  <input id="delete-comment-id" type="hidden" value="">
+</form>
+
 <!-- group feed -->
 <div id="feed" class="row" >
   <ul class="collection atlassian-text" style="border:1px solid rgba(44, 62, 80, 0.52)">
+
+  <div class="col s12">
     <li class="collection-item avatar space-gray">
       <img src="images/sample_user.png" alt="" class="circle">
       <span class="title spaceship-text">Friend A</span>
       <p>Bought 1.087 shares of AMZN.<br>
         Just now
       </p>
+      <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1231';">Comment</a>
       <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
     </li>
+  </div>
 
+  <br>
+  <div class="col s10 offset-s1" id="comment-id-1231">
+  <ul>
+    <!-- comments for feed event above -->
+  </ul>
+  </div>
+
+  <div class="col s12">
     <li class="collection-item avatar space-gray">
       <img src="images/sample_user.png" alt="" class="circle">
       <span class="title spaceship-text">Friend C</span>
       <p>Bought 0.579 shares of GOOG.<br>
         5 minutes ago
       </p>
+      <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1232';">Comment</a>
       <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
     </li>
+  </div>
 
+  <br>
+  <div class="col s10 offset-s1" id="comment-id-1232">
+  <ul>
+    <!-- comments for feed event above -->
+  </ul>
+  </div>
+
+  <div class="col s12">
     <li class="collection-item avatar space-gray">
       <img src="images/sample_user.png" alt="" class="circle">
       <span class="title spaceship-text">You</span>
       <p>Sold 1.234 shares of MSFT.<br>
         2 hours ago
       </p>
+      <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1233';">Comment</a>
       <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
     </li>
+  </div>
 
+  <br>
+  <div class="col s10 offset-s1" id="comment-id-1233">
+  <ul>
+    <!-- comments for feed event above -->
+  </ul>
+  </div>
+
+  <div class="col s12">
     <li class="collection-item avatar space-gray">
       <img src="images/sample_user.png" alt="" class="circle">
       <span class="title spaceship-text">Friend C</span>
       <p>Joined the group.<br>
         1 day ago
       </p>
+      <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1234';">Comment</a>
       <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
     </li>
+  </div>
+
+  <br>
+  <div class="col s10 offset-s1" id="comment-id-1234">
+  <ul>
+    <!-- comments for feed event above -->
+  </ul>
+  </div>
+
   </ul>
 </div>
 
+<!-- groups graphs tab -->
 <div id="graphs" class="row">
   <div class="col s6 offset-s3">
     <ul class="tabs" id="graph-tabs">
