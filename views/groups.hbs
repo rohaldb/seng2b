@@ -85,8 +85,9 @@
 <div class="row">
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s4"><a class="active" href="#graphs">Graphs</a></li>
-      <li class="tab col s4"><a href="#feed">Feed</a></li>
+      <!-- TODO CHANGE ACTIVE -->
+      <li class="tab col s4"><a href="#graphs">Graphs</a></li>
+      <li class="tab col s4"><a class="active" href="#feed">Feed</a></li>
       <li class="tab col s4"><a href="#leader">Leaderboard</a></li>
     </ul>
   </div>
@@ -107,10 +108,10 @@
 <!-- popup to comment on an event in the feed -->
 <div id="comment-on-feed" class="modal atlassian left-align white-text">
   <div class="modal-content container">
-
     <div class="row">
-      <div class="input-field col s12">
-        <textarea id="new-comment-text" class="materialize-textarea" placeholder="Enter comment." maxlength="500"></textarea>
+      <h4 class="orange-text">Post comment</h4>
+      <div class="input-field col s12 modal-body-box">
+        <textarea id="new-comment-text" class="materialize-textarea" placeholder="Comment" maxlength="500"></textarea>
       </div>
     </div>
 
@@ -125,10 +126,10 @@
 <!-- popup to delete a comment in the feed -->
 <div id="delete-comment-on-feed-form" class="modal atlassian left-align white-text">
   <div class="modal-content container">
-
-    <p>
-      Delete post? This cannot be undone.
-    </p>
+    <div class="row">
+      <h4 class="orange-text">Delete comment</h4>
+      <p>Are you sure? This cannot be undone.</p>
+    </div>
 
     <div class="row">
       <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
@@ -146,84 +147,99 @@
 
 <!-- group feed -->
 <div id="feed" class="row" >
-  <ul class="collection atlassian-text" style="border:1px solid rgba(44, 62, 80, 0.52)">
+  <ul class="collection atlassian-text feed-main">
+    <div class="col s12 feed-col">
+      <li class="collection-item avatar space-gray feed-item">
+        <img src="images/sample_user.png" alt="" class="circle">
+        <span class="title spaceship-text feed-username"><a href="#">Friend A</a></span>
+        <span class="feed-action">bought 1.087 shares of AMZN</span>
+        <p><small class="feed-timestamp">10 seconds ago</small></p>
+        <a href="#" class="feed-comments-link">1 comment</a>
+        <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1231';">Comment</a>
+      </li>
+    </div>
 
-  <div class="col s12">
-    <li class="collection-item avatar space-gray">
-      <img src="images/sample_user.png" alt="" class="circle">
-      <span class="title spaceship-text">Friend A</span>
-      <p>Bought 1.087 shares of AMZN.<br>
-        Just now
-      </p>
-      <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1231';">Comment</a>
-      <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
-    </li>
-  </div>
-
-  <br>
-  <div class="col s10 offset-s1" id="comment-id-1231">
-  <ul>
+    <br>
     <!-- comments for feed event above -->
-  </ul>
-  </div>
+    <div class="col s11 offset-s1 feed-col" id="comment-id-1231">
+      <ul>
+        <li class="collection-item avatar space-gray feed-item">
+          <img src="images/sample_user.png" alt="" class="circle">
+          <span class="title spaceship-text feed-username"><a href="#">Friend B</a></span>
+          <span class="feed-action">commented on this thing</span>
+          <p><small class="feed-timestamp">2 seconds ago</small></p>
+        </li>
+      </ul>
+    </div>
 
-  <div class="col s12">
-    <li class="collection-item avatar space-gray">
-      <img src="images/sample_user.png" alt="" class="circle">
-      <span class="title spaceship-text">Friend C</span>
-      <p>Bought 0.579 shares of GOOG.<br>
-        5 minutes ago
-      </p>
-      <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1232';">Comment</a>
-      <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
-    </li>
-  </div>
+    <br>
+    <div class="col s12 feed-col">
+      <li class="collection-item avatar space-gray feed-item">
+        <img src="images/sample_user.png" alt="" class="circle">
+        <span class="title spaceship-text feed-username"><a href="#">Friend C</a></span>
+        <span class="feed-action">did something</span>
+        <p><small class="feed-timestamp">1 hour ago</small></p>
+        <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1232';">Comment</a>
+      </li>
+    </div>
 
-  <br>
-  <div class="col s10 offset-s1" id="comment-id-1232">
-  <ul>
+    <br>
     <!-- comments for feed event above -->
-  </ul>
-  </div>
+    <div class="col s11 offset-s1 feed-col" id="comment-id-1232">
+      <ul>
 
-  <div class="col s12">
-    <li class="collection-item avatar space-gray">
-      <img src="images/sample_user.png" alt="" class="circle">
-      <span class="title spaceship-text">You</span>
-      <p>Sold 1.234 shares of MSFT.<br>
-        2 hours ago
-      </p>
-      <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1233';">Comment</a>
-      <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
-    </li>
-  </div>
+      </ul>
+    </div>
 
-  <br>
-  <div class="col s10 offset-s1" id="comment-id-1233">
-  <ul>
+    <br>
+    <div class="col s12 feed-col">
+      <li class="collection-item avatar space-gray feed-item">
+        <img src="images/sample_user.png" alt="" class="circle">
+        <span class="title spaceship-text feed-username"><a href="#">You</a></span>
+        <span class="feed-action">sold 1.234 shares of MSFT</span>
+        <p><small class="feed-timestamp">2 hours ago</small></p>
+        <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1233';">Comment</a>
+      </li>
+    </div>
+
+    <br>
     <!-- comments for feed event above -->
-  </ul>
-  </div>
+    <div class="col s11 offset-s1 feed-col" id="comment-id-1233">
+      <ul>
 
-  <div class="col s12">
-    <li class="collection-item avatar space-gray">
-      <img src="images/sample_user.png" alt="" class="circle">
-      <span class="title spaceship-text">Friend C</span>
-      <p>Joined the group.<br>
-        1 day ago
-      </p>
-      <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1234';">Comment</a>
-      <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>
-    </li>
-  </div>
+      </ul>
+    </div>
 
-  <br>
-  <div class="col s10 offset-s1" id="comment-id-1234">
-  <ul>
-    <!-- comments for feed event above -->
-  </ul>
-  </div>
+    <br>
+    <div class="col s12 feed-col">
+      <li class="collection-item avatar space-gray feed-item">
+        <img src="images/sample_user.png" alt="" class="circle">
+        <span class="title spaceship-text feed-username"><a href="#">Friend C</a></span>
+        <span class="feed-action">joined the group</span>
+        <p><small class="feed-timestamp">1 day ago</small></p>
+        <a href="#" class="feed-comments-link">2 comments</a>
+        <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='1234';">Comment</a>
+      </li>
+    </div>
 
+    <br>
+    <div class="col s11 offset-s1 feed-col" id="comment-id-1234">
+      <ul>
+        <!-- comments for feed event above -->
+        <li class="collection-item avatar space-gray feed-item">
+          <img src="images/sample_user.png" alt="" class="circle">
+          <span class="title spaceship-text feed-username"><a href="#">Friend B</a></span>
+          <span class="feed-action">Welcome!</span>
+          <p><small class="feed-timestamp">1 day ago</small></p>
+        </li>
+        <li class="collection-item avatar space-gray feed-item">
+          <img src="images/sample_user.png" alt="" class="circle">
+          <span class="title spaceship-text feed-username"><a href="#">You</a></span>
+          <span class="feed-action">Hey - welcome to the group!</span>
+          <p><small class="feed-timestamp">21 hours ago</small></p>
+        </li>
+      </ul>
+    </div>
   </ul>
 </div>
 
