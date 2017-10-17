@@ -27,8 +27,27 @@ var vue = new Vue({
                 }
             });
         },
+        removeFromWatchList: function (item) {
+            console.log(item)
+            $.ajax({
+                url: "/remove_from_watchlist",
+                method: "POST",
+                data: item,
+                dataType: "json",
+                success: function(response) {
+                    var index = vue.watchList.indexOf(item);
+                    if (index > -1) {
+                        vue.watchList.splice(index, 1);
+                    }
+                    // vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount)
+                    // sidebarVue.removeItemFromList(item.companyCode, item.companyName)
+                },
+                error: function(response) {
+                    console.log("failed, result = " + JSON.stringify(response));
+                }
+            });
+        },
         get_url: function (item) {
-            console.log(item);
             getStockPriceOf(item.companyCode, 1, 2);
             $.ajax({
                 url: "/close_trade",
@@ -38,7 +57,6 @@ var vue = new Vue({
                 success: function(response) {
                     console.log("success, result = " + JSON.stringify(response));
                     var index = vue.purchaseList.indexOf(item);
-                    console.log(index);
                     if (index > -1) {
                         vue.purchaseList.splice(index, 1);
                     }
@@ -97,7 +115,7 @@ function profitLoss(index, current) {
     var tradeValue = current * element.num_units;
     element.value = tradeValue;
     element.profit_loss_dollars = (tradeValue - element.trade_amount);
-    console.log(element.profit_loss_dollars);
+    // console.log(element.profit_loss_dollars);
     element.profit_loss_percent = ((element.profit_loss_dollars/element.trade_amount)*100);
 }
 
@@ -108,17 +126,20 @@ $.ajax({
     dataType: "json",
     success: function(response) {
         response.historyList.forEach(function (item, index) {
-            // console.log(item);
+            var d = new Date(item.date);
+            var date = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
+            console.log(item.num_units)
             vue.historyList.push({
                 companyCode: item.companyCode,
                 companyName: item.companyName,
-                // num_units: parseFloat(item.num_units),
-                // trade_amount: parseFloat(item.tradeAmount),
-                // type: item.type,
-                // current: 0,
-                // value: 0,
-                // profit_loss_dollars: 0,
-                // profit_loss_percent: 0,
+                num_units: parseFloat(item.num_units),
+                trade_amount: parseFloat(item.tradeAmount),
+                type: item.type,
+                current: 0,
+                date: date,
+                value: 0,
+                profit_loss_dollars: parseFloat(item.profit_loss_dollars),
+                profit_loss_percent: parseFloat(item.profit_loss_percent)
             });
         });
     },
@@ -135,6 +156,8 @@ $.ajax({
     dataType: "json",
     success: function(response) {
         response.purchaseList.forEach(function (item, index) {
+            var d = new Date(item.date);
+            var date = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
             getStockPriceOf(item.companyCode,index, 0);
             vue.purchaseList.push({
                 companyCode: item.companyCode,
