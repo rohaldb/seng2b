@@ -51,14 +51,14 @@ $("#post-new-comment").on("click", function() {
       $('#new-comment-text').trigger('autoresize');
       $('#comment-id-' + postId).append(
       '<div id="comment-id-' + commentId + '">' +
-      '<li class="collection-item avatar space-gray">' +
+
+      '<li class="collection-item avatar space-gray feed-item">' +
       '  <img src="images/sample_user.png" alt="" class="circle">' +
-      '  <span class="title spaceship-text">' + whoami + '</span>' +
-      '  <p>' + comment + '<br>' + timestamp +
-      '  </p>' +
-      '  <a class="waves-effect waves-light btn modal-trigger" href="#delete-comment-on-feed-form"' +
+      '  <span class="title spaceship-text feed-username"><a href="#">' + whoami + '</a></span>' +
+      '  <span class="feed-action">' + comment + '</span>' +
+      '  <p><small class="feed-timestamp">' + timestamp + '</small></p>' +
+      '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
       '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\'";>Delete</a>' +
-      '  <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
       '</li></div>');
 /*
     },
