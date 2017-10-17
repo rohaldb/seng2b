@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ibm.js | node ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -15,6 +15,7 @@
     "firebase-admin": "^5.4.1",
     "hbs": "~4.0.1",
     "morgan": "~1.8.1",
+    "nodemon": "^1.12.1",
     "serve-favicon": "~2.4.2",
     "watson-developer-cloud": "^2.39.0"
   }
