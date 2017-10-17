@@ -225,6 +225,7 @@ $("#update-bio").on("click", function() {
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
       Materialize.toast('Profile bio updated', 1250);
+      $('#new-bio-text').val('');
       $('#display-bio').text(bio);
     },
     error: function(response) {
