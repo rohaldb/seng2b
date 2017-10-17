@@ -96,7 +96,7 @@ $("#delete-comment-bttn").on("click", function() {
 */
 });
 
-//load number of group members
+//load number of group members and list of group members
 var data = {
   'id': getUrlParameter('id')
 };
@@ -116,13 +116,17 @@ $.ajax({
     $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
 
     var memberListText = "";
+    var memberListIds = "";
     memberNameIds.forEach(x => {
       if (memberListText !== "") {
         memberListText += ", "
+        memberListIds += ", "
       }
       memberListText += members[x].name;
+      getFeed(x, members[x].name);
     });
     $('#group-member-names').text(memberListText); // Update member names HTML
+    $('#group-member-ids').text(memberListIds); // Update member names HTML
 
     leaderboardIds.forEach(x => {
       $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
@@ -135,6 +139,50 @@ $.ajax({
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
+
+//now load the feed events
+function getFeed(id, user) {
+  var data = {
+    'user': id
+  }
+  $.ajax({
+    url: "/get_user_purchases",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      response.purchaseList.forEach(function (item, index) {
+alert(item);
+        var companyCode = item.companyCode;
+        var numUnits = parseFloat(item.num_units);
+        var tradeAmount = parseFloat(item.tradeAmount);
+        var date = item.date;
+        var purchaseId = item.id;
+        $('#group-feed-events').append(
+  '<div class="col s12">' +
+  '  <li class="collection-item avatar space-gray">' +
+  '    <img src="images/sample_user.png" alt="" class="circle">' +
+  `    <span class="title spaceship-text">${user}</span>` +
+  `    <p>Bought ${numUnits} in ${companyCode} for $${tradeAmount}.<br>` +
+  `      ${date}` +
+  '    </p>' +
+  `    <a class="waves-effect waves-light btn modal-trigger" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}';">Comment</a>` +
+  '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
+  '  </li>' +
+  '</div>' +
+  '<br>' +
+  `<div class="col s10 offset-s1" id="comment-id-${purchaseId}">` +
+  '<ul>' +
+  '  <!-- comments for feed event above -->' +
+  '</ul>' +
+  '</div>');
+      });
+    },
+    error: function(response) {
+      console.log("failed Purchases, result = " + JSON.stringify(response));
+    }
+  });
+}
 
 /*
 var user_keys = {};

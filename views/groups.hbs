@@ -139,15 +139,17 @@
 </div>
 
 <!-- used to pass feed/event id when making/deleting a comment -->
+<!-- also store list of user ids for efficiency -->
 <form method="POST" action="">
   <input id="post-comment-id" type="hidden" value="">
   <input id="delete-comment-id" type="hidden" value="">
+  <input id="group-member-ids" type="hidden" value="">
 </form>
 
 <!-- group feed -->
 <div id="feed" class="row" >
-  <ul class="collection atlassian-text" style="border:1px solid rgba(44, 62, 80, 0.52)">
-
+  <ul class="collection atlassian-text" style="border:1px solid rgba(44, 62, 80, 0.52)" id="group-feed-events">
+<!--
   <div class="col s12">
     <li class="collection-item avatar space-gray">
       <img src="images/sample_user.png" alt="" class="circle">
@@ -163,7 +165,6 @@
   <br>
   <div class="col s10 offset-s1" id="comment-id-1231">
   <ul>
-    <!-- comments for feed event above -->
   </ul>
   </div>
 
@@ -182,7 +183,6 @@
   <br>
   <div class="col s10 offset-s1" id="comment-id-1232">
   <ul>
-    <!-- comments for feed event above -->
   </ul>
   </div>
 
@@ -201,7 +201,6 @@
   <br>
   <div class="col s10 offset-s1" id="comment-id-1233">
   <ul>
-    <!-- comments for feed event above -->
   </ul>
   </div>
 
@@ -220,10 +219,9 @@
   <br>
   <div class="col s10 offset-s1" id="comment-id-1234">
   <ul>
-    <!-- comments for feed event above -->
   </ul>
   </div>
-
+-->
   </ul>
 </div>
 
