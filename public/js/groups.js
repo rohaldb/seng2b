@@ -1,12 +1,13 @@
-
-// var groupsVue = new Vue({
-//   el: '#groupID',
-//   data: {
-//   },
-//   mounted() {
-//     $('.modal').modal();
-//   }
-// });
+/*
+var groupsVue = new Vue({
+  el: '#groupID',
+  data: {
+ },
+  mounted() {
+  }
+});
+*/
+$('.modal').modal();
 
 //load number of group members
 var data = {
@@ -23,7 +24,7 @@ $.ajax({
     var members = response.members;
     var memberNameIds = response.memberNameIds;
     var leaderboardIds = response.leaderboardIds;
-    var memberCountText = numMembers === 1 ? ' member': ' members';
+    var memberCountText = (numMembers === 1) ? ' member' : ' members';
 
     $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
 
@@ -47,6 +48,8 @@ $.ajax({
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
+
+/*
 var user_keys = {};
 var user_ids = {};
 
@@ -94,18 +97,20 @@ $('.chips').on('chip.add', function(e, chip){
     console.log('name is ' + chip.tag + 'uid is ' + user_ids[chip.tag]);
 
   });
+*/
 
-// $(document).ready(function(){
-//   $('.chips-autocomplete').material_chip({
-//     autocompleteOptions: {
-//       data: user_keys,
-//       limit: Infinity,
-//       minLength: 1
-//     },
-//     placeholder: 'Enter a User',
-//     secondaryPlaceholder: '+ User',
-//   });
-// });
+//load user name chips
+$(document).ready(function(){
+  $('.chips-autocomplete').material_chip({
+    autocompleteOptions: {
+      data: user_keys,
+      limit: Infinity,
+      minLength: 1
+    },
+    placeholder: 'Enter a User',
+    secondaryPlaceholder: '+ User',
+  });
+});
 
 /*
 $.ajax({
