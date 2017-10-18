@@ -77,12 +77,8 @@ app.post('/sign_up_user', async function(req, res, next) {
     res.contentType('json');
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result) {
         if (result) {
-<<<<<<< HEAD
             console.log(result.uid);
-            firebase.database().ref(`users/${result.uid}`).set({
-=======
             await firebase.database().ref(`users/${result.uid}`).set({
->>>>>>> finished profile page
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
@@ -118,34 +114,6 @@ app.post('/sign_in_user', async function(req, res, next) {
 });
 
 app.post('/get_user_info', async function(req, res, next) {
-<<<<<<< HEAD
-  res.contentType('json');
-  try {
-    var user = firebase.auth().currentUser.uid;
-    console.log("current user = " + user);
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-      var first = snapshot.val().firstName;
-      var last = snapshot.val().lastName;
-      var bal = snapshot.val().balance;
-      var bio = snapshot.val().bio;
-      var purchases = snapshot.val().purchases;
-      var groups;
-      if (snapshot.val().groups != null) {
-        groups = snapshot.val().groups;
-      } else {
-        groups = {};
-      }
-      // console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}, ${purchases}`);
-      res.send({'name': first + ' ' + last, 'balance': bal, 'bio': bio, 'groups': groups, 'purchases': purchases});
-    });
-    console.log('success');
-  } catch (e) {
-    console.log('fail');
-    console.error(e);
-    res.send({'name': 'Unknown', 'balance': 'Unknown', 'bio': 'Unknown', 'groups': 'Unknown', 'purchases': purchases});
-  }
-=======
     res.contentType('json');
     try {
         var userId = firebase.auth().currentUser.uid;
@@ -176,7 +144,6 @@ app.post('/get_user_info', async function(req, res, next) {
         console.error(e);
         res.send({'name': 'Unknown', 'balance': 'Unknown'});
     }
->>>>>>> finished profile page
 });
 
 app.post('/get_user_purchases', async function(req, res, next) {
@@ -186,12 +153,7 @@ app.post('/get_user_purchases', async function(req, res, next) {
     }
     res.contentType('json');
     try {
-<<<<<<< HEAD
-        var user = firebase.auth().currentUser.uid;
-        console.log("current user = " + user);
-=======
         var userId = firebase.auth().currentUser.uid;
->>>>>>> finished profile page
         var purchaseList = []
         firebase.database().ref(`/users/${userId}/purchases/`).once('value').then(function(snapshot) {
             snapshot.forEach(x => {
@@ -389,7 +351,6 @@ app.post('/update_bio', async function(req, res, next) {
 });
 
 app.post('/new_group', async function(req, res, next) {
-<<<<<<< HEAD
   var name = req.body.name;
   res.contentType('json');
   try {
@@ -534,33 +495,6 @@ app.post('/get_group_info', async function(req, res, next) {
       'leaderboardIds': []
     });
   }
-=======
-    var name = req.body.name;
-    var type = req.body.type;
-    res.contentType('json');
-    try {
-        var user = firebase.auth().currentUser.uid;
-        console.log("current user = " + user);
-        var ref = firebase.database().ref(`users/${user}/groups`);
-        ref.once('value', function(snapshot) {
-            var groups = snapshot.val();
-            if (snapshot.val() != null) {
-                groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
-                groups['name'] = name;
-            } else {
-                groups = {'name': name};
-            }
-            // console.log(JSON.stringify(groups));
-            firebase.database().ref(`users/${user}/groups`).update({'groups': groups});
-        });
-        res.send({'new-group': true});
-        console.log('success');
-    } catch (e) {
-        console.log('fail');
-        console.error(e);
-        res.send({'new-group': false});
-    }
->>>>>>> finished profile page
 });
 
 app.post('/purchase_stock', async function(req, res, next) {
