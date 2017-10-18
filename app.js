@@ -178,17 +178,25 @@ app.post('/get_user_purchases', async function(req, res, next) {
 });
 
 app.post('/get_user_purchase_history', async function(req, res, next) {
+    var userId = firebase.auth().currentUser.uid;
+    if (req.body.user) {
+      userId = req.body.user;
+    }
+    res.contentType('json');
     res.contentType('json');
     try {
         var user = firebase.auth().currentUser.uid;
         console.log("current user = " + user);
-        var userId = firebase.auth().currentUser.uid;
         var historyList = []
         firebase.database().ref(`/users/${userId}/history/`).once('value').then(function(snapshot) {
             snapshot.forEach(x => {
                 historyList.push({
                     companyCode: x.val().companyCode,
-                    companyName: x.val().companyName
+                    companyName: x.val().companyName,
+                    date: x.val().date,
+                    num_units: x.val().num_units,
+                    tradeAmount: x.val().tradeAmount,
+                    id: Object.keys(snapshot.val())[0]
                 })
             })
             res.send({'historyList': historyList});

@@ -145,9 +145,9 @@ $.ajax({
     var word = 'created'; //first user always creates the group
     history.forEach(x => {
       var user = x.user;
-      var d = new Date(x.joined);
+      var d = new Date(parseInt(x.joined));
       var joined = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-      d = new Date(x.left);
+      d = new Date(parseInt(x.left));
       var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
       appendToFeed(x.joined, x.user, word, joined); //should always be valid
       if (x.left !== '') {
@@ -180,31 +180,33 @@ function appendToFeed(date, user, word, timestamp) {
   '</div>'});
 }
 
-//now load the purchases made by group members
+//load the purchases made by group members
 function getFeed(id, user) {
   var data = {
     'user': id
   }
   $.ajax({
-    url: "/get_user_purchases",
+    url: "/get_user_purchase_history",
     method: "POST",
     data: data,
     dataType: "json",
     success: function(response) {
-      response.purchaseList.forEach(function (item, index) {
+      response.historyList.forEach(function (item, index) {
         var companyCode = item.companyCode;
+        var companyName = item.companyName;
         var numUnits = parseFloat(item.num_units);
-        var tradeAmount = parseFloat(item.tradeAmount);
+        var tradeAmount = parseFloat(item.tradeAmount).toFixed(2);
         var date = item.date;
         var d = new Date(date);
         var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
         var purchaseId = item.id;
+        var link = `/stock?stock=${companyCode}&company=${companyName}`;
         feed.push({timestamp: date, content:
   '<div class="col s12" feed-col>' +
   '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
-  `    <span class="feed-action">bought ${numUnits} in ${companyCode} for $${tradeAmount}.<span>` +
+  `    <span class="feed-action">bought ${numUnits} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
   `   <p><small class="feed-timestamp">${timestamp}</small></p>` +
   `   <a href="#" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
   `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}';">Comment</a>` +
@@ -219,6 +221,13 @@ function getFeed(id, user) {
   '</div>'});
       });
 
+      ///////////////////////////////////////////////////////////
+      //TODO: fix this - duplications
+      //easy fix - use the other check
+      //test case: http://localhost:3000/groups?group=test555&id=-Kwj48ZQ5sGbYCgrY3F8
+      //user: test555
+      //other: test666
+      //do not modify this test data
       //sort feed items and append to group feed
       feed.sort(function(lhs, rhs) {
         return rhs.timestamp - lhs.timestamp; //reverse chronological
@@ -226,6 +235,7 @@ function getFeed(id, user) {
       feed.forEach(x => {
         $('#group-feed-events').append(x.content);
       });
+      ///////////////////////////////////////////////////////////
 
     },
     error: function(response) {
