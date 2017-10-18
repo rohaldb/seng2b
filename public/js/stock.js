@@ -13,7 +13,10 @@ var vue = new Vue({
     long: null,
     balance: 10000,
     share_percent_change: 0,
-    errorMessage: ""
+    errorMessage: "",
+    compare_selected: false,
+    stock1data: {},
+    stock2data: {},
   },
   methods: {
     addToWatchList: function() {
@@ -193,9 +196,13 @@ function generateChartData(data, type, sentimentsJSON) {
   if (type == 1) {
     generateIntradayChart(chartData);
   }
-  if (type == 2) {
+  else if (type == 2) {
     generateCandlestickChart(chartData);
     getStockEventChart(chartData, sentimentsJSON);
+    vue.stock1data = chartData;
+  } else if (type == 3) {
+    vue.stock2data = chartData;
+    generateCompare()
   }
   return chartData;
 }
@@ -489,4 +496,171 @@ function generateIntradayChart(chartData) {
     }
   });
   $("#graph1Loader").hide();
+}
+$(function() {
+  $('input.autocomplete2').autocomplete({
+    data: company_keys,
+    limit: 3, // The max amount of results that can be shown at once. Default: Infinity.
+    onAutocomplete: function(val) {
+      $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + val.split(' ')[0] + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status) {
+        console.log(data);
+        data = Object.values(data)[1];
+        if (jQuery.isEmptyObject(data)) {console.warn("If you see me then no stock data has been returned.");}
+        var chartData = generateChartData(data, 3);
+      });
+    },
+    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+  });
+});
+
+function generateCompare(){
+  console.warn("about to compare");
+  console.log(vue.stock1data);
+  console.log(vue.stock2data);
+  var chart = AmCharts.makeChart( "chartdiv4", {
+    "type": "stock",
+    "theme": "light",
+    "dataSets": [ {
+      "fieldMappings": [ {
+        "fromField": "open",
+        "toField": "open"
+      }, {
+        "fromField": "close",
+        "toField": "close"
+      }, {
+        "fromField": "high",
+        "toField": "high"
+      }, {
+        "fromField": "low",
+        "toField": "low"
+      }, {
+        "fromField": "volume",
+        "toField": "volume"
+      }, {
+        "fromField": "value",
+        "toField": "value"
+      } ],
+      "color": "#7f8da9",
+      "dataProvider": vue.stock2data,
+      "title": "West Stock",
+      "categoryField": "date"
+    }, {
+    "fieldMappings": [ {
+      "fromField": "value",
+      "toField": "value"
+    } ],
+    "color": "#fac314",
+    "dataProvider": vue.stock1data,
+    "compared": true,
+    "title": "East Stock",
+    "categoryField": "date"
+  } ],
+
+
+    "panels": [ {
+        "title": "Value",
+        "showCategoryAxis": false,
+        "percentHeight": 70,
+        "valueAxes": [ {
+          "id": "v1",
+          "dashLength": 5
+        } ],
+
+        "categoryAxis": {
+          "dashLength": 5
+        },
+
+        "stockGraphs": [ {
+          "type": "candlestick",
+          "id": "g1",
+          "openField": "open",
+          "closeField": "close",
+          "highField": "high",
+          "lowField": "low",
+          "valueField": "close",
+          "lineColor": "#7f8da9",
+          "fillColors": "#7f8da9",
+          "negativeLineColor": "#db4c3c",
+          "negativeFillColors": "#db4c3c",
+          "fillAlphas": 1,
+          "useDataSetColors": false,
+          "comparable": true,
+          "compareField": "value",
+          "showBalloon": false,
+          "proCandlesticks": true
+        } ],
+
+        "stockLegend": {
+          "valueTextRegular": undefined,
+          "periodValueTextComparing": "[[percents.value.close]]%"
+        }
+      },
+
+      {
+        "title": "Volume",
+        "percentHeight": 30,
+        "marginTop": 1,
+        "showCategoryAxis": true,
+        "valueAxes": [ {
+          "dashLength": 5
+        } ],
+
+        "categoryAxis": {
+          "dashLength": 5
+        },
+
+        "stockGraphs": [ {
+          "valueField": "volume",
+          "type": "column",
+          "showBalloon": false,
+          "fillAlphas": 1
+        } ],
+
+        "stockLegend": {
+          "markerType": "none",
+          "markerSize": 0,
+          "labelText": "",
+          "periodValueTextRegular": "[[value.close]]"
+        }
+      }
+    ],
+
+    "chartScrollbarSettings": {
+      "graph": "g1",
+      "graphType": "line",
+      "usePeriod": "WW"
+    },
+
+    "chartCursorSettings": {
+      "valueLineBalloonEnabled": true,
+      "valueLineEnabled": true
+    },
+
+    "periodSelector": {
+      "position": "bottom",
+      "periods": [ {
+        "period": "DD",
+        "count": 10,
+        "label": "10 days"
+      }, {
+        "period": "MM",
+        "selected": true,
+        "count": 1,
+        "label": "1 month"
+      }, {
+        "period": "YYYY",
+        "count": 1,
+        "label": "1 year"
+      }, {
+        "period": "YTD",
+        "label": "YTD"
+      }, {
+        "period": "MAX",
+        "label": "MAX"
+      } ]
+    },
+    "export": {
+      "enabled": true
+    }
+  } );
 }

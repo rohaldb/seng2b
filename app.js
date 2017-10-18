@@ -30,12 +30,12 @@ firebase.initializeApp(config);
 //     }
 // });
 
-// firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
-//   // Handle Errors here.
-//   var errorCode = error.code;
-//   var errorMessage = error.message;
-//   // ...
-// });
+firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
 
 
 // Include each page's /routes/*.js file here

@@ -147,11 +147,12 @@
 </div>
 
 <div id="graphs" class="row">
-    <div class="col s6 offset-s3">
+    <div class="col s8 offset-s2">
         <ul class="tabs" id="graph-tabs">
-            <li class="tab col s4"><a class="active" href="#graph1">Intraday</a></li>
-            <li class="tab col s4"><a href="#graph2">Candlestick</a></li>
-            <li class="tab col s4"><a href="#graph3">Events</a></li>
+            <li class="tab col s3"><a class="active" href="#graph1">Intraday</a></li>
+            <li class="tab col s3"><a href="#graph2">Candlestick</a></li>
+            <li class="tab col s3"><a href="#graph3">Events</a></li>
+            <li class="tab col s3"><a href="#graph4">Compare</a></li>
         </ul>
     </div>
 
@@ -208,6 +209,26 @@
         </div>
 
         <div id="chartdiv3" style="width:97%; height:400px;"></div>
+    </div>
+    <div class="input-field col s4 offset-s4">
+        <input type="text" class="autocomplete autocomplete2" placeholder="Search Stock">
+    </div>
+    <div id="graph4" class="col s12">
+        <!-- <div class="center-align" id="graph4Loader" style="margin-top:50px;">
+            <div class="preloader-wrapper active">
+                <div class="spinner-layer spinner">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        
+        <div id="chartdiv4" style="width:97%; height:400px;"></div>
     </div>
 </div>
 
