@@ -47,6 +47,10 @@ $("#post-new-comment").on("click", function() {
 */
 //TODO: actually add comment to db - i.e. create this route
       Materialize.toast('Comment added.', 1250);
+      var numComments = $('#num-comments-' + postId).text().match(/\d+/)[0];
+      numComments++;
+      var plural = (numComments === 1) ? '' : 's';
+      $('#num-comments-' + postId).text(numComments + ' comment' + plural);
       $('#new-comment-text').val('');
       $('#new-comment-text').trigger('autoresize');
       $('#comment-id-' + postId).append(
@@ -96,7 +100,7 @@ $("#delete-comment-bttn").on("click", function() {
 */
 });
 
-//load number of group members
+//load number of group members and list of group members
 var data = {
   'id': getUrlParameter('id')
 };
@@ -116,13 +120,17 @@ $.ajax({
     $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
 
     var memberListText = "";
+    var memberListIds = "";
     memberNameIds.forEach(x => {
       if (memberListText !== "") {
         memberListText += ", "
+        memberListIds += ", "
       }
       memberListText += members[x].name;
+      getFeed(x, members[x].name);
     });
     $('#group-member-names').text(memberListText); // Update member names HTML
+    $('#group-member-ids').text(memberListIds); // Update member names HTML
 
     leaderboardIds.forEach(x => {
       $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
@@ -135,6 +143,51 @@ $.ajax({
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
+
+//now load the feed events
+function getFeed(id, user) {
+  var data = {
+    'user': id
+  }
+  $.ajax({
+    url: "/get_user_purchases",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      response.purchaseList.forEach(function (item, index) {
+        var companyCode = item.companyCode;
+        var numUnits = parseFloat(item.num_units);
+        var tradeAmount = parseFloat(item.tradeAmount);
+        var date = item.date;
+        var d = new Date(date);
+        var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+        var purchaseId = item.id;
+        $('#group-feed-events').append(
+  '<div class="col s12" feed-col>' +
+  '  <li class="collection-item avatar space-gray feed-item">' +
+  '    <img src="images/sample_user.png" alt="" class="circle">' +
+  `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
+  `    <span class="feed-action">bought ${numUnits} in ${companyCode} for $${tradeAmount}.<span>` +
+  `   <p><small class="feed-timestamp">${timestamp}</small></p>` +
+  `   <a href="#" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
+  `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}';">Comment</a>` +
+  '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
+  '  </li>' +
+  '</div>' +
+  '<br>' +
+  `<div class="col s11 offset-s1 feed-col" id="comment-id-${purchaseId}">` +
+  '<ul>' +
+  '  <!-- comments for feed event above -->' +
+  '</ul>' +
+  '</div>');
+      });
+    },
+    error: function(response) {
+      console.log("failed Purchases, result = " + JSON.stringify(response));
+    }
+  });
+}
 
 /*
 var user_keys = {};

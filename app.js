@@ -30,7 +30,8 @@ firebase.initializeApp(config);
 //     }
 // });
 
-firebase.auth().signInWithEmailAndPassword('jblogg@gmail.com', '123456').catch(function(error) {
+//firebase.auth().signInWithEmailAndPassword('jblogg@gmail.com', '123456').catch(function(error) {
+firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
@@ -143,11 +144,14 @@ app.post('/get_user_info', async function(req, res, next) {
 });
 
 app.post('/get_user_purchases', async function(req, res, next) {
+    var userId = firebase.auth().currentUser.uid;
+    if (req.body.user) {
+      userId = req.body.user;
+    }
     res.contentType('json');
     try {
         var user = firebase.auth().currentUser.uid;
         console.log("current user = " + user);
-        var userId = firebase.auth().currentUser.uid;
         var purchaseList = []
         firebase.database().ref(`/users/${userId}/purchases/`).once('value').then(function(snapshot) {
             snapshot.forEach(x => {
@@ -158,7 +162,8 @@ app.post('/get_user_purchases', async function(req, res, next) {
                     num_units: x.val().num_units,
                     share_price: x.val().share_price,
                     tradeAmount: x.val().tradeAmount,
-                    type: x.val().type
+                    type: x.val().type,
+                    id: Object.keys(snapshot.val())[0]
                 })
             })
             res.send({'purchaseList': purchaseList});

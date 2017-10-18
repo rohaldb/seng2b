@@ -140,14 +140,17 @@
 </div>
 
 <!-- used to pass feed/event id when making/deleting a comment -->
+<!-- also store list of user ids for efficiency -->
 <form method="POST" action="">
   <input id="post-comment-id" type="hidden" value="">
   <input id="delete-comment-id" type="hidden" value="">
+  <input id="group-member-ids" type="hidden" value="">
 </form>
 
 <!-- group feed -->
 <div id="feed" class="row" >
-  <ul class="collection atlassian-text feed-main">
+  <ul class="collection atlassian-text feed-main" id="group-feed-events">
+<!--
     <div class="col s12 feed-col">
       <li class="collection-item avatar space-gray feed-item">
         <img src="images/sample_user.png" alt="" class="circle">
@@ -160,7 +163,6 @@
     </div>
 
     <br>
-    <!-- comments for feed event above -->
     <div class="col s11 offset-s1 feed-col" id="comment-id-1231">
       <ul>
         <li class="collection-item avatar space-gray feed-item">
@@ -171,7 +173,6 @@
         </li>
       </ul>
     </div>
-
     <br>
     <div class="col s12 feed-col">
       <li class="collection-item avatar space-gray feed-item">
@@ -184,10 +185,8 @@
     </div>
 
     <br>
-    <!-- comments for feed event above -->
     <div class="col s11 offset-s1 feed-col" id="comment-id-1232">
       <ul>
-
       </ul>
     </div>
 
@@ -203,10 +202,8 @@
     </div>
 
     <br>
-    <!-- comments for feed event above -->
     <div class="col s11 offset-s1 feed-col" id="comment-id-1233">
       <ul>
-
       </ul>
     </div>
 
@@ -225,7 +222,6 @@
     <br>
     <div class="col s11 offset-s1 feed-col" id="comment-id-1234">
       <ul>
-        <!-- comments for feed event above -->
         <li class="collection-item avatar space-gray feed-item">
           <img src="images/sample_user.png" alt="" class="circle">
           <span class="title spaceship-text feed-username"><a href="#">Friend B</a></span>
@@ -240,6 +236,7 @@
         </li>
       </ul>
     </div>
+-->
   </ul>
 </div>
 
