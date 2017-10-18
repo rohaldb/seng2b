@@ -164,7 +164,7 @@ function getFeed(id, user) {
         var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
         var purchaseId = item.id;
         $('#group-feed-events').append(
-  '<div class="col s12" feed-col>' +
+  '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
