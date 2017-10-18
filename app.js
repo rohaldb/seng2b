@@ -78,7 +78,7 @@ app.post('/sign_up_user', async function(req, res, next) {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result) {
         if (result) {
             console.log(result.uid);
-            await firebase.database().ref(`users/${result.uid}`).set({
+            firebase.database().ref(`users/${result.uid}`).set({
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
