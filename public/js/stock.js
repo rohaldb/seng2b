@@ -71,6 +71,7 @@ var vue = new Vue({
         success: function(response) {
           console.log("success, result = " + JSON.stringify(response));
           Materialize.toast('Trade successful', 1250)
+          vue.balance -= data.tradeAmount;
           vue.appendToSideBar();
         }
       });
