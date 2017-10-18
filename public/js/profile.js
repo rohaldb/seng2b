@@ -126,7 +126,6 @@ function profitLoss(index, current) {
     element.value = tradeValue;
     element.profit_loss_dollars = (tradeValue - element.trade_amount);
     if (-0.0001 < element.profit_loss_dollars  && element.profit_loss_dollars < 0.001) {
-        console.log(element.profit_loss_dollars);
         element.profit_loss_dollars = 0;
     }
     element.profit_loss_percent = ((element.profit_loss_dollars/element.trade_amount)*100);
