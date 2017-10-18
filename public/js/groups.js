@@ -324,7 +324,10 @@ $("#btn-invite").on("click", function() {
         method: "POST",
         data: {'id': getUrlParameter('id')},
         dataType: "json",
-        success: updateGroupPage,
+        success: function (response) {
+          Materialize.toast('Invite successful.', 1250);
+          updateGroupPage(response);
+        },
         error: function(response) {
           console.log("failed, result = " + JSON.stringify(response));
         }
