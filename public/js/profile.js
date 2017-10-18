@@ -160,7 +160,6 @@ $.ajax({
     }
 });
 
-
 $.ajax({
     url: "/get_user_purchases",
     method: "POST",
@@ -218,7 +217,7 @@ $.ajax({
     dataType: "json",
     success: function(response) {
         $('#profile-name').text(response.name);
-        vue.balance = response.balance;
+        vue.balance = parseFloat(response.balance);
         $('#display-bio').text(response.bio);
         if (response.bio !== 'No bio yet.') {
             $('#new-bio-text').text(response.bio);
