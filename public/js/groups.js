@@ -136,7 +136,7 @@ $.ajax({
       getFeed(x, members[x].name);
     });
     $('#group-member-names').text(memberListText); // Update member names HTML
-    $('#group-member-ids').text(memberListIds); // Update member ids HTML
+    $('#group-member-ids').text(memberListIds); // Update member ids HTML - no longer needed?
 
     //generate leaderboard
     leaderboardIds.forEach(x => {
@@ -193,6 +193,12 @@ function getFeed(id, user) {
     data: data,
     dataType: "json",
     success: function(response) {
+      if (numMembers === 1 && response.historyList.length === 0) {
+        //if group contains one user and no previous purchases, show the one possible event - group creation
+        feed.forEach(x => {
+          $('#group-feed-events').append(x.content);
+        });
+      }
       response.historyList.forEach(function (item, index) {
         var companyCode = item.companyCode;
         var companyName = item.companyName;
@@ -222,7 +228,7 @@ function getFeed(id, user) {
   '</ul>' +
   '</div>'});
 
-        //push everythin to the feed when all group members processed
+        //push everything to the feed when all group members processed
         numProcessed++;
         if (numProcessed === numMembers) {
           feed.sort(function(lhs, rhs) {
