@@ -69,11 +69,17 @@ $("#new-group-bttn").on("click", function() {
     dataType: "json",
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
-      var groupLink = '<a href="/groups?group=' + encodeURIComponent(name) +
-        '&id=' + encodeURIComponent(response.group) +  '"><i class="material-icons ">group</i>' +
-        escapeHtml(name) + '</a>';
-      $('#list-of-groups').append('<li>' + groupLink + '</li>');
-      Materialize.toast('Group created', 1250);
+alert(response.group);
+alert(response.group === '');
+      if (response.group === '') {
+        Materialize.toast('Group name taken', 1250);
+      } else {
+        var groupLink = '<a href="/groups?group=' + encodeURIComponent(name) +
+          '&id=' + encodeURIComponent(response.group) +  '"><i class="material-icons ">group</i>' +
+          escapeHtml(name) + '</a>';
+        $('#list-of-groups').append('<li>' + groupLink + '</li>');
+        Materialize.toast('Group created', 1250);
+      }
     },
     error: function(response) {
       Materialize.toast('Could not create group', 1250);

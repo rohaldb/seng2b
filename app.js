@@ -345,26 +345,40 @@ app.post('/new_group', async function(req, res, next) {
   try {
     var user = firebase.auth().currentUser.uid;
     console.log("current user = " + user);
+    var makeGroup = true;
 
-    firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
-      var first = snapshot.val().firstName;
-      var last = snapshot.val().lastName;
-      var person = first + ' ' + last;
+    var make = firebase.database().ref('/groups').once('value').then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        if (childSnapshot.val().name == name) {
+          console.log("group name exists");
+          makeGroup = false;
+        }
+      });
+      if (makeGroup === true) {
+        firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+          var first = snapshot.val().firstName;
+          var last = snapshot.val().lastName;
+          var person = first + ' ' + last;
 
-      //create the new group
-      var newGroupKey = firebase.database().ref().child('groups').push().key;
-      var updates = {};
-      updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': ''}]};
-      updates[`/users/${user}/groups/${newGroupKey}`] = name;
-      firebase.database().ref().update(updates);
+          //create the new group
+          var newGroupKey = firebase.database().ref().child('groups').push().key;
+          var updates = {};
+          updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': ''}]};
+          updates[`/users/${user}/groups/${newGroupKey}`] = name;
+          firebase.database().ref().update(updates);
 
-      res.send({'group': newGroupKey});
-      console.log('success');
+          res.send({'group': newGroupKey});
+          console.log('success');
+        });
+      } else {
+        res.send({'group': ''});
+        console.log('group already exists');
+      }
     });
   } catch (e) {
     console.log('fail');
     console.error(e);
-    res.send({'group': false});
+    res.send({'group': ''});
   }
 });
 
