@@ -349,7 +349,11 @@ $("#btn-leave").on("click", function() {
         method: "POST",
         data: {'id': getUrlParameter('id')},
         dataType: "json",
-        success: updateGroupPage,
+        success: function (response) {
+          console.log("success, result = " + JSON.stringify(response));
+          Materialize.toast('Left the group.', 1250);
+          window.location.href = '/profile';
+        },
         error: function(response) {
           console.log("failed, result = " + JSON.stringify(response));
         }
