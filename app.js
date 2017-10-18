@@ -31,7 +31,8 @@ firebase.initializeApp(config);
 // });
 
 //firebase.auth().signInWithEmailAndPassword('jblogg@gmail.com', '123456').catch(function(error) {
-firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
+//firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
+firebase.auth().signInWithEmailAndPassword('test@hello.com', 'testhello').catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
@@ -339,20 +340,27 @@ app.post('/update_bio', async function(req, res, next) {
 
 app.post('/new_group', async function(req, res, next) {
   var name = req.body.name;
+  var date = req.body.date;
   res.contentType('json');
   try {
     var user = firebase.auth().currentUser.uid;
     console.log("current user = " + user);
 
-    //create the new group
-    var newGroupKey = firebase.database().ref().child('groups').push().key;
-    var updates = {};
-    updates[`/groups/${newGroupKey}`] = {'name': name, users: [user]};
-    updates[`/users/${user}/groups/${newGroupKey}`] = name;
-    firebase.database().ref().update(updates);
+    firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+      var first = snapshot.val().firstName;
+      var last = snapshot.val().lastName;
+      var person = first + ' ' + last;
 
-    res.send({'group': newGroupKey});
-    console.log('success');
+      //create the new group
+      var newGroupKey = firebase.database().ref().child('groups').push().key;
+      var updates = {};
+      updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': ''}]};
+      updates[`/users/${user}/groups/${newGroupKey}`] = name;
+      firebase.database().ref().update(updates);
+
+      res.send({'group': newGroupKey});
+      console.log('success');
+    });
   } catch (e) {
     console.log('fail');
     console.error(e);
@@ -413,7 +421,7 @@ app.post('/get_user_list', async function(req, res, next) {
 app.post('/get_group_info', async function(req, res, next) {
   var id = req.body.id;
   res.contentType('json');
-  var num,first,last; //adding this stopped (node:24272) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): ReferenceError: first is not defined
+  var num, first, last, history;
   try {
     var numMembers = 0;
     var memberIds = [];
@@ -422,6 +430,7 @@ app.post('/get_group_info', async function(req, res, next) {
     firebase.database().ref('/groups/' + id).once('value').then(function(snapshot) {
       memberIds = snapshot.val().users;
       numMembers = snapshot.val().users.length;
+      history = snapshot.val().history;
       console.log(`number of users: ${num}`);
     });
 
@@ -468,7 +477,8 @@ app.post('/get_group_info', async function(req, res, next) {
         'numMembers': numMembers,
         'members': members,
         'memberNameIds': memberNameIds,
-        'leaderboardIds': leaderboardIds
+        'leaderboardIds': leaderboardIds,
+        'history': history
       });
     });
     console.log('success');
@@ -479,7 +489,8 @@ app.post('/get_group_info', async function(req, res, next) {
       'numMembers': 'Unknown',
       'members': {},
       'memberNameIds': [],
-      'leaderboardIds': []
+      'leaderboardIds': [],
+      'history': []
     });
   }
 });

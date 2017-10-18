@@ -115,6 +115,7 @@ $.ajax({
     var members = response.members;
     var memberNameIds = response.memberNameIds;
     var leaderboardIds = response.leaderboardIds;
+    var history = response.history;
     var memberCountText = (numMembers === 1) ? ' member' : ' members';
 
     $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
@@ -123,17 +124,33 @@ $.ajax({
     var memberListIds = "";
     memberNameIds.forEach(x => {
       if (memberListText !== "") {
-        memberListText += ", "
-        memberListIds += ", "
+        memberListText += ", ";
+        memberListIds += ", ";
       }
       memberListText += members[x].name;
       getFeed(x, members[x].name);
     });
     $('#group-member-names').text(memberListText); // Update member names HTML
-    $('#group-member-ids').text(memberListIds); // Update member names HTML
+    $('#group-member-ids').text(memberListIds); // Update member ids HTML
 
     leaderboardIds.forEach(x => {
       $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
+    });
+
+    var word = 'created'; //first user always creates the group
+    history.forEach(x => {
+      var user = x.user;
+      var joined = x.joined;
+      var left = x.left;
+      if (joined !== '') {
+        appendToFeed(x.user, word, x.joined);
+      }
+      if (left !== '') {
+        appendToFeed(x.user, 'left', x.left);
+      }
+      if (word === 'created') {
+        word = 'joined'; //set to "joined" for all other users
+      }
     });
 
     //var name = response.name;
@@ -143,6 +160,22 @@ $.ajax({
     console.log("failed, result = " + JSON.stringify(response));
   }
 });
+
+//append create/leave/join event to group feed
+function appendToFeed(user, word, timestamp) {
+        $('#group-feed-events').append(
+  '<div class="col s12" feed-col>' +
+  '  <li class="collection-item avatar space-gray feed-item">' +
+  '    <img src="images/sample_user.png" alt="" class="circle">' +
+  `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
+  `    <span class="feed-action">${word} the group.<span>` +
+  `   <p><small class="feed-timestamp">${timestamp}</small></p>` +
+  '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
+  '  </li>' +
+  '</div>' +
+  '<br>' +
+  '</div>');
+}
 
 //now load the feed events
 function getFeed(id, user) {
