@@ -25,7 +25,7 @@ var vue = new Vue({
                         var d = new Date(item.date);
                         var date = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
 
-                        vue.historyList[index].date = date;                        
+                        vue.historyList[index].date = date;
                     }
 
 
@@ -125,7 +125,10 @@ function profitLoss(index, current) {
     var tradeValue = current * element.num_units;
     element.value = tradeValue;
     element.profit_loss_dollars = (tradeValue - element.trade_amount);
-    // console.log(element.profit_loss_dollars);
+    if (-0.0001 < element.profit_loss_dollars  && element.profit_loss_dollars < 0.001) {
+        console.log(element.profit_loss_dollars);
+        element.profit_loss_dollars = 0;
+    }
     element.profit_loss_percent = ((element.profit_loss_dollars/element.trade_amount)*100);
 }
 
