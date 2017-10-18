@@ -101,6 +101,8 @@ $("#delete-comment-bttn").on("click", function() {
 
 //group feed - generated and sorted before being displayed
 var feed = [];
+var numMembers = 0;
+var numProcessed = 0;
 
 //load number of group members and list of group members
 var data = {
@@ -113,7 +115,7 @@ $.ajax({
   dataType: "json",
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
-    var numMembers = response.numMembers;
+    numMembers = response.numMembers;
     var members = response.members;
     var memberNameIds = response.memberNameIds;
     var leaderboardIds = response.leaderboardIds;
@@ -207,8 +209,8 @@ function getFeed(id, user) {
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">bought ${numUnits} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
-  `   <p><small class="feed-timestamp">${timestamp}</small></p>` +
-  `   <a href="#" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
+  `    <p><small class="feed-timestamp">${timestamp}</small></p>` +
+  `    <a href="#" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
   `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}';">Comment</a>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
   '  </li>' +
@@ -219,24 +221,19 @@ function getFeed(id, user) {
   '  <!-- comments for feed event above -->' +
   '</ul>' +
   '</div>'});
-      });
 
-      ///////////////////////////////////////////////////////////
-      //TODO: fix this - duplications
-      //easy fix - use the other check
-      //test case: http://localhost:3000/groups?group=test555&id=-Kwj48ZQ5sGbYCgrY3F8
-      //user: test555
-      //other: test666
-      //do not modify this test data
-      //sort feed items and append to group feed
-      feed.sort(function(lhs, rhs) {
-        return rhs.timestamp - lhs.timestamp; //reverse chronological
-      });
-      feed.forEach(x => {
-        $('#group-feed-events').append(x.content);
-      });
-      ///////////////////////////////////////////////////////////
+        //push everythin to the feed when all group members processed
+        numProcessed++;
+        if (numProcessed === numMembers) {
+          feed.sort(function(lhs, rhs) {
+            return rhs.timestamp - lhs.timestamp; //reverse chronological
+          });
+          feed.forEach(x => {
+            $('#group-feed-events').append(x.content);
+          });
+        }
 
+      });
     },
     error: function(response) {
       console.log("failed Purchases, result = " + JSON.stringify(response));
