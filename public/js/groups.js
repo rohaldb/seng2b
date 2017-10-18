@@ -108,59 +108,66 @@ var numProcessed = 0;
 var data = {
   'id': getUrlParameter('id')
 };
+
+var updateGroupPage = function(response) {
+  console.log("success, result = " + JSON.stringify(response));
+  numMembers = response.numMembers;
+  var members = response.members;
+  var memberNameIds = response.memberNameIds;
+  var leaderboardIds = response.leaderboardIds;
+  var history = response.history;
+  var memberCountText = (numMembers === 1) ? ' member' : ' members';
+
+  // Empty feed HTML to prevent duplicate loading
+  feed = [];
+  $('#group-feed-events').empty();
+
+  $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
+
+  //generate members list
+  var memberListText = "";
+  var memberListIds = "";
+  memberNameIds.forEach(x => {
+    if (memberListText !== "") {
+      memberListText += ", ";
+      memberListIds += ", ";
+    }
+    memberListText += members[x].name;
+    getFeed(x, members[x].name);
+  });
+  $('#group-member-names').text(memberListText); // Update member names HTML
+  $('#group-member-ids').text(memberListIds); // Update member ids HTML
+
+  //generate leaderboard
+  leaderboardIds.forEach(x => {
+    $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
+  });
+
+  //generate part of the feed that shows create/join/leave events
+  var word = 'created'; //first user always creates the group
+  history.forEach(x => {
+    var user = x.user;
+    var d = new Date(parseInt(x.joined));
+    var joined = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    d = new Date(parseInt(x.left));
+    var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    appendToFeed(x.joined, x.user, word, joined); //should always be valid
+    if (x.left !== '') {
+      appendToFeed(x.left, x.user, 'left', left);
+    }
+    if (word === 'created') {
+      word = 'joined'; //set to "joined" for all other users
+    }
+  });
+};
+
+//load number of group members and list of group members
 $.ajax({
   url: "/get_group_info",
   method: "POST",
-  data: data,
+  data: {'id': getUrlParameter('id')},
   dataType: "json",
-  success: function(response) {
-    console.log("success, result = " + JSON.stringify(response));
-    numMembers = response.numMembers;
-    var members = response.members;
-    var memberNameIds = response.memberNameIds;
-    var leaderboardIds = response.leaderboardIds;
-    var history = response.history;
-    var memberCountText = (numMembers === 1) ? ' member' : ' members';
-
-    $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
-
-    //generate members list
-    var memberListText = "";
-    var memberListIds = "";
-    memberNameIds.forEach(x => {
-      if (memberListText !== "") {
-        memberListText += ", ";
-        memberListIds += ", ";
-      }
-      memberListText += members[x].name;
-      getFeed(x, members[x].name);
-    });
-    $('#group-member-names').text(memberListText); // Update member names HTML
-    $('#group-member-ids').text(memberListIds); // Update member ids HTML
-
-    //generate leaderboard
-    leaderboardIds.forEach(x => {
-      $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
-    });
-
-    //generate part of the feed that shows create/join/leave events
-    var word = 'created'; //first user always creates the group
-    history.forEach(x => {
-      var user = x.user;
-      var d = new Date(parseInt(x.joined));
-      var joined = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-      d = new Date(parseInt(x.left));
-      var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-      appendToFeed(x.joined, x.user, word, joined); //should always be valid
-      if (x.left !== '') {
-        appendToFeed(x.left, x.user, 'left', left);
-      }
-      if (word === 'created') {
-        word = 'joined'; //set to "joined" for all other users
-      }
-    });
-
-  },
+  success: updateGroupPage,
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));
   }
@@ -169,7 +176,7 @@ $.ajax({
 //append create/leave/join event to group feed
 function appendToFeed(date, user, word, timestamp) {
   feed.push({timestamp: date, content:
-  '<div class="col s12" feed-col>' +
+  '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
@@ -184,13 +191,10 @@ function appendToFeed(date, user, word, timestamp) {
 
 //load the purchases made by group members
 function getFeed(id, user) {
-  var data = {
-    'user': id
-  }
   $.ajax({
     url: "/get_user_purchase_history",
     method: "POST",
-    data: data,
+    data: {'user': id},
     dataType: "json",
     success: function(response) {
       response.historyList.forEach(function (item, index) {
@@ -204,7 +208,7 @@ function getFeed(id, user) {
         var purchaseId = item.id;
         var link = `/stock?stock=${companyCode}&company=${companyName}`;
         feed.push({timestamp: date, content:
-  '<div class="col s12" feed-col>' +
+  '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
@@ -241,7 +245,7 @@ function getFeed(id, user) {
   });
 }
 
-/*
+
 var user_keys = {};
 var user_ids = {};
 
@@ -256,7 +260,7 @@ $.ajax({
     var name = response.name;
     //console.log(response.userList);
     response.userList.forEach(function(item){
-      //console.log(item.name);
+      // console.log("ITEM: " + JSON.stringify(item));
       //console.log("hey");
       user_keys[item.name] = null;
       user_ids[item.name] = item.uid;
@@ -270,12 +274,13 @@ $.ajax({
         secondaryPlaceholder: '+ User',
       });
       //console.log(item.name + ' == ' + user_keys[item.name]);
-    console.log("HERE WE ARE!!!!");
-    //console.log("success, result = " + JSON.stringify(response));
-    //var name = response.name;
-    //console.log('and the name is: ' + name);
-    response.userList.forEach(function (item,index){
-      console.log("success name is = " item[index]);
+      // console.log("HERE WE ARE!!!!");
+      //console.log("success, result = " + JSON.stringify(response));
+      //var name = response.name;
+      //console.log('and the name is: ' + name);
+      response.userList.forEach(function (item,index){
+        // console.log("success name is = " + item[index]);
+      });
     });
   },
   error: function(response) {
@@ -284,12 +289,79 @@ $.ajax({
   }
 });
 
-$('.chips').on('chip.add', function(e, chip){
-    console.log('chip is' + chip.tag);
-    console.log('name is ' + chip.tag + 'uid is ' + user_ids[chip.tag]);
 
+var invite_usernames = {};
+var invite_uids = [];
+$("#btn-invite").on("click", function() {
+  Object.keys(invite_usernames).forEach(username => {
+    invite_uids.push(user_ids[username]);
+  })
+  console.log('invite_uids: ', invite_uids);
+
+  var data = {
+    invite_uids: JSON.stringify(invite_uids),
+    group_id: getUrlParameter('id')
+  };
+
+  console.log("DATA: " + JSON.stringify(data));
+
+  $.ajax({
+    url: "/invite_to_group",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      $.ajax({
+        url: "/get_group_info",
+        method: "POST",
+        data: {'id': getUrlParameter('id')},
+        dataType: "json",
+        success: updateGroupPage,
+        error: function(response) {
+          console.log("failed, result = " + JSON.stringify(response));
+        }
+      });
+    }
   });
-*/
+
+  // Clear invite_uids after submitting
+  invite_uids = [];
+});
+
+
+$("#btn-leave").on("click", function() {
+  $.ajax({
+    url: "/leave_group",
+    method: "POST",
+    data: {'group_id': getUrlParameter('id')},
+    dataType: "json",
+    success: function(response) {
+      $.ajax({
+        url: "/get_group_info",
+        method: "POST",
+        data: {'id': getUrlParameter('id')},
+        dataType: "json",
+        success: updateGroupPage,
+        error: function(response) {
+          console.log("failed, result = " + JSON.stringify(response));
+        }
+      });
+    },
+    error: function(response) {
+      console.log("failed, result = " + JSON.stringify(response));
+    }
+  });
+});
+
+$('.chips').on('chip.add', function(e, chip){
+  console.log('Adding chip: ' + chip.tag);
+  invite_usernames[chip.tag] = null;
+});
+
+$('.chips').on('chip.delete', function (e, chip) {
+  console.log('Removing chip: ' + chip.tag);
+  delete invite_usernames[chip.tag];
+});
 
 //load user name chips
 $(document).ready(function(){
