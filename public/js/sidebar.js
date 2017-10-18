@@ -56,8 +56,7 @@ $("#new-group-bttn").on("click", function() {
     name = name.replace(/\s+/g, ' ').trim();
     $('#new-group-name').val('');
   }
-  var d = new Date();
-  var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+  var timestamp = Date.now();
   var data = {
     'name': name,
     'date': timestamp

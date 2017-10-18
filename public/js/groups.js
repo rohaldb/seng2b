@@ -28,8 +28,7 @@ $("#post-new-comment").on("click", function() {
   var whoami = 'me';
   var commentId = Math.random();
 
-  var d = new Date();
-  var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+  var timestamp = Date.now();
   var data = {
     'comment': comment,
     'postId': postId,
@@ -100,6 +99,9 @@ $("#delete-comment-bttn").on("click", function() {
 */
 });
 
+//group feed - generated and sorted before being displayed
+var feed = [];
+
 //load number of group members and list of group members
 var data = {
   'id': getUrlParameter('id')
@@ -120,6 +122,7 @@ $.ajax({
 
     $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
 
+    //generate members list
     var memberListText = "";
     var memberListIds = "";
     memberNameIds.forEach(x => {
@@ -133,28 +136,28 @@ $.ajax({
     $('#group-member-names').text(memberListText); // Update member names HTML
     $('#group-member-ids').text(memberListIds); // Update member ids HTML
 
+    //generate leaderboard
     leaderboardIds.forEach(x => {
       $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
     });
 
+    //generate part of the feed that shows create/join/leave events
     var word = 'created'; //first user always creates the group
     history.forEach(x => {
       var user = x.user;
-      var joined = x.joined;
-      var left = x.left;
-      if (joined !== '') {
-        appendToFeed(x.user, word, x.joined);
-      }
-      if (left !== '') {
-        appendToFeed(x.user, 'left', x.left);
+      var d = new Date(x.joined);
+      var joined = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+      d = new Date(x.left);
+      var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+      appendToFeed(x.joined, x.user, word, joined); //should always be valid
+      if (x.left !== '') {
+        appendToFeed(x.left, x.user, 'left', left);
       }
       if (word === 'created') {
         word = 'joined'; //set to "joined" for all other users
       }
     });
 
-    //var name = response.name;
-    //console.log('name is: ' + name);
   },
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));
@@ -162,8 +165,8 @@ $.ajax({
 });
 
 //append create/leave/join event to group feed
-function appendToFeed(user, word, timestamp) {
-        $('#group-feed-events').append(
+function appendToFeed(date, user, word, timestamp) {
+  feed.push({timestamp: date, content:
   '<div class="col s12" feed-col>' +
   '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
@@ -174,10 +177,10 @@ function appendToFeed(user, word, timestamp) {
   '  </li>' +
   '</div>' +
   '<br>' +
-  '</div>');
+  '</div>'});
 }
 
-//now load the feed events
+//now load the purchases made by group members
 function getFeed(id, user) {
   var data = {
     'user': id
@@ -196,7 +199,7 @@ function getFeed(id, user) {
         var d = new Date(date);
         var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
         var purchaseId = item.id;
-        $('#group-feed-events').append(
+        feed.push({timestamp: date, content:
   '<div class="col s12" feed-col>' +
   '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
@@ -213,8 +216,17 @@ function getFeed(id, user) {
   '<ul>' +
   '  <!-- comments for feed event above -->' +
   '</ul>' +
-  '</div>');
+  '</div>'});
       });
+
+      //sort feed items and append to group feed
+      feed.sort(function(lhs, rhs) {
+        return rhs.timestamp - lhs.timestamp; //reverse chronological
+      });
+      feed.forEach(x => {
+        $('#group-feed-events').append(x.content);
+      });
+
     },
     error: function(response) {
       console.log("failed Purchases, result = " + JSON.stringify(response));
