@@ -19,6 +19,16 @@ var vue = new Vue({
                     if (index > -1) {
                         vue.purchaseList.splice(index, 1);
                     }
+                    vue.historyList.push(item);
+                    var index = vue.historyList.indexOf(item);
+                    if (index > -1) {
+                        var d = new Date(item.date);
+                        var date = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
+
+                        vue.historyList[index].date = date;                        
+                    }
+
+
                     vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount)
                     sidebarVue.removeItemFromList(item.companyCode, item.companyName)
                 },
