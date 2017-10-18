@@ -399,6 +399,27 @@ app.post('/invite_to_group', async function (req, res, next) {
   }
 });
 
+app.post('/leave_group', async function (req, res, next) {
+  var user = firebase.auth().currentUser.uid;
+  var group_id = req.body.group_id;
+  var updates = {};
+
+  firebase.database().ref(`/groups/${group_id}/users`).once('value').then(function (snapshot) {
+    var user_difference = [];
+    snapshot.forEach(x => {
+      if (x.val() !== user) { // If uid not already in invite_uids
+        user_difference.push(x.val());
+      }
+    });
+
+    updates[`/users/${user}/groups/${group_id}`] = null; // Remove group from user entry
+    updates[`/groups/${group_id}/users/`] = user_difference; // Remove from group page
+    firebase.database().ref().update(updates);
+
+    res.send({'user_ids': user_difference});
+  });
+});
+
 // app.post('/get_user_list', async function(req, res, next) {
 //   res.contentType('json');
 //   console.log("@!$#!@$H!@H$!@H#H!@$@");

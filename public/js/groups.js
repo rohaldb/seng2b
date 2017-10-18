@@ -270,6 +270,31 @@ $("#btn-invite").on("click", function() {
   invite_uids = [];
 });
 
+
+$("#btn-leave").on("click", function() {
+  $.ajax({
+    url: "/leave_group",
+    method: "POST",
+    data: {'group_id': getUrlParameter('id')},
+    dataType: "json",
+    success: function(response) {
+      $.ajax({
+        url: "/get_group_info",
+        method: "POST",
+        data: {'id': getUrlParameter('id')},
+        dataType: "json",
+        success: updateGroupPage,
+        error: function(response) {
+          console.log("failed, result = " + JSON.stringify(response));
+        }
+      });
+    },
+    error: function(response) {
+      console.log("failed, result = " + JSON.stringify(response));
+    }
+  });
+});
+
 $('.chips').on('chip.add', function(e, chip){
   console.log('Adding chip: ' + chip.tag);
   invite_usernames[chip.tag] = null;
