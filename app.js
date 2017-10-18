@@ -393,20 +393,42 @@ app.post('/new_group', async function(req, res, next) {
 app.post('/invite_to_group', async function (req, res, next) {
   var invite_uids = JSON.parse(req.body['invite_uids']);
   var group_id = req.body['group_id'];
+  var now = req.body['date'];
   // console.log("Inviting to group: " + group_id);
   // console.log("UIDS TO BE INVITED: " + invite_uids);
-
   try {
     var updates = {};
+
+    //add new "joined" events to group history - before appending existing uids
+    var allHistory = [];
+    invite_uids.forEach(x => {
+      firebase.database().ref('/users/' + x).once('value').then(function(snapshot) {
+        var first = snapshot.val().firstName;
+        var last = snapshot.val().lastName;
+        var person = first + ' ' + last;
+        allHistory.push({'user': person, 'joined': now, 'left': ''});
+      });
+    });
+
     // Add all existing group members to invite_uids
+    var existing_uids = [];
     firebase.database().ref(`/groups/${group_id}/users`).once('value').then(function (snapshot) {
       snapshot.forEach(x => {
         if (invite_uids.indexOf(x.val()) === -1) { // If uid not already in invite_uids
-          invite_uids.push(x.val());
+          existing_uids.push(x.val());
         }
       });
+      updates[`/groups/${group_id}/users`] = existing_uids.concat(invite_uids);
 
-      updates[`/groups/${group_id}/users`] = invite_uids;
+      //add existing group history to allHistory
+      firebase.database().ref(`/groups/${group_id}/history`).once('value').then(function (snapshot) {
+        snapshot.forEach(x => {
+          if (allHistory.indexOf(x.val()) === -1) {
+            allHistory.push(x.val());
+          }
+        });
+      });
+      updates[`/groups/${group_id}/history`] = allHistory;
 
       var group_name = "unknown";
       firebase.database().ref(`/groups/${group_id}`).once('value').then(function (snapshot) {
@@ -418,7 +440,7 @@ app.post('/invite_to_group', async function (req, res, next) {
         });
 
         firebase.database().ref().update(updates);
-        res.send({'group_members': invite_uids});
+        res.send({'group_members': existing_uids.concat(invite_uids)});
         console.log('invite success');
       });
     });

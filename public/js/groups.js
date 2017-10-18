@@ -45,6 +45,8 @@ $("#post-new-comment").on("click", function() {
       console.log("success, result = " + JSON.stringify(response));
 */
 //TODO: actually add comment to db - i.e. create this route
+      var d = new Date(timestamp);
+      var date = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
       Materialize.toast('Comment added.', 1250);
       var numComments = $('#num-comments-' + postId).text().match(/\d+/)[0];
       numComments++;
@@ -100,6 +102,7 @@ $("#delete-comment-bttn").on("click", function() {
 });
 
 //group feed - generated and sorted before being displayed
+//need to be global
 var feed = [];
 var numMembers = 0;
 var numProcessed = 0;
@@ -110,6 +113,10 @@ var data = {
 };
 
 var updateGroupPage = function(response) {
+  feed = []; //need to reset these values every time
+  $('#group-feed-events').empty();
+  numProcessed = 0;
+
   console.log("success, result = " + JSON.stringify(response));
   numMembers = response.numMembers;
   var members = response.members;
@@ -199,12 +206,15 @@ function getFeed(id, user) {
     data: {'user': id},
     dataType: "json",
     success: function(response) {
+      /*
       if (numMembers === 1 && response.historyList.length === 0) {
         //if group contains one user and no previous purchases, show the one possible event - group creation
+        //TODO: this may be redundant now
         feed.forEach(x => {
           $('#group-feed-events').append(x.content);
         });
       }
+      */
       response.historyList.forEach(function (item, index) {
         var companyCode = item.companyCode;
         var companyName = item.companyName;
@@ -233,19 +243,19 @@ function getFeed(id, user) {
   '  <!-- comments for feed event above -->' +
   '</ul>' +
   '</div>'});
-
-        //push everything to the feed when all group members processed
-        numProcessed++;
-        if (numProcessed === numMembers) {
-          feed.sort(function(lhs, rhs) {
-            return rhs.timestamp - lhs.timestamp; //reverse chronological
-          });
-          feed.forEach(x => {
-            $('#group-feed-events').append(x.content);
-          });
-        }
-
       });
+
+      //push everything to the feed when all group members processed
+      numProcessed++;
+      if (numProcessed === numMembers) {
+        feed.sort(function(lhs, rhs) {
+          return rhs.timestamp - lhs.timestamp; //reverse chronological
+        });
+        feed.forEach(x => {
+          $('#group-feed-events').append(x.content);
+        });
+      }
+
     },
     error: function(response) {
       console.log("failed Purchases, result = " + JSON.stringify(response));
@@ -308,7 +318,8 @@ $("#btn-invite").on("click", function() {
 
   var data = {
     invite_uids: JSON.stringify(invite_uids),
-    group_id: getUrlParameter('id')
+    group_id: getUrlParameter('id'),
+    date: Date.now()
   };
 
   console.log("DATA: " + JSON.stringify(data));
