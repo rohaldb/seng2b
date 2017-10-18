@@ -189,7 +189,7 @@ function getFeed(id, user) {
   });
 }
 
-/*
+
 var user_keys = {};
 var user_ids = {};
 
@@ -204,7 +204,7 @@ $.ajax({
     var name = response.name;
     //console.log(response.userList);
     response.userList.forEach(function(item){
-      //console.log(item.name);
+      // console.log("ITEM: " + JSON.stringify(item));
       //console.log("hey");
       user_keys[item.name] = null;
       user_ids[item.name] = item.uid;
@@ -218,12 +218,13 @@ $.ajax({
         secondaryPlaceholder: '+ User',
       });
       //console.log(item.name + ' == ' + user_keys[item.name]);
-    console.log("HERE WE ARE!!!!");
-    //console.log("success, result = " + JSON.stringify(response));
-    //var name = response.name;
-    //console.log('and the name is: ' + name);
-    response.userList.forEach(function (item,index){
-      console.log("success name is = " item[index]);
+      // console.log("HERE WE ARE!!!!");
+      //console.log("success, result = " + JSON.stringify(response));
+      //var name = response.name;
+      //console.log('and the name is: ' + name);
+      response.userList.forEach(function (item,index){
+        // console.log("success name is = " + item[index]);
+      });
     });
   },
   error: function(response) {
@@ -232,12 +233,45 @@ $.ajax({
   }
 });
 
-$('.chips').on('chip.add', function(e, chip){
-    console.log('chip is' + chip.tag);
-    console.log('name is ' + chip.tag + 'uid is ' + user_ids[chip.tag]);
 
+var invite_usernames = {};
+var invite_uids = [];
+$("#btn-invite").on("click", function() {
+  Object.keys(invite_usernames).forEach(username => {
+    invite_uids.push(user_ids[username]);
+  })
+  console.log('invite_uids: ', invite_uids);
+
+  var data = {
+    invite_uids: invite_uids,
+    group_id: getUrlParameter('id')
+  };
+
+  console.log("DATA: " + JSON.stringify(data));
+
+  $.ajax({
+    url: "/invite_to_group",
+    method: "POST",
+    data: data,
+    dataType: "json",
+    success: function(response) {
+      console.log("success, result = " + JSON.stringify(response));
+    }
   });
-*/
+
+  // Clear invite_uids after submitting
+  invite_uids = [];
+});
+
+$('.chips').on('chip.add', function(e, chip){
+  console.log('Adding chip: ' + chip.tag);
+  invite_usernames[chip.tag] = null;
+});
+
+$('.chips').on('chip.delete', function (e, chip) {
+  console.log('Removing chip: ' + chip.tag);
+  delete invite_usernames[chip.tag];
+});
 
 //load user name chips
 $(document).ready(function(){

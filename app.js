@@ -360,6 +360,11 @@ app.post('/new_group', async function(req, res, next) {
   }
 });
 
+app.post('/invite_to_group', async function (req, res, next) {
+  console.log("Inviting to group...");
+  console.log("REQUEST: " + JSON.stringify(req.body['invite_uids[]']));
+});
+
 // app.post('/get_user_list', async function(req, res, next) {
 //   res.contentType('json');
 //   console.log("@!$#!@$H!@H$!@H#H!@$@");
