@@ -69,8 +69,6 @@ $("#new-group-bttn").on("click", function() {
     dataType: "json",
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
-alert(response.group);
-alert(response.group === '');
       if (response.group === '') {
         Materialize.toast('Group name taken', 1250);
       } else {
