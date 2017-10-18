@@ -138,7 +138,7 @@ var updateGroupPage = function(response) {
   // Empty feed and leaderboard HTML to prevent duplicate loading
   // TODO POSSIBLY NEED LATER WHEN ALL USER PURCHASES FIXED
   // $('#group-feed-events').empty();
-  // $('#leaderboard-list').empty();
+  $('#leaderboard-list').empty();
 
   //generate leaderboard
   leaderboardIds.forEach(x => {
