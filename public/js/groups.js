@@ -101,13 +101,10 @@ $("#delete-comment-bttn").on("click", function() {
 });
 
 //load number of group members and list of group members
-var data = {
-  'id': getUrlParameter('id')
-};
 $.ajax({
   url: "/get_group_info",
   method: "POST",
-  data: data,
+  data: {'id': getUrlParameter('id')},
   dataType: "json",
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
@@ -146,13 +143,10 @@ $.ajax({
 
 //now load the feed events
 function getFeed(id, user) {
-  var data = {
-    'user': id
-  }
   $.ajax({
     url: "/get_user_purchases",
     method: "POST",
-    data: data,
+    data: {'user': id},
     dataType: "json",
     success: function(response) {
       response.purchaseList.forEach(function (item, index) {
@@ -243,7 +237,7 @@ $("#btn-invite").on("click", function() {
   console.log('invite_uids: ', invite_uids);
 
   var data = {
-    invite_uids: invite_uids,
+    invite_uids: JSON.stringify(invite_uids),
     group_id: getUrlParameter('id')
   };
 

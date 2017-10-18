@@ -361,8 +361,42 @@ app.post('/new_group', async function(req, res, next) {
 });
 
 app.post('/invite_to_group', async function (req, res, next) {
-  console.log("Inviting to group...");
-  console.log("REQUEST: " + JSON.stringify(req.body['invite_uids[]']));
+  var invite_uids = JSON.parse(req.body['invite_uids']);
+  var group_id = req.body['group_id'];
+  // console.log("Inviting to group: " + group_id);
+  // console.log("UIDS TO BE INVITED: " + invite_uids);
+
+  try {
+    var updates = {};
+    // Add all existing group members to invite_uids
+    firebase.database().ref(`/groups/${group_id}/users`).once('value').then(function (snapshot) {
+      snapshot.forEach(x => {
+        if (invite_uids.indexOf(x.val()) === -1) { // If uid not already in invite_uids
+          invite_uids.push(x.val());
+        }
+      });
+
+      updates[`/groups/${group_id}/users`] = invite_uids;
+
+      var group_name = "unknown";
+      firebase.database().ref(`/groups/${group_id}`).once('value').then(function (snapshot) {
+        group_name = snapshot.val().name;    // Fetch group name from firebase
+        console.log("Group name: " + group_name);
+
+        invite_uids.forEach(function (uid) {
+          updates[`/users/${uid}/groups/${group_id}`] = group_name;
+        });
+
+        firebase.database().ref().update(updates);
+        res.send({'group_members': invite_uids});
+        console.log('invite success');
+      });
+    });
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'group': false});
+  }
 });
 
 // app.post('/get_user_list', async function(req, res, next) {
