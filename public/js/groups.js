@@ -100,42 +100,46 @@ $("#delete-comment-bttn").on("click", function() {
 */
 });
 
+var updateGroupPage = function(response) {
+  console.log("success, result = " + JSON.stringify(response));
+  var numMembers = response.numMembers;
+  var members = response.members;
+  var memberNameIds = response.memberNameIds;
+  var leaderboardIds = response.leaderboardIds;
+  var memberCountText = (numMembers === 1) ? ' member' : ' members';
+
+  $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
+
+  // Empty feed and leaderboard list (prevent duplicate loading when updateGroupPage is called again)
+  $('#group-feed-events').empty();
+  $('#leaderboard-list').empty();
+
+  var memberListText = "";
+  var memberListIds = "";
+  memberNameIds.forEach(x => {
+    if (memberListText !== "") {
+    memberListText += ", "
+    memberListIds += ", "
+    }
+    memberListText += members[x].name;
+
+    getFeed(x, members[x].name);
+  });
+  $('#group-member-names').text(memberListText); // Update member names HTML
+  $('#group-member-ids').text(memberListIds); // Update member names HTML
+
+  leaderboardIds.forEach(x => {
+    $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
+  });
+};
+
 //load number of group members and list of group members
 $.ajax({
   url: "/get_group_info",
   method: "POST",
   data: {'id': getUrlParameter('id')},
   dataType: "json",
-  success: function(response) {
-    console.log("success, result = " + JSON.stringify(response));
-    var numMembers = response.numMembers;
-    var members = response.members;
-    var memberNameIds = response.memberNameIds;
-    var leaderboardIds = response.leaderboardIds;
-    var memberCountText = (numMembers === 1) ? ' member' : ' members';
-
-    $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
-
-    var memberListText = "";
-    var memberListIds = "";
-    memberNameIds.forEach(x => {
-      if (memberListText !== "") {
-        memberListText += ", "
-        memberListIds += ", "
-      }
-      memberListText += members[x].name;
-      getFeed(x, members[x].name);
-    });
-    $('#group-member-names').text(memberListText); // Update member names HTML
-    $('#group-member-ids').text(memberListIds); // Update member names HTML
-
-    leaderboardIds.forEach(x => {
-      $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
-    });
-
-    //var name = response.name;
-    //console.log('name is: ' + name);
-  },
+  success: updateGroupPage,
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));
   }
@@ -249,7 +253,16 @@ $("#btn-invite").on("click", function() {
     data: data,
     dataType: "json",
     success: function(response) {
-      console.log("success, result = " + JSON.stringify(response));
+      $.ajax({
+        url: "/get_group_info",
+        method: "POST",
+        data: {'id': getUrlParameter('id')},
+        dataType: "json",
+        success: updateGroupPage,
+        error: function(response) {
+          console.log("failed, result = " + JSON.stringify(response));
+        }
+      });
     }
   });
 
