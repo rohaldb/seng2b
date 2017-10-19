@@ -32,7 +32,8 @@ firebase.initializeApp(config);
 
 //firebase.auth().signInWithEmailAndPassword('jblogg@gmail.com', '123456').catch(function(error) {
 //firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
-firebase.auth().signInWithEmailAndPassword('test@hello.com', 'testhello').catch(function(error) {
+//firebase.auth().signInWithEmailAndPassword('test@hello.com', 'testhello').catch(function(error) {
+firebase.auth().signInWithEmailAndPassword('comments@test.com', 'comments').catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
@@ -491,6 +492,36 @@ app.post('/leave_group', async function (req, res, next) {
       });
     });
   });
+});
+
+app.post('/comment_on_feed', async function (req, res, next) {
+  var user = firebase.auth().currentUser.uid;
+  var comment = req.body.comment;
+  var feedItemUser = req.body.postId.replace(/.*\./, '');
+  var historyItem = req.body.postId.replace(/\..*/, '');
+  var date = req.body.timestamp;
+  console.log('comment: ' + comment + ' feedItemUser: ' + feedItemUser + ' historyItem: ' + historyItem + ' date: ' + date);
+
+  var updates = {};
+  firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+    var first = snapshot.val().firstName;
+    var last = snapshot.val().lastName;
+    var person = first + ' ' + last;
+
+    //add new comment to the historyItem of feedItemUser
+    var newCommentId = firebase.database().ref(`/users/${feedItemUser}/history/${historyItem}/comments`).push().key;
+    var c = {
+      'poster': person,
+      'comment': comment,
+      'date': date
+    };
+    console.log('adding comment: ' + c);
+    updates[`/users/${feedItemUser}/history/${historyItem}/comments/${newCommentId}`] = c;
+    firebase.database().ref().update(updates);
+    res.send({'me': person, 'id': newCommentId});
+    console.log('success');
+  });
+
 });
 
 // app.post('/get_user_list', async function(req, res, next) {

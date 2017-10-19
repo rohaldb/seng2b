@@ -24,10 +24,6 @@ $("#post-new-comment").on("click", function() {
     $('#new-comment-text').trigger('autoresize');
   }
 
-  //TODO - don't hardcode these - get from ajax
-  var whoami = 'me';
-  var commentId = Math.random();
-
   var timestamp = Date.now();
   var data = {
     'comment': comment,
@@ -35,7 +31,7 @@ $("#post-new-comment").on("click", function() {
     'timestamp': timestamp
   };
   console.log(data);
-/*
+
   $.ajax({
     url: "/comment_on_feed",
     method: "POST",
@@ -43,36 +39,34 @@ $("#post-new-comment").on("click", function() {
     dataType: "json",
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
-*/
-//TODO: actually add comment to db - i.e. create this route
+      var whoami = response.me;
+      var commentId = response.id;
       var d = new Date(timestamp);
       var date = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
       Materialize.toast('Comment added.', 1250);
-      var numComments = $('#num-comments-' + postId).text().match(/\d+/)[0];
+      var numComments = $('#num-comments-' + postId.replace(/\..*/, '')).text().match(/\d+/)[0];
       numComments++;
       var plural = (numComments === 1) ? '' : 's';
-      $('#num-comments-' + postId).text(numComments + ' comment' + plural);
+      $('#num-comments-' + postId.replace(/\..*/, '')).text(numComments + ' comment' + plural);
       $('#new-comment-text').val('');
       $('#new-comment-text').trigger('autoresize');
-      $('#comment-id-' + postId).append(
+      $('#comment-id-' + postId.replace(/\..*/, '')).append(
       '<div id="comment-id-' + commentId + '">' +
 
       '<li class="collection-item avatar space-gray feed-item">' +
       '  <img src="images/sample_user.png" alt="" class="circle">' +
       '  <span class="title spaceship-text feed-username"><a href="#">' + whoami + '</a></span>' +
       '  <span class="feed-action">' + comment + '</span>' +
-      '  <p><small class="feed-timestamp">' + timestamp + '</small></p>' +
+      '  <p><small class="feed-timestamp">' + date + '</small></p>' +
       '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
       '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\'";>Delete</a>' +
       '</li></div>');
-/*
     },
     error: function(response) {
-      Materialize.toast('Could not add comment.', 1250);
+      Materialize.toast('Could not post comment.', 1250);
       console.log("failed, result = " + JSON.stringify(response));
     }
   });
-*/
 });
 
 //delete a comment on a feed event
@@ -228,8 +222,8 @@ function getFeed(id, user) {
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">bought ${numUnits} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
   `    <p><small class="feed-timestamp">${timestamp}</small></p>` +
-  `    <a href="#" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
-  `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}';">Comment</a>` +
+  `    <a href="#!" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
+  `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}.${id}';">Comment</a>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
   '  </li>' +
   '</div>' +
