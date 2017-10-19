@@ -12,7 +12,6 @@ var sidebarVue = new Vue({
     },
     get_group_url: function(key, value) {
       var x = "/groups?group=" + encodeURIComponent(key) + "&id=" + encodeURIComponent(value);
-      console.warn(x);
       return x;
     },
     removeItemFromList(code, name) {
@@ -119,7 +118,6 @@ $.ajax({
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
     // var obj = response.groups;
-    console.warn(response.groups);
     // if (obj !== undefined) {
     //   Object.keys(obj).forEach(function(key) {
     //     var name = obj[key];

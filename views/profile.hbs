@@ -99,12 +99,12 @@
                         <td>$\{{item.trade_amount.toFixed(2)}}</td>
 
                         <td v-if="item.profit_loss_dollars > 0" class="green-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
-                        <td v-else-if="item.profit_loss_dollars == 0" class="blue-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                        <td v-else-if="item.profit_loss_dollars == 0">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
                         <td v-else class="red-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
 
-                        <td v-if="item.profit_loss_percent > 0" class="green-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
-                        <td v-else-if="item.profit_loss_percent == 0" class="blue-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
-                        <td v-else class="red-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+                        <td v-if="item.profit_loss_percent > 0" class="green-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                        <td v-else-if="item.profit_loss_percent == 0">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                        <td v-else class="red-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
 
                         <td>\{{item.value.toFixed(2)}}</td>
 
@@ -142,12 +142,12 @@
                         <td>$\{{item.trade_amount.toFixed(2)}}</td>
 
                         <td v-if="item.profit_loss_dollars > 0" class="green-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
-                        <td v-else-if="item.profit_loss_dollars == 0" class="blue-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                        <td v-else-if="item.profit_loss_dollars == 0">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
                         <td v-else class="red-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
 
-                        <td v-if="item.profit_loss_percent > 0" class="green-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
-                        <td v-else-if="item.profit_loss_percent == 0" class="blue-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
-                        <td v-else class="red-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+                        <td v-if="item.profit_loss_percent > 0" class="green-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                        <td v-else-if="item.profit_loss_percent == 0">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                        <td v-else class="red-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
 
                         <td>\{{item.value.toFixed(2)}}</td>
 
