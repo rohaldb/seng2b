@@ -3,11 +3,17 @@ var sidebarVue = new Vue({
   data: {
     purchaseList: [],
     purchaseSet: [],
+    groups: [],
   },
   methods: {
     get_url: function (item) {
         string = "/stock?stock=" + item.companyCode + "&company=" + item.companyName;
         return string;
+    },
+    get_group_url: function(key, value) {
+      var x = "/groups?group=" + encodeURIComponent(key) + "&id=" + encodeURIComponent(value);
+      console.warn(x);
+      return x;
     },
     removeItemFromList(code, name) {
       var lookup = {companyCode: code,companyName:name}
@@ -112,17 +118,19 @@ $.ajax({
   dataType: "json",
   success: function(response) {
     console.log("success, result = " + JSON.stringify(response));
-    var obj = response.groups;
-    if (obj !== undefined) {
-      Object.keys(obj).forEach(function(key) {
-        var name = obj[key];
-        console.log('adding group "' + name + '" to sidebar');
-        var groupLink = '<a href="/groups?group=' + encodeURIComponent(name) +
-          '&id=' + encodeURIComponent(key) +  '"><i class="material-icons ">group</i>' +
-          escapeHtml(name) + '</a>';
-        $('#list-of-groups').append('<li>' + groupLink + '</li>');
-      });
-    }
+    // var obj = response.groups;
+    console.warn(response.groups);
+    // if (obj !== undefined) {
+    //   Object.keys(obj).forEach(function(key) {
+    //     var name = obj[key];
+    //     console.log('adding group "' + name + '" to sidebar');
+    //     var groupLink = '<a href="/groups?group=' + encodeURIComponent(name) +
+    //       '&id=' + encodeURIComponent(key) +  '"><i class="material-icons ">group</i>' +
+    //       escapeHtml(name) + '</a>';
+    //     $('#list-of-groups').append('<li>' + groupLink + '</li>');
+    //   });
+    // }
+    sidebarVue.groups = response.groups;
   },
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));

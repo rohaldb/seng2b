@@ -30,7 +30,7 @@ firebase.initializeApp(config);
 //     }
 // });
 
-firebase.auth().signInWithEmailAndPassword('jblogg@gmail.com', '123456').catch(function(error) {
+firebase.auth().signInWithEmailAndPassword('thor@thunder.com', 'password').catch(function(error) {
 //firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
 //firebase.auth().signInWithEmailAndPassword('test@hello.com', 'testhello').catch(function(error) {
 //firebase.auth().signInWithEmailAndPassword('comments@test.com', 'comments').catch(function(error) {
@@ -127,12 +127,7 @@ app.post('/get_user_info', async function(req, res, next) {
             var bal = snapshot.val().balance;
             var bio = snapshot.val().bio;
             var purchases = snapshot.val().purchases;
-            var groups;
-            if (snapshot.val().groups != null) {
-                groups = snapshot.val().groups[Object.keys(snapshot.val().groups)[0]];
-            } else {
-                groups = [];
-            }
+            var groups = snapshot.val().groups;
             // console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}, ${purchases}`);
             res.send({
               name: first + ' ' + last,

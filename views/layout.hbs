@@ -56,8 +56,11 @@
 
     <li><a class="subheader">Groups</a></li>
     <div id="list-of-groups">
-    <!-- <li><a href="/groups?group=Work"><i class="material-icons">group</i>Work</a></li>
-    <li><a href="/groups?group=Friends"><i class="material-icons">group</i>Friends</a></li> -->
+<!--    <li><a href="/groups?group=Work"><i class="material-icons ">group</i>Work</a></li>
+    <li><a href="/groups?group=Friends"><i class="material-icons ">group</i>Friends</a></li>-->
+    <li v-for="(value, key) in groups">
+      <a v-bind:href="get_group_url(value, key)"><i class="material-icons ">group</i>\{{value}}</a>
+    </li>
     </div>
     <li><a class="modal-trigger" href="#new-group"><i class="material-icons ">add</i>New</a></li>
     <li><a class="subheader">Account</a></li>
