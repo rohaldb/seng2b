@@ -52,14 +52,14 @@ $("#post-new-comment").on("click", function() {
       $('#new-comment-text').trigger('autoresize');
       $('#comment-id-' + postId.replace(/\..*/, '')).append(
       '<div id="comment-id-' + commentId + '">' +
-
       '<li class="collection-item avatar space-gray feed-item">' +
       '  <img src="images/sample_user.png" alt="" class="circle">' +
       '  <span class="title spaceship-text feed-username"><a href="#">' + whoami + '</a></span>' +
       '  <span class="feed-action">' + comment + '</span>' +
       '  <p><small class="feed-timestamp">' + date + '</small></p>' +
       '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
-      '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\'";>Delete</a>' +
+      '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\';' +
+      '  document.getElementById(\'delete-post-id\').value=\'#num-comments-' + postId.replace(/\..*/, '') + '\'";>Delete</a>' +
       '</li></div>');
     },
     error: function(response) {
@@ -82,9 +82,13 @@ $("#delete-comment-bttn").on("click", function() {
 */
 //TODO: actually delete comment in db - i.e. create this route
   var commentId = $('#delete-comment-id').val();
-  $(commentId).empty(); //TODO deletion
+  $(commentId).empty();
   $(commentId).remove();
   Materialize.toast('Comment deleted.', 1250);
+  var numComments = $($('#delete-post-id').val()).text().match(/\d+/)[0];
+  numComments--;
+  var plural = (numComments === 1) ? '' : 's';
+  $($('#delete-post-id').val()).text(numComments + ' comment' + plural);
 /*
     },
     error: function(response) {
@@ -252,7 +256,6 @@ function getFeed(id, user) {
     }
   });
 }
-
 
 var user_keys = {};
 var user_ids = {};
