@@ -19,6 +19,16 @@ var vue = new Vue({
                     if (index > -1) {
                         vue.purchaseList.splice(index, 1);
                     }
+                    vue.historyList.push(item);
+                    var index = vue.historyList.indexOf(item);
+                    if (index > -1) {
+                        var d = new Date(item.date);
+                        var date = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
+
+                        vue.historyList[index].date = date;
+                    }
+
+
                     vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount)
                     sidebarVue.removeItemFromList(item.companyCode, item.companyName)
                 },
@@ -115,7 +125,9 @@ function profitLoss(index, current) {
     var tradeValue = current * element.num_units;
     element.value = tradeValue;
     element.profit_loss_dollars = (tradeValue - element.trade_amount);
-    // console.log(element.profit_loss_dollars);
+    if (-0.0001 < element.profit_loss_dollars  && element.profit_loss_dollars < 0.001) {
+        element.profit_loss_dollars = 0;
+    }
     element.profit_loss_percent = ((element.profit_loss_dollars/element.trade_amount)*100);
 }
 
@@ -147,7 +159,6 @@ $.ajax({
         console.log("failed History, result = " + JSON.stringify(response));
     }
 });
-
 
 $.ajax({
     url: "/get_user_purchases",
@@ -206,7 +217,7 @@ $.ajax({
     dataType: "json",
     success: function(response) {
         $('#profile-name').text(response.name);
-        vue.balance = response.balance;
+        vue.balance = parseFloat(response.balance);
         $('#display-bio').text(response.bio);
         if (response.bio !== 'No bio yet.') {
             $('#new-bio-text').text(response.bio);
