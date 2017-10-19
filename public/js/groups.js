@@ -52,7 +52,7 @@ $("#post-new-comment").on("click", function() {
       $('#num-comments-' + postId.replace(/\..*/, '')).text(numComments + ' comment' + plural);
       $('#new-comment-text').val('');
       $('#new-comment-text').trigger('autoresize');
-      $('#comment-id-' + postId.replace(/\..*/, '')).append(
+      $('#comment-id-' + postId.replace(/\..*/, '')).prepend(
       '<div id="comment-id-' + commentId + '">' +
       '<li class="collection-item avatar space-gray feed-item">' +
       '  <img src="images/sample_user.png" alt="" class="circle">' +
@@ -243,6 +243,7 @@ function getFeed(id, user) {
     data: {'user': id},
     dataType: "json",
     success: function(response) {
+      console.log(JSON.stringify(response));
       /*
       if (numMembers === 1 && response.historyList.length === 0) {
         //if group contains one user and no previous purchases, show the one possible event - group creation
@@ -295,6 +296,7 @@ function getFeed(id, user) {
         }
 
         //append purchases & comments to feed array
+        var plural = (numComments === 1) ? '' : 's';
         feed.push({timestamp: date, content:
   '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar space-gray feed-item">' +
@@ -302,7 +304,7 @@ function getFeed(id, user) {
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">bought ${numUnits.toFixed(2)} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
   `    <p><small class="feed-timestamp">${timestamp}</small></p>` +
-  `    <a href="#!" id="num-comments-${purchaseId}" class="feed-comments-link">${numComments} comments</a>` +
+  `    <a href="#!" id="num-comments-${purchaseId}" class="feed-comments-link">${numComments} comment${plural}</a>` +
   `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}.${id}';">Comment</a>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
   '  </li>' +
@@ -345,6 +347,11 @@ $("#btn-invite").on("click", function() {
     invite_uids.push(user_ids[username]);
   })
   console.log('invite_uids: ', invite_uids);
+
+  if (invite_uids.length === 0) {
+    Materialize.toast('No members to add.', 1250);
+    return;
+  }
 
   var data = {
     invite_uids: JSON.stringify(invite_uids),
