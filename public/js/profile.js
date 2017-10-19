@@ -3,7 +3,8 @@ var vue = new Vue({
     data: {
         purchaseList: [],
         historyList: [],
-        watchList: []
+        watchList: [],
+        balance: 0,
     },
     methods: {
         closeTrade: function (item) {
@@ -11,13 +12,24 @@ var vue = new Vue({
             $.ajax({
                 url: "/close_trade",
                 method: "POST",
-            data: item,
+                data: item,
                 dataType: "json",
                 success: function(response) {
                     var index = vue.purchaseList.indexOf(item);
                     if (index > -1) {
                         vue.purchaseList.splice(index, 1);
                     }
+                    vue.historyList.push(item);
+                    var index = vue.historyList.indexOf(item);
+                    if (index > -1) {
+                        var d = new Date(item.date);
+                        var date = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
+
+                        vue.historyList[index].date = date;
+                    }
+
+
+                    vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount)
                     sidebarVue.removeItemFromList(item.companyCode, item.companyName)
                 },
                 error: function(response) {
@@ -25,8 +37,27 @@ var vue = new Vue({
                 }
             });
         },
+        removeFromWatchList: function (item) {
+            console.log(item)
+            $.ajax({
+                url: "/remove_from_watchlist",
+                method: "POST",
+                data: item,
+                dataType: "json",
+                success: function(response) {
+                    var index = vue.watchList.indexOf(item);
+                    if (index > -1) {
+                        vue.watchList.splice(index, 1);
+                    }
+                    // vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount)
+                    // sidebarVue.removeItemFromList(item.companyCode, item.companyName)
+                },
+                error: function(response) {
+                    console.log("failed, result = " + JSON.stringify(response));
+                }
+            });
+        },
         get_url: function (item) {
-            console.log(item);
             getStockPriceOf(item.companyCode, 1, 2);
             $.ajax({
                 url: "/close_trade",
@@ -36,7 +67,6 @@ var vue = new Vue({
                 success: function(response) {
                     console.log("success, result = " + JSON.stringify(response));
                     var index = vue.purchaseList.indexOf(item);
-                    console.log(index);
                     if (index > -1) {
                         vue.purchaseList.splice(index, 1);
                     }
@@ -95,7 +125,10 @@ function profitLoss(index, current) {
     var tradeValue = current * element.num_units;
     element.value = tradeValue;
     element.profit_loss_dollars = (tradeValue - element.trade_amount);
-    element.profit_loss_percent = (element.profit_loss_dollars/element.trade_amount);
+    if (-0.0001 < element.profit_loss_dollars  && element.profit_loss_dollars < 0.001) {
+        element.profit_loss_dollars = 0;
+    }
+    element.profit_loss_percent = ((element.profit_loss_dollars/element.trade_amount)*100);
 }
 
 $.ajax({
@@ -105,17 +138,20 @@ $.ajax({
     dataType: "json",
     success: function(response) {
         response.historyList.forEach(function (item, index) {
-            // console.log(item);
+            var d = new Date(item.date);
+            var date = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
+            console.log(item.num_units)
             vue.historyList.push({
                 companyCode: item.companyCode,
                 companyName: item.companyName,
-                // num_units: parseFloat(item.num_units),
-                // trade_amount: parseFloat(item.tradeAmount),
-                // type: item.type,
-                // current: 0,
-                // value: 0,
-                // profit_loss_dollars: 0,
-                // profit_loss_percent: 0,
+                num_units: parseFloat(item.num_units),
+                trade_amount: parseFloat(item.tradeAmount),
+                type: item.type,
+                current: 0,
+                date: date,
+                value: 0,
+                profit_loss_dollars: parseFloat(item.profit_loss_dollars),
+                profit_loss_percent: parseFloat(item.profit_loss_percent)
             });
         });
     },
@@ -124,7 +160,6 @@ $.ajax({
     }
 });
 
-
 $.ajax({
     url: "/get_user_purchases",
     method: "POST",
@@ -132,6 +167,8 @@ $.ajax({
     dataType: "json",
     success: function(response) {
         response.purchaseList.forEach(function (item, index) {
+            var d = new Date(item.date);
+            var date = d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
             getStockPriceOf(item.companyCode,index, 0);
             vue.purchaseList.push({
                 companyCode: item.companyCode,
@@ -180,7 +217,7 @@ $.ajax({
     dataType: "json",
     success: function(response) {
         $('#profile-name').text(response.name);
-        $('#current-balance').text('$' + response.balance);
+        vue.balance = parseFloat(response.balance);
         $('#display-bio').text(response.bio);
         if (response.bio !== 'No bio yet.') {
             $('#new-bio-text').text(response.bio);

@@ -12,9 +12,8 @@
                         <div class="col s4">
                             <span class="card-title orange-text" id="profile-name" style="display:inline-block;">Loading...</span>
                             <p>Current Balance</p>
-                            <h3 id="current-balance">Loading...</h3>
+                            <h3 id="current-balance">$\{{balance.toFixed(2)}}</h3>
                         </div>
-
                         <div class="col s6">
                             <h5>Bio</h5>
                             <p id="display-bio">No bio yet</p>
@@ -30,10 +29,6 @@
     <!-- edit bio popup -->
     <div id="edit-bio" class="modal modal-bio atlassian left-align white-text">
         <div class="modal-content container">
-
-            <div class="row">
-                <h4 class="orange-text" style="display:inline-block;">Edit Personal Bio</h4>
-            </div>
 
             <div class="row">
                 <div class="input-field col s12">
@@ -69,18 +64,15 @@
             <table class="striped">
                 <thead>
                     <th>Name</th>
-                    <th>Current</th>
-                    <!-- <th>Change</th>
-                    <th>High</th>
-                    <th>Low</th> -->
+                    <th>Code</th>
+                    <th>Current Price</th>
                 </thead>
                 <tbody>
                     <tr v-for="item in watchList">
                         <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
                         <td class="stock-current">\{{item.companyCode}}</td>
-                        <td class="stock-change change-negative">-0.02%</td>
-                        <td class="stock-high">$153.27</td>
-                        <td class="stock-low">$105.90</td>
+                        <td class="stock-change change">\{{item.value}}</td>
+                        <td><a class="waves-effect waves-light btn  red darken-2" @click=removeFromWatchList(item)>Remove</a> </td>
                     </tr>
                 </tbody>
             </table>
@@ -105,13 +97,19 @@
                         <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
                         <td>\{{item.num_units.toFixed(2)}}</td>
                         <td>$\{{item.trade_amount.toFixed(2)}}</td>
-                        <td>$\{{item.profit_loss_dollars.toFixed(2)}}</td>
-                        <td>\{{item.profit_loss_percent.toFixed(2)}}%</td>
+
+                        <td v-if="item.profit_loss_dollars > 0" class="green-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                        <td v-else-if="item.profit_loss_dollars == 0" class="blue-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                        <td v-else class="red-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+
+                        <td v-if="item.profit_loss_percent > 0" class="green-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+                        <td v-else-if="item.profit_loss_percent == 0" class="blue-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+                        <td v-else class="red-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+
                         <td>\{{item.value.toFixed(2)}}</td>
+
                         <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
                         <td><a class="waves-effect waves-light btn  red darken-2" @click=closeTrade(item)>Close</a> </td>
-                        <!--  href="#close-trade" -->
-                        <!-- <td href="#edit-bio"><a><i class="red-text material-icons">close</i></a></td> -->
                     </tr>
                 </tbody>
             </table>
@@ -123,16 +121,40 @@
         <div class="col s12 align-center">
             <table class="striped">
                 <thead>
+
                     <th>Name</th>
                     <th>Code</th>
+                    <th>Units</th>
+                    <th>Invested</th>
+                    <th>P/L($)</th>
+                    <th>P/L(%)</th>
+                    <th>Value</th>
+                    <th>Type</th>
+                    <th>date</th>
+
                 </thead>
                 <tbody>
                     <tr v-for="item in historyList">
+
                         <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
                         <td class="stock-current">\{{item.companyCode}}</td>
-                        <td class="stock-change change-negative">-0.02%</td>
-                        <td class="stock-high">$153.27</td>
-                        <td class="stock-low">$105.90</td>
+                        <td>\{{item.num_units.toFixed(2)}}</td>
+                        <td>$\{{item.trade_amount.toFixed(2)}}</td>
+
+                        <td v-if="item.profit_loss_dollars > 0" class="green-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                        <td v-else-if="item.profit_loss_dollars == 0" class="blue-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                        <td v-else class="red-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+
+                        <td v-if="item.profit_loss_percent > 0" class="green-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+                        <td v-else-if="item.profit_loss_percent == 0" class="blue-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+                        <td v-else class="red-text">$\{{item.profit_loss_percent.toFixed(2)}}</td>
+
+                        <td>\{{item.value.toFixed(2)}}</td>
+
+                        <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
+                        <td class="stock-current">\{{item.date}}</td>
+
+
                     </tr>
                 </tbody>
             </table>
