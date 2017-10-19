@@ -266,8 +266,10 @@ function getFeed(id, user) {
 
         //append existing comments to html for comments of current purchase
         var commentsHtml = "";
+        var numComments = 0;
         if (comments !== undefined) {
           Object.keys(comments).forEach(function(key) {
+            numComments++;
             var commentObj = comments[key];
             var dd = new Date(parseInt(commentObj.date));
             var timestampComment = dd.toDateString() + ' ' + dd.getHours() + ':' + dd.getMinutes() + ':' + dd.getSeconds();
@@ -284,6 +286,8 @@ function getFeed(id, user) {
               '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + key + '\';' +
               '  document.getElementById(\'delete-post-id-user\').value=\'' + id + '\';' +
               '  document.getElementById(\'delete-post-id\').value=\'#num-comments-' + purchaseId + '\'";>Delete</a>';
+            } else {
+              toPrepend+= '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>';
             }
             toPrepend += '</li></div>';
             commentsHtml = toPrepend + commentsHtml;
@@ -298,7 +302,7 @@ function getFeed(id, user) {
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">bought ${numUnits.toFixed(2)} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
   `    <p><small class="feed-timestamp">${timestamp}</small></p>` +
-  `    <a href="#!" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
+  `    <a href="#!" id="num-comments-${purchaseId}" class="feed-comments-link">${numComments} comments</a>` +
   `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}.${id}';">Comment</a>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
   '  </li>' +
