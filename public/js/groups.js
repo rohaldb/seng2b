@@ -59,11 +59,12 @@ $("#post-new-comment").on("click", function() {
       '  <p><small class="feed-timestamp">' + date + '</small></p>' +
       '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
       '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\';' +
+      '  document.getElementById(\'delete-post-id-user\').value=\'' + postId.replace(/.*\./, '') + '\';' +
       '  document.getElementById(\'delete-post-id\').value=\'#num-comments-' + postId.replace(/\..*/, '') + '\'";>Delete</a>' +
       '</li></div>');
     },
     error: function(response) {
-      Materialize.toast('Could not post comment.', 1250);
+      Materialize.toast('Could not post comment. Try again later.', 1250);
       console.log("failed, result = " + JSON.stringify(response));
     }
   });
@@ -71,32 +72,31 @@ $("#post-new-comment").on("click", function() {
 
 //delete a comment on a feed event
 $("#delete-comment-bttn").on("click", function() {
-/*
+  var user = $('#delete-post-id-user').val();
+  var history = $('#delete-post-id').val().replace(/^#num-comments-/, '');
+  var comm = $('#delete-comment-id').val().replace(/^#comment-id-/, '');
+  console.log(`user id: ${user}, history id: ${history}, comment id: ${comm}`);
   $.ajax({
     url: "/delete_comment_on_feed",
     method: "POST",
-    data: data,
+    data: {'user': user, 'history': history, 'comm': comm},
     dataType: "json",
     success: function(response) {
       console.log("success, result = " + JSON.stringify(response));
-*/
-//TODO: actually delete comment in db - i.e. create this route
-  var commentId = $('#delete-comment-id').val();
-  $(commentId).empty();
-  $(commentId).remove();
-  Materialize.toast('Comment deleted.', 1250);
-  var numComments = $($('#delete-post-id').val()).text().match(/\d+/)[0];
-  numComments--;
-  var plural = (numComments === 1) ? '' : 's';
-  $($('#delete-post-id').val()).text(numComments + ' comment' + plural);
-/*
+      var commentId = $('#delete-comment-id').val();
+      $(commentId).empty();
+      $(commentId).remove();
+      Materialize.toast('Comment deleted.', 1250);
+      var numComments = $($('#delete-post-id').val()).text().match(/\d+/)[0];
+      numComments--;
+      var plural = (numComments === 1) ? '' : 's';
+      $($('#delete-post-id').val()).text(numComments + ' comment' + plural);
     },
     error: function(response) {
-      Materialize.toast('Could not add comment.', 1250);
+      Materialize.toast('Could not delete comment. Try again later.', 1250);
       console.log("failed, result = " + JSON.stringify(response));
     }
   });
-*/
 });
 
 //group feed - generated and sorted before being displayed

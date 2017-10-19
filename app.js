@@ -525,6 +525,20 @@ app.post('/comment_on_feed', async function (req, res, next) {
 
 });
 
+app.post('/delete_comment_on_feed', async function (req, res, next) {
+  var user = firebase.auth().currentUser.uid;
+  var commId = req.body.comm;
+  var userId = req.body.user;
+  var historyId = req.body.history;
+  console.log('comm: ' + commId + ' userId: ' + userId + ' historyId: ' + historyId);
+
+  //delete comment from the historyId of userId
+  firebase.database().ref(`/users/${userId}/history/${historyId}/comments/${commId}`).remove();
+
+  res.send({'removed': 'success'});
+  console.log('success');
+});
+
 // app.post('/get_user_list', async function(req, res, next) {
 //   res.contentType('json');
 //   console.log("@!$#!@$H!@H$!@H#H!@$@");
