@@ -158,15 +158,55 @@ var updateGroupPage = function(response) {
       appendToFeed(x.left, x.user, 'left', left);
     }
   });
+
+  $.ajax({
+    url: "/get_user_list",
+    method: "POST",
+    data: '',
+    dataType: "json",
+    success: function(response) {
+      var name = response.name;
+      var myuid = response.myuid;
+      // console.log("MEMBERNAMEIDS: " + memberNameIds);
+      $('.chips-autocomplete').empty(); // Clear chips from input box
+      response.userList.forEach(function(item){
+        // console.log("ITEM: " + item.uid + " with index" + memberNameIds.indexOf(item.uid));
+
+        if (item.uid !== myuid && memberNameIds.indexOf(item.uid) === -1) { // Not current user/group member uid
+          user_keys[item.name] = null;
+          user_ids[item.name] = item.uid;
+        } else {
+          delete user_keys[item.name];
+          delete user_ids[item.name];
+        }
+      });
+
+      $('.chips-autocomplete').material_chip({
+        autocompleteOptions: {
+          data: user_keys,
+          limit: Infinity,
+          minLength: 1
+        },
+        placeholder: 'Enter a User',
+        secondaryPlaceholder: '+ User',
+      });
+    },
+    error: function(response) {
+      //console.warn("hey ben failed");
+      console.log("failed, result = " + JSON.stringify(response));
+    }
+  });
 };
 
-//load number of group members and list of group members
+//load number of group members and list of group members, then load user list and generate chips
 $.ajax({
   url: "/get_group_info",
   method: "POST",
   data: {'id': getUrlParameter('id')},
   dataType: "json",
-  success: updateGroupPage,
+  success: function (response) {
+    updateGroupPage(response);
+  },
   error: function(response) {
     console.log("failed, result = " + JSON.stringify(response));
   }
@@ -259,50 +299,6 @@ function getFeed(id, user) {
 var user_keys = {};
 var user_ids = {};
 
-$.ajax({
-  url: "/get_user_list",
-  method: "POST",
-  data: '',
-  dataType: "json",
-  success: function(response) {
-    //console.warn("hey ben success");
-    //console.log("success, result = " + JSON.stringify(response));
-    var name = response.name;
-    var myuid = response.myuid;
-    //console.log(response.userList);
-    response.userList.forEach(function(item){
-      // console.log("ITEM: " + JSON.stringify(item));
-      //console.log("hey");
-      if (item.uid !== myuid) {
-        user_keys[item.name] = null;
-        user_ids[item.name] = item.uid;
-        $('.chips-autocomplete').material_chip({
-          autocompleteOptions: {
-            data: user_keys,
-            limit: Infinity,
-            minLength: 1
-          },
-          placeholder: 'Enter a User',
-          secondaryPlaceholder: '+ User',
-        });
-        //console.log(item.name + ' == ' + user_keys[item.name]);
-        // console.log("HERE WE ARE!!!!");
-        //console.log("success, result = " + JSON.stringify(response));
-        //var name = response.name;
-        //console.log('and the name is: ' + name);
-        response.userList.forEach(function (item,index){
-          // console.log("success name is = " + item[index]);
-        });
-      }
-    });
-  },
-  error: function(response) {
-    //console.warn("hey ben failed");
-    console.log("failed, result = " + JSON.stringify(response));
-  }
-});
-
-
 var invite_usernames = {};
 var invite_uids = [];
 $("#btn-invite").on("click", function() {
@@ -384,19 +380,6 @@ $('.chips').on('chip.add', function(e, chip){
 $('.chips').on('chip.delete', function (e, chip) {
   console.log('Removing chip: ' + chip.tag);
   delete invite_usernames[chip.tag];
-});
-
-//load user name chips
-$(document).ready(function(){
-  $('.chips-autocomplete').material_chip({
-    autocompleteOptions: {
-      data: user_keys,
-      limit: Infinity,
-      minLength: 1
-    },
-    placeholder: 'Enter a User',
-    secondaryPlaceholder: '+ User',
-  });
 });
 
 /*
