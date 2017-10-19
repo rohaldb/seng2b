@@ -168,7 +168,8 @@ function getStockPriceOf(stockInfo, sentimentsJSON) {
     var chartData = generateChartData(data, 1);
     $("#company-name").text(stockInfo.Symbol + " | " + stockInfo.Name);
     vue.share_price = parseFloat(chartData[chartData.length - 1].close).toFixed(2);
-    vue.share_percent_change  = (chartData[chartData.length - 1].close - chartData[0].close)/chartData[0].close;
+    vue.share_percent_change  = ((chartData[chartData.length - 1].close - chartData[0].close)/chartData[0].close)*100;
+    console.log(vue.share_percent_change);
   });
   console.log(code);
   $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + code + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status) {
