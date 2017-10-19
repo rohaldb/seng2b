@@ -28,8 +28,7 @@ $("#post-new-comment").on("click", function() {
   var whoami = 'me';
   var commentId = Math.random();
 
-  var d = new Date();
-  var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+  var timestamp = Date.now();
   var data = {
     'comment': comment,
     'postId': postId,
@@ -46,6 +45,8 @@ $("#post-new-comment").on("click", function() {
       console.log("success, result = " + JSON.stringify(response));
 */
 //TODO: actually add comment to db - i.e. create this route
+      var d = new Date(timestamp);
+      var date = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
       Materialize.toast('Comment added.', 1250);
       var numComments = $('#num-comments-' + postId).text().match(/\d+/)[0];
       numComments++;
@@ -100,36 +101,68 @@ $("#delete-comment-bttn").on("click", function() {
 */
 });
 
+//group feed - generated and sorted before being displayed
+//need to be global
+var feed = [];
+var numMembers = 0;
+var numProcessed = 0;
+
+//load number of group members and list of group members
+var data = {
+  'id': getUrlParameter('id')
+};
+
 var updateGroupPage = function(response) {
+  feed = []; //need to reset these values every time
+  $('#group-feed-events').empty();
+  numProcessed = 0;
+
   console.log("success, result = " + JSON.stringify(response));
-  var numMembers = response.numMembers;
+  numMembers = response.numMembers;
   var members = response.members;
   var memberNameIds = response.memberNameIds;
   var leaderboardIds = response.leaderboardIds;
+  var history = response.history;
   var memberCountText = (numMembers === 1) ? ' member' : ' members';
 
   $('#num-group-members').text(numMembers + memberCountText); // Update members count HTML
 
-  // Empty feed and leaderboard list (prevent duplicate loading when updateGroupPage is called again)
-  $('#group-feed-events').empty();
-  $('#leaderboard-list').empty();
-
+  //generate members list
   var memberListText = "";
   var memberListIds = "";
   memberNameIds.forEach(x => {
     if (memberListText !== "") {
-    memberListText += ", "
-    memberListIds += ", "
+      memberListText += ", ";
+      memberListIds += ", ";
     }
     memberListText += members[x].name;
-
     getFeed(x, members[x].name);
   });
-  $('#group-member-names').text(memberListText); // Update member names HTML
-  $('#group-member-ids').text(memberListIds); // Update member names HTML
 
+  $('#group-member-names').text(memberListText); // Update member names HTML
+  $('#group-member-ids').text(memberListIds); // Update member ids HTML - no longer needed?
+
+  // Empty feed and leaderboard HTML to prevent duplicate loading
+  // TODO POSSIBLY NEED LATER WHEN ALL USER PURCHASES FIXED
+  // $('#group-feed-events').empty();
+  $('#leaderboard-list').empty();
+
+  //generate leaderboard
   leaderboardIds.forEach(x => {
     $('#leaderboard-list').append(`<li><span class="name">${members[x].name}</span><span class="percent">${members[x].balance}</span></li>`)
+  });
+
+  //generate part of the feed that shows create/join/leave events
+  history.forEach(x => {
+    var user = x.user;
+    var d = new Date(parseInt(x.joined));
+    var joined = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    d = new Date(parseInt(x.left));
+    var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    appendToFeed(x.joined, x.user, x.created, joined); //should always be valid
+    if (x.left !== '') {
+      appendToFeed(x.left, x.user, 'left', left);
+    }
   });
 };
 
@@ -145,30 +178,59 @@ $.ajax({
   }
 });
 
-//now load the feed events
-function getFeed(id, user) {
-  $.ajax({
-    url: "/get_user_purchases",
-    method: "POST",
-    data: {'user': id},
-    dataType: "json",
-    success: function(response) {
-      response.purchaseList.forEach(function (item, index) {
-        var companyCode = item.companyCode;
-        var numUnits = parseFloat(item.num_units);
-        var tradeAmount = parseFloat(item.tradeAmount);
-        var date = item.date;
-        var d = new Date(date);
-        var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-        var purchaseId = item.id;
-        $('#group-feed-events').append(
+//append create/leave/join event to group feed
+function appendToFeed(date, user, word, timestamp) {
+  feed.push({timestamp: date, content:
   '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
-  `    <span class="feed-action">bought ${numUnits} in ${companyCode} for $${tradeAmount}.<span>` +
+  `    <span class="feed-action">${word} the group.<span>` +
   `   <p><small class="feed-timestamp">${timestamp}</small></p>` +
-  `   <a href="#" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
+  '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
+  '  </li>' +
+  '</div>' +
+  '<br>' +
+  '</div>'});
+}
+
+//load the purchases made by group members
+function getFeed(id, user) {
+  $.ajax({
+    url: "/get_user_purchase_history",
+    method: "POST",
+    data: {'user': id},
+    dataType: "json",
+    success: function(response) {
+      /*
+      if (numMembers === 1 && response.historyList.length === 0) {
+        //if group contains one user and no previous purchases, show the one possible event - group creation
+        //TODO: this may be redundant now
+        feed.forEach(x => {
+          $('#group-feed-events').append(x.content);
+        });
+      }
+      */
+      response.historyList.forEach(function (item, index) {
+        var companyCode = item.companyCode;
+        var companyName = item.companyName;
+        var numUnits = parseFloat(item.num_units);
+        var tradeAmount = parseFloat(item.tradeAmount).toFixed(2);
+        var date = item.date;
+        var d = new Date(date);
+        var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+        var purchaseId = item.id;
+
+        var link = `/stock?stock=${companyCode}&company=${companyName}`;
+        feed.push({timestamp: date, content:
+
+  '<div class="col s12 feed-col">' +
+  '  <li class="collection-item avatar space-gray feed-item">' +
+  '    <img src="images/sample_user.png" alt="" class="circle">' +
+  `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
+  `    <span class="feed-action">bought ${numUnits} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
+  `    <p><small class="feed-timestamp">${timestamp}</small></p>` +
+  `    <a href="#" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
   `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}';">Comment</a>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
   '  </li>' +
@@ -178,8 +240,20 @@ function getFeed(id, user) {
   '<ul>' +
   '  <!-- comments for feed event above -->' +
   '</ul>' +
-  '</div>');
+  '</div>'});
       });
+
+      //push everything to the feed when all group members processed
+      numProcessed++;
+      if (numProcessed === numMembers) {
+        feed.sort(function(lhs, rhs) {
+          return rhs.timestamp - lhs.timestamp; //reverse chronological
+        });
+        feed.forEach(x => {
+          $('#group-feed-events').append(x.content);
+        });
+      }
+
     },
     error: function(response) {
       console.log("failed Purchases, result = " + JSON.stringify(response));
@@ -242,7 +316,8 @@ $("#btn-invite").on("click", function() {
 
   var data = {
     invite_uids: JSON.stringify(invite_uids),
-    group_id: getUrlParameter('id')
+    group_id: getUrlParameter('id'),
+    date: Date.now()
   };
 
   console.log("DATA: " + JSON.stringify(data));
@@ -258,8 +333,12 @@ $("#btn-invite").on("click", function() {
         method: "POST",
         data: {'id': getUrlParameter('id')},
         dataType: "json",
-        success: updateGroupPage,
+        success: function (response) {
+          Materialize.toast('Members successfully added.', 1250);
+          updateGroupPage(response);
+        },
         error: function(response) {
+          Materialize.toast('Could not add members to group. Try again later.', 1250);
           console.log("failed, result = " + JSON.stringify(response));
         }
       });
@@ -275,7 +354,7 @@ $("#btn-leave").on("click", function() {
   $.ajax({
     url: "/leave_group",
     method: "POST",
-    data: {'group_id': getUrlParameter('id')},
+    data: {'group_id': getUrlParameter('id'), 'date': Date.now()},
     dataType: "json",
     success: function(response) {
       $.ajax({
@@ -283,13 +362,18 @@ $("#btn-leave").on("click", function() {
         method: "POST",
         data: {'id': getUrlParameter('id')},
         dataType: "json",
-        success: updateGroupPage,
+        success: function (response) {
+          console.log("success, result = " + JSON.stringify(response));
+          Materialize.toast('Left the group.', 1250);
+          window.location.href = '/profile';
+        },
         error: function(response) {
           console.log("failed, result = " + JSON.stringify(response));
         }
       });
     },
     error: function(response) {
+      Materialize.toast('Could not leave group. Try again later.', 1250);
       console.log("failed, result = " + JSON.stringify(response));
     }
   });
