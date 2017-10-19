@@ -162,66 +162,8 @@
 
     <!-- graph tabs -->
     <div id="graph1" class="col s12">
-        <div v-show="showSpinner0" class="center-align" id="graph0Loader" style="margin-top:50px;">
-            <div class="preloader-wrapper active">
-                <div class="spinner-layer spinner">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                        <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="chartdiv1" style="width:97%; height:400px; margin-top:30px;"></div>
-    </div>
-    <div id="graph2" class="col s12">
-
-        <div v-show="showSpinner1" class="center-align" id="graph1Loader" style="margin-top:50px;">
-            <div class="preloader-wrapper active">
-                <div class="spinner-layer spinner">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                        <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="chartdiv2" style="width:97%; height:400px;"></div>
-    </div>
-    <div id="graph3" class="col s12">
-
-        <div v-show="showSpinner2" class="center-align" id="graph2Loader" style="margin-top:50px;">
-            <div class="preloader-wrapper active">
-                <div class="spinner-layer spinner">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                        <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="chartdiv3" style="width:97%; height:400px;"></div>
-    </div>
-    <div id="graph4" class="col s12">
-        <div class="row">
-            <div class="input-field col s4 offset-s4">
-                <input type="text" class="autocomplete autocomplete2" placeholder="Search Stock">
-            </div>
-        </div>
-        <div class="row">
-            <div v-show="showSpinner3" class="center-align" id="graph3Loader" style="margin-top:50px;">
+        <transition name="fade">
+            <div v-show="showSpinner0" class="center-align" id="graph0Loader" style="margin-top:50px;">
                 <div class="preloader-wrapper active">
                     <div class="spinner-layer spinner">
                         <div class="circle-clipper left">
@@ -234,9 +176,77 @@
                     </div>
                 </div>
             </div>
+        </transition>
+        <transition name="fade">
+            <div id="chartdiv1" style="width:97%; height:400px; margin-top:30px;"></div>
+        </transition>
+    </div>
+    <div id="graph2" class="col s12">
+        <transition name="fade">
+            <div v-show="showSpinner1" class="center-align" id="graph1Loader" style="margin-top:50px;">
+                <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                            <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div id="chartdiv2" style="width:97%; height:400px;"></div>
+        </transition>
+    </div>
+    <div id="graph3" class="col s12">
+        <transition name="fade">
+            <div v-show="showSpinner2" class="center-align" id="graph2Loader" style="margin-top:50px;">
+                <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                            <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div id="chartdiv3" style="width:97%; height:400px;"></div>
+        </transition>
+    </div>
+    <div id="graph4" class="col s12">
+        <div class="row">
+            <div class="input-field col s4 offset-s4">
+                <input type="text" class="autocomplete autocomplete2" placeholder="Search Stock">
+            </div>
         </div>
-
-        <div v-show="showG4" id="chartdiv4" style="width:97%; height:400px;"></div>
+        <div class="row">
+            <transition name="fade">
+                <div v-show="showSpinner3" class="center-align" id="graph3Loader" style="margin-top:50px;">
+                    <div class="preloader-wrapper active">
+                        <div class="spinner-layer spinner">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div><div class="gap-patch">
+                                <div class="circle"></div>
+                            </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+        </div>
+        <transition name="fade">
+            <div v-show="showG4" id="chartdiv4" style="width:97%; height:400px;"></div>
+        </transition>
     </div>
 </div>
 
