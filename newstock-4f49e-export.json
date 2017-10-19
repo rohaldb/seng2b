@@ -1,0 +1,287 @@
+{
+  "groups" : {
+    "-KwnvpUtH2ABw9QXlowb" : {
+      "history" : [ {
+        "created" : "joined",
+        "joined" : "1508409821722",
+        "left" : "",
+        "user" : "Thor Odinson"
+      }, {
+        "created" : "joined",
+        "joined" : "1508406425102",
+        "left" : "",
+        "user" : "Captain America"
+      }, {
+        "created" : "joined",
+        "joined" : "1508406043124",
+        "left" : "",
+        "user" : "Tony Stark"
+      }, {
+        "created" : "joined",
+        "joined" : "1508405514366",
+        "left" : "",
+        "user" : "Bruce Banner"
+      }, {
+        "created" : "created",
+        "joined" : "1508404842021",
+        "left" : "1508409791796",
+        "user" : "Thor Odinson"
+      } ],
+      "name" : "The Avengers",
+      "users" : [ "1pg2Yv92i0V9b77hN5pPIUt03B92", "3dqvWPaGuPQ4zSO88knmXM1bzw13", "SVT90N9dMef8bdolUFDwHhUFMir2", "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42" ]
+    },
+    "-Kwo5eKBHlpBsC0GXd7c" : {
+      "history" : [ {
+        "created" : "created",
+        "joined" : "1508407682075",
+        "left" : "",
+        "user" : "Adam wizard"
+      } ],
+      "name" : "Mates and stuff",
+      "users" : [ "vfvaTaRL3MbjIUxb3xTYBC1X8dy1" ]
+    }
+  },
+  "users" : {
+    "1pg2Yv92i0V9b77hN5pPIUt03B92" : {
+      "balance" : "51177.00",
+      "bio" : "No bio yet.",
+      "email" : "bruce@smash.com",
+      "firstName" : "Bruce",
+      "groups" : {
+        "-KwnvpUtH2ABw9QXlowb" : "The Avengers"
+      },
+      "lastName" : "Banner",
+      "purchases" : {
+        "-Kwo3BmuZ14RCaDYahzf" : {
+          "companyCode" : "FB",
+          "companyName" : "Facebook, Inc.",
+          "date" : 1508407037217,
+          "num_units" : "277.3561324774186",
+          "share_price" : "176.03",
+          "tradeAmount" : "48823",
+          "type" : "long"
+        }
+      },
+      "userId" : "1pg2Yv92i0V9b77hN5pPIUt03B92"
+    },
+    "3dqvWPaGuPQ4zSO88knmXM1bzw13" : {
+      "balance" : "80009.28",
+      "bio" : "No bio yet.",
+      "email" : "iron@man.com",
+      "firstName" : "Tony",
+      "groups" : {
+        "-KwnvpUtH2ABw9QXlowb" : "The Avengers"
+      },
+      "history" : {
+        "-Kwo-JVLiUFuYxRK6UPr" : {
+          "comments" : {
+            "-Kwo1bjqWmvKacUH2HGO" : {
+              "comment" : "Need some metal for those suits?",
+              "date" : "1508406621396",
+              "poster" : "Bruce Banner"
+            }
+          },
+          "companyCode" : "GT",
+          "companyName" : "Goodyear Tire & Rubber",
+          "date" : 1508406018087,
+          "num_units" : "500",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "16695",
+          "type" : "long"
+        },
+        "-Kwo-JjcdnZbV4pkWZOj" : {
+          "companyCode" : "MSFT",
+          "companyName" : "Microsoft Corp.",
+          "date" : 1508406019065,
+          "num_units" : "128.84937508053085",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "10000",
+          "type" : "short"
+        },
+        "-Kwo17hRxAOz9LqoJq4Q" : {
+          "companyCode" : "NEM",
+          "companyName" : "Newmont Mining Corp. (Hldg. Co.)",
+          "date" : 1508406496197,
+          "num_units" : "1320.6550449022716",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "50000",
+          "type" : "short"
+        }
+      },
+      "lastName" : "Stark",
+      "purchases" : {
+        "-Kwo8SH1R5Lrg0tE8_h_" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508408415462,
+          "num_units" : "3.1296945418127193",
+          "share_price" : "150.76",
+          "tradeAmount" : "400",
+          "type" : "long"
+        },
+        "-Kwo8YwHfmjFEMmRcAOH" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508408442743,
+          "num_units" : "122",
+          "share_price" : "170.76",
+          "tradeAmount" : "20490.72",
+          "type" : "short"
+        }
+      },
+      "userId" : "3dqvWPaGuPQ4zSO88knmXM1bzw13"
+    },
+    "SVT90N9dMef8bdolUFDwHhUFMir2" : {
+      "balance" : "87613.00",
+      "bio" : "No bio yet.",
+      "email" : "thecap@landofthebrave.com",
+      "firstName" : "Captain",
+      "groups" : {
+        "-KwnvpUtH2ABw9QXlowb" : "The Avengers"
+      },
+      "history" : {
+        "-Kwo0mpbNNFzL_heW0BW" : {
+          "comments" : {
+            "-Kwo2dqKYJ5MqhGF0nSJ" : {
+              "comment" : "Go Cap!",
+              "date" : "1508406893862",
+              "poster" : "Bruce Banner"
+            }
+          },
+          "companyCode" : "AAL",
+          "companyName" : "American Airlines Group",
+          "date" : 1508406406668,
+          "num_units" : "130",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "6763.899999999994",
+          "type" : "long"
+        },
+        "-Kwo0mzR0OtIyS-EQaHb" : {
+          "companyCode" : "BA",
+          "companyName" : "Boeing Company",
+          "date" : 1508406407296,
+          "num_units" : "275",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "71502.75",
+          "type" : "short"
+        }
+      },
+      "lastName" : "America",
+      "purchases" : {
+        "-Kwo3XDtwa3Ldv4nXLPr" : {
+          "companyCode" : "FB",
+          "companyName" : "Facebook, Inc.",
+          "date" : 1508407125081,
+          "num_units" : "70.36868715559848",
+          "share_price" : "176.03",
+          "tradeAmount" : "12387",
+          "type" : "long"
+        }
+      },
+      "userId" : "SVT90N9dMef8bdolUFDwHhUFMir2"
+    },
+    "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42" : {
+      "balance" : "30544.40",
+      "bio" : "Hey, I'm Thor. When I'm not out saving the word from my brother Loki, or relaxing with Jane, I like to trade on NewStock. Let's hope I see some returns, or i'm headed back to Asgard. Oh, and I'm the god of thunder.",
+      "email" : "thor@thunder.com",
+      "firstName" : "Thor",
+      "groups" : {
+        "-KwnvpUtH2ABw9QXlowb" : "The Avengers"
+      },
+      "history" : {
+        "-KwoAfxL3vCwM-yFX3hE" : {
+          "companyCode" : "ABT",
+          "companyName" : "Abbott Laboratories",
+          "date" : 1508408999861,
+          "num_units" : "500",
+          "profit_loss_dollars" : "300",
+          "profit_loss_percent" : "1.0873504893077202",
+          "tradeAmount" : "27590",
+          "type" : "short"
+        }
+      },
+      "lastName" : "Odinson",
+      "purchases" : {
+        "-KwnvfyT5UcxBW9rYM92" : {
+          "companyCode" : "FB",
+          "companyName" : "Facebook, Inc.",
+          "date" : 1508404803438,
+          "num_units" : "113.61699710276658",
+          "share_price" : "176.03",
+          "tradeAmount" : "20110",
+          "type" : "long"
+        },
+        "-KwnyjwZmAv33QOX1lbB" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508405606162,
+          "num_units" : "240",
+          "share_price" : "158.41",
+          "tradeAmount" : "34000.123",
+          "type" : "short"
+        },
+        "-Kwnyqn6zQBZnd1JpZqu" : {
+          "companyCode" : "MSFT",
+          "companyName" : "Microsoft Corp.",
+          "date" : 1508405634229,
+          "num_units" : "120",
+          "share_price" : "78.23",
+          "tradeAmount" : "9411.2",
+          "type" : "long"
+        },
+        "-Kwo5H63tIW41NTj1Gb3" : {
+          "companyCode" : "BA",
+          "companyName" : "Boeing Company",
+          "date" : 1508407583271,
+          "num_units" : "5.769008884273682",
+          "share_price" : "258.01",
+          "tradeAmount" : "1540",
+          "type" : "long"
+        }
+      },
+      "userId" : "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42",
+      "watchList" : {
+        "-Kwnyp5iSKRItFsxdLNY" : {
+          "companyCode" : "MSFT",
+          "companyName" : "Microsoft Corp."
+        },
+        "-KwnyzrP5LSpWAvUKE57" : {
+          "companyCode" : "ATVI",
+          "companyName" : "Activision Blizzard"
+        },
+        "-Kwnz924yF2IVNjL3w64" : {
+          "companyCode" : "ABT",
+          "companyName" : "Abbott Laboratories"
+        }
+      }
+    },
+    "vfvaTaRL3MbjIUxb3xTYBC1X8dy1" : {
+      "balance" : "100000.00",
+      "bio" : "I Am a coding Wizard. Achio Money",
+      "email" : "wizard@gm.com",
+      "firstName" : "Adam",
+      "groups" : {
+        "-Kwo5eKBHlpBsC0GXd7c" : "Mates and stuff"
+      },
+      "history" : {
+        "-Kwo7Mvc20Ht79_O4DRi" : {
+          "companyCode" : "ADM",
+          "companyName" : "Archer-Daniels-Midland Co",
+          "date" : 1508408131512,
+          "num_units" : "5",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "216.5500000000029",
+          "type" : "long"
+        }
+      },
+      "lastName" : "wizard",
+      "userId" : "vfvaTaRL3MbjIUxb3xTYBC1X8dy1"
+    }
+  }
+}
