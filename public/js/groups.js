@@ -258,10 +258,33 @@ function getFeed(id, user) {
         var d = new Date(date);
         var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
         var purchaseId = item.id;
-
+        var comments = item.comments;
         var link = `/stock?stock=${companyCode}&company=${companyName}`;
-        feed.push({timestamp: date, content:
 
+        //append existing comments to html for comments of current purchase
+        var commentsHtml = "";
+        if (comments !== undefined) {
+          Object.keys(comments).forEach(function(key) {
+            var commentObj = comments[key];
+            var dd = new Date(parseInt(commentObj.date));
+            var timestampComment = dd.toDateString() + ' ' + dd.getHours() + ':' + dd.getMinutes() + ':' + dd.getSeconds();
+            commentsHtml =
+            '<div id="comment-id-' + key + '">' +
+            '<li class="collection-item avatar space-gray feed-item">' +
+            '  <img src="images/sample_user.png" alt="" class="circle">' +
+            '  <span class="title spaceship-text feed-username"><a href="#">' + commentObj.poster + '</a></span>' +
+            '  <span class="feed-action">' + commentObj.comment + '</span>' +
+            '  <p><small class="feed-timestamp">' + timestampComment + '</small></p>' +
+            '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
+            '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + key + '\';' +
+            '  document.getElementById(\'delete-post-id-user\').value=\'' + id + '\';' +
+            '  document.getElementById(\'delete-post-id\').value=\'#num-comments-' + purchaseId + '\'";>Delete</a>' +
+            '</li></div>' + commentsHtml;
+          });
+        }
+
+        //append purchases & comments to feed array
+        feed.push({timestamp: date, content:
   '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
@@ -277,8 +300,10 @@ function getFeed(id, user) {
   `<div class="col s11 offset-s1 feed-col" id="comment-id-${purchaseId}">` +
   '<ul>' +
   '  <!-- comments for feed event above -->' +
+  commentsHtml + //i.e. existing comments
   '</ul>' +
   '</div>'});
+
       });
 
       //push everything to the feed when all group members processed

@@ -197,7 +197,8 @@ app.post('/get_user_purchase_history', async function(req, res, next) {
                     date: x.val().date,
                     num_units: x.val().num_units,
                     tradeAmount: x.val().tradeAmount,
-                    id: Object.keys(snapshot.val())[0]
+                    id: Object.keys(snapshot.val())[0],
+                    comments: x.val().comments
                 })
             })
             res.send({'historyList': historyList});
@@ -295,7 +296,8 @@ app.post('/close_trade', async function(req, res, next) {
             type: item.type,
             num_units: item.num_units,
             profit_loss_dollars: item.profit_loss_dollars,
-            profit_loss_percent: item.profit_loss_percent
+            profit_loss_percent: item.profit_loss_percent,
+            comments: []
         });
 
         firebase.database().ref(`/users/${userId}/purchases/`).once('value').then(function(snapshot) {
