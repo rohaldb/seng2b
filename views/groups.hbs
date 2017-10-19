@@ -13,7 +13,7 @@
     <div class="center-align">
       <div class="row">
         <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
-        <a href="#!" class="modal-action modal-close waves-effect waves-green green btn">Confirm</a>
+        <a href="#!" id="btn-leave" class="modal-action modal-close waves-effect waves-green green btn">Confirm</a>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
   <div class="modal-content container">
     <div class="row">
       <div class="col s12 center-align">
-        <h4 class="orange-text">Invite Members to {{ group }}</h4>
+        <h4 class="orange-text">Add Members to {{ group }}</h4>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
     <div class="center-align">
       <div class="row">
         <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
-        <a href="#!" class="modal-action modal-close waves-effect waves-green green btn">Invite</a>
+        <a href="#!" id="btn-invite" class="modal-action modal-close waves-effect waves-green green btn">Confirm</a>
       </div>
     </div>
   </div>
@@ -60,8 +60,8 @@
           </div>
 
           <div class="col s4" align="right">
-            <a class="waves-effect waves-light btn modal-trigger blue" href="#modal-invite">Invite</a>
-            <a class="waves-effect waves-light btn modal-trigger red" href="#modal-leave">Leave</a>
+            <a class="waves-effect waves-light btn modal-trigger blue" href="#modal-invite">Add Members</a>
+            <a class="waves-effect waves-light btn modal-trigger red" href="#modal-leave">Leave Group</a>
           </div>
         </div>
 
@@ -144,6 +144,12 @@
 <form method="POST" action="">
   <input id="post-comment-id" type="hidden" value="">
   <input id="delete-comment-id" type="hidden" value="">
+  <input id="delete-post-id" type="hidden" value="">
+  <!-- id of post num comments that comment to delete is attached to -->
+
+  <input id="delete-post-id-user" type="hidden" value="">
+  <!-- id of user whose purchase is commented on -->
+
   <input id="group-member-ids" type="hidden" value="">
 </form>
 

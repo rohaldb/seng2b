@@ -30,7 +30,11 @@ firebase.initializeApp(config);
 //     }
 // });
 
-firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
+firebase.auth().signInWithEmailAndPassword('jblogg@gmail.com', '123456').catch(function(error) {
+//firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
+//firebase.auth().signInWithEmailAndPassword('test@hello.com', 'testhello').catch(function(error) {
+//firebase.auth().signInWithEmailAndPassword('comments@test.com', 'comments').catch(function(error) {
+//firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
@@ -179,9 +183,12 @@ app.post('/get_user_purchases', async function(req, res, next) {
 });
 
 app.post('/get_user_purchase_history', async function(req, res, next) {
+    var userId = firebase.auth().currentUser.uid;
+    if (req.body.user) {
+      userId = req.body.user;
+    }
     res.contentType('json');
     try {
-        var userId = firebase.auth().currentUser.uid;
         var historyList = []
         firebase.database().ref(`/users/${userId}/history/`).once('value').then(function(snapshot) {
             snapshot.forEach(x => {
@@ -193,7 +200,10 @@ app.post('/get_user_purchase_history', async function(req, res, next) {
                     profit_loss_percent: x.val().profit_loss_percent,
                     tradeAmount: x.val().tradeAmount,
                     num_units: x.val().num_units,
-                    type: x.val().type
+                    type: x.val().type,
+                    id: Object.keys(snapshot.val())[0],
+                    comments: x.val().comments
+
                 })
             })
             res.send({'historyList': historyList});
@@ -280,7 +290,8 @@ app.post('/close_trade', async function(req, res, next) {
             type: item.type,
             num_units: item.num_units,
             profit_loss_dollars: item.profit_loss_dollars,
-            profit_loss_percent: item.profit_loss_percent
+            profit_loss_percent: item.profit_loss_percent,
+            comments: []
         });
 
         firebase.database().ref(`/users/${userId}/purchases/`).once('value').then(function(snapshot) {
@@ -352,25 +363,194 @@ app.post('/update_bio', async function(req, res, next) {
 
 app.post('/new_group', async function(req, res, next) {
   var name = req.body.name;
+  var date = req.body.date;
   res.contentType('json');
   try {
     var user = firebase.auth().currentUser.uid;
     console.log("current user = " + user);
+    var makeGroup = true;
 
-    //create the new group
-    var newGroupKey = firebase.database().ref().child('groups').push().key;
+    var make = firebase.database().ref('/groups').once('value').then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        if (childSnapshot.val().name == name) {
+          console.log("group name exists");
+          makeGroup = false;
+        }
+      });
+      if (makeGroup === true) {
+        firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+          var first = snapshot.val().firstName;
+          var last = snapshot.val().lastName;
+          var person = first + ' ' + last;
+
+          //create the new group
+          var newGroupKey = firebase.database().ref().child('groups').push().key;
+          var updates = {};
+          updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': '', 'created': 'created'}]};
+          updates[`/users/${user}/groups/${newGroupKey}`] = name;
+          firebase.database().ref().update(updates);
+
+          res.send({'group': newGroupKey});
+          console.log('success');
+        });
+      } else {
+        res.send({'group': ''});
+        console.log('group already exists');
+      }
+    });
+  } catch (e) {
+    console.log('fail');
+    console.error(e);
+    res.send({'group': ''});
+  }
+});
+
+app.post('/invite_to_group', async function (req, res, next) {
+  var invite_uids = JSON.parse(req.body['invite_uids']);
+  var group_id = req.body['group_id'];
+  var now = req.body['date'];
+  // console.log("Inviting to group: " + group_id);
+  // console.log("UIDS TO BE INVITED: " + invite_uids);
+  try {
     var updates = {};
-    updates[`/groups/${newGroupKey}`] = {'name': name, users: [user]};
-    updates[`/users/${user}/groups/${newGroupKey}`] = name;
-    firebase.database().ref().update(updates);
 
-    res.send({'group': newGroupKey});
-    console.log('success');
+    //add new "joined" events to group history - before appending existing uids
+    var allHistory = [];
+    invite_uids.forEach(x => {
+      firebase.database().ref('/users/' + x).once('value').then(function(snapshot) {
+        var first = snapshot.val().firstName;
+        var last = snapshot.val().lastName;
+        var person = first + ' ' + last;
+        allHistory.push({'user': person, 'joined': now, 'left': '', 'created': 'joined'});
+      });
+    });
+
+    // Add all existing group members to invite_uids
+    var existing_uids = [];
+    firebase.database().ref(`/groups/${group_id}/users`).once('value').then(function (snapshot) {
+      snapshot.forEach(x => {
+        if (invite_uids.indexOf(x.val()) === -1) { // If uid not already in invite_uids
+          existing_uids.push(x.val());
+        }
+      });
+      updates[`/groups/${group_id}/users`] = existing_uids.concat(invite_uids);
+
+      //add existing group history to allHistory
+      firebase.database().ref(`/groups/${group_id}/history`).once('value').then(function (snapshot) {
+        snapshot.forEach(x => {
+          if (allHistory.indexOf(x.val()) === -1) {
+            allHistory.push(x.val());
+          }
+        });
+      });
+      updates[`/groups/${group_id}/history`] = allHistory;
+
+      var group_name = "unknown";
+      firebase.database().ref(`/groups/${group_id}`).once('value').then(function (snapshot) {
+        group_name = snapshot.val().name;    // Fetch group name from firebase
+        console.log("Group name: " + group_name);
+
+        invite_uids.forEach(function (uid) {
+          updates[`/users/${uid}/groups/${group_id}`] = group_name;
+        });
+
+        firebase.database().ref().update(updates);
+        res.send({'group_members': existing_uids.concat(invite_uids)});
+        console.log('invite success');
+      });
+    });
   } catch (e) {
     console.log('fail');
     console.error(e);
     res.send({'group': false});
   }
+});
+
+app.post('/leave_group', async function (req, res, next) {
+  var user = firebase.auth().currentUser.uid;
+  var group_id = req.body.group_id;
+  var date = req.body.date;
+  var updates = {};
+
+  firebase.database().ref(`/groups/${group_id}/users`).once('value').then(function (snapshot) {
+    var user_difference = [];
+    snapshot.forEach(x => {
+      if (x.val() !== user) { // If uid not already in invite_uids
+        user_difference.push(x.val());
+      }
+    });
+
+    //get current history and add leave date/time for current user
+    var newHistory = [];
+    firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+      var first = snapshot.val().firstName;
+      var last = snapshot.val().lastName;
+      var personLeaving = first + ' ' + last;
+
+      //get current user (i.e. user that's leaving) & update history of that user
+      firebase.database().ref(`/groups/${group_id}/history`).once('value').then(function (snapshot) {
+        snapshot.forEach(x => {
+          var updated = x.val();
+          if (x.val().user === personLeaving) {
+            updated = {'user': personLeaving, 'joined': x.val().joined, 'left': date, 'created': x.val().created};
+          }
+          if (newHistory.indexOf(updated) === -1) {
+            newHistory.push(updated);
+          }
+        });
+
+        updates[`/groups/${group_id}/history/`] = newHistory; //update group history
+        updates[`/users/${user}/groups/${group_id}`] = null; // Remove group from user entry
+        updates[`/groups/${group_id}/users/`] = user_difference; // Remove from group page
+        firebase.database().ref().update(updates);
+        res.send({'user_ids': user_difference});
+      });
+    });
+  });
+});
+
+app.post('/comment_on_feed', async function (req, res, next) {
+  var user = firebase.auth().currentUser.uid;
+  var comment = req.body.comment;
+  var feedItemUser = req.body.postId.replace(/.*\./, '');
+  var historyItem = req.body.postId.replace(/\..*/, '');
+  var date = req.body.timestamp;
+  console.log('comment: ' + comment + ' feedItemUser: ' + feedItemUser + ' historyItem: ' + historyItem + ' date: ' + date);
+
+  var updates = {};
+  firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+    var first = snapshot.val().firstName;
+    var last = snapshot.val().lastName;
+    var person = first + ' ' + last;
+
+    //add new comment to the historyItem of feedItemUser
+    var newCommentId = firebase.database().ref(`/users/${feedItemUser}/history/${historyItem}/comments`).push().key;
+    var c = {
+      'poster': person,
+      'comment': comment,
+      'date': date
+    };
+    console.log('adding comment: ' + c);
+    updates[`/users/${feedItemUser}/history/${historyItem}/comments/${newCommentId}`] = c;
+    firebase.database().ref().update(updates);
+    res.send({'me': person, 'id': newCommentId});
+    console.log('success');
+  });
+
+});
+
+app.post('/delete_comment_on_feed', async function (req, res, next) {
+  var user = firebase.auth().currentUser.uid;
+  var commId = req.body.comm;
+  var userId = req.body.user;
+  var historyId = req.body.history;
+  console.log('comm: ' + commId + ' userId: ' + userId + ' historyId: ' + historyId);
+
+  //delete comment from the historyId of userId
+  firebase.database().ref(`/users/${userId}/history/${historyId}/comments/${commId}`).remove();
+
+  res.send({'removed': 'success'});
+  console.log('success');
 });
 
 // app.post('/get_user_list', async function(req, res, next) {
@@ -413,7 +593,7 @@ app.post('/get_user_list', async function(req, res, next) {
           uid: x.val().userId
         })
       })
-      res.send({'userList': userList});
+      res.send({'userList': userList, 'myuid': firebase.auth().currentUser.uid});
     });
     console.log('success user list');
   } catch (e) {
@@ -426,7 +606,7 @@ app.post('/get_user_list', async function(req, res, next) {
 app.post('/get_group_info', async function(req, res, next) {
   var id = req.body.id;
   res.contentType('json');
-  var num,first,last; //adding this stopped (node:24272) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): ReferenceError: first is not defined
+  var num, first, last, history;
   try {
     var numMembers = 0;
     var memberIds = [];
@@ -435,6 +615,7 @@ app.post('/get_group_info', async function(req, res, next) {
     firebase.database().ref('/groups/' + id).once('value').then(function(snapshot) {
       memberIds = snapshot.val().users;
       numMembers = snapshot.val().users.length;
+      history = snapshot.val().history;
       console.log(`number of users: ${num}`);
     });
 
@@ -481,7 +662,8 @@ app.post('/get_group_info', async function(req, res, next) {
         'numMembers': numMembers,
         'members': members,
         'memberNameIds': memberNameIds,
-        'leaderboardIds': leaderboardIds
+        'leaderboardIds': leaderboardIds,
+        'history': history
       });
     });
     console.log('success');
@@ -492,7 +674,8 @@ app.post('/get_group_info', async function(req, res, next) {
       'numMembers': 'Unknown',
       'members': {},
       'memberNameIds': [],
-      'leaderboardIds': []
+      'leaderboardIds': [],
+      'history': []
     });
   }
 });
