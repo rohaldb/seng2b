@@ -151,6 +151,7 @@ app.post('/get_user_purchases', async function(req, res, next) {
         var userId = firebase.auth().currentUser.uid;
         var purchaseList = []
         firebase.database().ref(`/users/${userId}/purchases/`).once('value').then(function(snapshot) {
+            var i = 0;
             snapshot.forEach(x => {
                 purchaseList.push({
                     companyCode: x.val().companyCode,
@@ -160,8 +161,9 @@ app.post('/get_user_purchases', async function(req, res, next) {
                     share_price: x.val().share_price,
                     tradeAmount: x.val().tradeAmount,
                     type: x.val().type,
-                    id: Object.keys(snapshot.val())[0]
-                })
+                    id: Object.keys(snapshot.val())[i]
+                });
+                i++;
             })
             res.send({'purchaseList': purchaseList});
         });
@@ -182,6 +184,7 @@ app.post('/get_user_purchase_history', async function(req, res, next) {
     try {
         var historyList = []
         firebase.database().ref(`/users/${userId}/history/`).once('value').then(function(snapshot) {
+            var i = 0;
             snapshot.forEach(x => {
                 historyList.push({
                     companyCode: x.val().companyCode,
@@ -192,11 +195,11 @@ app.post('/get_user_purchase_history', async function(req, res, next) {
                     tradeAmount: x.val().tradeAmount,
                     num_units: x.val().num_units,
                     type: x.val().type,
-                    id: Object.keys(snapshot.val())[0],
+                    id: Object.keys(snapshot.val())[i],
                     comments: x.val().comments
-
-                })
-            })
+                });
+                i++;
+            });
             res.send({'historyList': historyList});
         });
         console.log('success history');
