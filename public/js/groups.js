@@ -274,29 +274,32 @@ $.ajax({
     //console.warn("hey ben success");
     //console.log("success, result = " + JSON.stringify(response));
     var name = response.name;
+    var myuid = response.myuid;
     //console.log(response.userList);
     response.userList.forEach(function(item){
       // console.log("ITEM: " + JSON.stringify(item));
       //console.log("hey");
-      user_keys[item.name] = null;
-      user_ids[item.name] = item.uid;
-      $('.chips-autocomplete').material_chip({
-        autocompleteOptions: {
-          data: user_keys,
-          limit: Infinity,
-          minLength: 1
-        },
-        placeholder: 'Enter a User',
-        secondaryPlaceholder: '+ User',
-      });
-      //console.log(item.name + ' == ' + user_keys[item.name]);
-      // console.log("HERE WE ARE!!!!");
-      //console.log("success, result = " + JSON.stringify(response));
-      //var name = response.name;
-      //console.log('and the name is: ' + name);
-      response.userList.forEach(function (item,index){
-        // console.log("success name is = " + item[index]);
-      });
+      if (item.uid !== myuid) {
+        user_keys[item.name] = null;
+        user_ids[item.name] = item.uid;
+        $('.chips-autocomplete').material_chip({
+          autocompleteOptions: {
+            data: user_keys,
+            limit: Infinity,
+            minLength: 1
+          },
+          placeholder: 'Enter a User',
+          secondaryPlaceholder: '+ User',
+        });
+        //console.log(item.name + ' == ' + user_keys[item.name]);
+        // console.log("HERE WE ARE!!!!");
+        //console.log("success, result = " + JSON.stringify(response));
+        //var name = response.name;
+        //console.log('and the name is: ' + name);
+        response.userList.forEach(function (item,index){
+          // console.log("success name is = " + item[index]);
+        });
+      }
     });
   },
   error: function(response) {

@@ -534,7 +534,7 @@ app.post('/get_user_list', async function(req, res, next) {
           uid: x.val().userId
         })
       })
-      res.send({'userList': userList});
+      res.send({'userList': userList, 'myuid': firebase.auth().currentUser.uid});
     });
     console.log('success user list');
   } catch (e) {
