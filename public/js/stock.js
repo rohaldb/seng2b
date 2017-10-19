@@ -13,12 +13,17 @@ var vue = new Vue({
     long: null,
     balance: 10000,
     share_percent_change: 0,
+    showSpinner3: false,
+    showSpinner2: true,
+    showSpinner1: true,
+    showSpinner0: true,
+    showG4: false,
     errorMessage: "",
-    compare_selected: false,
     stock1data: {},
     stock1name: getUrlParameter('company'),
     stock2data: {},
     stock2name: '',
+    show: false,
   },
   methods: {
     addToWatchList: function() {
@@ -106,7 +111,7 @@ var vue = new Vue({
   },
   watch: {
     amount: function(newValue, oldValue) {
-      if (this.dollars && (this.balance - newValue) < 0) {
+    if (this.dollars && (this.balance - newValue) < 0) {
         this.amount = oldValue;
       } else if (!this.dollars && (this.balance - this.calculatedCost) < 0) {
         this.amount = oldValue;
@@ -314,8 +319,7 @@ function getStockEventChart(chartData, sentimentsJSON) {
       "enabled": true
     }
   });
-  $("#graph3Loader").hide();
-
+  vue.showSpinner2 = false;
 }
 
 function generateCandlestickChart(chartData) {
@@ -368,7 +372,7 @@ function generateCandlestickChart(chartData) {
     }
   });
 
-  $("#graph2Loader").hide();
+  vue.showSpinner1 = false;
   chart.addListener("rendered", zoomChart);
   zoomChart();
   // this method is called when chart is first inited as we listen for "dataUpdated" event
@@ -498,13 +502,15 @@ function generateIntradayChart(chartData) {
       "position": "bottom-right"
     }
   });
-  $("#graph1Loader").hide();
+  vue.showSpinner0 = false;
 }
 $(function() {
   $('input.autocomplete2').autocomplete({
     data: company_keys,
     limit: 3, // The max amount of results that can be shown at once. Default: Infinity.
     onAutocomplete: function(val) {
+      vue.showSpinner3 = true;
+      vue.showG4 = false;
       vue.stock2name = val.split(' - ')[1];
       $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + val.split(' ')[0] + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status) {
         console.log(data);
@@ -518,9 +524,6 @@ $(function() {
 });
 
 function generateCompare(){
-  console.warn("about to compare");
-  console.log(vue.stock1data);
-  console.log(vue.stock2data);
   var chart = AmCharts.makeChart( "chartdiv4", {
     "type": "stock",
     "theme": "light",
@@ -667,4 +670,6 @@ function generateCompare(){
       "enabled": true
     }
   } );
+  vue.showSpinner3 = false;
+  vue.showG4 = true;
 }
