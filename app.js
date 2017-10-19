@@ -457,6 +457,7 @@ app.post('/leave_group', async function (req, res, next) {
   var group_id = req.body.group_id;
   var date = req.body.date;
   var updates = {};
+
   firebase.database().ref(`/groups/${group_id}/users`).once('value').then(function (snapshot) {
     var user_difference = [];
     snapshot.forEach(x => {
@@ -564,7 +565,7 @@ app.post('/get_user_list', async function(req, res, next) {
           uid: x.val().userId
         })
       })
-      res.send({'userList': userList});
+      res.send({'userList': userList, 'myuid': firebase.auth().currentUser.uid});
     });
     console.log('success user list');
   } catch (e) {
