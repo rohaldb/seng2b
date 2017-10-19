@@ -30,16 +30,12 @@ firebase.initializeApp(config);
 //     }
 // });
 
-firebase.auth().signInWithEmailAndPassword('thor@thunder.com', 'password').catch(function(error) {
-//firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
-//firebase.auth().signInWithEmailAndPassword('test@hello.com', 'testhello').catch(function(error) {
-//firebase.auth().signInWithEmailAndPassword('comments@test.com', 'comments').catch(function(error) {
-//firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
+// firebase.auth().signInWithEmailAndPassword('bruce@smash.com', 'password').catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // ...
+// });
 
 
 // Include each page's /routes/*.js file here
