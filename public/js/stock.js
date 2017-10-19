@@ -16,7 +16,9 @@ var vue = new Vue({
     errorMessage: "",
     compare_selected: false,
     stock1data: {},
+    stock1name: getUrlParameter('company'),
     stock2data: {},
+    stock2name: '',
   },
   methods: {
     addToWatchList: function() {
@@ -502,6 +504,7 @@ $(function() {
     data: company_keys,
     limit: 3, // The max amount of results that can be shown at once. Default: Infinity.
     onAutocomplete: function(val) {
+      vue.stock2name = val.split(' - ')[1];
       $.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + val.split(' ')[0] + "&apikey=2V4IGWVZ6W8XS8AI", function(data, status) {
         console.log(data);
         data = Object.values(data)[1];
@@ -541,8 +544,8 @@ function generateCompare(){
         "toField": "value"
       } ],
       "color": "#7f8da9",
-      "dataProvider": vue.stock2data,
-      "title": "West Stock",
+      "dataProvider": vue.stock1data,
+      "title": vue.stock1name,
       "categoryField": "date"
     }, {
     "fieldMappings": [ {
@@ -550,9 +553,9 @@ function generateCompare(){
       "toField": "value"
     } ],
     "color": "#fac314",
-    "dataProvider": vue.stock1data,
+    "dataProvider": vue.stock2data,
     "compared": true,
-    "title": "East Stock",
+    "title": vue.stock2name,
     "categoryField": "date"
   } ],
 
