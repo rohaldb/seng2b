@@ -31,6 +31,7 @@ firebase.initializeApp(config);
 // });
 
 // firebase.auth().signInWithEmailAndPassword('bruce@smash.com', 'password').catch(function(error) {
+// firebase.auth().signInWithEmailAndPassword('iron@man.com', 'password').catch(function(error) {
 //   // Handle Errors here.
 //   var errorCode = error.code;
 //   var errorMessage = error.message;
