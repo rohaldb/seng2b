@@ -153,19 +153,15 @@ var updateGroupPage = function(response) {
   });
 
   //generate part of the feed that shows create/join/leave events
-  var word = 'created'; //first user always creates the group
   history.forEach(x => {
     var user = x.user;
     var d = new Date(parseInt(x.joined));
     var joined = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
     d = new Date(parseInt(x.left));
     var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-    appendToFeed(x.joined, x.user, word, joined); //should always be valid
+    appendToFeed(x.joined, x.user, x.created, joined); //should always be valid
     if (x.left !== '') {
       appendToFeed(x.left, x.user, 'left', left);
-    }
-    if (word === 'created') {
-      word = 'joined'; //set to "joined" for all other users
     }
   });
 };
@@ -336,10 +332,11 @@ $("#btn-invite").on("click", function() {
         data: {'id': getUrlParameter('id')},
         dataType: "json",
         success: function (response) {
-          Materialize.toast('Invite successful.', 1250);
+          Materialize.toast('Members successfully added.', 1250);
           updateGroupPage(response);
         },
         error: function(response) {
+          Materialize.toast('Could not add members to group. Try again later.', 1250);
           console.log("failed, result = " + JSON.stringify(response));
         }
       });
@@ -355,7 +352,7 @@ $("#btn-leave").on("click", function() {
   $.ajax({
     url: "/leave_group",
     method: "POST",
-    data: {'group_id': getUrlParameter('id')},
+    data: {'group_id': getUrlParameter('id'), 'date': Date.now()},
     dataType: "json",
     success: function(response) {
       $.ajax({
@@ -374,6 +371,7 @@ $("#btn-leave").on("click", function() {
       });
     },
     error: function(response) {
+      Materialize.toast('Could not leave group. Try again later.', 1250);
       console.log("failed, result = " + JSON.stringify(response));
     }
   });

@@ -371,7 +371,7 @@ app.post('/new_group', async function(req, res, next) {
           //create the new group
           var newGroupKey = firebase.database().ref().child('groups').push().key;
           var updates = {};
-          updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': ''}]};
+          updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': '', 'created': 'created'}]};
           updates[`/users/${user}/groups/${newGroupKey}`] = name;
           firebase.database().ref().update(updates);
 
@@ -406,7 +406,7 @@ app.post('/invite_to_group', async function (req, res, next) {
         var first = snapshot.val().firstName;
         var last = snapshot.val().lastName;
         var person = first + ' ' + last;
-        allHistory.push({'user': person, 'joined': now, 'left': ''});
+        allHistory.push({'user': person, 'joined': now, 'left': '', 'created': 'joined'});
       });
     });
 
@@ -454,8 +454,8 @@ app.post('/invite_to_group', async function (req, res, next) {
 app.post('/leave_group', async function (req, res, next) {
   var user = firebase.auth().currentUser.uid;
   var group_id = req.body.group_id;
+  var date = req.body.date;
   var updates = {};
-
   firebase.database().ref(`/groups/${group_id}/users`).once('value').then(function (snapshot) {
     var user_difference = [];
     snapshot.forEach(x => {
@@ -464,11 +464,32 @@ app.post('/leave_group', async function (req, res, next) {
       }
     });
 
-    updates[`/users/${user}/groups/${group_id}`] = null; // Remove group from user entry
-    updates[`/groups/${group_id}/users/`] = user_difference; // Remove from group page
-    firebase.database().ref().update(updates);
+    //get current history and add leave date/time for current user
+    var newHistory = [];
+    firebase.database().ref('/users/' + user).once('value').then(function(snapshot) {
+      var first = snapshot.val().firstName;
+      var last = snapshot.val().lastName;
+      var personLeaving = first + ' ' + last;
 
-    res.send({'user_ids': user_difference});
+      //get current user (i.e. user that's leaving) & update history of that user
+      firebase.database().ref(`/groups/${group_id}/history`).once('value').then(function (snapshot) {
+        snapshot.forEach(x => {
+          var updated = x.val();
+          if (x.val().user === personLeaving) {
+            updated = {'user': personLeaving, 'joined': x.val().joined, 'left': date, 'created': x.val().created};
+          }
+          if (newHistory.indexOf(updated) === -1) {
+            newHistory.push(updated);
+          }
+        });
+
+        updates[`/groups/${group_id}/history/`] = newHistory; //update group history
+        updates[`/users/${user}/groups/${group_id}`] = null; // Remove group from user entry
+        updates[`/groups/${group_id}/users/`] = user_difference; // Remove from group page
+        firebase.database().ref().update(updates);
+        res.send({'user_ids': user_difference});
+      });
+    });
   });
 });
 
