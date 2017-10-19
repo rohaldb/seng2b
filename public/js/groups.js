@@ -9,6 +9,8 @@ var groupsVue = new Vue({
 */
 $('.modal').modal();
 
+var myName = '';
+
 //make a comment on a feed event
 $("#post-new-comment").on("click", function() {
   var comment = $('#new-comment-text').val();
@@ -209,6 +211,7 @@ $.ajax({
   data: {'id': getUrlParameter('id')},
   dataType: "json",
   success: function (response) {
+    myName = response.myName;
     updateGroupPage(response);
   },
   error: function(response) {
@@ -268,18 +271,22 @@ function getFeed(id, user) {
             var commentObj = comments[key];
             var dd = new Date(parseInt(commentObj.date));
             var timestampComment = dd.toDateString() + ' ' + dd.getHours() + ':' + dd.getMinutes() + ':' + dd.getSeconds();
-            commentsHtml =
+            var toPrepend =
             '<div id="comment-id-' + key + '">' +
             '<li class="collection-item avatar space-gray feed-item">' +
             '  <img src="images/sample_user.png" alt="" class="circle">' +
             '  <span class="title spaceship-text feed-username"><a href="#">' + commentObj.poster + '</a></span>' +
             '  <span class="feed-action">' + commentObj.comment + '</span>' +
-            '  <p><small class="feed-timestamp">' + timestampComment + '</small></p>' +
-            '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
-            '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + key + '\';' +
-            '  document.getElementById(\'delete-post-id-user\').value=\'' + id + '\';' +
-            '  document.getElementById(\'delete-post-id\').value=\'#num-comments-' + purchaseId + '\'";>Delete</a>' +
-            '</li></div>' + commentsHtml;
+            '  <p><small class="feed-timestamp">' + timestampComment + '</small></p>';
+            if (myName === commentObj.poster) {
+              toPrepend +=
+              '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
+              '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + key + '\';' +
+              '  document.getElementById(\'delete-post-id-user\').value=\'' + id + '\';' +
+              '  document.getElementById(\'delete-post-id\').value=\'#num-comments-' + purchaseId + '\'";>Delete</a>';
+            }
+            toPrepend += '</li></div>';
+            commentsHtml = toPrepend + commentsHtml;
           });
         }
 

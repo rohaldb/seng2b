@@ -653,13 +653,22 @@ app.post('/get_group_info', async function(req, res, next) {
         return members[b].balance - members[a].balance;
       });
 
-      res.send({
-        'numMembers': numMembers,
-        'members': members,
-        'memberNameIds': memberNameIds,
-        'leaderboardIds': leaderboardIds,
-        'history': history
+      var myId = firebase.auth().currentUser.uid;
+      firebase.database().ref('/users/' + myId).once('value').then(function(snapshot) {
+        console.log(myId);
+        var first = snapshot.val().firstName;
+        var last = snapshot.val().lastName;
+        var myName = first + ' ' + last;
+        res.send({
+          'numMembers': numMembers,
+          'members': members,
+          'memberNameIds': memberNameIds,
+          'leaderboardIds': leaderboardIds,
+          'history': history,
+          'myName': myName
+        });
       });
+
     });
     console.log('success');
   } catch (e) {
