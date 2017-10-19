@@ -30,7 +30,7 @@ firebase.initializeApp(config);
 //     }
 // });
 
-firebase.auth().signInWithEmailAndPassword('thor@thunder.com', 'password').catch(function(error) {
+firebase.auth().signInWithEmailAndPassword('thecap@landofthebrave.com', 'password').catch(function(error) {
 //firebase.auth().signInWithEmailAndPassword('test@feed.com', 'testfeed').catch(function(error) {
 //firebase.auth().signInWithEmailAndPassword('test@hello.com', 'testhello').catch(function(error) {
 //firebase.auth().signInWithEmailAndPassword('comments@test.com', 'comments').catch(function(error) {

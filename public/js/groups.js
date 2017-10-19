@@ -289,7 +289,7 @@ function getFeed(id, user) {
   '  <li class="collection-item avatar space-gray feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
-  `    <span class="feed-action">bought ${numUnits} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
+  `    <span class="feed-action">bought ${numUnits.toFixed(2)} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
   `    <p><small class="feed-timestamp">${timestamp}</small></p>` +
   `    <a href="#!" id="num-comments-${purchaseId}" class="feed-comments-link">0 comments</a>` +
   `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}.${id}';">Comment</a>` +
@@ -505,7 +505,7 @@ var chart = AmCharts.makeChart( "chartdiv2", {
   "type": "stock",
   "theme": "light",
   "dataSets": [ {
-      "title": "Friend A",
+      "title": "Thor Odinson",
       "fieldMappings": [ {
         "fromField": "value",
         "toField": "value"
@@ -516,7 +516,7 @@ var chart = AmCharts.makeChart( "chartdiv2", {
       "dataProvider": chartData1,
       "categoryField": "date"
     }, {
-      "title": "Friend B",
+      "title": "Bruce Banner",
       "fieldMappings": [ {
         "fromField": "value",
         "toField": "value"
@@ -527,7 +527,7 @@ var chart = AmCharts.makeChart( "chartdiv2", {
       "dataProvider": chartData2,
       "categoryField": "date"
     }, {
-      "title": "Friend C",
+      "title": "Tony Stark",
       "fieldMappings": [ {
         "fromField": "value",
         "toField": "value"
@@ -538,7 +538,7 @@ var chart = AmCharts.makeChart( "chartdiv2", {
       "dataProvider": chartData3,
       "categoryField": "date"
     }, {
-      "title": "Friend D",
+      "title": "Captain America",
       "fieldMappings": [ {
         "fromField": "value",
         "toField": "value"

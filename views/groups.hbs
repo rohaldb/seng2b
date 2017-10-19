@@ -86,7 +86,7 @@
   <div class="col s12">
     <ul class="tabs">
       <!-- TODO CHANGE ACTIVE -->
-      <li class="tab col s4"><a href="#graphs">Graphs</a></li>
+      <li class="tab col s4"><a href="#graphs">Performance</a></li>
       <li class="tab col s4"><a class="active" href="#feed">Feed</a></li>
       <li class="tab col s4"><a href="#leader">Leaderboard</a></li>
     </ul>
@@ -248,46 +248,12 @@
 
 <!-- groups graphs tab -->
 <div id="graphs" class="row">
-  <div class="col s6 offset-s3">
-    <ul class="tabs" id="graph-tabs">
-      <li class="tab col s6"><a class="active" href="#graph1">Multiple Panels</a></li>
-      <li class="tab col s6"><a href="#graph2">Compare Members</a></li>
-    </ul>
-  </div>
 
   <!-- graph tabs -->
   <div id="graph1" class="col s12">
     <div class="row">
-      <div class="col s3 offset-s3 right-align">
-        <a class='dropdown-button btn orange' href='#' data-activates='dropdown1'>Stock One</a>
+      <div id="graph2" class="col s12">
+        <div id="chartdiv2" style="width:100%; height:400px;"></div>
       </div>
-      <div class="col s3 left-align">
-        <a class='dropdown-button btn orange' href='#' data-activates='dropdown2'>Stock Two</a>
-      </div>
-      <!-- Dropdown Structure -->
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!">MSFT</a></li>
-        <li><a href="#!">GOOG</a></li>
-      </ul>
-      <!-- Dropdown Structure -->
-      <ul id='dropdown2' class='dropdown-content'>
-        <li><a href="#!">AMZN</a></li>
-        <li><a href="#!">FB</a></li>
-      </ul>
-
     </div>
-    <div id="chartdiv1" style="width:100%; height:400px;"></div>
   </div>
-  <div id="graph2" class="col s12">
-    <div id="chartdiv2" style="width:100%; height:400px;"></div>
-  </div>
-
-<!-- group performance graph -->
-<!-- <div id="graphs" class="row">
-  <div class="col s4">
-    <h5>Group Performance:</h5>
-  </div>
-  <div class="col s6 offset-s3">
-    <div id="chartdiv3" style="width:100%; height:400px;">
-  </div>
-</div> -->
