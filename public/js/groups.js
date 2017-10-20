@@ -54,7 +54,7 @@ $("#post-new-comment").on("click", function() {
       $('#new-comment-text').trigger('autoresize');
       $('#comment-id-' + postId.replace(/\..*/, '')).prepend(
       '<div id="comment-id-' + commentId + '">' +
-      '<li class="collection-item avatar space-gray feed-item">' +
+      '<li class="collection-item avatar feed-item">' +
       '  <img src="images/sample_user.png" alt="" class="circle">' +
       '  <span class="title spaceship-text feed-username"><a href="#">' + whoami + '</a></span>' +
       '  <span class="feed-action">' + comment + '</span>' +
@@ -223,7 +223,7 @@ $.ajax({
 function appendToFeed(date, user, word, timestamp) {
   feed.push({timestamp: date, content:
   '<div class="col s12 feed-col">' +
-  '  <li class="collection-item avatar space-gray feed-item">' +
+  '  <li class="collection-item avatar feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">${word} the group.<span>` +
@@ -276,7 +276,7 @@ function getFeed(id, user) {
             var timestampComment = dd.toDateString() + ' ' + dd.getHours() + ':' + dd.getMinutes() + ':' + dd.getSeconds();
             var toPrepend =
             '<div id="comment-id-' + key + '">' +
-            '<li class="collection-item avatar space-gray feed-item">' +
+            '<li class="collection-item avatar feed-item">' +
             '  <img src="images/sample_user.png" alt="" class="circle">' +
             '  <span class="title spaceship-text feed-username"><a href="#">' + commentObj.poster + '</a></span>' +
             '  <span class="feed-action">' + commentObj.comment + '</span>' +
@@ -299,7 +299,7 @@ function getFeed(id, user) {
         var plural = (numComments === 1) ? '' : 's';
         feed.push({timestamp: date, content:
   '<div class="col s12 feed-col">' +
-  '  <li class="collection-item avatar space-gray feed-item">' +
+  '  <li class="collection-item avatar feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">bought ${numUnits.toFixed(2)} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
