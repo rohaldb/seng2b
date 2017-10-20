@@ -83,7 +83,8 @@ input[type=text] {
 }
 
 .feed-main {
-    border:1px solid rgba(44, 62, 80, 0.52);
+    /*border:1px solid rgba(44, 62, 80, 0.52);*/
+    border: 0 !important;
 }
 
 .feed-col {
