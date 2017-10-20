@@ -61,103 +61,122 @@
     <!-- watch list tab -->
     <div id="watch_list" class="row">
         <div class="col s12 align-center">
-            <table class="striped">
-                <thead>
-                    <th>Name</th>
-                    <th>Code</th>
-                    <th>Current Price</th>
-                </thead>
-                <tbody>
-                    <tr v-for="item in watchList">
-                        <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
-                        <td class="stock-current">\{{item.companyCode}}</td>
-                        <td class="stock-change change">\{{item.value}}</td>
-                        <td><a class="waves-effect waves-light btn  red darken-2" @click=removeFromWatchList(item)>Remove</a> </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div v-if="watchList.length > 0">
+                <table class="striped">
+                    <thead>
+                        <th>Name</th>
+                        <th>Code</th>
+                        <th>Current Price</th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in watchList">
+                            <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
+                            <td class="stock-current">\{{item.companyCode}}</td>
+                            <td class="stock-change change">\{{item.value}}</td>
+                            <td><a class="waves-effect waves-light btn  red darken-2" @click=removeFromWatchList(item)>Remove</a> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div v-else>
+                <h6 style="text-align: center" class="stock-name">
+                   Your watch list is empty
+                </h6>
+            </div>
         </div>
     </div>
 
     <!-- open trades tab -->
     <div id="open_trades" class="row">
         <div class="col s12 align-center">
-            <table class="striped">
-                <thead>
-                    <th>Name</th>
-                    <th>Units</th>
-                    <th>Invested</th>
-                    <th>P/L($)</th>
-                    <th>P/L(%)</th>
-                    <th>Value</th>
-                    <th>Type</th>
-                </thead>
-                <tbody>
-                    <tr v-for="item in purchaseList">
-                        <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
-                        <td>\{{item.num_units.toFixed(2)}}</td>
-                        <td>$\{{item.trade_amount.toFixed(2)}}</td>
+            <div v-if="purchaseList.length > 0">
+                <table class="striped">
+                    <thead>
+                        <th>Name</th>
+                        <th>Units</th>
+                        <th>Invested</th>
+                        <th>P/L($)</th>
+                        <th>P/L(%)</th>
+                        <th>Value</th>
+                        <th>Type</th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in purchaseList">
+                            <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
+                            <td>\{{item.num_units.toFixed(2)}}</td>
+                            <td>$\{{item.trade_amount.toFixed(2)}}</td>
 
-                        <td v-if="item.profit_loss_dollars > 0" class="green-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
-                        <td v-else-if="item.profit_loss_dollars == 0">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
-                        <td v-else class="red-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                            <td v-if="item.profit_loss_dollars > 0" class="green-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                            <td v-else-if="item.profit_loss_dollars == 0">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                            <td v-else class="red-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
 
-                        <td v-if="item.profit_loss_percent > 0" class="green-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
-                        <td v-else-if="item.profit_loss_percent == 0">\{{item.profit_loss_percent.toFixed(2)}}%</td>
-                        <td v-else class="red-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                            <td v-if="item.profit_loss_percent > 0" class="green-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                            <td v-else-if="item.profit_loss_percent == 0">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                            <td v-else class="red-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
 
-                        <td>\{{item.value.toFixed(2)}}</td>
+                            <td>\{{item.value.toFixed(2)}}</td>
 
-                        <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
-                        <td><a class="waves-effect waves-light btn  red darken-2" @click=closeTrade(item)>Close</a> </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
+                            <td><a class="waves-effect waves-light btn  red darken-2" @click=closeTrade(item)>Close</a> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div v-else>
+                <h6 style="text-align: center" class="stock-name">
+                    You haven't made any trades, get going
+                </h6>
+            </div>
         </div>
     </div>
 
     <!-- history tab -->
     <div id="history" class="row">
         <div class="col s12 align-center">
-            <table class="striped">
-                <thead>
+            <div v-if="historyList.length > 0">
+                <table class="striped">
+                    <thead>
 
-                    <th>Name</th>
-                    <th>Code</th>
-                    <th>Units</th>
-                    <th>Invested</th>
-                    <th>P/L($)</th>
-                    <th>P/L(%)</th>
-                    <th>Value</th>
-                    <th>Type</th>
-                    <th>date</th>
+                        <th>Name</th>
+                        <th>Code</th>
+                        <th>Units</th>
+                        <th>Invested</th>
+                        <th>P/L($)</th>
+                        <th>P/L(%)</th>
+                        <th>Value</th>
+                        <th>Type</th>
+                        <th>date</th>
 
-                </thead>
-                <tbody>
-                    <tr v-for="item in historyList">
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in historyList">
 
-                        <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
-                        <td class="stock-current">\{{item.companyCode}}</td>
-                        <td>\{{item.num_units.toFixed(2)}}</td>
-                        <td>$\{{item.trade_amount.toFixed(2)}}</td>
+                            <td class="stock-name"><a v-bind:href="get_url(item)">\{{item.companyName}}</a></td>
+                            <td class="stock-current">\{{item.companyCode}}</td>
+                            <td>\{{item.num_units.toFixed(2)}}</td>
+                            <td>$\{{item.trade_amount.toFixed(2)}}</td>
 
-                        <td v-if="item.profit_loss_dollars > 0" class="green-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
-                        <td v-else-if="item.profit_loss_dollars == 0">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
-                        <td v-else class="red-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                            <td v-if="item.profit_loss_dollars > 0" class="green-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                            <td v-else-if="item.profit_loss_dollars == 0">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
+                            <td v-else class="red-text">$\{{item.profit_loss_dollars.toFixed(2)}}</td>
 
-                        <td v-if="item.profit_loss_percent > 0" class="green-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
-                        <td v-else-if="item.profit_loss_percent == 0">\{{item.profit_loss_percent.toFixed(2)}}%</td>
-                        <td v-else class="red-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                            <td v-if="item.profit_loss_percent > 0" class="green-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                            <td v-else-if="item.profit_loss_percent == 0">\{{item.profit_loss_percent.toFixed(2)}}%</td>
+                            <td v-else class="red-text">\{{item.profit_loss_percent.toFixed(2)}}%</td>
 
-                        <td>\{{item.value.toFixed(2)}}</td>
+                            <td>\{{item.value.toFixed(2)}}</td>
 
-                        <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
-                        <td class="stock-current">\{{item.date}}</td>
-
-
-                    </tr>
-                </tbody>
-            </table>
+                            <td>\{{item.type.charAt(0).toUpperCase() + item.type.substring(1)}}</td>
+                            <td class="stock-current">\{{item.date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div v-else>
+                <h6 style="text-align: center" class="stock-name">
+                    Your history list is empty
+                </h6>
+            </div>
         </div>
     </div>
 
