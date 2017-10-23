@@ -735,8 +735,8 @@ app.post('/ibm', async function(req, res, next) {
 
   //use ibm analytics module
   var natural_language_understanding = new NaturalLanguageUnderstandingV1({
-    'username': 'b61b2519-acb6-47b8-bbb9-608226b76020',
-    'password': 'Vm0fss16s7rJ',
+    'username': '38b6800f-cd8d-4144-b268-4fb588b0c021',
+    'password': 'tdntnZanPEQt',
     'version_date': '2017-02-27'
   });
 
