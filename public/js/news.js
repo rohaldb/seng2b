@@ -64,9 +64,10 @@ function loadArticles(company) {
       var titleA = obj[ob]['webTitle'];
       var linkA = obj[ob]['webUrl'];
       var dateA = obj[ob]['webPublicationDate'].replace(/[a-z]/gi, ' ');
+      var prettyDateA = timeSince(new Date(obj[ob]['webPublicationDate']));
       var bodyTextA = obj[ob]['fields']['bodyText'];
 
-      sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, function(articleNum, title, link, date, bodyText, ibm) {
+      sentimentAnalysis(i, titleA, linkA, prettyDateA, bodyTextA, function(articleNum, title, link, date, bodyText, ibm) {
         // console.log(ibm.sentiment.document.score + ' ' + ibm.sentiment.document.label);
         var sentimentScore = ibm.sentiment.document.score;
         var sentimentLabel = ibm.sentiment.document.label;
