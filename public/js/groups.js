@@ -44,6 +44,7 @@ $("#post-new-comment").on("click", function() {
       var whoami = response.me;
       var commentId = response.id;
       var d = new Date(timestamp);
+      var prettyDate = timeSince(d);
       var date = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
       Materialize.toast('Comment added.', 1250);
       var numComments = $('#num-comments-' + postId.replace(/\..*/, '')).text().match(/\d+/)[0];
@@ -58,7 +59,7 @@ $("#post-new-comment").on("click", function() {
       '  <img src="images/sample_user.png" alt="" class="circle">' +
       '  <span class="title spaceship-text feed-username"><a href="#">' + whoami + '</a></span>' +
       '  <span class="feed-action">' + comment + '</span>' +
-      '  <p><small class="feed-timestamp">' + date + '</small></p>' +
+      '  <p><small class="feed-timestamp">' + prettyDate + '</small></p>' +
       '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
       '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\';' +
       '  document.getElementById(\'delete-post-id-user\').value=\'' + postId.replace(/.*\./, '') + '\';' +
@@ -157,11 +158,13 @@ var updateGroupPage = function(response) {
     var user = x.user;
     var d = new Date(parseInt(x.joined));
     var joined = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    var prettyJoined = timeSince(d);
     d = new Date(parseInt(x.left));
     var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-    appendToFeed(x.joined, x.user, x.created, joined); //should always be valid
+    var prettyLeft = timeSince(d);
+    appendToFeed(x.joined, x.user, x.created, prettyJoined); //should always be valid
     if (x.left !== '') {
-      appendToFeed(x.left, x.user, 'left', left);
+      appendToFeed(x.left, x.user, 'left', prettyLeft);
     }
   });
 
@@ -260,6 +263,7 @@ function getFeed(id, user) {
         var tradeAmount = parseFloat(item.tradeAmount).toFixed(2);
         var date = item.date;
         var d = new Date(date);
+        var prettyDate = timeSince(d);
         var timestamp = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
         var purchaseId = item.id;
         var comments = item.comments;
@@ -273,6 +277,7 @@ function getFeed(id, user) {
             numComments++;
             var commentObj = comments[key];
             var dd = new Date(parseInt(commentObj.date));
+            var prettyDate = timeSince(dd);
             var timestampComment = dd.toDateString() + ' ' + dd.getHours() + ':' + dd.getMinutes() + ':' + dd.getSeconds();
             var toPrepend =
             '<div id="comment-id-' + key + '">' +
@@ -280,7 +285,7 @@ function getFeed(id, user) {
             '  <img src="images/sample_user.png" alt="" class="circle">' +
             '  <span class="title spaceship-text feed-username"><a href="#">' + commentObj.poster + '</a></span>' +
             '  <span class="feed-action">' + commentObj.comment + '</span>' +
-            '  <p><small class="feed-timestamp">' + timestampComment + '</small></p>';
+            '  <p><small class="feed-timestamp">' + prettyDate + '</small></p>';
             if (myName === commentObj.poster) {
               toPrepend +=
               '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
@@ -297,13 +302,13 @@ function getFeed(id, user) {
 
         //append purchases & comments to feed array
         var plural = (numComments === 1) ? '' : 's';
-        feed.push({timestamp: date, content:
+        feed.push({timestamp: prettyDate, content:
   '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">bought ${numUnits.toFixed(2)} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
-  `    <p><small class="feed-timestamp">${timestamp}</small></p>` +
+  `    <p><small class="feed-timestamp">${prettyDate}</small></p>` +
   `    <a href="#!" id="num-comments-${purchaseId}" class="feed-comments-link">${numComments} comment${plural}</a>` +
   `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}.${id}';">Comment</a>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
