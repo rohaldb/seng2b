@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var formidable = require('formidable');
+var fs = require('fs');
 
 var firebase = require('firebase');
 require('firebase/auth');
@@ -127,6 +129,7 @@ app.post('/get_user_info', async function(req, res, next) {
             var groups = snapshot.val().groups;
             // console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}, ${purchases}`);
             res.send({
+              userId: userId,
               name: first + ' ' + last,
               balance: bal,
               bio: bio,
@@ -358,6 +361,25 @@ app.post('/update_bio', async function(req, res, next) {
         console.error(e);
         res.send({'bio': false});
     }
+});
+
+app.post('/upload_image', async function(req, res, next) {
+  var userId = firebase.auth().currentUser.uid;
+  var form = new formidable.IncomingForm();
+  var whereto = path.join(__dirname, 'public', 'profile_images', userId + '.png');
+  console.log('writing to: ' + whereto);
+
+  //upload image file
+  form.parse(req, function(err, fields, files) {
+    var filepath = files.uploadfile.path;
+    console.log('moving: ' + filepath);
+    fs.rename(filepath, whereto, function(err) {
+      console.log(err);
+    });
+  });
+
+  //redirect to profile page on completion
+  res.redirect('/profile');
 });
 
 app.post('/new_group', async function(req, res, next) {
