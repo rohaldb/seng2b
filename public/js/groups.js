@@ -10,6 +10,7 @@ var groupsVue = new Vue({
 $('.modal').modal();
 
 var myName = '';
+var update;
 
 //make a comment on a feed event
 $("#post-new-comment").on("click", function() {
@@ -59,12 +60,15 @@ $("#post-new-comment").on("click", function() {
       '  <img src="images/sample_user.png" alt="" class="circle">' +
       '  <span class="title spaceship-text feed-username"><a href="#">' + whoami + '</a></span>' +
       '  <span class="feed-action">' + comment + '</span>' +
-      '  <p><small class="feed-timestamp">' + prettyDate + '</small></p>' +
+      '  <p><small class="feed-timestamp" data-timestamp="' + timestamp + '">' + prettyDate + '</small></p>' +
       '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
       '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\';' +
       '  document.getElementById(\'delete-post-id-user\').value=\'' + postId.replace(/.*\./, '') + '\';' +
       '  document.getElementById(\'delete-post-id\').value=\'#num-comments-' + postId.replace(/\..*/, '') + '\'";>Delete</a>' +
       '</li></div>');
+      clearInterval(update);
+      var rnd = Math.floor(Math.random() * 8) + 3; //update timestamps after ~5 seconds
+      update = setInterval(updateDateTimestamps, rnd * 1000);
     },
     error: function(response) {
       Materialize.toast('Could not post comment. Try again later.', 1250);
@@ -207,13 +211,24 @@ var updateGroupPage = function(response) {
   });
 };
 
+//update all timestamps on the feed
+function updateDateTimestamps() {
+  clearInterval(update);
+  $('.feed-timestamp').each(function(i, t) {
+    var $t = $(t);
+    $t.text(timeSince(new Date($t.data('timestamp'))));
+  });
+  var nextUpdate = Math.floor(Math.random() * 30) + 5; //update timestamps after random num of seconds
+  update = setInterval(updateDateTimestamps, nextUpdate * 1000);
+}
+
 //load number of group members and list of group members, then load user list and generate chips
 $.ajax({
   url: "/get_group_info",
   method: "POST",
   data: {'id': getUrlParameter('id')},
   dataType: "json",
-  success: function (response) {
+  success: function(response) {
     myName = response.myName;
     updateGroupPage(response);
   },
@@ -230,7 +245,7 @@ function appendToFeed(date, user, word, timestamp) {
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">${word} the group.<span>` +
-  `   <p><small class="feed-timestamp">${timestamp}</small></p>` +
+  `   <p><small class="feed-timestamp" data-timestamp="${date}">${timestamp}</small></p>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
   '  </li>' +
   '</div>' +
@@ -285,7 +300,7 @@ function getFeed(id, user) {
             '  <img src="images/sample_user.png" alt="" class="circle">' +
             '  <span class="title spaceship-text feed-username"><a href="#">' + commentObj.poster + '</a></span>' +
             '  <span class="feed-action">' + commentObj.comment + '</span>' +
-            '  <p><small class="feed-timestamp">' + prettyDate + '</small></p>';
+            '  <p><small class="feed-timestamp" data-timestamp="' + parseInt(commentObj.date) +'">' + prettyDate + '</small></p>';
             if (myName === commentObj.poster) {
               toPrepend +=
               '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
@@ -302,13 +317,13 @@ function getFeed(id, user) {
 
         //append purchases & comments to feed array
         var plural = (numComments === 1) ? '' : 's';
-        feed.push({timestamp: prettyDate, content:
+        feed.push({timestamp: date, content:
   '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">bought ${numUnits.toFixed(2)} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
-  `    <p><small class="feed-timestamp">${prettyDate}</small></p>` +
+  `    <p><small class="feed-timestamp" data-timestamp="${date}">${prettyDate}</small></p>` +
   `    <a href="#!" id="num-comments-${purchaseId}" class="feed-comments-link">${numComments} comment${plural}</a>` +
   `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}.${id}';">Comment</a>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
