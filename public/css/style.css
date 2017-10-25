@@ -132,3 +132,8 @@ main {
 .td-no-padding {
     padding: 0;
 }
+
+.td-reduced-v-padding {
+    padding-top: 5px;
+    padding-bot: 5px;
+}
