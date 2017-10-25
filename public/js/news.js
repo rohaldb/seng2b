@@ -67,7 +67,7 @@ function loadArticles(company) {
       var prettyDateA = timeSince(new Date(obj[ob]['webPublicationDate']));
       var bodyTextA = obj[ob]['fields']['bodyText'];
 
-      sentimentAnalysis(i, titleA, linkA, prettyDateA, bodyTextA, function(articleNum, title, link, date, bodyText, ibm) {
+      sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, function(articleNum, title, link, date, bodyText, ibm) {
         // console.log(ibm.sentiment.document.score + ' ' + ibm.sentiment.document.label);
         var sentimentScore = ibm.sentiment.document.score;
         var sentimentLabel = ibm.sentiment.document.label;
@@ -106,7 +106,7 @@ function loadArticles(company) {
         //add news list item
         $('#news-articles-list').append('<li class="collection-item avatar space-gray news-item">' +
           '<span class="title spaceship-text"><a target="_blank" href="' + link + '">' +
-          '<h5>' + title + '</h5><p>' + date + '</p></a></span>' +
+          '<h5>' + title + '</h5><p>' + prettyDateA + '</p></a></span>' +
           '<div class="row"><div class="col-sm-12"><img src="' + sentimentIcon + '" alt="' + sentimentIcon + ' icon" title="Sentiment: ' +
           sentimentScore + ' (' + sentimentLabel + ')" height="17" width="17" style="vertical-align:middle">' +
           '<span class="sentiment-text">' + sentimentText + '</span></div>' +
