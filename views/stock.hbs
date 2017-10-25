@@ -253,12 +253,33 @@
                 <input type="number" v-model.number="amount" style="font-size: 40px; text-align:center;">
             </div>
             <div class="col s2">
-              <span v-if="!dollars" style="font-size: 20px">units</span>
-              <span v-else style="font-size: 20px">dollars</span>
+              <form action="#">
+                <table>
+                  <tbody>
+                  <tr>
+                    <td class="td-no-padding">
+                      <input v-if="!dollars" name="units-dollars-group" type="radio" id="units-active-radio" checked />
+                      <input v-else name="units-dollars-group" type="radio" id="units-active-radio" @click="toggleMessage" />
+                      <label for="units-active-radio">
+                        <span v-if="!dollars" class="radio-label-active"><b>units</b></span>
+                        <span v-else><a href="#!" @click="toggleMessage" class="radio-label-default">units</a></span>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td-no-padding">
+                      <input v-if="dollars" name="units-dollars-group" type="radio" id="dollars-active-radio" />
+                      <input v-else name="units-dollars-group" type="radio" id="dollars-active-radio" @click="toggleMessage"/>
+                      <label for="dollars-active-radio">
+                        <span v-if="dollars" class="radio-label-active"><b>dollars</b></span>
+                        <span v-else><a href="#!" @click="toggleMessage" class="radio-label-default">dollars</a></span>
+                      </label>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </form>
             </div>
-        </div>
-        <div class="row">
-            <a href="#!" @click="toggleMessage" class="waves-effect waves-blue blue btn">\{{message}}</a>
         </div>
         <div class="row row-no-bot-margin" id="price-calculation">
           <h5 v-if="dollars">$\{{amount}} / \{{share_price}} = \{{calculatedCost.toFixed(2)}} share(s)</h5>

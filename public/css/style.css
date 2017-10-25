@@ -137,3 +137,13 @@ main {
     padding-top: 5px;
     padding-bot: 5px;
 }
+
+.radio-label-active {
+    font-size: 25px;
+    color: #FFFFFF !important;
+}
+
+.radio-label-default {
+    font-size: 15px;
+    color: #898989 !important;
+}
