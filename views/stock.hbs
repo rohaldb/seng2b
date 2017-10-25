@@ -224,7 +224,7 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal atlassian center-align white-text">
     <div class="modal-content container">
-        <div class="row">
+        <div class="row row-no-bot-margin">
             <h4 class=" orange-text" style="display:inline-block;">\{{stock_symbol}} | <span> \{{company_name}}</span></h4>
             <h3><span class="company-price">\{{share_price}}</span>
                 <small v-if="share_percent_change > 0" class="green-text">\{{share_percent_change.toFixed(2)}}%</small>
@@ -232,30 +232,47 @@
                 <small v-else class="red-text">\{{share_percent_change.toFixed(2)}}%</small>
             </h3>
         </div>
-        <div class="row center-align" >
+        <div class="row center-align row-no-bot-margin" >
             <div class="col s2">
-                <a href="#" @click="amount--" style="color:white;"><i class="medium material-icons">remove</i></a>
+                <a href="#" @click="amount--" style="color:white;"><i class="small material-icons">remove</i></a>
             </div>
             <div class="col s8">
                 <input type="number" v-model.number="amount" style="font-size: 40px; text-align:center;">
             </div>
             <div class="col s2">
-                <a href="#"  @click="tryIncreaseAmount" style="color:white;"><i class="medium material-icons">add</i></a>
+                <a href="#"  @click="tryIncreaseAmount" style="color:white;"><i class="small material-icons">add</i></a>
             </div>
 
         </div>
         <div class="row">
             <a href="#!" @click="toggleMessage" class="waves-effect waves-blue blue btn">\{{message}}</a>
         </div>
-        <div class="row" id="price-calculation">
-            <h5 v-if="dollars">$\{{amount}} / \{{share_price}} units = \{{calculatedCost.toFixed(2)}} share(s)</h5>
-            <h5 v-else=>\{{amount}} units * $\{{share_price}} = $\{{calculatedCost.toFixed(2)}}</h5>
+        <div class="row row-no-bot-margin" id="price-calculation">
+          <h5 v-if="dollars">$\{{amount}} / \{{share_price}} units = \{{calculatedCost.toFixed(2)}} share(s)</h5>
+          <h5 v-else=>\{{amount}} units × $\{{share_price}} = $\{{calculatedCost.toFixed(2)}}</h5>
+          <hr>
         </div>
-        <div class="row">
-            <h5>Current Balance: \{{balance}}</h5>
-            <h5>Balance after transaction: \{{balanceAfterTransaction.toFixed(2)}}</h5>
-            <p class="red-text">\{{errorMessage}}</p>
+
+        <div class="row balance-change">
+          <div class="col s8 offset-s2">
+            <table>
+              <tbody>
+              <tr>
+                <td>Current balance</td>
+                <td>$\{{balance}}</td>
+              </tr>
+              <tr>
+                <td>Balance after transaction</td>
+                <td>$\{{balanceAfterTransaction.toFixed(2)}}</td>
+              </tr>
+              <tr v-if="errorMessage">
+                <td class="red-text">\{{errorMessage}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+
         <div class="row">
             <a href="#!" class="modal-action modal-close waves-effect waves-red red btn">Cancel</a>
             <a href="#!" id="confirm-buy" class="modal-action modal-close waves-effect waves-green green btn" @click="buyStock">Confirm</a>

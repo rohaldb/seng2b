@@ -124,3 +124,7 @@ main {
 .input-field label {
     color: #404040;
 }
+
+.row-no-bot-margin {
+    margin-bottom: 0 !important;
+}
