@@ -407,7 +407,7 @@ app.post('/new_group', async function(req, res, next) {
           //create the new group
           var newGroupKey = firebase.database().ref().child('groups').push().key;
           var updates = {};
-          updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': '', 'created': 'created'}]};
+          updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': '', 'id': user, 'created': 'created'}]};
           updates[`/users/${user}/groups/${newGroupKey}`] = name;
           firebase.database().ref().update(updates);
 
@@ -442,7 +442,7 @@ app.post('/invite_to_group', async function (req, res, next) {
         var first = snapshot.val().firstName;
         var last = snapshot.val().lastName;
         var person = first + ' ' + last;
-        allHistory.push({'user': person, 'joined': now, 'left': '', 'created': 'joined'});
+        allHistory.push({'user': person, 'joined': now, 'left': '', 'created': 'joined', 'id': x});
       });
     });
 
@@ -549,12 +549,13 @@ app.post('/comment_on_feed', async function (req, res, next) {
     var c = {
       'poster': person,
       'comment': comment,
-      'date': date
+      'date': date,
+      'posterId': user
     };
     console.log('adding comment: ' + c);
     updates[`/users/${feedItemUser}/history/${historyItem}/comments/${newCommentId}`] = c;
     firebase.database().ref().update(updates);
-    res.send({'me': person, 'id': newCommentId});
+    res.send({'me': person, 'id': newCommentId, 'userId': user});
     console.log('success');
   });
 

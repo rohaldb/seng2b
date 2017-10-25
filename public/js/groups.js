@@ -44,6 +44,7 @@ $("#post-new-comment").on("click", function() {
       console.log("success, result = " + JSON.stringify(response));
       var whoami = response.me;
       var commentId = response.id;
+      var posterId = response.userId;
       var d = new Date(timestamp);
       var prettyDate = timeSince(d);
       var date = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
@@ -58,7 +59,8 @@ $("#post-new-comment").on("click", function() {
       $('#comment-id-' + postId.replace(/\..*/, '')).prepend(
       '<div id="comment-id-' + commentId + '">' +
       '<li class="collection-item avatar feed-item">' +
-      '  <img src="images/sample_user.png" alt="" class="circle">' +
+      //'  <img src="images/sample_user.png" alt="" class="circle">' +
+      `<img src="profile_images/${posterId}.png" alt="" onerror="this.onerror=null; this.src='images/sample_user.png';" class="circle">` +
       '  <span class="title spaceship-text feed-username"><a href="#">' + whoami + '</a></span>' +
       '  <span class="feed-action">' + comment + '</span>' +
       '  <p><small class="feed-timestamp tooltipped" data-position="bottom" data-delay="50" data-tooltip="' + date + '" data-timestamp="' + timestamp + '">' + prettyDate + '</small></p>' +
@@ -75,7 +77,7 @@ $("#post-new-comment").on("click", function() {
     error: function(response) {
       Materialize.toast('Could not post comment. Try again later.', 1250);
       console.log("failed, result = " + JSON.stringify(response));
-    }
+    i}
   });
 });
 
@@ -168,9 +170,9 @@ var updateGroupPage = function(response) {
     d = new Date(parseInt(x.left));
     var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
     var prettyLeft = timeSince(d);
-    appendToFeed(x.joined, x.user, x.created, prettyJoined); //should always be valid
+    appendToFeed(x.joined, x.user, x.created, prettyJoined, x.id); //should always be valid
     if (x.left !== '') {
-      appendToFeed(x.left, x.user, 'left', prettyLeft);
+      appendToFeed(x.left, x.user, 'left', prettyLeft, x.id);
     }
   });
 
@@ -240,13 +242,14 @@ $.ajax({
 });
 
 //append create/leave/join event to group feed
-function appendToFeed(date, user, word, timestamp) {
+function appendToFeed(date, user, word, timestamp, userId) {
   var d = new Date(parseInt(date));
   var fullDate = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
   feed.push({timestamp: date, content:
   '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar feed-item">' +
-  '    <img src="images/sample_user.png" alt="" class="circle">' +
+  //'    <img src="images/sample_user.png" alt="" class="circle">' +
+  `<img src="profile_images/${userId}.png" alt="" onerror="this.onerror=null; this.src='images/sample_user.png';" class="circle">` +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">${word} the group.<span>` +
   `   <p><small class="feed-timestamp tooltipped" data-position="bottom" data-delay="50" data-tooltip="${fullDate}" data-timestamp="${date}">${timestamp}</small></p>` +
@@ -296,12 +299,14 @@ function getFeed(id, user) {
             numComments++;
             var commentObj = comments[key];
             var dd = new Date(parseInt(commentObj.date));
+            var posterId = commentObj.posterId;
             var prettyDate = timeSince(dd);
             var timestampComment = dd.toDateString() + ' ' + dd.getHours() + ':' + dd.getMinutes() + ':' + dd.getSeconds();
             var toPrepend =
             '<div id="comment-id-' + key + '">' +
             '<li class="collection-item avatar feed-item">' +
-            '  <img src="images/sample_user.png" alt="" class="circle">' +
+            //'  <img src="images/sample_user.png" alt="" class="circle">' +
+            `<img src="profile_images/${posterId}.png" alt="" onerror="this.onerror=null; this.src='images/sample_user.png';" class="circle">` +
             '  <span class="title spaceship-text feed-username"><a href="#">' + commentObj.poster + '</a></span>' +
             '  <span class="feed-action">' + commentObj.comment + '</span>' +
             '  <p><small class="feed-timestamp tooltipped" data-position="bottom" data-delay="50" data-tooltip="' + timestampComment + '" data-timestamp="' + parseInt(commentObj.date) +'">' + prettyDate + '</small></p>';
@@ -324,7 +329,8 @@ function getFeed(id, user) {
         feed.push({timestamp: date, content:
   '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar feed-item">' +
-  '    <img src="images/sample_user.png" alt="" class="circle">' +
+  //'    <img src="images/sample_user.png" alt="" class="circle">' +
+  `<img src="profile_images/${id}.png" alt="" onerror="this.onerror=null; this.src='images/sample_user.png';" class="circle">` +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">bought ${numUnits.toFixed(2)} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
   `    <p><small class="feed-timestamp tooltipped" data-position="bottom" data-delay="50" data-tooltip="${timestamp}" data-timestamp="${date}">${prettyDate}</small></p>` +
