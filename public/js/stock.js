@@ -47,10 +47,12 @@ var vue = new Vue({
         this.dollars = true;
         this.message = "Change to Units";
         this.amount = 0;
+        $("#dollars-active-radio").prop('checked', true);
       } else {
         this.dollars = false;
         this.message = "Change to Dollars";
         this.amount = 0;
+        $("#units-active-radio").prop('checked', true);
       }
     },
     tryIncreaseAmount: function() {

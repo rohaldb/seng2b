@@ -124,3 +124,26 @@ main {
 .input-field label {
     color: #404040;
 }
+
+.row-no-bot-margin {
+    margin-bottom: 0 !important;
+}
+
+.td-no-padding {
+    padding: 0;
+}
+
+.td-reduced-v-padding {
+    padding-top: 5px;
+    padding-bot: 5px;
+}
+
+.radio-label-active {
+    font-size: 25px;
+    color: #FFFFFF !important;
+}
+
+.radio-label-default {
+    font-size: 15px;
+    color: #898989 !important;
+}

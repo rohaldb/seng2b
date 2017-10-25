@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var formidable = require('formidable');
+var fs = require('fs');
 
 var firebase = require('firebase');
 require('firebase/auth');
@@ -127,6 +129,7 @@ app.post('/get_user_info', async function(req, res, next) {
             var groups = snapshot.val().groups;
             // console.log(`profile info: ${first}, ${last}, ${bal}, ${bio}, ${groups}, ${purchases}`);
             res.send({
+              userId: userId,
               name: first + ' ' + last,
               balance: bal,
               bio: bio,
@@ -360,6 +363,25 @@ app.post('/update_bio', async function(req, res, next) {
     }
 });
 
+app.post('/upload_image', async function(req, res, next) {
+  var userId = firebase.auth().currentUser.uid;
+  var form = new formidable.IncomingForm();
+  var whereto = path.join(__dirname, 'public', 'profile_images', userId + '.png');
+  console.log('writing to: ' + whereto);
+
+  //upload image file
+  form.parse(req, function(err, fields, files) {
+    var filepath = files.uploadfile.path;
+    console.log('moving: ' + filepath);
+    fs.rename(filepath, whereto, function(err) {
+      console.log(err);
+    });
+  });
+
+  //redirect to profile page on completion
+  res.redirect('/profile');
+});
+
 app.post('/new_group', async function(req, res, next) {
   var name = req.body.name;
   var date = req.body.date;
@@ -385,7 +407,7 @@ app.post('/new_group', async function(req, res, next) {
           //create the new group
           var newGroupKey = firebase.database().ref().child('groups').push().key;
           var updates = {};
-          updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': '', 'created': 'created'}]};
+          updates[`/groups/${newGroupKey}`] = {'name': name, 'users': [user], 'history': [{'user': person, 'joined': date, 'left': '', 'id': user, 'created': 'created'}]};
           updates[`/users/${user}/groups/${newGroupKey}`] = name;
           firebase.database().ref().update(updates);
 
@@ -420,7 +442,7 @@ app.post('/invite_to_group', async function (req, res, next) {
         var first = snapshot.val().firstName;
         var last = snapshot.val().lastName;
         var person = first + ' ' + last;
-        allHistory.push({'user': person, 'joined': now, 'left': '', 'created': 'joined'});
+        allHistory.push({'user': person, 'joined': now, 'left': '', 'created': 'joined', 'id': x});
       });
     });
 
@@ -527,12 +549,13 @@ app.post('/comment_on_feed', async function (req, res, next) {
     var c = {
       'poster': person,
       'comment': comment,
-      'date': date
+      'date': date,
+      'posterId': user
     };
     console.log('adding comment: ' + c);
     updates[`/users/${feedItemUser}/history/${historyItem}/comments/${newCommentId}`] = c;
     firebase.database().ref().update(updates);
-    res.send({'me': person, 'id': newCommentId});
+    res.send({'me': person, 'id': newCommentId, 'userId': user});
     console.log('success');
   });
 

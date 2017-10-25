@@ -98,7 +98,7 @@ function newImg(input) {
     var reader = new FileReader();
     reader.onload = function(e) {
       $('#profile-image').attr('src', e.target.result);
-      //TODO: firebase backend
+      //no longer needed
     };
     reader.readAsDataURL(input.files[0]);
   }
@@ -240,6 +240,8 @@ $.ajax({
             $('#new-bio-text').text(response.bio);
         }
         $('#new-bio-text').trigger('autoresize');
+        $("#profile-image").attr('src', 'profile_images/' + response.userId + '.png');
+        $("#profile-image").attr('onerror', "this.onerror=null; this.src='images/profile_default.png'");
     },
     error: function(response) {
         console.log("failed, result = " + JSON.stringify(response));

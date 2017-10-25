@@ -7,11 +7,13 @@
                         <div class="col s2" style="padding-left:0px;">
                           <div class="file-field">
                             <div class="card-image">
-                              <img id="profile-image" src="images/profile_default.png" alt="profile image">
+                              <img id="profile-image" src="" alt="">
                             </div>
                             <button onclick="$('#img-upload').click();" id="change-profile" type="file"
                             class="btn-floating halfway-fab waves-effect waves-light"><i class="material-icons">add_a_photo</i></button>
-                            <input id="img-upload" type="file" accept="image/*, image/jpeg, image/png" style="visibility:hidden" onchange="newImg(this)">
+                            <form id="upload-img-form" method="POST" action="upload_image" enctype="multipart/form-data">
+                              <input id="img-upload" name="uploadfile" type="file" accept="image/png" style="visibility:hidden" onchange="document.getElementById('upload-img-form').submit();">
+                            </form>
                           </div>
                         </div>
                         <div class="col s4">
