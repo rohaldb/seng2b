@@ -64,17 +64,21 @@ function loadArticles(company) {
       var titleA = obj[ob]['webTitle'];
       var linkA = obj[ob]['webUrl'];
       var dateA = obj[ob]['webPublicationDate'].replace(/[a-z]/gi, ' ');
+      var prettyDateA = timeSince(new Date(obj[ob]['webPublicationDate']));
       var bodyTextA = obj[ob]['fields']['bodyText'];
 
-      sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, function(articleNum, title, link, date, bodyText, ibm) {
+      sentimentAnalysis(i, titleA, linkA, prettyDateA, bodyTextA, function(articleNum, title, link, date, bodyText, ibm) {
         // console.log(ibm.sentiment.document.score + ' ' + ibm.sentiment.document.label);
         var sentimentScore = ibm.sentiment.document.score;
         var sentimentLabel = ibm.sentiment.document.label;
         var sentimentIcon = 'images/blue-neutral-800px.png';
+        var sentimentText = 'Neutral sentiment';
         if (ibm.sentiment.document.label === 'positive') {
           sentimentIcon = 'images/green-tick-800px.png';
+          sentimentText = 'Positive sentiment';
         } else if (ibm.sentiment.document.label === 'negative') {
           sentimentIcon = 'images/red-cross-800px.png';
+          sentimentText = 'Negative sentiment';
         }
 
         var summary = bodyText.substring(0, 350).replace(/\s[^\s]*$/, '').replace(/\s*[^a-z]+$/i, '');
@@ -100,11 +104,13 @@ function loadArticles(company) {
         });
 
         //add news list item
-        $('#news-articles-list').append('<li class="collection-item avatar space-gray">' +
+        $('#news-articles-list').append('<li class="collection-item avatar space-gray news-item">' +
           '<span class="title spaceship-text"><a target="_blank" href="' + link + '">' +
           '<h5>' + title + '</h5><p>' + date + '</p></a></span>' +
-          '<img src="' + sentimentIcon + '" alt="' + sentimentIcon + ' icon" title="Sentiment: ' +
-          sentimentScore + ' (' + sentimentLabel + ')" height="20" width="20"><p>' + summary +
+          '<div class="row"><div class="col-sm-12"><img src="' + sentimentIcon + '" alt="' + sentimentIcon + ' icon" title="Sentiment: ' +
+          sentimentScore + ' (' + sentimentLabel + ')" height="17" width="17" style="vertical-align:middle">' +
+          '<span class="sentiment-text">' + sentimentText + '</span></div>' +
+          '<p class="news-body">' + summary +
           ' ... <a class="modal-trigger" href="#news-' + Object(articleNum + 1).toString() + '">Read More</a></p></li>');
 
         //add news article to modal
