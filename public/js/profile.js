@@ -124,7 +124,9 @@ function profitLoss(index, current) {
     var element = vue.purchaseList[index];
     var tradeValue = current * element.num_units;
     element.value = tradeValue;
-    element.profit_loss_dollars = (tradeValue - element.trade_amount);
+    pld = (tradeValue - element.trade_amount);
+    if (element.type == "short" ){pld*=-1;}
+    element.profit_loss_dollars = pld;
     if (-0.0001 < element.profit_loss_dollars  && element.profit_loss_dollars < 0.001) {
         element.profit_loss_dollars = 0;
     }
