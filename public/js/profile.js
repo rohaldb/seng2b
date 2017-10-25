@@ -28,8 +28,11 @@ var vue = new Vue({
                         vue.historyList[index].date = date;
                     }
 
-
-                    vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount) + parseFloat(item.profit_loss_dollars);
+                    if (item.type == "long") {
+                      vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount) + parseFloat(item.profit_loss_dollars);
+                    } else {
+                      vue.balance = parseFloat(vue.balance) + parseFloat(item.profit_loss_dollars);
+                    }
                     sidebarVue.removeItemFromList(item.companyCode, item.companyName)
                 },
                 error: function(response) {
@@ -104,7 +107,7 @@ function newImg(input) {
 function getStockPriceOf(code, index, type) {
     $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=1min&outputsize=compact&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
         data = Object.values(data)[1];
-        if (jQuery.isEmptyObject(data)) {console.warn("If you see me then no stock data has been returned.");}
+        if (jQuery.isEmptyObject(data)) {console.warn("If you see me then no stock data has been returned for " + code);}
         extractedData = [];
         $(data).each(function(i,val) {
             $.each(val,function(key,val) {
@@ -132,6 +135,7 @@ function getStockPriceOf(code, index, type) {
 }
 
 function profitLoss(index, current) {
+    console.log("profit loss called on " + vue.purchaseList[index].companyCode);
     var element = vue.purchaseList[index];
     var tradeValue = current * element.num_units;
     element.value = tradeValue;

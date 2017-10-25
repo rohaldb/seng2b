@@ -257,7 +257,7 @@
         </div>
         <div class="row">
             <h5>Current Balance: \{{balance}}</h5>
-            <h5>Balance after transaction: \{{balanceAfterTransaction.toFixed(2)}}</h5>
+            <h5 v-if="long">Balance after transaction: \{{balanceAfterTransaction.toFixed(2)}}</h5>
             <p class="red-text">\{{errorMessage}}</p>
         </div>
         <div class="row">

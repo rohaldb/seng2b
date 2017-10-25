@@ -30,13 +30,13 @@ firebase.initializeApp(config);
 //     }
 // });
 
-firebase.auth().signInWithEmailAndPassword('thor@thunder.com', 'password').catch(function(error) {
+// firebase.auth().signInWithEmailAndPassword('thor@thunder.com', 'password').catch(function(error) {
 // firebase.auth().signInWithEmailAndPassword('iron@man.com', 'password').catch(function(error) {
 //   // Handle Errors here.
 //   var errorCode = error.code;
 //   var errorMessage = error.message;
 //   // ...
-});
+// });
 
 
 // Include each page's /routes/*.js file here
@@ -301,7 +301,11 @@ app.post('/close_trade', async function(req, res, next) {
 
         var ref = firebase.database().ref(`users/${userId}/balance`);
         ref.once('value', function(snapshot) {
-            var i = parseFloat(item.trade_amount) + parseFloat(item.profit_loss_dollars);
+            if (item.type == "long") {
+                var i = parseFloat(item.trade_amount) + parseFloat(item.profit_loss_dollars);
+            } else {
+                var i = parseFloat(item.profit_loss_dollars);
+            }
             var curBalance = parseFloat(snapshot.val());
             var newBalance = parseFloat(curBalance + i);
             var finalBalance = newBalance.toFixed(2);
@@ -709,14 +713,16 @@ app.post('/purchase_stock', async function(req, res, next) {
                 num_units: num_units,
                 share_price: share_price
             });
-            var ref = firebase.database().ref(`users/${user}/balance`);
-            ref.once('value', function(snapshot) {
-                // console.log(snapshot.val());
-                var newBalance = snapshot.val() - tradeAmount;
-                var finalBalance = newBalance.toFixed(2);
-                firebase.database().ref(`users/${user}`).update({balance: finalBalance})
-                res.send({purchase_made: true});
-            });
+            if (type == "long") {
+                var ref = firebase.database().ref(`users/${user}/balance`);
+                    ref.once('value', function(snapshot) {
+                        // console.log(snapshot.val());
+                        var newBalance = snapshot.val() - tradeAmount;
+                        var finalBalance = newBalance.toFixed(2);
+                        firebase.database().ref(`users/${user}`).update({balance: finalBalance})
+                    });
+                }
+            res.send({purchase_made: true});
         } else {
             res.send({purchase_made: false});
         }
