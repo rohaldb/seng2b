@@ -89,6 +89,18 @@ var vue = new Vue({
     }
 })
 
+//change profile image
+function newImg(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#profile-image').attr('src', e.target.result);
+      //TODO: firebase backend
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 function getStockPriceOf(code, index, type) {
     $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + code + "&interval=1min&outputsize=compact&apikey=2V4IGWVZ6W8XS8AI", function(data, status){
         data = Object.values(data)[1];
