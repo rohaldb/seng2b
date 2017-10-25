@@ -29,7 +29,7 @@ var vue = new Vue({
                     }
 
 
-                    vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount)
+                    vue.balance = parseFloat(vue.balance) + parseFloat(item.trade_amount) + parseFloat(item.profit_loss_dollars);
                     sidebarVue.removeItemFromList(item.companyCode, item.companyName)
                 },
                 error: function(response) {
@@ -123,7 +123,6 @@ function getStockPriceOf(code, index, type) {
         if (type == 0) {
             if (extractedData[0].close) {
                 profitLoss(index, extractedData[extractedData.length - 1].close);
-                console.log(extractedData[extractedData.length - 1].close);
                 // return extractedData[extractedData.length - 1].close;
             } else {console.warn("Couldnt find stock price");}
         } else if (type == 1) {

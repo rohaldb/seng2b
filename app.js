@@ -30,13 +30,13 @@ firebase.initializeApp(config);
 //     }
 // });
 
-// firebase.auth().signInWithEmailAndPassword('bruce@smash.com', 'password').catch(function(error) {
+firebase.auth().signInWithEmailAndPassword('thor@thunder.com', 'password').catch(function(error) {
 // firebase.auth().signInWithEmailAndPassword('iron@man.com', 'password').catch(function(error) {
 //   // Handle Errors here.
 //   var errorCode = error.code;
 //   var errorMessage = error.message;
 //   // ...
-// });
+});
 
 
 // Include each page's /routes/*.js file here
@@ -301,7 +301,7 @@ app.post('/close_trade', async function(req, res, next) {
 
         var ref = firebase.database().ref(`users/${userId}/balance`);
         ref.once('value', function(snapshot) {
-            var i = parseFloat(item.trade_amount);
+            var i = parseFloat(item.trade_amount) + parseFloat(item.profit_loss_dollars);
             var curBalance = parseFloat(snapshot.val());
             var newBalance = parseFloat(curBalance + i);
             var finalBalance = newBalance.toFixed(2);
