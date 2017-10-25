@@ -118,6 +118,9 @@ main {
 
 /* at a glance company info */
 .disabled-input {
-    color: black;
+    color: #383838;
     cursor: default;
+}
+.input-field label {
+    color: #404040;
 }
