@@ -55,102 +55,71 @@
 
     <!-- company info tab -->
     <div id="info" class="row">
-        <div class="row">
-            <div class="col s12">
-                <h4>At a Glance</h4>
-            </div>
-            <div class="input-field col s2">
-                <i class="medium material-icons prefix">settings</i>
-                <input disabled value="Unknown" id="industry" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-                <label for="industry">Industry</label>
-            </div>
-            <div class="input-field col s2">
-                <i class="medium material-icons prefix">history</i>
-                <input disabled value="Unknown" id="founded" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-                <label for="founded">Founded</label>
-            </div>
-            <div class="input-field col s2">
-                <i class="medium material-icons prefix">location_city</i>
-                <input disabled value="Unknown" id="headquarters" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-                <label for="headquarters">Headquarters</label>
-            </div>
-            <div class="input-field col s2">
-                <i class="medium material-icons prefix">person_outline</i>
-                <input disabled value="Unknown" id="ceo" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-                <label id="ceo-label" for="ceo">CEO</label>
-            </div>
-            <div class="input-field col s2">
-                <i class="medium material-icons prefix">people_outline</i>
-                <input disabled value="Unknown" id="employees" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
-                <label for="employees">Number of Employees</label>
-            </div>
+      <div class="row">
+        <div class="col s3">
+          <!-- <h4 class="finance-text">At A Glance</h4> -->
+          <br>
+          <div class="input-field">
+            <i class="medium material-icons prefix">settings</i>
+            <input disabled value="Unknown" id="industry" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+            <label for="industry">Industry</label>
+          </div>
+          <br>
+          <div class="input-field">
+            <i class="medium material-icons prefix">history</i>
+            <input disabled value="Unknown" id="founded" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+            <label for="founded">Founded</label>
+          </div>
+          <br>
+          <div class="input-field">
+            <i class="medium material-icons prefix">location_city</i>
+            <input disabled value="Unknown" id="headquarters" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+            <label for="headquarters">Headquarters</label>
+          </div>
+          <br>
+          <div class="input-field">
+            <i class="medium material-icons prefix">person_outline</i>
+            <input disabled value="Unknown" id="ceo" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+            <label id="ceo-label" for="ceo">CEO</label>
+          </div>
+          <br>
+          <div class="input-field">
+            <i class="medium material-icons prefix">people_outline</i>
+            <input disabled value="Unknown" id="employees" type="text" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unknown">
+            <label for="employees">Number of Employees</label>
+          </div>
         </div>
-
-        <div class="row">
-            <div class="col s8">
-                <h4>Overview</h4>
-                <p id="company-summary">Summary of {{ company }}</p>
-            </div>
+        <div class="col s8" style="margin-left: 2.5em;">
+          <h4>Overview</h4>
+            <p id="company-summary">Summary of {{ company }}</p>
+            <h4 id="finances-year">Finances</h4>
+				<table class="striped finances-table">
+				  <tbody>
+				    <tr>
+				      <td><div class="finances-text">Revenue</div></td>
+				      <td id="revenue">Unknown</td>
+				    </tr>
+				    <tr>
+				      <td><div class="finances-text">Operating Income</div></td>
+				      <td id="operating-income">Unknown</td>
+				    </tr>
+				    <tr>
+				      <td><div class="finances-text">Net Income</div></td>
+				      <td id="net-income">Unknown</td>
+				    </tr>
+				    <tr>
+				      <td><div class="finances-text">Total Assets</div></td>
+				      <td id="total-assets">Unknown</td>
+				    </tr>
+				    <tr>
+				      <td><div class="finances-text">Total Equity</div></td>
+				      <td id="total-equity">Unknown</td>
+				    </tr>
+				  </tbody>
+            </table>
         </div>
-
-        <!--
-        <div class="col s7">
-        <h4>At a Glance</h3>
-        <table class="striped">
-        <tbody>
-        <tr>
-        <td>Industry</td>
-        <td id="industry">Unknown</td>
-    </tr>
-    <tr>
-    <td>Founded</td>
-    <td id="founded">Unknown</td>
-</tr>
-<tr>
-<td>Headquarters</td>
-<td id="headquarters">Unknown</td>
-</tr>
-<tr>
-<td>CEO</td>
-<td id="ceo">Unknown</td>
-</tr>
-<tr>
-<td>Number of Employees</td>
-<td id="employees">Unknown</td>
-</tr>
-</tbody>
-</table>
-</div>
--->
-
-<div class="col s7">
-    <h4 id="finances-year">Finances</h4>
-    <table class="striped">
-        <tbody>
-            <tr>
-                <td>Revenue</td>
-                <td id="revenue">Unknown</td>
-            </tr>
-            <tr>
-                <td>Operating Income</td>
-                <td id="operating-income">Unknown</td>
-            </tr>
-            <tr>
-                <td>Net Income</td>
-                <td id="net-income">Unknown</td>
-            </tr>
-            <tr>
-                <td>Total Assets</td>
-                <td id="total-assets">Unknown</td>
-            </tr>
-            <tr>
-                <td>Total Equity</td>
-                <td id="total-equity">Unknown</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-</div>
+      </div>
+    </div>
 
 <div id="graphs" class="row">
     <div class="col s8 offset-s2">

@@ -54,20 +54,22 @@ $("#post-new-comment").on("click", function() {
       $('#num-comments-' + postId.replace(/\..*/, '')).text(numComments + ' comment' + plural);
       $('#new-comment-text').val('');
       $('#new-comment-text').trigger('autoresize');
+      $('.tooltipped').tooltip('remove');
       $('#comment-id-' + postId.replace(/\..*/, '')).prepend(
       '<div id="comment-id-' + commentId + '">' +
       '<li class="collection-item avatar feed-item">' +
       '  <img src="images/sample_user.png" alt="" class="circle">' +
       '  <span class="title spaceship-text feed-username"><a href="#">' + whoami + '</a></span>' +
       '  <span class="feed-action">' + comment + '</span>' +
-      '  <p><small class="feed-timestamp" data-timestamp="' + timestamp + '">' + prettyDate + '</small></p>' +
+      '  <p><small class="feed-timestamp tooltipped" data-position="bottom" data-delay="50" data-tooltip="' + date + '" data-timestamp="' + timestamp + '">' + prettyDate + '</small></p>' +
       '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
       '  onclick="document.getElementById(\'delete-comment-id\').value=\'#comment-id-' + commentId + '\';' +
       '  document.getElementById(\'delete-post-id-user\').value=\'' + postId.replace(/.*\./, '') + '\';' +
       '  document.getElementById(\'delete-post-id\').value=\'#num-comments-' + postId.replace(/\..*/, '') + '\'";>Delete</a>' +
       '</li></div>');
+      $('.tooltipped').tooltip({delay: 50});
       clearInterval(update);
-      var rnd = Math.floor(Math.random() * 8) + 3; //update timestamps after ~5 seconds
+      var rnd = Math.floor(Math.random() * 8) + 4; //update timestamps after ~6 seconds
       update = setInterval(updateDateTimestamps, rnd * 1000);
     },
     error: function(response) {
@@ -218,7 +220,7 @@ function updateDateTimestamps() {
     var $t = $(t);
     $t.text(timeSince(new Date($t.data('timestamp'))));
   });
-  var nextUpdate = Math.floor(Math.random() * 30) + 5; //update timestamps after random num of seconds
+  var nextUpdate = Math.floor(Math.random() * 30) + 8; //update timestamps after random num of seconds
   update = setInterval(updateDateTimestamps, nextUpdate * 1000);
 }
 
@@ -239,13 +241,15 @@ $.ajax({
 
 //append create/leave/join event to group feed
 function appendToFeed(date, user, word, timestamp) {
+  var d = new Date(parseInt(date));
+  var fullDate = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
   feed.push({timestamp: date, content:
   '<div class="col s12 feed-col">' +
   '  <li class="collection-item avatar feed-item">' +
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">${word} the group.<span>` +
-  `   <p><small class="feed-timestamp" data-timestamp="${date}">${timestamp}</small></p>` +
+  `   <p><small class="feed-timestamp tooltipped" data-position="bottom" data-delay="50" data-tooltip="${fullDate}" data-timestamp="${date}">${timestamp}</small></p>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
   '  </li>' +
   '</div>' +
@@ -300,7 +304,7 @@ function getFeed(id, user) {
             '  <img src="images/sample_user.png" alt="" class="circle">' +
             '  <span class="title spaceship-text feed-username"><a href="#">' + commentObj.poster + '</a></span>' +
             '  <span class="feed-action">' + commentObj.comment + '</span>' +
-            '  <p><small class="feed-timestamp" data-timestamp="' + parseInt(commentObj.date) +'">' + prettyDate + '</small></p>';
+            '  <p><small class="feed-timestamp tooltipped" data-position="bottom" data-delay="50" data-tooltip="' + timestampComment + '" data-timestamp="' + parseInt(commentObj.date) +'">' + prettyDate + '</small></p>';
             if (myName === commentObj.poster) {
               toPrepend +=
               '  <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#delete-comment-on-feed-form"' +
@@ -323,7 +327,7 @@ function getFeed(id, user) {
   '    <img src="images/sample_user.png" alt="" class="circle">' +
   `    <span class="title spaceship-text feed-username"><a href="#">${user}</a></span>` +
   `    <span class="feed-action">bought ${numUnits.toFixed(2)} units of <a href="${link}">${companyCode}</a> for $${tradeAmount}.<span>` +
-  `    <p><small class="feed-timestamp" data-timestamp="${date}">${prettyDate}</small></p>` +
+  `    <p><small class="feed-timestamp tooltipped" data-position="bottom" data-delay="50" data-tooltip="${timestamp}" data-timestamp="${date}">${prettyDate}</small></p>` +
   `    <a href="#!" id="num-comments-${purchaseId}" class="feed-comments-link">${numComments} comment${plural}</a>` +
   `    <a class="waves-effect waves-light btn modal-trigger secondary-content" href="#comment-on-feed" onclick="document.getElementById('post-comment-id').value='${purchaseId}.${id}';">Comment</a>` +
   '    <a href="#!" class="secondary-content"><i class="material-icons orange-text">grade</i></a>' +
@@ -348,6 +352,7 @@ function getFeed(id, user) {
         feed.forEach(x => {
           $('#group-feed-events').append(x.content);
         });
+        $('.tooltipped').tooltip({delay: 50}); //now make the tooltips visible
       }
 
     },

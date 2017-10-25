@@ -13,7 +13,7 @@ $("#signUpSubmit").on("click", function() {
     password: $('#password').val(),
   };
   if (data.firstName.match(/^\s*$/) || data.lastName.match(/^\s*$/) || data.email.match(/^\s*$/) || data.password === '') {
-    vue.errorMessage = 'All fields required';
+    vue.errorMessage = 'All fields required'; //stop firebase from crashing
   } else {
     console.log(data);
     $.ajax({
@@ -38,20 +38,24 @@ async function login () {
     email: $('#email').val(),
     password: $('#password').val(),
   };
-  console.log(data);
-  $.ajax({
-    url: "/sign_in_user",
-    method: "POST",
-    data: data,
-    dataType: "json",
-    success: function(response){
-      console.log("success, result = " + JSON.stringify(response));
-      window.location.href = "/profile";
-    },
-    error: function(response){
-      vue.errorMessage = "Invalid username or password";
-    },
-  });
+  if (!data.email.match(/^[^@]+@[^@.][^@]*(\.[^@.]{2,})+$/) || data.password.match(/^\s*$/)) {
+    vue.errorMessage = 'Invalid username or password'; //stop firebase from crashing
+  } else {
+    console.log(data);
+    $.ajax({
+      url: "/sign_in_user",
+      method: "POST",
+      data: data,
+      dataType: "json",
+      success: function(response){
+        console.log("success, result = " + JSON.stringify(response));
+        window.location.href = "/profile";
+      },
+      error: function(response){
+        vue.errorMessage = "Invalid username or password";
+      },
+    });
+  }
 }
 
 $("#logInSubmit").on("click", login);
