@@ -128,3 +128,7 @@ main {
 .row-no-bot-margin {
     margin-bottom: 0 !important;
 }
+
+.td-no-padding {
+    padding: 0;
+}

@@ -233,16 +233,29 @@
             </h3>
         </div>
         <div class="row center-align row-no-bot-margin" >
-            <div class="col s2">
-                <a href="#" @click="amount--" style="color:white;"><i class="small material-icons">remove</i></a>
+            <div class="col s3">
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="td-no-padding right-align">
+                      <a href="#"  @click="tryIncreaseAmount" style="color:white;"><i class="small material-icons">add</i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td-no-padding right-align">
+                      <a href="#" @click="amount--" style="color:white;"><i class="small material-icons">remove</i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="col s8">
+            <div class="col s6">
                 <input type="number" v-model.number="amount" style="font-size: 40px; text-align:center;">
             </div>
-            <div class="col s2">
-                <a href="#"  @click="tryIncreaseAmount" style="color:white;"><i class="small material-icons">add</i></a>
+            <div class="col s3">
+              <span v-if="!dollars" style="font-size: 30px">units</span>
+              <span v-else style="font-size: 30px">dollars</span>
             </div>
-
         </div>
         <div class="row">
             <a href="#!" @click="toggleMessage" class="waves-effect waves-blue blue btn">\{{message}}</a>
