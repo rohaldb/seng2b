@@ -115,3 +115,12 @@ main {
     border-radius: .3em;
     box-shadow: 0 0 .2em #000;
 }
+
+/* at a glance company info */
+.disabled-input {
+    color: #383838;
+    cursor: default;
+}
+.input-field label {
+    color: #404040;
+}

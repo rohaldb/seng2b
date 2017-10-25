@@ -5,9 +5,14 @@
                 <div class="card-content white-text">
                     <div class="row">
                         <div class="col s2" style="padding-left:0px;">
+                          <div class="file-field">
                             <div class="card-image">
-                                <img src="images/profile_default.png">
+                              <img id="profile-image" src="images/profile_default.png" alt="profile image">
                             </div>
+                            <button onclick="$('#img-upload').click();" id="change-profile" type="file"
+                            class="btn-floating halfway-fab waves-effect waves-light"><i class="material-icons">add_a_photo</i></button>
+                            <input id="img-upload" type="file" accept="image/*, image/jpeg, image/png" style="visibility:hidden" onchange="newImg(this)">
+                          </div>
                         </div>
                         <div class="col s4">
                             <span class="card-title orange-text" id="profile-name" style="display:inline-block;">Loading...</span>
