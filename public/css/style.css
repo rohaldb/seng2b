@@ -100,3 +100,18 @@ main {
 .news-body {
     padding-top: 10px;
 }
+
+.finances-text {
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.finances-table {
+    box-sizing: border-box;
+    overflow: hidden;
+    /* margin: 2em auto; */
+    border-collapse: collapse;
+    min-width: 23em; width: 70%; max-width: 56em;
+    border-radius: .3em;
+    box-shadow: 0 0 .2em #000;
+}
