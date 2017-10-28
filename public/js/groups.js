@@ -77,7 +77,7 @@ $("#post-new-comment").on("click", function() {
     error: function(response) {
       Materialize.toast('Could not post comment. Try again later.', 1250);
       console.log("failed, result = " + JSON.stringify(response));
-    i}
+    }
   });
 });
 
@@ -163,16 +163,18 @@ var updateGroupPage = function(response) {
 
   //generate part of the feed that shows create/join/leave events
   history.forEach(x => {
-    var user = x.user;
-    var d = new Date(parseInt(x.joined));
-    var joined = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-    var prettyJoined = timeSince(d);
-    d = new Date(parseInt(x.left));
-    var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-    var prettyLeft = timeSince(d);
-    appendToFeed(x.joined, x.user, x.created, prettyJoined, x.id); //should always be valid
-    if (x.left !== '') {
-      appendToFeed(x.left, x.user, 'left', prettyLeft, x.id);
+    if (x !== null) {
+      var user = x.user;
+      var d = new Date(parseInt(x.joined));
+      var joined = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+      var prettyJoined = timeSince(d);
+      d = new Date(parseInt(x.left));
+      var left = d.toDateString() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+      var prettyLeft = timeSince(d);
+      appendToFeed(x.joined, x.user, x.created, prettyJoined, x.id); //should always be valid
+      if (x.left !== '') {
+        appendToFeed(x.left, x.user, 'left', prettyLeft, x.id);
+      }
     }
   });
 
@@ -358,6 +360,8 @@ function getFeed(id, user) {
         feed.forEach(x => {
           $('#group-feed-events').append(x.content);
         });
+        var nextUpdate = Math.floor(Math.random() * 30) + 8; //update timestamps after random num of seconds
+        update = setInterval(updateDateTimestamps, nextUpdate * 1000);
         $('.tooltipped').tooltip({delay: 50}); //now make the tooltips visible
       }
 

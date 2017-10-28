@@ -1,28 +1,33 @@
 {
   "groups" : {
     "-KwnvpUtH2ABw9QXlowb" : {
-      "history" : [ {
+      "history" : [ null, {
         "created" : "joined",
+        "id" : "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42",
         "joined" : "1508409821722",
         "left" : "",
         "user" : "Thor Odinson"
       }, {
         "created" : "joined",
+        "id" : "SVT90N9dMef8bdolUFDwHhUFMir2",
         "joined" : "1508406425102",
         "left" : "",
         "user" : "Captain America"
       }, {
         "created" : "joined",
+        "id" : "3dqvWPaGuPQ4zSO88knmXM1bzw13",
         "joined" : "1508406043124",
         "left" : "",
         "user" : "Tony Stark"
       }, {
         "created" : "joined",
+        "id" : "1pg2Yv92i0V9b77hN5pPIUt03B92",
         "joined" : "1508405514366",
         "left" : "",
         "user" : "Bruce Banner"
       }, {
         "created" : "created",
+        "id" : "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42",
         "joined" : "1508404842021",
         "left" : "1508409791796",
         "user" : "Thor Odinson"
@@ -33,12 +38,46 @@
     "-Kwo5eKBHlpBsC0GXd7c" : {
       "history" : [ {
         "created" : "created",
+        "id" : "vfvaTaRL3MbjIUxb3xTYBC1X8dy1",
         "joined" : "1508407682075",
         "left" : "",
         "user" : "Adam wizard"
       } ],
       "name" : "Mates and stuff",
       "users" : [ "vfvaTaRL3MbjIUxb3xTYBC1X8dy1" ]
+    },
+    "-KxKsnpgw38nFtv_mFYa" : {
+      "history" : [ {
+        "created" : "joined",
+        "joined" : "1508974980937",
+        "left" : "1508975172466",
+        "user" : "test user2"
+      }, {
+        "created" : "created",
+        "id" : "aX1F0k9uy4Sn30PynGu5Au9AJt32",
+        "joined" : "1508974475954",
+        "left" : "",
+        "user" : "test user1"
+      } ],
+      "name" : "test group",
+      "users" : [ "aX1F0k9uy4Sn30PynGu5Au9AJt32" ]
+    },
+    "-KxKwMd1-4Jxu4UuiBy9" : {
+      "history" : [ {
+        "created" : "joined",
+        "id" : "SITRSbG6ypeZkRrTQfhiy5BvkT23",
+        "joined" : "1508975540172",
+        "left" : "",
+        "user" : "test user2"
+      }, {
+        "created" : "created",
+        "id" : "TG7kJEC0P1X3mrsqCI4fLuXI3TT2",
+        "joined" : "1508975409464",
+        "left" : "",
+        "user" : "new user"
+      } ],
+      "name" : "aa",
+      "users" : [ "TG7kJEC0P1X3mrsqCI4fLuXI3TT2", "SITRSbG6ypeZkRrTQfhiy5BvkT23" ]
     }
   },
   "users" : {
@@ -74,13 +113,6 @@
       },
       "history" : {
         "-Kwo-JVLiUFuYxRK6UPr" : {
-          "comments" : {
-            "-Kwo1bjqWmvKacUH2HGO" : {
-              "comment" : "Need some metal for those suits?",
-              "date" : "1508406621396",
-              "poster" : "Bruce Banner"
-            }
-          },
           "companyCode" : "GT",
           "companyName" : "Goodyear Tire & Rubber",
           "date" : 1508406018087,
@@ -101,6 +133,20 @@
           "type" : "short"
         },
         "-Kwo17hRxAOz9LqoJq4Q" : {
+          "comments" : {
+            "-KwqgbokzO5JcJ6-g2UW" : {
+              "comment" : "Need some metal for those suits?",
+              "date" : "1508406621396",
+              "poster" : "Bruce Banner",
+              "posterId" : "1pg2Yv92i0V9b77hN5pPIUt03B92"
+            },
+            "-KxKylBqhEyroC9xl5WO" : {
+              "comment" : "hahaha",
+              "date" : "1508976038634",
+              "poster" : "Thor Odinson",
+              "posterId" : "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42"
+            }
+          },
           "companyCode" : "NEM",
           "companyName" : "Newmont Mining Corp. (Hldg. Co.)",
           "date" : 1508406496197,
@@ -134,6 +180,67 @@
       },
       "userId" : "3dqvWPaGuPQ4zSO88knmXM1bzw13"
     },
+    "SITRSbG6ypeZkRrTQfhiy5BvkT23" : {
+      "balance" : "100000.00",
+      "bio" : "No bio yet.",
+      "email" : "test@user2.com",
+      "firstName" : "test",
+      "groups" : {
+        "-KxKwMd1-4Jxu4UuiBy9" : "aa"
+      },
+      "history" : {
+        "-KxKuPXjmxmLXmk2g9r9" : {
+          "comments" : {
+            "-KxKuubtd5csNZfqU98E" : {
+              "comment" : "ahhhhhh good going!!",
+              "date" : "1508975028169",
+              "poster" : "test user1",
+              "posterId" : "aX1F0k9uy4Sn30PynGu5Au9AJt32"
+            },
+            "-KxKxHGu2oqY__7LlfUy" : {
+              "comment" : "another vomment",
+              "date" : "1508975649788",
+              "poster" : "new user",
+              "posterId" : "TG7kJEC0P1X3mrsqCI4fLuXI3TT2"
+            }
+          },
+          "companyCode" : "MMM",
+          "companyName" : "3M Company",
+          "date" : 1508974897058,
+          "num_units" : "9",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "2138.0399999999936",
+          "type" : "long"
+        },
+        "-KxKuPh0GNNykTuD3K7x" : {
+          "comments" : {
+            "-KxKxbx2J1OLzkziV9mM" : {
+              "comment" : "aaa",
+              "date" : "1508975738625",
+              "poster" : "new user",
+              "posterId" : "TG7kJEC0P1X3mrsqCI4fLuXI3TT2"
+            }
+          },
+          "companyCode" : "MMM",
+          "companyName" : "3M Company",
+          "date" : 1508974897715,
+          "num_units" : "14",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "3325.8399999999965",
+          "type" : "short"
+        }
+      },
+      "lastName" : "user2",
+      "userId" : "SITRSbG6ypeZkRrTQfhiy5BvkT23",
+      "watchList" : {
+        "-KxKuKYUBJ8EIpZElFGr" : {
+          "companyCode" : "MMM",
+          "companyName" : "3M Company"
+        }
+      }
+    },
     "SVT90N9dMef8bdolUFDwHhUFMir2" : {
       "balance" : "87613.00",
       "bio" : "No bio yet.",
@@ -148,7 +255,8 @@
             "-Kwo2dqKYJ5MqhGF0nSJ" : {
               "comment" : "Go Cap!",
               "date" : "1508406893862",
-              "poster" : "Bruce Banner"
+              "poster" : "Bruce Banner",
+              "posterId" : "1pg2Yv92i0V9b77hN5pPIUt03B92"
             }
           },
           "companyCode" : "AAL",
@@ -185,9 +293,50 @@
       },
       "userId" : "SVT90N9dMef8bdolUFDwHhUFMir2"
     },
+    "TG7kJEC0P1X3mrsqCI4fLuXI3TT2" : {
+      "balance" : "100000.03",
+      "bio" : "No bio yet.",
+      "email" : "new@user.com",
+      "firstName" : "new",
+      "groups" : {
+        "-KxKwMd1-4Jxu4UuiBy9" : "aa"
+      },
+      "history" : {
+        "-KxKvuxcI38ND7ssOfeu" : {
+          "comments" : {
+            "-KxKyKDOmjKD6W_346A4" : {
+              "comment" : "kkk",
+              "date" : "1508975924051",
+              "poster" : "new user",
+              "posterId" : "TG7kJEC0P1X3mrsqCI4fLuXI3TT2"
+            }
+          },
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508975292381,
+          "num_units" : "12",
+          "profit_loss_dollars" : "-0.05999999999812644",
+          "profit_loss_percent" : "-0.0031967265519109228",
+          "tradeAmount" : "1876.9199999999983",
+          "type" : "long"
+        },
+        "-KxKvv6bB6Qr06f76S2t" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508975293019,
+          "num_units" : "19",
+          "profit_loss_dollars" : "0.09499999999343345",
+          "profit_loss_percent" : "0.003196726551789785",
+          "tradeAmount" : "2971.7899999999936",
+          "type" : "short"
+        }
+      },
+      "lastName" : "user",
+      "userId" : "TG7kJEC0P1X3mrsqCI4fLuXI3TT2"
+    },
     "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42" : {
-      "balance" : "30544.40",
-      "bio" : "Hey, I'm Thor. When I'm not out saving the word from my brother Loki, or relaxing with Jane, I like to trade on NewStock. Let's hope I see some returns, or i'm headed back to Asgard. Oh, and I'm the god of thunder.",
+      "balance" : "96624.33",
+      "bio" : "Hey, I'm Thor. When I'm not out saving the world from my brother Loki, or relaxing with Jane, I like to trade on NewStock. Let's hope I see some returns, or I'm headed back to Asgard. Oh, and I'm the god of thunder.",
       "email" : "thor@thunder.com",
       "firstName" : "Thor",
       "groups" : {
@@ -195,6 +344,14 @@
       },
       "history" : {
         "-KwoAfxL3vCwM-yFX3hE" : {
+          "comments" : {
+            "-KwrHoDDShF1Tof0IVo0" : {
+              "comment" : "great trade!",
+              "date" : "1508461196812",
+              "poster" : "Thor Odinson",
+              "posterId" : "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42"
+            }
+          },
           "companyCode" : "ABT",
           "companyName" : "Abbott Laboratories",
           "date" : 1508408999861,
@@ -203,19 +360,310 @@
           "profit_loss_percent" : "1.0873504893077202",
           "tradeAmount" : "27590",
           "type" : "short"
+        },
+        "-KwrIupxfP7gt55U3ZNJ" : {
+          "comments" : {
+            "-KxGgoq4JoCQMNpfRoAX" : {
+              "comment" : "great job!",
+              "date" : "1508904226312",
+              "poster" : "Tony Stark",
+              "posterId" : "3dqvWPaGuPQ4zSO88knmXM1bzw13"
+            }
+          },
+          "companyCode" : "FB",
+          "companyName" : "Facebook, Inc.",
+          "date" : 1508461486285,
+          "num_units" : "113.61699710276658",
+          "profit_loss_dollars" : "-277.0169857410656",
+          "profit_loss_percent" : "-1.3775086312335434",
+          "tradeAmount" : "20110",
+          "type" : "long"
+        },
+        "-KxI4k4QohkhnK26Xc6f" : {
+          "companyCode" : "AMZN",
+          "companyName" : "Amazon.com Inc",
+          "date" : 1508927534541,
+          "num_units" : "10",
+          "profit_loss_dollars" : "-1241",
+          "profit_loss_percent" : "-11.281818181818181",
+          "tradeAmount" : "11000",
+          "type" : "long"
+        },
+        "-KxI5IYaxTMzy2UxphB2" : {
+          "companyCode" : "AMZN",
+          "companyName" : "Amazon.com Inc",
+          "date" : 1508927679771,
+          "num_units" : "10",
+          "profit_loss_dollars" : "1241",
+          "profit_loss_percent" : "11.281818181818181",
+          "tradeAmount" : "11000",
+          "type" : "short"
+        },
+        "-KxI63WsymNBJAOFNhcO" : {
+          "companyCode" : "AMZN",
+          "companyName" : "Amazon.com Inc",
+          "date" : 1508927880427,
+          "num_units" : "10.246951531919255",
+          "profit_loss_dollars" : "-1000",
+          "profit_loss_percent" : "-9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "long"
+        },
+        "-KxI69fezqh75PCBQUuc" : {
+          "companyCode" : "AMZN",
+          "companyName" : "Amazon.com Inc",
+          "date" : 1508927908584,
+          "num_units" : "10.246951531919255",
+          "profit_loss_dollars" : "1000",
+          "profit_loss_percent" : "9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "short"
+        },
+        "-KxI6_9aONOK-Al2AtQ_" : {
+          "companyCode" : "AMZN",
+          "companyName" : "Amazon.com Inc",
+          "date" : 1508928014047,
+          "num_units" : "10.246951531919255",
+          "profit_loss_dollars" : "-1000",
+          "profit_loss_percent" : "-9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "long"
+        },
+        "-KxI6gwvPA39JEqCgvur" : {
+          "comments" : {
+            "-KxKz9U48RnFn_A0NRkD" : {
+              "comment" : "too many amazon purchases, switching to apple now...",
+              "date" : "1508976142203",
+              "poster" : "Captain America",
+              "posterId" : "SVT90N9dMef8bdolUFDwHhUFMir2"
+            },
+            "-KxKzgo0kT9i0kI0oceR" : {
+              "comment" : "careful - have you heard the latest company news?",
+              "date" : "1508976282743",
+              "poster" : "Tony Stark",
+              "posterId" : "3dqvWPaGuPQ4zSO88knmXM1bzw13"
+            }
+          },
+          "companyCode" : "AMZN",
+          "companyName" : "Amazon.com Inc",
+          "date" : 1508928045940,
+          "num_units" : "10.246951531919255",
+          "profit_loss_dollars" : "1000",
+          "profit_loss_percent" : "9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "short"
+        },
+        "-KxI9l7hFG-F01M_ELr5" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508928849504,
+          "num_units" : "63.653723742838956",
+          "profit_loss_dollars" : "-1000",
+          "profit_loss_percent" : "-9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "long"
+        },
+        "-KxI9lXD9ccXB6_MVyFt" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508928851137,
+          "num_units" : "63.653723742838956",
+          "profit_loss_dollars" : "1000",
+          "profit_loss_percent" : "9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "short"
+        },
+        "-KxIFK87nTroolych4e9" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508930307707,
+          "num_units" : "5",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "785.5",
+          "type" : "long"
+        },
+        "-KxILC-41bBYlKmXUW3v" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508931850244,
+          "num_units" : "63.653723742838956",
+          "profit_loss_dollars" : "1000",
+          "profit_loss_percent" : "9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "short"
+        },
+        "-KxILC6yG5KyMXiQq0SH" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508931850750,
+          "num_units" : "63.653723742838956",
+          "profit_loss_dollars" : "-1000",
+          "profit_loss_percent" : "-9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "long"
+        },
+        "-KxIN5Vk5ZcwgwpQKDFG" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508932344856,
+          "num_units" : "5",
+          "profit_loss_dollars" : "-64.5",
+          "profit_loss_percent" : "-7.588235294117647",
+          "tradeAmount" : "850",
+          "type" : "long"
+        },
+        "-KxIN6nhF5Ca4ObQ9HXy" : {
+          "comments" : {
+            "-KxKz0xyYg6S4T3R8jsI" : {
+              "comment" : "big spender!",
+              "date" : "1508976107316",
+              "poster" : "Captain America",
+              "posterId" : "SVT90N9dMef8bdolUFDwHhUFMir2"
+            }
+          },
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508932350167,
+          "num_units" : "5",
+          "profit_loss_dollars" : "64.5",
+          "profit_loss_percent" : "7.588235294117647",
+          "tradeAmount" : "850",
+          "type" : "short"
+        },
+        "-KxIOKdSKHidK8gx5RWJ" : {
+          "companyCode" : "MSFT",
+          "companyName" : "Microsoft Corp.",
+          "date" : 1508932668996,
+          "num_units" : "126.806999746386",
+          "profit_loss_dollars" : "-1000",
+          "profit_loss_percent" : "-9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "long"
+        },
+        "-KxIOQI-oYtWegihQwpm" : {
+          "companyCode" : "MSFT",
+          "companyName" : "Microsoft Corp.",
+          "date" : 1508932692135,
+          "num_units" : "126.806999746386",
+          "profit_loss_dollars" : "1000",
+          "profit_loss_percent" : "9.090909090909092",
+          "tradeAmount" : "11000",
+          "type" : "short"
+        },
+        "-KxIQ7HOZRuXriR77L5j" : {
+          "comments" : {
+            "-KxKzu-9Uufiqn4zp_P2" : {
+              "comment" : "careful - have you heard the latest company news?",
+              "date" : "1508976336811",
+              "poster" : "Bruce Banner",
+              "posterId" : "1pg2Yv92i0V9b77hN5pPIUt03B92"
+            }
+          },
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508933138580,
+          "num_units" : "3.182686187141948",
+          "profit_loss_dollars" : "-250",
+          "profit_loss_percent" : "-33.33333333333333",
+          "tradeAmount" : "750",
+          "type" : "long"
+        },
+        "-KxIQML3Mz35do-zycRf" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508933200255,
+          "num_units" : "3.182686187141948",
+          "profit_loss_dollars" : "250",
+          "profit_loss_percent" : "33.33333333333333",
+          "tradeAmount" : "750",
+          "type" : "short"
+        },
+        "-KxIQdrgeFa0TKjgsK8Q" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508933276135,
+          "num_units" : "31.826861871419478",
+          "profit_loss_dollars" : "-1000",
+          "profit_loss_percent" : "-16.666666666666664",
+          "tradeAmount" : "6000",
+          "type" : "long"
+        },
+        "-KxIQpaLO5buC2o64Wug" : {
+          "comments" : {
+            "-KxKyhSQeN1OajVD59J-" : {
+              "comment" : "yes, i'm getting good at this!",
+              "date" : "1508976023306",
+              "poster" : "Thor Odinson",
+              "posterId" : "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42"
+            }
+          },
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508933324180,
+          "num_units" : "31.826861871419478",
+          "profit_loss_dollars" : "-1000",
+          "profit_loss_percent" : "-16.666666666666664",
+          "tradeAmount" : "6000",
+          "type" : "long"
+        },
+        "-KxIQsN5VF7ah_Tz57iR" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508933335557,
+          "num_units" : "31.826861871419478",
+          "profit_loss_dollars" : "55000",
+          "profit_loss_percent" : "91.66666666666666",
+          "tradeAmount" : "60000",
+          "type" : "short"
+        },
+        "-KxKuxvp2wEC7mXxNyID" : {
+          "comments" : {
+            "-KxKyz83xxxHKEPgq9AC" : {
+              "comment" : "you're pretty good at this thor",
+              "date" : "1508976095735",
+              "poster" : "Captain America",
+              "posterId" : "SVT90N9dMef8bdolUFDwHhUFMir2"
+            },
+            "-KxL-duiSxBqhP8ZiWyT" : {
+              "comment" : "i'm new at this, could you give me some advice thor?",
+              "date" : "1508976533048",
+              "poster" : "Tony Stark",
+              "posterId" : "3dqvWPaGuPQ4zSO88knmXM1bzw13"
+            }
+          },
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508975042230,
+          "num_units" : "7",
+          "profit_loss_dollars" : "-0.03499999999530701",
+          "profit_loss_percent" : "-0.00319672655158212",
+          "tradeAmount" : "1094.8699999999953",
+          "type" : "long"
+        },
+        "-KxKuy7GZ4KCWtwPQiSG" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508975043026,
+          "num_units" : "7",
+          "profit_loss_dollars" : "-0.03499999999530701",
+          "profit_loss_percent" : "-0.00319672655158212",
+          "tradeAmount" : "1094.8699999999953",
+          "type" : "long"
+        },
+        "-KxKuyHSlHZ6IQXVeqlK" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508975043678,
+          "num_units" : "9",
+          "profit_loss_dollars" : "0.045000000002346496",
+          "profit_loss_percent" : "0.0031967265521774275",
+          "tradeAmount" : "1407.6900000000023",
+          "type" : "short"
         }
       },
       "lastName" : "Odinson",
       "purchases" : {
-        "-KwnvfyT5UcxBW9rYM92" : {
-          "companyCode" : "FB",
-          "companyName" : "Facebook, Inc.",
-          "date" : 1508404803438,
-          "num_units" : "113.61699710276658",
-          "share_price" : "176.03",
-          "tradeAmount" : "20110",
-          "type" : "long"
-        },
         "-KwnyjwZmAv33QOX1lbB" : {
           "companyCode" : "AAPL",
           "companyName" : "Apple Inc.",
@@ -242,6 +690,24 @@
           "share_price" : "258.01",
           "tradeAmount" : "1540",
           "type" : "long"
+        },
+        "-KxILKNJd8Hemj2SQswc" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508931881497,
+          "num_units" : "3.182686187141948",
+          "share_price" : "157.10",
+          "tradeAmount" : "750",
+          "type" : "short"
+        },
+        "-KxKvn85MTnKvFjmpeZk" : {
+          "companyCode" : "AAPL",
+          "companyName" : "Apple Inc.",
+          "date" : 1508975260156,
+          "num_units" : "5",
+          "share_price" : "156.41",
+          "tradeAmount" : "782.0500000000029",
+          "type" : "long"
         }
       },
       "userId" : "Z9BKBWMZCoV2NudbGQ1y7gDLvQ42",
@@ -260,23 +726,99 @@
         }
       }
     },
+    "aX1F0k9uy4Sn30PynGu5Au9AJt32" : {
+      "balance" : "100000.02",
+      "bio" : "Hello there, I an Test User 1. I am and experienced investor looking to expand my knowldge and help others. Look forward to trading with you!",
+      "email" : "test@user1.com",
+      "firstName" : "test",
+      "groups" : {
+        "-KxKsnpgw38nFtv_mFYa" : "test group"
+      },
+      "history" : {
+        "-KxKtXizlgzjvphh0YAW" : {
+          "companyCode" : "IBM",
+          "companyName" : "International Business Machines",
+          "date" : 1508974668466,
+          "num_units" : "0.12383497360359773",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "19",
+          "type" : "long"
+        },
+        "-KxKtXvTRqZrx-FfPE-W" : {
+          "comments" : {
+            "-KxKvPISCqU62Xe_l7-k" : {
+              "comment" : "efwrthyu",
+              "date" : "1508975158034",
+              "poster" : "test user2",
+              "posterId" : "SITRSbG6ypeZkRrTQfhiy5BvkT23"
+            }
+          },
+          "companyCode" : "IBM",
+          "companyName" : "International Business Machines",
+          "date" : 1508974669265,
+          "num_units" : "13",
+          "profit_loss_dollars" : "0",
+          "profit_loss_percent" : "0",
+          "tradeAmount" : "1994.5899999999965",
+          "type" : "short"
+        },
+        "-KxKtgBj0EZDHaJFRw9O" : {
+          "comments" : {
+            "-KxKufvThSwNmTse0yIu" : {
+              "comment" : "dam bad choice, i made a mistake!",
+              "date" : "1508974967995",
+              "poster" : "test user1",
+              "posterId" : "aX1F0k9uy4Sn30PynGu5Au9AJt32"
+            },
+            "-KxKvIu--N37Q17UuwFi" : {
+              "comment" : "hahahaah i';m better than you!",
+              "date" : "1508975131741",
+              "poster" : "test user2",
+              "posterId" : "SITRSbG6ypeZkRrTQfhiy5BvkT23"
+            }
+          },
+          "companyCode" : "AFL",
+          "companyName" : "AFLAC Inc",
+          "date" : 1508974707234,
+          "num_units" : "5",
+          "profit_loss_dollars" : "0.024999999994179234",
+          "profit_loss_percent" : "0.005946717410604087",
+          "tradeAmount" : "420.3999999999942",
+          "type" : "short"
+        }
+      },
+      "lastName" : "user1",
+      "userId" : "aX1F0k9uy4Sn30PynGu5Au9AJt32",
+      "watchList" : {
+        "-KxKtVdJ4G_wpEhsmGQ0" : {
+          "companyCode" : "IBM",
+          "companyName" : "International Business Machines"
+        },
+        "-KxKte7Lkgo6F-3AOAsB" : {
+          "companyCode" : "AFL",
+          "companyName" : "AFLAC Inc"
+        }
+      }
+    },
     "vfvaTaRL3MbjIUxb3xTYBC1X8dy1" : {
-      "balance" : "100000.00",
+      "balance" : "99959.00",
       "bio" : "I Am a coding Wizard. Achio Money",
       "email" : "wizard@gm.com",
       "firstName" : "Adam",
       "groups" : {
+        "-KwnvpUtH2ABw9QXlowb" : "The Avengers",
         "-Kwo5eKBHlpBsC0GXd7c" : "Mates and stuff"
       },
       "history" : {
-        "-Kwo7Mvc20Ht79_O4DRi" : {
-          "companyCode" : "ADM",
-          "companyName" : "Archer-Daniels-Midland Co",
-          "date" : 1508408131512,
-          "num_units" : "5",
+        "-KwrA3jBBROQviz0MCoY" : {
+          "companyCode" : "AMG",
+          "companyName" : "Affiliated Managers Group Inc",
+          "date" : 1508459186999,
+          "num_units" : "2",
           "profit_loss_dollars" : "0",
           "profit_loss_percent" : "0",
-          "tradeAmount" : "216.5500000000029",
+          "tradeAmount" : "391.38000000000466",
           "type" : "long"
         }
       },
