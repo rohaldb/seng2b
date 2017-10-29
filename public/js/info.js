@@ -5,7 +5,7 @@ $(document).ready(function() {
 function getPageName(c) {
   var company = c;
   var escaped = encodeURIComponent(c);
-  var url = 'http://en.wikipedia.org/w/api.php?action=query&generator=allpages&search=';
+  var url = 'https://en.wikipedia.org/w/api.php?action=query&generator=allpages&search=';
   url += escaped + '&format=json&gapfrom=' + escaped + '&gapto=' + escaped + '&prop=info&inprop=url';
 
   //get wiki link to page from name of company

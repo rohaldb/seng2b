@@ -43,7 +43,7 @@ function sentimentAnalysis(i, titleA, linkA, dateA, bodyTextA, callback) {
 
 function loadArticles(company) {
   //$('.tooltipped').tooltip('remove');
-  var url = 'http://content.guardianapis.com/search?q=' + encodeURIComponent(company);
+  var url = 'https://content.guardianapis.com/search?q=' + encodeURIComponent(company);
   url += '&order-by=relevance&show-blocks=body&show-fields=bodyText';
   url += '&api-key=35b90e54-3944-4e4f-9b0e-a511d0dda44d';
 
